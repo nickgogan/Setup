@@ -10,3 +10,6 @@ Host work
    HostName github.com
    User git
    IdentityFile ~\.ssh\id_rsa_ktp
+
+#SSH dir: C:\Users\NGogan\.ssh
+#git remote add origin git@personal:nick.gogan@kaplan.com/*
