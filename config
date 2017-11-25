@@ -3,10 +3,10 @@
 Host personal
    HostName github.com
    User git
-   IdentityFile C:\Users\NGogan\.ssh\id_rsa_personal
+   IdentityFile ~\.ssh\id_rsa_personal
 
 # githubWork
-Host work
-   HostName github.com
-   User git
-   IdentityFile C:\Users\NGogan\.ssh\id_rsa_ktp
+# Host work
+#    HostName github.com
+#    User git
+#    IdentityFile ~\.ssh\id_rsa_ktp
