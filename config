@@ -1,0 +1,12 @@
+#Reference: http://mherman.org/blog/2013/09/16/managing-multiple-github-accounts/#.Whl_PIanEkI
+# githubPersonal
+Host personal
+   HostName github.com
+   User git
+   IdentityFile C:\Users\NGogan\.ssh\id_rsa_personal
+
+# githubWork
+Host work
+   HostName github.com
+   User git
+   IdentityFile C:\Users\NGogan\.ssh\id_rsa_ktp
