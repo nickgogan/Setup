@@ -1,2 +1,2 @@
 # Setup
-A collection of config and setup files I like to maintain.
+A collection of config and setup files to help maintain my sanity.
