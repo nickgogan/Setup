@@ -1,0 +1,5 @@
+{
+  "port": 8000,
+  "files": ["./cdn/**/*.{html,htm,css,js}"],
+  "server": { "baseDir": "./cdn" }
+}

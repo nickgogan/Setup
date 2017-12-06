@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "a test",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-airbnb-bundle": "^1.1.7",
+    "eslint-plugin-import": "^2.8.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@personal:nickgogan/Setup"
+  },
+  "author": "",
+  "license": "MIT"
+}
