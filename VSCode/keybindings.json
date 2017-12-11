@@ -1,0 +1,37 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+shift+t",
+    "command": "shellLauncher.launch"
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "bookmarks.toggle",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+f5",
+    "command": "workbench.action.reloadWindow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+shift+d",
+    "command": "insertDateString.insertDate",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+shift+t",
+    "command": "insertDateString.insertTime",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m ctrl+]",
+    "command": "editor.foldAll",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+m ctrl+[",
+    "command": "editor.unfoldAll",
+    "when": "editorTextFocus"
+  }
+]

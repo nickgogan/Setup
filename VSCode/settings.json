@@ -1,0 +1,59 @@
+{
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80],
+  "editor.wordWrap": "on",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.letterSpacing": 2,
+  "editor.lineHeight": 20,
+  "editor.formatOnSave": true,
+
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Ayu Mirage Mod",
+
+  "eslint.autoFixOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true,
+
+  "javascript.format.enable": false,
+
+  "files.eol": "\n",
+  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
+
+  "terminal.integrated.fontFamily": "Consolas",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "terminal.integrated.shellArgs.windows": [
+    "/K",
+    "C:\\Program Files\\cmder\\vscode.bat"
+  ],
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 5000,
+
+  "shellLauncher.shells.windows": [
+    {
+      "shell": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "label": "PowerShell"
+    },
+    {
+      "shell": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "label": "Git bash"
+    }
+  ],
+
+  "csharp.format.enable": false,
+
+  "[javascript]": {},
+
+  "typescriptHero.resolver.multiLineWrapThreshold": 80,
+  "typescriptHero.resolver.resolverMode": "TypeScript",
+
+  "bookmarks.navigateThroughAllFiles": true,
+
+  "insertDateString.formatDate": "MM/DD/YYYY",
+  "window.zoomLevel": 0
+}
