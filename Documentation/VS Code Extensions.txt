@@ -1,52 +1,102 @@
 VS Code Plugins
 
-Angular 5 Snippets (Mikael Morlund)
-Angular v5 Snippets (john pappa)
-Angular Support (visma lietuva)
-Auto Close Tag (Jun Han)
-Auto Import (steoates)
-Auto Rename Tags (jun han)
-Ayu MirageMod (luca regazzi)
-Babel ES6/ES7 (dzennotti)
-Bookmakrs (alessandro fragnani)
-Bracket Pair Colorizer (coenraadS)
-C/C++ (microsoft)
-C/C++ Advanced Lint (joseph benden)
-C/C++ Clang Command Adapter (yasuaki mitani)
-C# (microsoft)
-C# Extensions (jchannon)
-C# FixFormat (leopotam)
-C++ IntelliSense (austin)
-Code Runner (jun han)
-Color Highlight (sergii naumov)
-CS-Script (oleg shilo)
-Debugger For Chrome (microsoft)
-Docker (microsoft)
-Document This (joel day)
-ESLint (dirk baeumer)
-Git History (don jayamanne)
-HTML Snippets (mohamed abusaid)
-Insert Date String (jsynowiec)
-JavaScript (ES6) code snippets (charalampos karypidis)
-LaTeX Workshop (james yu)
-Live Server Preview (negokaz)
-Mono Deug (microsoft)
-npm (egamma)
-npm IntelliSense (christian kohler)
-NuGet Package Manager (jmrog)
-Office UI Fabric Snippets for VS Code (silvarajan raju)
-open in browser (techER)
-Path intellisense (christian johler)
-Prettier - Code formatter (esben petersen)
-Quokka (wallaby.js)
-REST Client (huachao mao)
-Sass (robin bentley)
-Sass Lint (glen-84)
-Shell Launcher (daniel imms)
-stylefmt (mrmlnc)
-TSLint (egamma)
-TypeSript Hero (christoph buhler)
-VSCode Great Icons (emmanuel beziat)
-Wrap Selection (konstantin gorodinskiy)
-XML Tools (josh johnson)
-YAML (adam voss)
+Angular 5 Snippets (Mikael.Angular-BeastCode)
+
+Angular v5 Snippets (johnpapa.Angular2)
+
+Angular Support (vismalietuva.vscode-angular-support): Go to/Peek definition
+
+Auto Close Tag (formulahendry.auto-close-tag)
+
+Auto Import (steoates.autoimport): Automatically finds, parses and provides code actions and code completion for all available imports. Works with Typescript and TSX.
+
+Auto Rename Tags (formulahendry.auto-rename-tag): Auto rename paired HTML/XML tags.
+
+Ayu MirageMod (okon3.ayu-miragemod): Editor theme.
+
+Babel ES6/ES7 (dzannotti.vscode-babel-coloring): Adds JS Babel es6/es7 syntax coloring.
+
+Bookmarks (alefragnani.Bookmarks): Mark lines in the editor and easily jump to them. Now you also can quickly select these lines or the text betweem them.
+
+Bracket Pair Colorizer (CoenraadS.bracket-pair-colorizer): This extension allows matching brackets to be identified with colours. The user can define which characters to match, and which colours to use.
+
+C/C++ (ms-vscode.cpptools): C/C++ IntelliSense, debugging, and code browsing.
+
+C/C++ Advanced Lint (jbenden.c-cpp-flylint): An advanced, modern, static analysis extension for C/C++ that supports a number of back-end analyzer programs.
+
+C/C++ Clang Command Adapter (mitaki28.vscode-clang): Completion and Diagnostic for C/C++/Objective-C using Clang Command.
+
+C# (ms-vscode.csharp): C# for Visual Studio Code (powered by OmniSharp).
+
+C# Extensions (jchannon.csharpextensions): C# IDE Extensions for VSCode
+
+C# FixFormat (Leopotam.csharpfixformat): Fix format of usings / indents / braces / empty lines.
+
+C++ IntelliSense (austin.code-gnu-global): C/C++ Intellisense with the help of GNU Global tags.
+
+Code Runner (formulahendry.code-runner): Run C, C++, Java, JS, PHP, Python, Perl, Ruby, Go, Lua, Groovy, PowerShell, CMD, BASH, F#, C#, VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml, R, AppleScript, Elixir, VB.NET, Clojure, Haxe, Objective-C, Rust, Racket, AutoHotkey, AutoIt, Kotlin, Dart, Pascal, Haskell, Nim, D.
+
+Color Highlight (naumovs.color-highlight): Highlight web colors in your editor.
+
+CS-Script (oleg-shilo.cs-script): Execution, debugging and editing C# code that targets .NET and Mono (no .NET Core required).
+
+Debugger For Chrome (msjsdiag.debugger-for-chrome): Debug your JavaScript code in the Chrome browser, or any other target that supports the Chrome Debugger protocol.
+
+Docker (PeterJausovec.vscode-docker): Adds syntax highlighting, commands, hover tips, and linting for Dockerfile and docker-compose files.
+
+Document This (joelday.docthis): Automatically generates detailed JSDoc comments in TypeScript and JavaScript files.
+
+ESLint (dbaeumer.vscode-eslint): Integrates ESLint into VS Code.
+
+Git History (donjayamanne.githistory): View git log, file or line History.
+
+HTML Snippets (abusaidm.html-snippets): Full HTML tags including HTML5 Snippets.
+
+Insert Date String (jsynowiec.vscode-insertdatestring): Insert the current date and time according to configured format.
+
+JavaScript (ES6) code snippets (xabikos.JavaScriptSnippets): Code snippets for JavaScript in ES6 syntax.
+
+LaTeX Workshop (James-Yu.latex-workshop): Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.
+
+Live Server Preview (negokaz.live-server-preview): Preview your HTML file with localhost server live-reloading enabled.
+
+Mono Debug (ms-vscode.mono-debug): Visual Studio Code debugger extension for Mono.
+
+npm (christian-kohler.npm-intellisense): Visual Studio Code plugin that autocompletes npm modules in import statements.
+
+npm IntelliSense (eg2.vscode-npm-script): npm support for VS Code.
+
+NuGet Package Manager (jmrog.vscode-nuget-package-manager): Add or remove .NET Core 1.1+ package references to/from your project's .csproj or .fsproj file using Code's Command Palette.
+
+Office UI Fabric Snippets for VS Code (sivarajanraju.vs-code-office-ui-fabric): Office UI Fabric Snippets for VS Code.
+
+open in browser (techer.open-in-browser): This allows you to open the current file in your default browser or application.
+
+Path intellisense (christian-kohler.path-intellisense): Visual Studio Code plugin that autocompletes filenames.
+
+Prettier - Code formatter (esbenp.prettier-vscode): VS Code plugin for prettier/prettier.
+
+Quokka (WallabyJs.quokka-vscode): Live Scratchpad for JavaScript.
+
+REST Client (humao.rest-client): REST Client for Visual Studio Code.
+
+Sass (robinbentley.sass-indented): Indented Sass syntax highlighting, autocomplete & snippets.
+
+Shell Launcher (Tyriar.shell-launcher): Easily launch multiple shell configurations in the terminal.
+
+TSLint (eg2.tslint): TSLint for Visual Studio Code.
+
+TypeSript Hero (rbbit.typescript-hero): Additional tooling for the typescript language.
+
+VSCode Great Icons (emmanuelbeziat.vscode-great-icons): A big pack of icons (100+) for your files.
+
+Wrap Selection (konstantin.wrapSelection): wrap selection with combination of symbols.
+
+XML Tools (DotJoshJohnson.xml): XML Formatting, XQuery, and XPath Tools for Visual Studio Code.
+
+YAML (adamvoss.yaml): YAML for Visual Studio Code
+
+Command:
+code --install-extension
+
+CHECK WEBPACK

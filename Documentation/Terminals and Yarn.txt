@@ -18,7 +18,7 @@ Open your User Settings using Ctrl+, and search for 'terminal.integrated.shell.w
 4. Set up Refresh Keybinding
 VS Code is basically an internet browser running locally, which is why it's so extensible and customizable. Now that we updated your User Settings (congrats btw), we should make it easy for you to refresh into a new instance. To restart VS Code, bring up the commands using Ctrl+Shift+p and type reload.
 ~~~~~~~~~~~~~~~~~~~~~~
-Integrating More Terminals
+Adding More Terminals
 1. Download 'Shell Launcher' and reload VS Code.
 2. Go to User Settings and search 'shellLauncher.shells.windows'. Copy it over to the right pane to set your own settings.
 3. Optional: set up a keybinding to bring it up quickly.
