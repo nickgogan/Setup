@@ -1,0 +1,73 @@
+PACKAGE SECURITY
+
+Node Security Platform:
+> npm i -g nsp
+> nsp check
+- Note: Integrate this into your start script (npm start)!
+
+It reports the # of vulnerabilities, if any.
+
+DEVELOPMENT WEB SERVERS
+
+http-server
+- Ultra simple: serve the current directory
+live-server
+- Simple
+- Live reload
+express:
+- Comprehensive
+- Highly configurable
+- Production-grade
+- Can run it everywhere
+
+webpack dev server
+- built directly into webpack
+- serves from memory (fast to make changes)
+- supports hot-reloading
+
+browsersync
+- Sets up a dedicated ip for sharing work on LAN
+- Browsers actually stay in sync
+- Integrates with webpack, gulp, browserify, etc...
+
+SHARING WORK IN PROGRESS
+localtunnel:
+- Easily share work on your local machine: npm i -g localtunnel. Then, start the app and > lt --port 3000
+
+ngrok:
+- Like localtunnel, but requires signup. Yields oAuth token for security.
+
+Surge:
+- Quickly host static files to a public URL: npm i -g surge. > surge
+
+Idea: localtunnel + browsersync!
+
+
+AUTOMATION
+
+- Pre/Post Hooks:
+
+"scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel node buildScripts/srcServer.js",
+    "security-check": "nsp check",
+    "share": "lt --port 3000",
+    "": ""
+}
+
+WHY A DEMO APP?
+
+Provide examples of:
+1. Directory structure and file naming conventions
+2. Framework usage
+3. Testing
+4. Mock API
+5. Automated deployment
+
+It embodies/codifies team decisions
+
+It provides an interactive example of working with starter kit
+
+Tip: Organize your projects by feature, not by file type.
+
+Tip: Extract as much logic as possible into POJO (no framework). This promotoes reusability, testing, and the ability to switch frameworks down the line.

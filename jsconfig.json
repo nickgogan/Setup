@@ -1,0 +1,4 @@
+// Needed to make IntelliSense import statements
+{
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
