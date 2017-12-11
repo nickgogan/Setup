@@ -1,0 +1,82 @@
+Setting up your integrated terminal in VS code
+
+1. Another prerequisite is the Chocolatey package manager. It's basically npm, but for Windows as an OS. To install, open up your current version of PowerShell (PS) and run as Admin:
+> Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString
+- Source: https://chocolatey.org/install.ps1
+to Update: > choco upgrade chocolatey
+- Note: This will install in your ProgramData folder and will hold all of your packages there as well.
+- Test: > choco -v
+
+2. PowerShell is a product that comes packaged into Microsoft's Windows Management Framework (WMF), the latest version of which is 5.1. Note that PowerShell (PS) and WMF share version numbers. WMF, and PS by extension, require .NET 4.5.2 or above to work, so check that that is installed on your machine before continuing. What's WMF? something that provides a consistent management interface across the various flavors of Windows and Windows Server.
+ - Source: https://docs.microsoft.com/en-us/powershell/wmf/readme
+ - Check: Open up cmd > powershell . then, > $Host.Version , which should show 5.1 in a little table.
+ - Sanity preservation: Even though PS is not version 5.1, MS thought it wise to mess with us by keeping the folder name .../v1.0/powershell.exe. Do not let this mess with your head.
+
+3. VS Code Integration
+Open your User Settings using Ctrl+, and search for 'terminal.integrated.shell.windows' in the left pane. It'll come up with a Windows path to the powershell.exe file. In the left gutter, you'll see a pencil. Click that pencil and choose 'Replace in settings'. It'll then appear on the right pane, where you can tell VS Code the path to the PS shell. It still thinks it's special though, so you have to put in the path like this: "C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe".
+
+4. Set up Refresh Keybinding
+VS Code is basically an internet browser running locally, which is why it's so extensible and customizable. Now that we updated your User Settings (congrats btw), we should make it easy for you to refresh into a new instance. To restart VS Code, bring up the commands using Ctrl+Shift+p and type reload.
+~~~~~~~~~~~~~~~~~~~~~~
+Integrating More Terminals
+1. Download 'Shell Launcher' and reload VS Code.
+2. Go to User Settings and search 'shellLauncher.shells.windows'. Copy it over to the right pane to set your own settings.
+3. Optional: set up a keybinding to bring it up quickly.
+~~~~~~~~~~~~~~~~~~~~~~
+Integrating CMDer into VS Code
+To use this shell in VS Code, we need to make a vscode.bat with this:
+@echo off
+SET CMDER_ROOT=C:\cmder (your path to cmder)
+"%CMDER_ROOT%\vendor\init.bat"
+Place this file in your cmder path.
+Then, in User Settings, add this:
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "terminal.integrated.shellArgs.windows": [
+    "/K",
+    "C:\\Program Files\\cmder\\vscode.bat"
+  ],
+Restart and it should appear more or less like Cmder. Note that this won't work with the Shell Launcher extension, so just remove the object for cmd.exe from that configuration. It will just start up automatically with each VS Code reload anyway.
+~~~~~~~~~~~~~~~~~~~~~~
+Getting started with Yarn
+
+1. Install Yarn using chocolatey
+> choco install Yarn
+Within a new PS instance, check using > yarn -v
+
+3. Yarn works with the same package.json, but has some nice extra features, including a faster
+install time on average, guarantees for getting exactly the same dependency files on each
+machine, and the ability to locally cache all packages downloaded!
+
+4. Setting up an offline mirror
+Take a minimal packages.json file and run > yarn init
+on it. This will generate the yarn.lock file.
+
+Time to set up the yarn config file:
+> yarn config set yarn-offline-mirror "C:\A.Project0\PersonalTools\A. Setup\yarn-offline-mirror"
+I'm setting it up so that all my projects's dependencies can be stored into a large, compressed
+library that I can upload to GitHub along with my minimal project config files. This kind of
+bundling guarantees that all of my projects start from a point that is known to work.
+
+Offline mirror does not come with removing tarballs. In order to keep the cache folder up to date, you need to add the following to the config file:
+> yarn config set yarn-offline-mirror-pruning true\
+This is not desirable if you want to have a multi-project local repo. This is because not all
+projects will use all of the packages from it. If you run > yarn remove on a package from one
+project, it won't delete the file from the local folder. It will just remove the referene to it from
+the current project. This means that removing the package from project A won't mess with project
+B, which still uses it.
+
+In a nutshell, to enable “Offline mirror” for your project you need:
+A. Add “yarn-offline-mirror” configuration to .yarnrc file
+B. Generate a new yarn.lock with “yarn install” command
+
+To test that this works:
+A. Clear your global cache with “yarn cache clean”
+B. Turn off wifi
+C. Run “yarn install –offline”. The offline flag will make sure yarn does not reach out to the network
+
+Once verified that this works as expected, you can then zip the folder up periodically and
+upload to GitHub to keep track of exactly the code we need. That way, if any breaking changes
+are introduction in some of our dependencies, we can pull from our own sources. This allows
+some to continue working while others investigate the dependency issue.
+~~~~~~~~~~~~~~~~~~~~~~
+
