@@ -22,7 +22,10 @@
     "eslint-plugin-react": "^7.4.0",
     "nsp": "^3.1.0",
     "prettier": "^1.9.1",
-    "prettier-eslint": "^8.2.5"
+    "prettier-eslint": "^8.2.5",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-eslint-rules": "^4.1.1"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
