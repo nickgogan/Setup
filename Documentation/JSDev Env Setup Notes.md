@@ -161,14 +161,83 @@ Do a quick VS Code reload and start testing it out!
 
 ### TypeScript (TS)
 
-The other JS superset that is taking the community by storm is Microsoft's OO language TypeScript. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
+**Source:** https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+
+The other JS superset that is taking the community by storm is Microsoft's OO language TypeScript. Technically, it's a superset of ES6. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
+
+Next comes configuration, using `tsconfig.json`. One thing to keep in mind about this file is that it tells tsc what your TS project root is:
+
+```
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "baseUrl": "./src/",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,f
+    "target": "es5",
+    "typeRoots": ["node_modules/@types", "typings/*"],
+    "lib": ["es2016", "dom"]
+  }
+}
+```
+
+If you want to specify vendor libraries outside of npm (idk why, but ok...), then you can tell tsc like this:
+
+```
+"compilerOptions": {
+  "baseUrl": "./src/",
+  "paths": {
+    "*": [
+      "libs/*"
+    ]
+  }
+```
+
+Setting this options **requires** you to also set the `baseUrl` option, which specifies the base directory to resolve non-relative modules in.
+
+If `paths:` option is set, tsc goes through those folders and only checks `node_modules` if nothing is found. The **first** resolved module is used and no other paths are checked. So if you have a module placed inside both `node_modules` and `YourCustomFolder`, the module in your custom folder will be picked up by the compiler. If you need the compiler to use the module inside node_modules folder, add it to paths before your custom folder:
+
+```
+    "paths": {
+      "*": [
+        "*",
+        "node_modules/*",
+        "generated/*"
+      ]
+    }
+```
 
 ### Both?
 
-Why not? You can set the .babelrc config to only target _.js files and tsconfig.json to only target _.ts files. If you place
+Why not? The `jsconfig.json` sets up the JS project root and Babel will only target \*.js files. The `tsconfig.json` config only targets the \*.ts. If you place.
 
-# Notes on VS Code Extensions
+If you want to be very specific about it, you can set a configuration option in `tsconfig.json` that tells the tsc compiler to only target specific files:
 
-## Path IntelliSense
+```
+  "files": [
+    "main.ts",
+    "router/b.ts"
+  ]
+```
 
-This extension requires a `tsconfig,json` that contains a `"baseUrl":` field. This extension makes use of VS Code's TypeScript (TS) underpinnings, so configuring TS should make sense.
+OR you can set a pattern:
+
+```
+  "include": [
+    "router/*"
+  ]
+```
+
+_Note_: tsc will also compile files that are referenced inside any file from that array.
+
+In the case of conflicts, the priority is set in the following order:
+
+1. Files
+2. Exclude
+3. Include
+
+## Linting
