@@ -1,5 +1,7 @@
 {
-  "extends": ["airbnb", "prettier"], //Options: prettier/react
+  //Options: prettier/react
+  "extends": ["airbnb", "prettier"],
+  //"plugins": ["react", "jsx-a11y", "import"]
   "plugins": ["json", "html"],
   "settings": {
     "html/html-extensions": ["html", "htm", "xml"],
@@ -11,7 +13,10 @@
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "arrowFunctions": true,
+      "generators": true,
+      "blockBindings": true
     },
     "allowImportExportEverywhere": false,
     "codeFrame": false
