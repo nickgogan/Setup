@@ -15,3 +15,7 @@
 * Example: `> nsp check`
 
 - Note: Include this check when doing `> npm start`
+
+1. npm-run-all (`> npm i -g npm-run-all`): Allows commands to be run in parallel.
+
+1. Babel (`> npm i -g babel-cli`): Babel needs to be installed globally! The presets can be installed locally.

@@ -74,6 +74,8 @@
 
 1. Path intellisense (christian-kohler.path-intellisense): Visual Studio Code plugin that autocompletes filenames.
 
+* **Note**: This extension requires a `tsconfig,json` that contains a `"baseUrl":` field. This extension makes use of VS Code's TypeScript (TS) underpinnings, so configuring TS should make sense.
+
 1. Prettier - Code formatter (esbenp.prettier-vscode): VS Code plugin for prettier/prettier.
 
 1. Quokka (WallabyJs.quokka-vscode): Live Scratchpad for JavaScript.

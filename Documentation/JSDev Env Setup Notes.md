@@ -144,3 +144,31 @@ There are various _supersets_ of JS that we can use to make development easier a
 A **transpiler** is used in a build (dev and prod) to translate these JS supersets into a set that current-day browsers can understand. TypeScript uses _tsc_ to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6 and many others into current-day JS. The biggest by far is called _Babel_.
 
 ### ES6 with Babel
+
+**Source**: https://babeljs.io/
+
+**Important**: Despite what the main website might say, as of this writing, Windows machines need to install Babel _globally_, not locally. No idea why and no idea if this affects Mac or Linux users. This is what I found for Windows machines. Install it using `> npm i -g babel-cli`. This will hopefully not be the case soon and we can just use Babel locally. The presets that Babel will transpile to, however, can be installed locally as of now, i.e. on a per-project basis. The recommended preset is simply called `env`, as in `> npm i babel-env`.
+
+Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, plugins installed (yes, Babel is highly cofigurable and extensible):
+
+```
+{
+  "presets": ["env"]
+}
+```
+
+Do a quick VS Code reload and start testing it out!
+
+### TypeScript (TS)
+
+The other JS superset that is taking the community by storm is Microsoft's OO language TypeScript. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
+
+### Both?
+
+Why not? You can set the .babelrc config to only target _.js files and tsconfig.json to only target _.ts files. If you place
+
+# Notes on VS Code Extensions
+
+## Path IntelliSense
+
+This extension requires a `tsconfig,json` that contains a `"baseUrl":` field. This extension makes use of VS Code's TypeScript (TS) underpinnings, so configuring TS should make sense.
