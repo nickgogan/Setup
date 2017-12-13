@@ -6,7 +6,7 @@
 
 # JS Environment Setup in VS Code
 
-Sources:
+## **Sources**:
 
 1. PluralSight/Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
@@ -46,30 +46,30 @@ Why do this when we have tools like ESLint or TSLint? Because those tools are mo
 
 ### Package Security
 
-Since any rando can publish to npm, security becomes a bit of a concern. This gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks: `> npm i -g nsp`.
+Since any rando can publish to npm, security is a bit of a concern. This pain point gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks: `> npm i -g nsp`.
 
 ### Development Web Servers
 
 We have several options:
 
-1. http-server:
+1. **http-server**:
 
 * Very simple, serves the current directory
 * Live reload
 
-2. Express
+2. **Express**
 
 * Comprehensive and highly configurable
 * Production-grade
 * Can run anywhere
 
-3. Webpack Dev Server
+3. **Webpack Dev Server**
 
 * Built directly into the Webpack bundler
 * Serves from memory, as opposed to writing to disk. This makes it fast to see your changes.
 * Supports _hot-reloading_, which means you can instantly see your changes on-screen, no matter how large.
 
-4. Browsersync
+4. **Browsersync**
 
 * Sets up a dedicated IP for sharing work on LAN.
 * All browsers on all devices stay in sync.
@@ -157,15 +157,32 @@ You can also run multiple commands simultaneously. When would you want to do thi
 
 ## Beyond JS
 
-There are various _supersets_ of JS that we can use to make development easier and more powerful. TypeScript, from Microsoft, is one of them. Another very popular one is EcmaScript's ES6. This one is basically a future version of JS that browsers are slowly adjusting to. The last major release was ES6, which came out in 2015. From then on, the specification people promised to release a new update yearly, no matter how small. This is because it was almost 10 years since ES5 came out and because ES6 was basically a new language entirely, which cause a lot of developer pain. By comparison, ES7, i.e. ES2016, had only 2 small updates to it.
+There are various _supersets_ of JS that we can use to make development easier and more powerful. TypeScript, from Microsoft, is one of them. Another is basically JS, but in the future. Let's start from the ground; in case you don't know, JS is brought to you by the folks over at _Ecma International_. They're a <del>group of bureaucrats</del> standardization group that focus on specifications for stuff like JavaScript (technically called EcmaScript <del>...b/c bureaucrats</del>). They decide on the what goes into JavaScript/ES and doesn't belong. It's other peoples' jobs then to actually implement these changes in a way that allows the wider public to use it.
 
-A **transpiler** is used in a build (dev and prod) to translate these JS supersets into a set that current-day browsers can understand. TypeScript uses _tsc_ to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6 and many others into current-day JS. The biggest by far is called _Babel_.
+_A <del>bad</del> history lesson_:
+
+* _Source_: https://en.wikipedia.org/wiki/ECMAScript
+
+- _GitHub account_: https://github.com/tc39
+
+- _caniuse_: https://caniuse.com/#search=es
+
+1. Prior to December 1999, there is darkness.
+1. In Dec 1999, the ES3 spec was released and browser vendors got to work implementing parts of it, little by little.
+1. In Dec 2009 (yes, a decade later), ES5 came out because people got drunk, angry, and couldn't agree on what ES4 would be.
+1. Only a little more than half a decade later, in June 2015, ES6 was released, which was so different from all the previous released that it broke the hearts and minds of the developers. It was basically a new language. It is backgrounds-compatible, so you could continue coding the old way. However, if you wanted to stay relevant, the language coding patterns in ES6, for solving the same problems as always, were almost totally different. So, yeah, pretty much a new language. As you can image, there was very slow browser adoption of the language. But, 2 years later, all browsers are at like 90% support for it!
+1. ES7 was released in June 2016, and was easy on the shattered minds of its developers - it only added 2 new things to learn. There's almost no browser support for this yet.
+1. Present day (Dec 13th, 2017): ES8 has been proposed, again in June of this year, but it won't be for a while longer. Definitely no browser support for this.
+
+We'll just focus on ES6 for now, but you'll be able to guess how to get even the latest (experimental) features into your project, if you want to check them out.
+
+A **transpiler** is used in a build (dev, qa, prod, w/e) to translate these JS supersets into a set that current-day browsers can understand. You don't have to memorize what browsers currently support or any of that. Just use a good transpiler and everything is taken care of. TypeScript uses _tsc_ to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6 and many others into current-day JS. The biggest by far is called _Babel_.
 
 ### ES6 with Babel
 
 **Important**: Despite what the main website might say, as of this writing, Windows machines need to install Babel _globally_, not locally. No idea why and no idea if this affects Mac or Linux users. This is what I found for Windows machines. Install it using `> npm i -g babel-cli`. This will hopefully not be the case soon and we can just use Babel locally. The presets that Babel will transpile to, however, can be installed locally as of now, i.e. on a per-project basis. The recommended preset is simply called `env`, as in `> npm i babel-env`.
 
-Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, plugins installed (yes, Babel is highly cofigurable and extensible):
+Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, the plugins installed (yes, Babel is highly cofigurable and extensible):
 
 ```
 {
@@ -177,7 +194,7 @@ Do a quick VS Code reload and start testing it out!
 
 ### TypeScript (TS)
 
-The other JS superset that is taking the community by storm is Microsoft's OO language TypeScript. Technically, it's a superset of ES6. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
+The other JS superset that is taking the community by storm is Microsoft's OO language, TypeScript. Technically, it's a superset of ES6. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
 
 Next comes configuration, using `tsconfig.json`. One thing to keep in mind about this file is that it tells tsc what your TS project root is:
 
@@ -278,6 +295,38 @@ Some useful _plugins_ for ESLint:
 
 1. JSON: `> npm i --save-dev eslint-plugin-json`
 2. HTML/XML: `> npm i --save-dev eslint-plugin-html`
+
+### TypeScript with TSLint and Prettier
+
+You know how this goes by now. We're going to install tslint and and the package that makes it play nice with Prettier (which you should have installed earlier):
+`> npm i -D tslint tslint-config-prettier`
+
+To configure, create a `tslint.json` file and add:
+
+```
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ]
+}
+```
+
+Let's now get the best of both TSLint and ESLint with this package:
+`> npm i -D tslint-eslint-rules`. Expand the `tslint.json` file like this:
+
+```
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+    "tslint-eslint-rules"
+  ],
+  "rules": {
+    "no-constant-condition": true
+  }
+}
+```
 
 ---
 
