@@ -11,6 +11,18 @@ Sources:
 3. PluralSight/Building a JavaScript Development Environment:
    https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
 
+4. https://babeljs.io/
+
+5. https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+
+6. https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
+
+7. https://www.npmjs.com/package/eslint-config-airbnb
+
+8. https://kleopetrov.me/2016/03/18/everything-about-babel/
+
+9. https://www.robinwieruch.de/react-eslint-webpack-babel/
+
 ## Language Features
 
 VS Code gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. VS Code comes packaged with a bunch of these, but we can extend the system with typings from the wider community.
@@ -145,8 +157,6 @@ A **transpiler** is used in a build (dev and prod) to translate these JS superse
 
 ### ES6 with Babel
 
-**Source**: https://babeljs.io/
-
 **Important**: Despite what the main website might say, as of this writing, Windows machines need to install Babel _globally_, not locally. No idea why and no idea if this affects Mac or Linux users. This is what I found for Windows machines. Install it using `> npm i -g babel-cli`. This will hopefully not be the case soon and we can just use Babel locally. The presets that Babel will transpile to, however, can be installed locally as of now, i.e. on a per-project basis. The recommended preset is simply called `env`, as in `> npm i babel-env`.
 
 Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, plugins installed (yes, Babel is highly cofigurable and extensible):
@@ -160,8 +170,6 @@ Next comes configuration. This can be handled directly in package.json, but it i
 Do a quick VS Code reload and start testing it out!
 
 ### TypeScript (TS)
-
-**Source:** https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
 
 The other JS superset that is taking the community by storm is Microsoft's OO language TypeScript. Technically, it's a superset of ES6. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
 
@@ -240,4 +248,50 @@ In the case of conflicts, the priority is set in the following order:
 2. Exclude
 3. Include
 
-## Linting
+## Linting and Formatting
+
+### JS/ES6 with ESLint and Prettier
+
+`> npm i --save-dev eslint prettier`
+
+We need guidelines to judge against and AirBnb's has become the de-facto standard: `> npm i --save-dev eslint-config-airbnb`. To use this styleguide, we need to install its peer dependancies: `> install-peerdeps --dev eslint-config-airbnb`. Finally, we want to run code through Prettier first, to format it, and pipe the results into ESLint for further processing using its automatic `--fix` flag: `> npm i prettier-eslint`.
+
+All the software is now installed, so we're ready to configure. Create the `.eslintrc` file at the project root and grab the settings from my file (it's too long to include here).
+
+Ok, let's now integrate all of this into VS Code iteself. Go to _User Settings_, search for `prettier.eslintIntegrations`, and set it to `true`. While there, set the following as well:
+
+```
+  "eslint.autoFixOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true,
+  "javascript.format.enable": false,
+```
+
+Some useful _plugins_ for ESLint:
+
+1. JSON: `> npm i --save-dev eslint-plugin-json`
+2. HTML/XML: `> npm i --save-dev eslint-plugin-html`
+
+---
+
+# Coming Up
+
+1. Bundling with Webpack
+2. HTTP calls and mocking
+3. View with React
+
+<!-- 12. ReactJS support
+//Runtime dependencies
+> npm install --save react react-dom eslint-plugin-react
+> install-peerdeps eslint-plugin-react
+If you want to avoid ES2015 class syntax:
+> npm install create-react-class
+Add Babel support for ReactJS
+> npm install babel-preset-react -->
+
+# Afterwards
+
+1. Adding test suites
+2. Continuous integration
+3. Automated workflows using npm scripts
