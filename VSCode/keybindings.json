@@ -1,6 +1,11 @@
 // Place your key bindings in this file to overwrite the defaults
 [
   {
+    "key": "ctrl+n ctrl+q",
+    "command": "quokka.createJavaScriptFile",
+    "when": "!terminalFocus"
+  },
+  {
     "key": "ctrl+f",
     "command": "actions.find"
   },
