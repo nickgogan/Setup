@@ -244,7 +244,7 @@ If `paths:` option is set, tsc goes through those folders and only checks `node_
 
 ### Both?
 
-Why not? The `jsconfig.json` sets up the JS project root and Babel will only target \*.js files. The `tsconfig.json` config only targets the \*.ts. If you place.
+Why not? The `jsconfig.json` sets up the JS project root and Babel will only target \*.js files. The `tsconfig.json` config only targets the \*.ts.
 
 If you want to be very specific about it, you can set a configuration option in `tsconfig.json` that tells the tsc compiler to only target specific files:
 
