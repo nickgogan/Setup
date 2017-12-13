@@ -23,5 +23,8 @@
     "eslint-plugin-react": "^7.4.0",
     "prettier": "^1.9.1",
     "prettier-eslint": "^8.2.5"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
   }
 }
