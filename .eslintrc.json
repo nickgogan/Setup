@@ -1,7 +1,7 @@
 {
   "extends": ["airbnb-base", "plugin:react/recommended"],
   "rules": {
-    "prop-types": [2], //For eslint-plugin-react: Throw error when component used incorrectly.
+    "prop-types": [2],
     "linebreak-style": ["error", "windows"],
     "comma-dangle": [2, "never"],
     "strict": [0, "global"],
