@@ -45,6 +45,10 @@
     }
   ],
 
+  "markdown.styles": [
+    "C:\\A.Project0\\PersonalTools\\A. Setup\\VSCode\\github-markdown.css"
+  ],
+
   "csharp.format.enable": false,
 
   "[javascript]": {},
@@ -55,8 +59,6 @@
   "bookmarks.navigateThroughAllFiles": true,
 
   "insertDateString.formatDate": "MM/DD/YYYY",
-  "window.zoomLevel": 0,
-  "markdown.styles": [
-    "C:\\A.Project0\\PersonalTools\\A. Setup\\VSCode\\github-markdown.css"
-  ]
+
+  "window.zoomLevel": 0
 }
