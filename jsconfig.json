@@ -1,4 +1,5 @@
 // Needed to make IntelliSense import statements. The reason you want to not have the node modules as part of the suggestions is because you'd be drowning in them! Imagine wanting to choose options from the couple of frameworks you want to work with, but are instead met with options for that plus all of their dependencies! IntelliSense would lose the 'Intelli' part.
 {
+  "include": ["./src/**/*"],
   "exclude": ["node_modules", "**/node_modules/*"]
 }

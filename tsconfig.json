@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/",
+    "outDir": "./dist/bundle",
     "baseUrl": "./src/",
     "sourceMap": true,
     "declaration": false,
