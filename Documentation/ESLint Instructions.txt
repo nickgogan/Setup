@@ -1,64 +1,3 @@
-ESLint is a code formatter that can work on JavaScript · Flow · TypeScript · CSS · SCSS · Less · GraphQL · JSON · Markdown.
-
-https://www.youtube.com/watch?v=voxTiR14vfE
-
-Source: 1. https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
-2. https://www.npmjs.com/package/eslint-config-airbnb
-3. https://kleopetrov.me/2016/03/18/everything-about-babel/
-4. https://www.robinwieruch.de/react-eslint-webpack-babel/
-
-1. Start a new project
-> npm init -y && mkdir src && touch src/index.js
-2. Install Prettier
-> npm install --save-dev prettier
-3. Install ESLint
-> npm install --save-dev eslint
-4. Install AirBnb ESLint config (very popular styleguide for both JS and ReactJS)
-> npm install --save-dev eslint-config-airbnb
-5. Handle peer dependancies for eslint-config-airbnb using peerdeps (please install globall using npm install -g install-peerdeps)
-> install-peerdeps --dev eslint-config-airbnb
-6. Create .eslintrc file in project root and add airbnb config
-> touch .eslintrc
-See my .eslintrc file
-
-7. Install separate JS module that will run code through Prettier and then through ESLint --fix
-> npm install prettier-eslint
-In VS Code settings, have "prettier.eslintIntegrations" = true
-
-8. While there, also set the following settings:
-  "eslint.autoFixOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.eslintIntegration": true,
-  "javascript.format.enable": false,
-
-9. Explicitly enable ES6 support
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  }
-
-  10. Useful Plugins
-  - JSON: > npm install --save-dev eslint-plugin-json
-  - HTML/XML: > npm install --save-dev eslint-plugin-html
-
-11. Transpiler support: Babel
-Start by installing Babel and the latest presets for the browsers
-> npm install --save-dev babel-cli babel-preset-env
-Copy thje .babelrc file provided
-Install ESLint support for babel
-> npm install babel-eslint
-In .eslintrc file, add this:
-parser: "babel-eslint" . And, in rules {}, add "max-len": [1, 70, 2, {ignoreComments: true}]
-
 12. ReactJS support
 //Runtime dependencies
 > npm install --save react react-dom eslint-plugin-react
@@ -68,27 +7,5 @@ If you want to avoid ES2015 class syntax:
 Add Babel support for ReactJS
 > npm install babel-preset-react
 
-13. Webpack support
-> npm install webpack webpack-dev-server path
-Path module provides utilities for working with file and directory paths. Access it using const path = require('path');
-Create webpack config file: touch webpack.config.js and copy in content
-
-- Create HTML templates with Webpack
-> npm install --save-dev html-webpack-plugin
-See webpack.config.js for configuration and ./client/index.html for the template (based off of HTML5Boilerplate). This plugin will also handle the minification.
-
-- Handle styles with Webpack
-> npm install --save-dev css-loader style-loader sass-loader node-sass
-Extract text plugin will place all styling into a separate .css file, as opposed to inline to the html.
-> npm install --save-dev extract-text-webpack-plugin
-
-
-
-
-
-
-
-
-
 PRETTIER + TSLINT
-1. >
+1.

@@ -1,4 +1,0 @@
-Good npm global modules
-
-NPM Peer Dependencies: npm i -g peerdep
-Node Security Platform: npm i -g nsp
