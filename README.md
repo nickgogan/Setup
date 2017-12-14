@@ -29,10 +29,11 @@
 
 # Please read the Documentation/ files in the following order:
 
-1. TerminalYarn
-1.JSDev Env Setup Notes
+1. TerminalYarn - System Setup
 
-"VS Code Extensions" is a quick expo on the extensions I've found useful. `vscodeextensions.bat` is meant to automatically install all of them in one shot.
+1. JSDev Env Setup Notes - Coding environment setup in VS Code
+
+* "VS Code Extensions" is a quick expo on the extensions I've found useful. `vscodeextensions.bat` is meant to automatically install all of them in one shot.
 
 # Coming Up
 

@@ -31,7 +31,11 @@
 
 ## Language Features
 
-VS Code gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. VS Code comes packaged with a bunch of these, but we can extend the system with typings from the wider community.
+VS Code gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. VS Code comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
+
+**WARNING**
+
+Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
 
 1. First, download the Typings tool from npm: `npm i -g typings`. Test using `> typings -v`.
 2. Get a wanted definition set, like angular: `typings install dt~angular --save`. This will create a `typings.json` config file and a `typings/` directory to house these definitions.
