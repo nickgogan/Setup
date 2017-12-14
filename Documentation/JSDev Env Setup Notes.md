@@ -37,12 +37,13 @@ VS Code gets much of its IntelliSense from _typings files_. These are TS files t
 
 Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
 
-1. First, download the Typings tool from npm: `npm i -g typings`. Test using `> typings -v`.
-2. Get a wanted definition set, like angular: `typings install dt~angular --save`. This will create a `typings.json` config file and a `typings/` directory to house these definitions.
-
-Search for typings using: `> typings search ...`
-
 Why do this when we have tools like ESLint or TSLint? Because those tools are more specific and sometimes do not have what we need. There is nothing wrong with taking a little bit from all of them when putting together a project's tools. Just make sure that conflicts are resolved.
+
+Some examples to get you started:
+
+```
+> yarn add @types/node @types/express @types/angular @types/reac --dev
+```
 
 ---
 
@@ -332,13 +333,15 @@ Let's now get the best of both TSLint and ESLint with this package:
 }
 ```
 
+## Automatic Documentation
+
 ---
 
 # Coming Up
 
 1. Bundling with Webpack
 2. HTTP calls and mocking
-3. View with React
+3. Client-side View with React
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -353,4 +356,3 @@ Add Babel support for ReactJS
 
 1. Adding test suites
 2. Continuous integration
-3. Automated workflows using npm scripts

@@ -4,11 +4,7 @@
 
 * Example: `> install-peerdeps --dev eslint-config-airbnb`
 
-2. TypeScript (`> npm i -g typescript`)
-
-1. Typings (`> npm i -g typings && typings install -h`): CLI interface to a npm library that can add IntelliSense for languages/frameworks/etc... when working in VS Code (or any other TypeScript-based editor).
-
-* Example: `> typings install dt~node --save --global`. This generates a typings.json config file and a typings/ folder to hold the definition modules.
+2. TypeScript (`> npm i -g typescript tsc`): The actual TS language and its compiler.
 
 1. Node Security Platform: (`> npm i -g nsp`): Checks npm packages for known vulnerabilities.
 
