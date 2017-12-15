@@ -30,6 +30,7 @@ code --install-extension jsynowiec.vscode-insertdatestring
 code --install-extension xabikos.JavaScriptSnippets
 code --install-extension James-Yu.latex-workshop
 code --install-extension negokaz.live-server-preview
+code --install-extension yzhang.markdown-all-in-one
 code --install-extension ms-vscode.mono-debug
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension eg2.vscode-npm-script
@@ -42,6 +43,7 @@ code --install-extension WallabyJs.quokka-vscode
 code --install-extension humao.rest-client
 code --install-extension robinbentley.sass-indented
 code --install-extension Tyriar.shell-launcher
+code --install-extension wayou.vscode-todo-highlight
 code --install-extension eg2.tslint
 code --install-extension rbbit.typescript-hero
 code --install-extension emmanuelbeziat.vscode-great-icons
