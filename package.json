@@ -4,7 +4,8 @@
   "description": "Starter project that can be customized and grown into something more specialized.",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./src/test.js"
+    "start": "babel-node ./src/index.js",
+    "publish": "babel ./src/index.js --out-file ./dist/index.js"
   },
   "keywords": [],
   "author": "",
