@@ -1,8 +1,9 @@
-// @ts-check
+// @flow
 /**
- * <Description goes here>
+ * Makes submarine tickets for a rider.
  *
- * @param {any} riderName
+ * @param {any} riderName The purchaser of the ticket.
+ * @returns {void}
  */
 function submarineTicketMaker(riderName) {
   console.log(
@@ -12,10 +13,10 @@ function submarineTicketMaker(riderName) {
 }
 
 /**
+ * Makes different tickets depending on the type of ride.
  *
- *
- * @param {any} rideType
- * @returns
+ * @param {any} rideType The ride requested.
+ * @returns {function} A specific ticket maker.
  */
 function TicketFactory(rideType) {
   const counter = 0;
