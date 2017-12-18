@@ -17,13 +17,13 @@
 3. PluralSight/Building a JavaScript Development Environment:
    https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
 
-4. https://babeljs.io/
+4. Transpiling ESNext: https://babeljs.io/
 
-5. https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+5. Configuring TS/tsconfig.json: https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
 
-6. https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
+6. ESLint + Prettier + VS Code: https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
 
-7. https://www.npmjs.com/package/eslint-config-airbnb
+7. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
 
 8. https://kleopetrov.me/2016/03/18/everything-about-babel/
 
@@ -333,15 +333,72 @@ Let's now get the best of both TSLint and ESLint with this package:
 }
 ```
 
+## Static File Checking with Flow
+
+TypeScript provides type checking for JS by providing a classic OOP language. The tsc transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
+
+For folks that are still working in JS, like people developing in Node or React, there are two solutions I can introduce. The first comes built-in with VS Code and it involes just dropping a quick pragma (i.e. a 1-liner at the top of your working file) called `//@ts-check`. So, your file would look like this:
+
+```
+//@ts-check
+let myNum = 42;
+myNum = '42'; //This would lead to a TypeError, thrown by VS Code's [js] checker.
+```
+
+This is a very low-friction way to add at least some type safety to your projects and will prevent headaches down the line. Combine this with ESLint, Prettier, and VS Code's powerful debugging capabilities and you get a pretty smooth dev experience.
+
+Another solution, which I prefer for reasons discussed in the next section on documentation, come from Facebook and is called Flow. It allows you to add types directly inline with your code and the cli will yell at you if those rules are violated. The syntax is pretty much the same as the type annotations you see in TS:
+
+```
+//@flow
+class Greeter {
+  private counter: number = 0;
+  constructor(public name: string) {};
+
+  hello(): string {
+    return `Hello ${this.name} ${this.incrementedCounter()}. time!`;
+  }
+
+  private incrementedCounter(): number {
+    return ++this.counter;
+  }
+}
+```
+
+Now, install Flow itself: `> yarn add --dev flow-bin`. Now, time to configure Flow:
+`> yarn run flow init` to generate the `.flowconfig` file. At its most basic level, .flowconfig tells the Flow background process the root of where to begin checking Flow code for errors.
+
+To get started in actually using Flow, we need to integrate it with Babel to strip out those annotations before running the code through Node or a browser, or w/e. This is done with a Babel preset:
+`> yarn add --dev babel-preset-flow`
+Next, add this to your `.babelrc` config file:
+`"presets": ["flow"]` Obviously, if you have other presets, just add "flow" as another array item.
+
+We also want to integrate flow with ESLint, so that can tell us if we're forgetting to add our annotations:
+`> yarn add --dev eslint-plugin-flowtype`. Then, in the `.eslintrc` file, add this info:
+
+```
+"extends": ["prettier/flowtype],
+"plugins": ["flowtype"]
+```
+
+Note: Flow uses its own version of typings to showcase corrections. These are NOT the same as those used by TS/typings, which we discussed earlier. If you want to use both, you'd have to maintain both separately, which is silly. Some reasearch into this shows that there isn't a solution that combines both yet. So, in the meantime, I have learned that there is a larger number of typings for TS and that they are more reliable. So, for stuff that Flow doesn't cover out of the box, just grab a `@types` library from npm and let VS Code's TS do that work. Just use Flow to do the barebones type checking during dev time to catch errors.
+
+If this were all that Flow provided, I wouldn't recommend it. But, it edges out over `@ts-check` because it can make it drastically easier to automatically document your JS code.
+
 ## Automatic Documentation
+
+Documentation is usually an afterthought that ends up becoming crucial as we distance ourselves from projects over time. They are also invaluable for onboarding new team members, along with demo apps that showcase how to create and run projects. The best way to do documentation is to make it easy, like what happened with test suites in the last couple of years. The relative ease of adopting testing in workflows, coupled with a marked decrease in issues throughout the app's lifespan, made the JS community adopt testing as a norm.
+
+The same will eventually be done with documentation. We are already kind of there. If you followed the steps in the previous section, _Static File Checking with Flow_, then you're 67% there. The final piece
 
 ---
 
 # Coming Up
 
-1. Bundling with Webpack
-2. HTTP calls and mocking
-3. Client-side View with React
+1. Static type checking with Flow
+2. Bundling with Webpack
+3. HTTP calls and mocking
+4. Client-side View with React
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -350,7 +407,13 @@ Let's now get the best of both TSLint and ESLint with this package:
 If you want to avoid ES2015 class syntax:
 > npm install create-react-class
 Add Babel support for ReactJS
-> npm install babel-preset-react -->
+> npm install babel-preset-react
+
+{ (July 18th)
+  "extends": ["react-app", "plugin:jsx-a11y/recommended"],
+  "plugins": ["jsx-a11y"]
+}
+-->
 
 # Afterwards
 

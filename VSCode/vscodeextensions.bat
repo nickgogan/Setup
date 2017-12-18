@@ -5,7 +5,7 @@ code --install-extension formulahendry.auto-close-tag
 code --install-extension steoates.autoimport
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension okon3.ayu-miragemod
-code --install-extension dzannotti.vscode-babel-coloring
+code --install-extension mgmcdermott.vscode-language-babel
 code --install-extension alefragnani.Bookmarks
 code --install-extension CoenraadS.bracket-pair-colorizer
 code --install-extension ms-vscode.cpptools
