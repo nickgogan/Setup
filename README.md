@@ -1,29 +1,31 @@
 # Setup
 
-## A collection of config and setup files to help maintain my sanity.
+## The foundation for all of my web development projects.
+
+Inspired by the following sources:
+
+1. YT/The JavaScript Starter Kit Manifesto:
+   https://www.youtube.com/watch?v=jubd2opc4Ps
+
+2. PluralSight/Building a JavaScript Development Environment:
+   https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
 
 ## **Sources**:
 
 1. PluralSight/Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
 
-2. YT/The JavaScript Starter Kit Manifesto:
-   https://www.youtube.com/watch?v=jubd2opc4Ps
+2. https://babeljs.io/
 
-3. PluralSight/Building a JavaScript Development Environment:
-   https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
+3. https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
 
-4. https://babeljs.io/
+4. https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
 
-5. https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+5. https://www.npmjs.com/package/eslint-config-airbnb
 
-6. https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
+6. https://kleopetrov.me/2016/03/18/everything-about-babel/
 
-7. https://www.npmjs.com/package/eslint-config-airbnb
-
-8. https://kleopetrov.me/2016/03/18/everything-about-babel/
-
-9. https://www.robinwieruch.de/react-eslint-webpack-babel/
+7. https://www.robinwieruch.de/react-eslint-webpack-babel/
 
 ---
 
@@ -35,12 +37,10 @@
 
 * "VS Code Extensions" is a quick expo on the extensions I've found useful. `vscodeextensions.bat` is meant to automatically install all of them in one shot.
 
-# Coming Up
+# Round 2
 
 1. Automated workflows using npm scripts
-1. HTTP calls and mocking
-1. Adding test suites
-1. Continuous integration
+1. Bundling with Webpack
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -51,11 +51,9 @@ If you want to avoid ES2015 class syntax:
 Add Babel support for ReactJS
 > npm install babel-preset-react -->
 
-# Afterwards
+# Round 3
 
-1. Automatic JS/TS/Sass documentation
-
-* Useful VS Code snippets to make it work
-
-1. Bundling with Webpack
-1. View with React
+1. HTTP calls and mocking
+1. Adding a test suite
+1. Continuous integration
+1. Continuous delivery
