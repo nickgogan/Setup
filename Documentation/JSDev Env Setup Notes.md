@@ -381,6 +381,16 @@ We also want to integrate flow with ESLint, so that can tell us if we're forgett
 "plugins": ["flowtype"]
 ```
 
+In the `.flowconfig` file, add this:
+
+```
+[ignore]
+.*/node_modules/*
+.*/dist/*
+```
+
+The final part is integrating Flow with VS Code. This is done using the **Flow Language Support** extension, which will create a new Output console that continuously runs in the background as you code, the same as with ESLint and Prettier.
+
 Note: Flow uses its own version of typings to showcase corrections. These are NOT the same as those used by TS/typings, which we discussed earlier. If you want to use both, you'd have to maintain both separately, which is silly. Some reasearch into this shows that there isn't a solution that combines both yet. So, in the meantime, I have learned that there is a larger number of typings for TS and that they are more reliable. So, for stuff that Flow doesn't cover out of the box, just grab a `@types` library from npm and let VS Code's TS do that work. Just use Flow to do the barebones type checking during dev time to catch errors.
 
 If this were all that Flow provided, I wouldn't recommend it. But, it edges out over `@ts-check` because it can make it drastically easier to automatically document your JS code.
@@ -389,7 +399,8 @@ If this were all that Flow provided, I wouldn't recommend it. But, it edges out 
 
 Documentation is usually an afterthought that ends up becoming crucial as we distance ourselves from projects over time. They are also invaluable for onboarding new team members, along with demo apps that showcase how to create and run projects. The best way to do documentation is to make it easy, like what happened with test suites in the last couple of years. The relative ease of adopting testing in workflows, coupled with a marked decrease in issues throughout the app's lifespan, made the JS community adopt testing as a norm.
 
-The same will eventually be done with documentation. We are already kind of there. If you followed the steps in the previous section, _Static File Checking with Flow_, then you're 67% there. The final piece
+The same will eventually be done with documentation. We are already kind of there. If you followed the steps in the previous section, _Static File Checking with Flow_, then you're 67% there. The final piece is automatically generating the documentation based off of your flow+jsdoc-annotated JS files. This piece is contributed by `documentation.js`: `> npm i -g documentation`. Then, just add an npm script:
+`"document": "./node_modules/.bin/documentation build src/** -f html -o docs"`. This will output automatically-generated documentation of your src/ directory into a docs/ directory, all in the form of an html. You can, of course, choose other outputs types, directories, etc - check out their GitHub for that info.
 
 ---
 
