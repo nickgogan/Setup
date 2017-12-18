@@ -42,5 +42,13 @@
     "key": "ctrl+m ctrl+[",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+n ctrl+n",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
   }
 ]
