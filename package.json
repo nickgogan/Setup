@@ -5,9 +5,14 @@
     "Starter project that can be customized and grown into something more specialized.",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./src/index.js",
-    "publish": "babel ./src/index.js --out-file ./dist/index.js",
-    "document": "./node_modules/.bin/documentation build src/** -f html -o docs"
+    "start": "babel-node ./src/functionality/routes/server.js",
+    "publish":
+      "babel ./src/functionality/index.js --out-file ./dist/index.js",
+    "document":
+      "./node_modules/.bin/documentation build src/** -f html -o docs",
+    "debug-in-chrome":
+      "babel-node --debug-brk --inspect ./src/functionality/index.js",
+    "share": "lt -4200"
   },
   "keywords": [],
   "author": "",
@@ -22,14 +27,14 @@
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.40.1",
     "eslint-plugin-html": "^4.0.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "eslint-plugin-flowtype": "^2.40.1",
     "flow-bin": "^0.61.0",
-    "jsdoc": "^3.5.5",
+    "localtunnel": "^1.8.3",
     "nsp": "^3.1.0",
     "prettier": "^1.9.1",
     "prettier-eslint": "^8.2.5",
