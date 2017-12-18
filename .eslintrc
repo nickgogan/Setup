@@ -1,8 +1,7 @@
 {
-  //Options: prettier/react
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "prettier", "prettier/flowtype"],
   //"plugins": ["import"] airbnb already supports react and its dependencies.
-  "plugins": ["json", "html"],
+  "plugins": ["json", "html", "flowtype"],
   "settings": {
     "html/html-extensions": ["html", "htm", "xml"],
     "html/indent": "+2",
