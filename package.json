@@ -9,10 +9,12 @@
     "publish":
       "babel ./src/functionality/index.js --out-file ./dist/index.js",
     "document":
-      "./node_modules/.bin/documentation build src/** -f html -o docs",
+      "./node_modules/.bin/documentation build src/functionality/** -f html -o docs",
+    "share": "npm-run-all --parallel start localtunnel",
     "debug-in-chrome":
       "babel-node --debug-brk --inspect ./src/functionality/index.js",
-    "share": "lt -4200"
+    "localtunnel":
+      "lt --port 3000 --localhost test --subdomain nickgogan"
   },
   "keywords": [],
   "author": "",
