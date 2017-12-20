@@ -1,20 +1,22 @@
 {
   "name": "homebase",
   "version": "1.0.0",
-  "description":
-    "Starter project that can be customized and grown into something more specialized.",
+  "description": "A barebones scaffold for modern webdev projects.",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./src/functionality/routes/server.js",
+    "build-sass":
+      "node-sass --include-path scss ./src/styles/main.scss dist/main.css",
+    "start":
+      "nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
     "publish":
-      "babel ./src/functionality/index.js --out-file ./dist/index.js",
+      "npm-run-all -s clean babel ./src/functionality/index.js --out-file ./dist/index.js",
     "document":
       "./node_modules/.bin/documentation build src/functionality/** -f html -o docs",
     "share": "npm-run-all --parallel start localtunnel",
-    "debug-in-chrome":
-      "babel-node --debug-brk --inspect ./src/functionality/index.js",
+    "security": "nsp check --reporter summary",
     "localtunnel":
-      "lt --port 3000 --localhost test --subdomain nickgogan"
+      "lt --port 3000 --localhost test --subdomain nickgogan",
+    "clean": "rm -rf ./dist"
   },
   "keywords": [],
   "author": "",
@@ -23,9 +25,11 @@
     "@types/express": "^4.0.39",
     "@types/jquery": "^3.2.17",
     "@types/node": "^8.5.1",
+    "autoprefixer": "^7.2.3",
     "babel-eslint": "^8.0.3",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -37,6 +41,8 @@
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "^0.61.0",
     "localtunnel": "^1.8.3",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.13.3",
     "nsp": "^3.1.0",
     "prettier": "^1.9.1",
     "prettier-eslint": "^8.2.5",
