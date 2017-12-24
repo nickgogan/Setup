@@ -1,6 +1,12 @@
-function test() {
-  this.test = 'test';
-  this.NEWPROP = 'NEWPROP';
+// @flow
+
+/**
+ * General Description
+ *
+ * @class Person
+ */
+class Person {
+  fullName: 'John doe';
 }
 
-export default test;
+export default Person;

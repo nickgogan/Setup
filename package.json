@@ -4,19 +4,21 @@
   "description": "A barebones scaffold for modern webdev projects.",
   "main": "index.js",
   "scripts": {
-    "build-sass":
-      "node-sass --include-path scss ./src/styles/main.scss dist/main.css",
-    "start":
-      "nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
-    "publish":
-      "npm-run-all -s clean babel ./src/functionality/index.js --out-file ./dist/index.js",
-    "document":
-      "./node_modules/.bin/documentation build src/functionality/** -f html -o docs",
-    "share": "npm-run-all --parallel start localtunnel",
+    "watch-sass": "node-sass --watch --recursive src/styles --output dist/styles --source-map true",
+    "build-sass": "node-sass src/styles --output dist/styles --source-map true --source-map-contents scss",
+    "clean-sass": "rm -rf ./dist/styles",
+    "publish-sass": "npm-run-all clean-sass build-sass",
+    "document-styles:html": "",
+    "watch-js": "nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
+    "build-js": "babel ./src/functionality --out-dir dist/js --source-maps",
+    "clean-js": "rm -rf ./dist/js",
+    "publish-js": "npm-run-all -s clean-js build-js",
+    "document-js:html": "./node_modules/.bin/documentation build src/functionality/** -f html -o docs",
+    "start-dev": "npm-run-all --parallel watch-js watch-sass",
+    "start": "npm-run-all -s security publish-js publish-sass",
+    "share": "npm-run-all -s start localtunnel",
     "security": "nsp check --reporter summary",
-    "localtunnel":
-      "lt --port 3000 --localhost test --subdomain nickgogan",
-    "clean": "rm -rf ./dist"
+    "localtunnel": "lt --port 3000 --localhost test --subdomain nickgogan"
   },
   "keywords": [],
   "author": "",

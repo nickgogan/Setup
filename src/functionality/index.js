@@ -1,7 +1,7 @@
 // @flow
 
-import test from './test';
+import Test from './test';
 
-const myObject = new test();
+const myObject1 = new Test();
 
-console.log(myObject.NEWPROP);
+console.log(myObject1.fullName);
