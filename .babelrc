@@ -1,4 +1,5 @@
 {
   "presets": ["env", "flow"],
-  "sourceMaps": true
+  "sourceMaps": true,
+  "ignore": ["*.ts", "./dist/*", "./docs", "./Documentation"]
 }
