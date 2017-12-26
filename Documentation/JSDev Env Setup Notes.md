@@ -1,6 +1,6 @@
 # Setup
 
-## A collection of config and setup files to help maintain my sanity.
+## A collection of config and setup files to help maintain a semblance of sanity.
 
 # Round 1
 
@@ -8,26 +8,26 @@
 
 ## **Sources**:
 
-1. PluralSight/Visual Studio Code:
+1. PluralSight - Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
 
-2. YT/The JavaScript Starter Kit Manifesto:
+2. YT - The JavaScript Starter Kit Manifesto:
    https://www.youtube.com/watch?v=jubd2opc4Ps
 
-3. PluralSight/Building a JavaScript Development Environment:
+3. PluralSight - Building a JavaScript Development Environment:
    https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
 
-4. Transpiling ESNext: https://babeljs.io/
+4. Configuring TS - tsconfig.json: https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
 
-5. Configuring TS/tsconfig.json: https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+5. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
 
 6. ESLint + Prettier + VS Code: https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
 
-7. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
+7. Transpiling ESNext: https://babeljs.io/
 
-8. https://kleopetrov.me/2016/03/18/everything-about-babel/
+8. Everything About Babel: https://kleopetrov.me/2016/03/18/everything-about-babel/
 
-9. https://www.robinwieruch.de/react-eslint-webpack-babel/
+9. ESLint + Babel + Webpack + React: https://www.robinwieruch.de/react-eslint-webpack-babel/
 
 ## Language Features
 
@@ -402,14 +402,22 @@ Documentation is usually an afterthought that ends up becoming crucial as we dis
 The same will eventually be done with documentation. We are already kind of there. If you followed the steps in the previous section, _Static File Checking with Flow_, then you're 67% there. The final piece is automatically generating the documentation based off of your flow+jsdoc-annotated JS files. This piece is contributed by `documentation.js`: `> npm i -g documentation`. Then, just add an npm script:
 `"document": "./node_modules/.bin/documentation build src/** -f html -o docs"`. This will output automatically-generated documentation of your src/ directory into a docs/ directory, all in the form of an html. You can, of course, choose other outputs types, directories, etc - check out their GitHub for that info.
 
+## Automated Tasks with npm
+
+Humble npm, which hooks onto whatever your OS uses as its shell, is all you need to do your task running. Don't add more tech debt/another abstraction layer, such as Gulp or Grunt, unless they can bring your project functionality that you can't get from npm (without an insane amount of work, that is). Each technology/layer of abstraction adds more to your plate in terms of things to keep track of and in terms of possible places your project can break. The same goes for npm dependencies, or anything else that's part of your project really. The more you add, the more potential points of failure you create. So, make sure the value proposition for your additions are air-tight.
+
+Todo: Add some actual scripts to showcase how this works.
+Todo: Explain
+Todo: npm-run-all sequentially and in parallel. Show examples of compound scripts.
+
+##
+
 ---
 
-# Coming Up
+# Round 2
 
-1. Static type checking with Flow
-2. Bundling with Webpack
-3. HTTP calls and mocking
-4. Client-side View with React
+1. Automated workflows using npm scripts
+1. Bundling with Webpack
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -418,15 +426,14 @@ The same will eventually be done with documentation. We are already kind of ther
 If you want to avoid ES2015 class syntax:
 > npm install create-react-class
 Add Babel support for ReactJS
-> npm install babel-preset-react
+> npm install babel-preset-react -->
 
-{ (July 18th)
-  "extends": ["react-app", "plugin:jsx-a11y/recommended"],
-  "plugins": ["jsx-a11y"]
-}
--->
+# Round 3
 
-# Afterwards
+1. HTTP calls and mocking
+1. Adding a test suite
 
-1. Adding test suites
-2. Continuous integration
+# Round 4
+
+1. Continuous integration
+1. Continuous delivery

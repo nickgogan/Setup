@@ -15,3 +15,7 @@
 1. npm-run-all (`> npm i -g npm-run-all`): Allows commands to be run in parallel.
 
 1. Babel (`> npm i -g babel-cli`): Babel needs to be installed globally! The presets can be installed locally.
+
+1. nodemon (`> yarn global add nodemon`): Watches files for changes and automatically reloads them.
+
+1. Flow (`> yarn global add flow-bin`): Add static typing to JS files and, with JSDoc, provides documentation.js enough info to automatically generate documentation.
