@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier",
+    "tslint-eslint-rules"
+  ],
+  "rules": {
+    "no-console": false
+  }
+}

@@ -1,43 +1,21 @@
-# Setup
-
-## A collection of config and setup files to help maintain a semblance of sanity.
-
-# Round 1
-
 # JS Environment Setup in VS Code
+
+1. Implementing language-specific features in Visual Studio Code (VSC).
+1. Setting up a minimal JS/TS development environment (DevEnv).
 
 ## **Sources**:
 
-1. PluralSight - Visual Studio Code:
-   https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
-
-2. YT - The JavaScript Starter Kit Manifesto:
-   https://www.youtube.com/watch?v=jubd2opc4Ps
-
-3. PluralSight - Building a JavaScript Development Environment:
-   https://app.pluralsight.com/library/courses/javascript-development-environment/table-of-contents
-
-4. Configuring TS - tsconfig.json: https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
-
-5. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
-
 6. ESLint + Prettier + VS Code: https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
 
-7. Transpiling ESNext: https://babeljs.io/
+7. ESLint + Babel + Webpack + React: https://www.robinwieruch.de/react-eslint-webpack-babel/
 
-8. Everything About Babel: https://kleopetrov.me/2016/03/18/everything-about-babel/
+## VSC Language Features
 
-9. ESLint + Babel + Webpack + React: https://www.robinwieruch.de/react-eslint-webpack-babel/
+VSC gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. The IDE comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev-time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
 
-## Language Features
+**WARNING**: Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
 
-VS Code gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. VS Code comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
-
-**WARNING**
-
-Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
-
-Why do this when we have tools like ESLint or TSLint? Because those tools are more specific and sometimes do not have what we need. There is nothing wrong with taking a little bit from all of them when putting together a project's tools. Just make sure that conflicts are resolved.
+Why do this when we have tools like ESLint or TSLint? Because those tools are more specific and sometimes do not have what we need. There is nothing wrong with taking a little bit from all of them when putting together a project's tools. Just make sure that conflicts are properly handled.
 
 Some examples to get you started:
 
@@ -49,9 +27,68 @@ Some examples to get you started:
 
 ## JavaScript
 
+### Package Management
+
+The answer should be either `npm` or `yarn`. Either way works, choose whichever makes you happy. `npm` comes with `NodeJS`, so install NodeJS on your machine to get that going. To test, `> npm -v`. See the _System Setup_ doc on how to get up and running with Yarn (including having a local, offline mirror of your projects' dependencies).
+
 ### Package Security
 
 Since any rando can publish to npm, security is a bit of a concern. This pain point gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks: `> npm i -g nsp`.
+
+### Sharing Work
+
+This avoids having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
+
+**localtunnel**: `> npm i localtunnel`
+
+* Allows sharing via a _public_ URL
+* To use, add `> lt --port 3000` to your npm start script.
+
+### Automation
+
+Tools like **Grunt**, **Gulp**, **npm**, or your regular terminal are used to automate tasks. Just use **npm**/**yarn**. It's also a good idea to start doing this early on in the project's life, when there are fewer things to automate.
+
+In `package.json`, you can place a `"scripts:"` field to, bascially, declare what you want npm to do when you hit `npm run {{anything}}`:
+
+```
+...
+"scripts": {
+  "start": "node src/index.js"
+}
+...
+```
+
+You can run the above by typing `> npm start` or `> npm run start`. Notice that you can omit the 'run' portion of the command in this case. This only works if you're trying to run `start` or `test`.
+
+npm also has something called _hooks_, which run at specific points. It's best seen via example:
+
+```
+...
+"scripts": {
+  "prestart": "nsp check",
+  "start": "node src/index.js"
+  "poststart": "lt --port 3000",
+}
+...
+```
+
+Running `> npm start` will first invoke the `prestart` script, which will check that our project's node_modules don't have any known security vulnerabilities. Then, `start` proper is run, which goes through the `index.js` file. Finally, `poststart` exposes the project on port 3000, allowing anyone who knows the generated URL to work with `index.js`.
+
+You can also run multiple commands, either sequentially or simultaneously. When would you want to do this? An example would be times when you want to both start up an app and share it. Normally, you'd have to open 2 terminal sessions, one for each command, since each one takes over the terminal once run. npm can help us get around that limitation with `npm-run-all --parallel`. We can even write commands that we define separately, but within the same `scripts` object:
+
+```
+...
+"scripts": {
+  "prestart": ....,
+  "start": "npm-run-all --parallel security-check open:src",
+  "poststart": ...,
+  "open-src": "node src/server.js"
+  "security-check": "nsp check",
+  "localtunnel": "lt --port 3000",
+  "share": "npm-run-all --parallel open:src localtunnel"
+}
+...
+```
 
 ### Development Web Servers
 
@@ -80,85 +117,10 @@ We have several options:
 * All browsers on all devices stay in sync.
 * Integrates into Webpack, Gulp, Grunt, Browserify, etc..
 
-We'll do an example using **Express**:
+We'll start with **http-server**, since it works out of the box without any configuration. Later on, we will use **Express** (For Node/backend applications) and, later still, **webpack-dev-server** (for React/frontend or fullstack).
 
-In `server.js`,
-
-```
-let express = require('express');
-let path = require('path');
-let open = require('open');
-
-let port = 3000;
-let app = express();
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../src/index.html'))
-});
-
-app.listen(port, function(err) {
-  err ? console.log(err) : open('http://localhost:' + port);
-});
-```
-
-Note that the code above requires an `index.html` file.
-
-### Sharing Work
-
-This avoid having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
-
-**localtunnel**: `> npm i localtunnel`
-
-* Allows sharing via a _public_ URL
-* To use, add `> lt --port 3000` to your npm start script.
-
-### Automation
-
-Tools like **Grunt**, **Gulp**, **npm**, or your regular terminal are used to automated tasks. Just use **npm**/**yarn** (which uses the same packages.json file)
-
-In `package.json`, you can place a `"scripts:"` field to, bascially, declare what you want npm to do when you hit `npm run __w/e__`:
-
-```
-...
-"scripts": {
-  "start": "node src/server.js"
-}
-...
-```
-
-You can run the above by typing `> npm start` or `> npm run start`. Notice that you can omit the 'run' portion of the command in this case. This only works if you're trying to run `start` or `test`.
-
-npm also has something called _hooks_, which run at specific points. It's best seen via example:
-
-```
-...
-"scripts": {
-  "prestart": ....,
-  "start": "node src/server.js"
-  "poststart": ...,
-  "security-check": "nsp check",
-  "share": "lt --port 3000"
-}
-...
-```
-
-You can also run multiple commands simultaneously. When would you want to do this? An example would be times when you want to both start up an app and share it. Normally, you'd have to open 2 terminal sessions, one for each command, since each one takes over the terminal once run. npm can help us get around that limitation with `npm-run-all --parallel`. We can even write commands that we define separately, but within the same `scripts` object:
-
-```
-...
-"scripts": {
-  "prestart": ....,
-  "start": "npm-run-all --parallel security-check open:src",
-  "poststart": ...,
-  "open-src": "node src/server.js"
-  "security-check": "nsp check",
-  "localtunnel": "lt --port 3000",
-  "share": "npm-run-all --parallel open:src localtunnel"
-}
-...
-```
-
----
+**Install**: `> npm i -D http-server`.
+**Run**: `> node_modules/.bin/http-server src/index.js`
 
 ## Beyond JS
 
@@ -185,6 +147,11 @@ A **transpiler** is used in a build (dev, qa, prod, w/e) to translate these JS s
 
 ### ES6 with Babel
 
+**Sources**:
+
+1. Transpiling ESNext: https://babeljs.io/
+2. Everything About Babel: https://kleopetrov.me/2016/03/18/everything-about-babel/
+
 **Important**: Despite what the main website might say, as of this writing, Windows machines need to install Babel _globally_, not locally. No idea why and no idea if this affects Mac or Linux users. This is what I found for Windows machines. Install it using `> npm i -g babel-cli`. This will hopefully not be the case soon and we can just use Babel locally. The presets that Babel will transpile to, however, can be installed locally as of now, i.e. on a per-project basis. The recommended preset is simply called `env`, as in `> npm i babel-env`.
 
 Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, the plugins installed (yes, Babel is highly cofigurable and extensible):
@@ -198,6 +165,10 @@ Next comes configuration. This can be handled directly in package.json, but it i
 Do a quick VS Code reload and start testing it out!
 
 ### TypeScript (TS)
+
+**Sources**:
+
+1. Configuring TS - tsconfig.json: https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
 
 The other JS superset that is taking the community by storm is Microsoft's OO language, TypeScript. Technically, it's a superset of ES6. It's starting to pop up everywhere, so it's worth familiarizing with as well. Like ES6, it needs to be transpiled down into a JS version that browsers can understand. This is done using the TS compiler, which can be acquired using `npm i -g typescript`.
 
@@ -276,9 +247,13 @@ In the case of conflicts, the priority is set in the following order:
 2. Exclude
 3. Include
 
+---
+
 ## Linting and Formatting
 
 ### JS/ES6 with ESLint and Prettier
+
+1. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
 
 `> npm i --save-dev eslint prettier`
 

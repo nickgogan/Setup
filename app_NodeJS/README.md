@@ -29,8 +29,8 @@ Inspired by the following sources:
 
 # Round 1
 
-1. _General Project Setup_: A description of the supported projects and their commonalities.
-1. _Common Technologies_ : A description of those technologies that are used throughout the supported projects.
+1. JSDev Env Setup Notes - Coding environment setup in VS Code.
+1.
 
 # Round 2
 
