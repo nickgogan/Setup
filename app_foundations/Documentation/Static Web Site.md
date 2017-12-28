@@ -1,4 +1,4 @@
-# Web Sites
+# Static Web Sites
 
 Making a web site is not so simple any more, especially if you're doing it for a client. A good practice is to deliver the finished site + some extra materials, which may include:
 

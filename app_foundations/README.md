@@ -1,3 +1,9 @@
+My goals in putting this together:
+
+1. Have a starter kit for the projects I'm interested in.
+1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to follow along, adding any missing dependencies. The kit also has a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app/language logic.
+1. Give a sense of the standard parts expected from modern software.
+
 * [TODO](#todo)
 * [Setup](#setup)
   * [The foundation for all of my web development projects.](#the-foundation-for-all-of-my-web-development-projects)
@@ -42,7 +48,7 @@ Inspired by the following sources:
 
 ## Round 0
 
-1. _System Setup_: Chocolatey, PowerShell, basic VSC setup, and, optionally, Yarn.
+1. _Windows System Setup_: Chocolatey, PowerShell, basic VSC setup, and, optionally, Yarn.
 
 1. _VS Code Extensions_: A list of the VSC extensions I've found useful. `vscodeextensions.bat` is meant to install all of them in one shot, sequentially.
 
@@ -53,8 +59,8 @@ Inspired by the following sources:
 
 # Round 2
 
-1. Automated workflows using npm scripts
-1. Bundling with Webpack
+1. _NodeJS projects_
+1. _Static Web Sites_
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -68,6 +74,10 @@ Add Babel support for ReactJS
 # Round 3
 
 1. HTTP calls and mocking
+1. Bundling with Webpack
+
+# Round 4
+
 1. Adding a test suite
 
 # Round 4

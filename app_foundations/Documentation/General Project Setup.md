@@ -1,6 +1,6 @@
 **Assumptions**:
 
-1. Finished _System setup_ and
+1. Finished _Windows System setup_ and
 
 We'll be going over:
 
@@ -59,7 +59,7 @@ The following will be seen in all of the projects supported:
 1. https://yarnpkg.com/en/
 1. https://alligator.io/workflow/npx/
 
-The answer should be either `npm` or `yarn`. Either way works, choose whichever makes you happy. `npm` comes with `NodeJS`, so install NodeJS on your machine to get that going. To test, `> npm -v`. See the _System Setup_ doc on how to get up and running with Yarn (including having a local, offline mirror of your projects' dependencies).
+The answer should be either `npm` or `yarn`. Either way works, choose whichever makes you happy. `npm` comes with `NodeJS`, so install NodeJS on your machine to get that going. To test, `> npm -v`. See the _Windows System Setup_ doc on how to get up and running with Yarn (including having a local, offline mirror of your projects' dependencies).
 
 **npx**: Whenever you install a package using the `-g` flag (through either npm or yarn), that package gets added to your PATH system variable. This means that you can call that package through your terminal without having to know the path to its executable. This means that any locally installed packages will not work in the same way. An example, with the shell at the project root:
 
@@ -90,7 +90,8 @@ Yarn doesn't have this problem at all, which is nice: `> yarn http-server --help
 Since any rando can publish to npm, security is a bit of a concern. This pain point gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks.
 
 **Install**: `> npm i -D nsp`
-**Run**: `> npx nsp`
+
+**Run**: `> npx nsp check --reporter summary`
 
 # Sharing Work
 
@@ -99,8 +100,10 @@ Since any rando can publish to npm, security is a bit of a concern. This pain po
 This avoids having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
 
 **Install**: `> yarn add localtunnel --dev`
+
 **Test**: `yarn lt --version`
-**Run**: `> lt --port 3000`
+
+**Run**: `> yarn lt --port 3000`
 
 # Typings
 
@@ -131,6 +134,10 @@ Documentation is generated separately for JS and Sass files, using documentation
 
 JSDoc-style comments (annotations) are used at a minimum with documentation.js to add a documentation step to our dev workflow. These annotations can be automatically generated (mostly) with the following VSC extension: **Document This**. With the cursor on a defining piece of code, e.g. function declaration or a class, the following shortcut will generate the comment structure: _Ctrl+Alt+D_
 
+**Install**: `> npm i -D documentation`
+
+**Run**: `> npx documentation build src/functionality/** -f html -o docs/js`
+
 ```
 class Book {
   constructor({title, author, publicationYear}) {
@@ -147,7 +154,7 @@ Would become, with manual addition from me of the <\*> parts to indicate what yo
 
 ```
 /**
- * <Curson goes here for description>
+ * <Cursor goes here for description>
  *
  * @class Book
  */
@@ -161,7 +168,7 @@ class Book {
   }
 }
 /**
- * <Curson goes here for description>
+ * <Cursor goes here for description>
  *
  * @param {any} {displayName, fullName: {firstName: name}}  <description>
  */
@@ -170,10 +177,17 @@ function whois({displayName, fullName: {firstName: name}}) {
 }
 ```
 
-Notice the {any} in @param {any} - This is supposed to be the function parameter's type. Since this is vanilla ES2015, it won't have any. This can be remedied by installing Flow, #flow.
+Notice the `{any}` in @param {any} - This is supposed to be the function parameter's type. Since this is vanilla ES2015, it won't have any. This can be remedied by installing Flow, #flow.
 
 ## Documentation-Style
 
 **Sources**:
 
 1. http://sassdoc.com/annotations/
+1. http://sassdoc.com/file-level-annotations/
+
+The idea is much the same as with documentation for JS files. Just read the short sources above and you'll get the idea.
+
+**Install**: `> yarn add sassdoc --dev`
+
+**Run**: `> yarn sassdoc src/styles -d docs/styles`
