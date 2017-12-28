@@ -2,6 +2,18 @@
 
 #### Published on: December 26th, 2017
 
+* [Chocolatey - A package manager for Windows](#chocolatey---a-package-manager-for-windows)
+  * [Sources:](#sources)
+* [PowerShell (PS)](#powershell-ps)
+* [IDE - Visual Studio Code (VSC)](#ide---visual-studio-code-vsc)
+* [Option 1: Cmder](#option-1-cmder)
+* [Option 2: PS](#option-2-ps)
+* [Option 3: Integrating Both by Adding More Terminals](#option-3-integrating-both-by-adding-more-terminals)
+* [Optional](#optional)
+  * [Matching VSC](#matching-vsc)
+  * [Yarn](#yarn)
+    * [Setting up an _offline mirror_](#setting-up-an-offline-mirror)
+
 ## Chocolatey - A package manager for Windows
 
 ### Sources:
