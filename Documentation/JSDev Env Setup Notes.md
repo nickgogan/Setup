@@ -1,3 +1,26 @@
+* [JS Environment Setup in VS Code](#js-environment-setup-in-vs-code)
+  * [**Sources**:](#sources)
+  * [VSC Language Features](#vsc-language-features)
+  * [JavaScript](#javascript)
+    * [Package Management](#package-management)
+    * [Package Security](#package-security)
+    * [Sharing Work](#sharing-work)
+    * [Automation](#automation)
+    * [Development Web Servers](#development-web-servers)
+  * [Beyond JS](#beyond-js)
+    * [ES6 with Babel](#es6-with-babel)
+    * [TypeScript (TS)](#typescript-ts)
+    * [Both?](#both)
+  * [Linting and Formatting](#linting-and-formatting)
+    * [JS/ES6 with ESLint and Prettier](#jses6-with-eslint-and-prettier)
+    * [TypeScript with TSLint and Prettier](#typescript-with-tslint-and-prettier)
+  * [Static File Checking with Flow](#static-file-checking-with-flow)
+  * [Automatic Documentation](#automatic-documentation)
+  * [Automated Tasks with npm](#automated-tasks-with-npm)
+* [Round 2](#round-2)
+* [Round 3](#round-3)
+* [Round 4](#round-4)
+
 # JS Environment Setup in VS Code
 
 1. Implementing language-specific features in Visual Studio Code (VSC).
@@ -9,40 +32,9 @@
 
 7. ESLint + Babel + Webpack + React: https://www.robinwieruch.de/react-eslint-webpack-babel/
 
-## VSC Language Features
-
-VSC gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. The IDE comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev-time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
-
-**WARNING**: Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
-
-Why do this when we have tools like ESLint or TSLint? Because those tools are more specific and sometimes do not have what we need. There is nothing wrong with taking a little bit from all of them when putting together a project's tools. Just make sure that conflicts are properly handled.
-
-Some examples to get you started:
-
-```
-> yarn add @types/node @types/express @types/angular @types/reac --dev
-```
-
 ---
 
 ## JavaScript
-
-### Package Management
-
-The answer should be either `npm` or `yarn`. Either way works, choose whichever makes you happy. `npm` comes with `NodeJS`, so install NodeJS on your machine to get that going. To test, `> npm -v`. See the _System Setup_ doc on how to get up and running with Yarn (including having a local, offline mirror of your projects' dependencies).
-
-### Package Security
-
-Since any rando can publish to npm, security is a bit of a concern. This pain point gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks: `> npm i -g nsp`.
-
-### Sharing Work
-
-This avoids having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
-
-**localtunnel**: `> npm i localtunnel`
-
-* Allows sharing via a _public_ URL
-* To use, add `> lt --port 3000` to your npm start script.
 
 ### Automation
 
@@ -391,7 +383,7 @@ Todo: npm-run-all sequentially and in parallel. Show examples of compound script
 
 # Round 2
 
-1. Automated workflows using npm scripts
+1. HTTP calls and mocking
 1. Bundling with Webpack
 
 <!-- 12. ReactJS support
@@ -405,10 +397,9 @@ Add Babel support for ReactJS
 
 # Round 3
 
-1. HTTP calls and mocking
 1. Adding a test suite
 
 # Round 4
 
+1. Containers with Docker
 1. Continuous integration
-1. Continuous delivery
