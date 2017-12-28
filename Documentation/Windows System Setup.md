@@ -124,7 +124,7 @@ I've found the following to be nice-to-have's, but not critical to running.
 
 ## Matching VSC
 
-In the _VSCode_ folder, run the `vscodeextensions.bat` file to install the same extensions that I have. `keybindings.json` and `settings.json` files might also be useful for you, so feel free to take whatever you like from there. `github-markdown.css` makes VSC show you Markdown previews that approximate what you'd get on GitHub, since that's the primary distribution platform I'm writing for. If you really wanna copy my setup, I also included the theme file I use `Ayu Mirage Mod-color-theme.json`, which I slightly modified for myself.
+In the _VSCode_ folder, run the `vscodeextensions.bat` file to install the same extensions that I have. `keybindings.json` and `settings.json` files might also be useful for you, so feel free to take whatever you like from there. `github-markdown.css` makes VSC show you Markdown previews that approximate what you'd get on GitHub, since that's the primary distribution platform I'm writing for. If you really wanna copy my setup, I also included the theme file I use `Ayu Mirage Mod-color-theme.json`, which I slightly modified for myself. The font my IDE uses is called _FiraCode_: https://github.com/tonsky/FiraCode
 
 The _snippets_ folder contains exactly what it sounds. Note that `html.json/HTML5BP` contains a webpage boilerplate that was taken from the latest version of the HTML5 Boilerplate project (v6.0.1).
 

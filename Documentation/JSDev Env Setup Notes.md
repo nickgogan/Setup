@@ -243,31 +243,6 @@ In the case of conflicts, the priority is set in the following order:
 
 ## Linting and Formatting
 
-### JS/ES6 with ESLint and Prettier
-
-1. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
-
-`> npm i --save-dev eslint prettier`
-
-We need guidelines to judge against and AirBnb's has become the de-facto standard: `> npm i --save-dev eslint-config-airbnb`. To use this styleguide, we need to install its peer dependancies: `> install-peerdeps --dev eslint-config-airbnb`. Finally, we want to run code through Prettier first, to format it, and pipe the results into ESLint for further processing using its automatic `--fix` flag: `> npm i prettier-eslint`.
-
-All the software is now installed, so we're ready to configure. Create the `.eslintrc` file at the project root and grab the settings from my file (it's too long to include here).
-
-Ok, let's now integrate all of this into VS Code iteself. Go to _User Settings_, search for `prettier.eslintIntegrations`, and set it to `true`. While there, set the following as well:
-
-```
-  "eslint.autoFixOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.eslintIntegration": true,
-  "javascript.format.enable": false,
-```
-
-Some useful _plugins_ for ESLint:
-
-1. JSON: `> npm i --save-dev eslint-plugin-json`
-2. HTML/XML: `> npm i --save-dev eslint-plugin-html`
-
 ### TypeScript with TSLint and Prettier
 
 You know how this goes by now. We're going to install tslint and and the package that makes it play nice with Prettier (which you should have installed earlier):

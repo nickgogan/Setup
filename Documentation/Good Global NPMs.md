@@ -19,3 +19,5 @@
 1. nodemon (`> yarn global add nodemon`): Watches files for changes and automatically reloads them.
 
 1. Flow (`> yarn global add flow-bin`): Add static typing to JS files and, with JSDoc, provides documentation.js enough info to automatically generate documentation.
+
+1. npm-install-missing: Finds and installs missing sub-module dependencies. It basically combines, `npm outdated` and `npm install`.

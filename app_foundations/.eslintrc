@@ -1,6 +1,5 @@
 {
   "extends": ["airbnb", "prettier"],
-  //"plugins": ["import"] airbnb already supports react and its dependencies.
   "plugins": ["json", "html"],
   "settings": {
     "html/html-extensions": ["html", "htm", "xml"],
