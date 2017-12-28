@@ -3,12 +3,11 @@
 #### Published on: December 26th, 2017
 
 * [Chocolatey - A package manager for Windows](#chocolatey---a-package-manager-for-windows)
-  * [Sources:](#sources)
 * [PowerShell (PS)](#powershell-ps)
 * [IDE - Visual Studio Code (VSC)](#ide---visual-studio-code-vsc)
-* [Option 1: Cmder](#option-1-cmder)
-* [Option 2: PS](#option-2-ps)
-* [Option 3: Integrating Both by Adding More Terminals](#option-3-integrating-both-by-adding-more-terminals)
+  * [Option 1: Cmder](#option-1-cmder)
+  * [Option 2: PS](#option-2-ps)
+  * [Option 3: Integrating Both by Adding More Terminals](#option-3-integrating-both-by-adding-more-terminals)
 * [Optional](#optional)
   * [Matching VSC](#matching-vsc)
   * [Yarn](#yarn)
@@ -64,7 +63,7 @@ We'll be integrating your system's terminal into VSC so you don't have to switch
 
 Just scroll down to the section that pertains to you.
 
-## Option 1: Cmder
+### Option 1: Cmder
 
 **Sources:**
 
@@ -94,13 +93,13 @@ Then, in the same left pane, search for `"terminal.integrated.shellArgs.windows"
 
 Reload VS Code and it should appear more or less like Cmder. If the terminal doesn't automatically appear on startup, call it using **Ctrl+`**.
 
-## Option 2: PS
+### Option 2: PS
 
 If, instead of cmder, you want to integrate PS, then follow this section.
 
 Open your _User Settings_ using **Ctrl+,** and search for `'terminal.integrated.shell.windows'` in the left pane. It'll come up with a Windows path to the cmd.exe file. Modify it as above with the path to your PS, such as (for 64bit Windows): `"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe".`
 
-## Option 3: Integrating Both by Adding More Terminals
+### Option 3: Integrating Both by Adding More Terminals
 
 My personal favorite is to integrate Cmder as the default shell that VSC will open upon starting up. Then, if we wish, we can call up a PS instance using a VSC extension that allows for setup of any number of different shells.
 
@@ -136,7 +135,14 @@ I've found the following to be nice-to-have's, but not critical to running.
 
 ## Matching VSC
 
-In the _VSCode_ folder, run the `vscodeextensions.bat` file to install the same extensions that I have. `keybindings.json` and `settings.json` files might also be useful for you, so feel free to take whatever you like from there. `github-markdown.css` makes VSC show you Markdown previews that approximate what you'd get on GitHub, since that's the primary distribution platform I'm writing for. If you really wanna copy my setup, I also included the theme file I use `Ayu Mirage Mod-color-theme.json`, which I slightly modified for myself. The font my IDE uses is called _FiraCode_: https://github.com/tonsky/FiraCode
+**Extensions**: In the _VSCode_ folder, run the `> vscodeextensions.bat` file to install the same extensions that I have.
+
+**Config files**:
+
+1. _keybindings.json_: Some useful ones include reloading the editor and opening Shell Launcher's palette. Note that some VSC extensions will overwrite its default, built-in keybindings. For those cases, providing your own will resolve the issue.
+1. _settings.json_: VSC settings that make the various sw play nicely together in the IDE and, in some cases, with each other. The easiest thing to do is to overwrite your with mine. That way, when you install packages as we go along, they will automatically work together. I will, however, provide this info piecemeal, as we go through these tutorials.
+1. _github-markdown.css_: Makes VSC show you Markdown previews that approximate what you'd get on GitHub, since that's the primary distribution platform I'm writing for.
+1. _Ayu Mirage Mod-color-theme.json_: If you really wanna copy my setup, I also included the theme file I use, which I slightly modified for myself. The font my IDE uses is called _FiraCode_: https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
 
 The _snippets_ folder contains exactly what it sounds. Note that `html.json/HTML5BP` contains a webpage boilerplate that was taken from the latest version of the HTML5 Boilerplate project (v6.0.1).
 
