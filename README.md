@@ -5,27 +5,13 @@ My goals in putting this together:
 1. Give a sense of the standard parts expected from modern software.
 
 * [TODO](#todo)
-* [Setup](#setup)
-  * [The foundation for all of my web development projects.](#the-foundation-for-all-of-my-web-development-projects)
 * [Please read the Documentation/\* files in the following order:](#please-read-the-documentation-files-in-the-following-order)
   * [Round 0](#round-0)
 * [Round 1](#round-1)
 * [Round 2](#round-2)
 * [Round 3](#round-3)
 * [Round 4](#round-4)
-
-# TODO
-
-Move all personal files to a separate repo.
-
-1. _Browser/_: This is a collection of browser snippets I put together from various online resources. These won't be used in this tutorial series, so feel free to get rid of them now.
-1. _docs/_: This directory is automatically made later on, so it can go for now.
-1. _Documentation/_: The files containing this tutorial, so you won't be needing that.
-1. _node_modules/_ and _yarn-offline-mirror/_: You'll need to eventually run `> npm install` or `> yarn install`, so get rid of these. _yarn-offline-mirror/_ is my local, offline dependencies folder that I mainain for my system. You probably want to make your own.
-
-# Setup
-
-## The foundation for all of my web development projects.
+* [Round 4](#round-4)
 
 Inspired by the following sources:
 
@@ -37,6 +23,15 @@ Inspired by the following sources:
 
 3. PluralSight - Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
+
+# TODO
+
+Move all personal files to a separate repo.
+
+1. _Browser/_: This is a collection of browser snippets I put together from various online resources. These won't be used in this tutorial series, so feel free to get rid of them now.
+1. _docs/_: This directory is automatically made later on, so it can go for now.
+1. _Documentation/_: The files containing this tutorial, so you won't be needing that.
+1. _node_modules/_ and _yarn-offline-mirror/_: You'll need to eventually run `> npm install` or `> yarn install`, so get rid of these. _yarn-offline-mirror/_ is my local, offline dependencies folder that I mainain for my system. You probably want to make your own.
 
 ---
 
@@ -80,7 +75,7 @@ Add Babel support for ReactJS
 
 1. Adding a test suite
 
-# Round 4
+# Round 5
 
 1. Continuous integration
 1. Continuous delivery
