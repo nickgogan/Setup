@@ -1,7 +1,7 @@
-// @flow
+// @ts-check
 
-import Test from './test';
-// TEST
-const myObject1 = new Test();
+const Test = require('./test.js').Car;
 
-console.log(myObject1.fullName);
+const Test2 = new Test('test', 'test', 'test');
+
+console.log(Test2);

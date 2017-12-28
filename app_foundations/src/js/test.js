@@ -1,12 +1,9 @@
-// @flow
+// @ts-check
 
-/**
- * General Description
- *
- * @class Person
- */
-class Person {
-  fullName: 'John doe';
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
 }
 
-export default Person;
+module.exports = { Car };
