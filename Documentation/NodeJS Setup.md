@@ -8,21 +8,7 @@ Complete _Windows System Setup_.
 
 Complete the following Gist: https://gist.github.com/nickgogan/84b0dbb5328ffeafbd6358a235a01db6
 
-# Project Structure and Shells
-
-The project structure has the app being developed in _src/_ and the final product in _dist/_. All config files are found at the root of the project,at the same level as those two folders.
-
-The shells used are those integrated into VSC as part of _Windows System Setup_.
-
 # Package Management
-
-**Sources**:
-
-1. https://nodejs.org/en/
-1. https://yarnpkg.com/en/
-1. https://alligator.io/workflow/npx/
-
-Packaged will be handled via **npm/npx**. **npm** is a package manager that comes bundled with **NodeJS**. If you haven't installed NodeJS, do so now (the LTS version is fine).
 
 **npx** is a tool that allows you to use locally-installed packages as though they were global. Whenever you install a package using the `-g` flag, that package gets added to your PATH system variable. This means that you can call that package through your terminal without having to know the path to its executable. The other end of that is that any locally installed packages will not work in the same way. An example, with the shell at the project root:
 
@@ -42,18 +28,9 @@ If you want to call those packages without traveling to the _node_modules/.bin/_
 
 Fun fact: Yarn doesn't have this problem at all, which is nice: `> yarn http-server --help`
 
-# Package Security
-
-**Sources**:
-
-1. https://nodesecurity.io/
-1. https://www.youtube.com/watch?v=Wx3WlQLFa3w
-1. https://www.youtube.com/watch?v=RDwOZ6vQGKo
-
-Since any rando can publish to npm, security is a bit of a concern. This pain point gets alleviated by including **Node Security Platform (NSP)** as part of your workflow. We'll just install it for now and, later on, we'll see how to include it in automated npm tasks.
+# Package Security - nsp
 
 **Install**: `> npm i -D nsp`
-
 **Run**: `> npx nsp check --reporter summary`
 
 # Module Management

@@ -1,38 +1,4 @@
-* [JS Environment Setup in VS Code](#js-environment-setup-in-vs-code)
-  * [**Sources**:](#sources)
-  * [VSC Language Features](#vsc-language-features)
-  * [JavaScript](#javascript)
-    * [Package Management](#package-management)
-    * [Package Security](#package-security)
-    * [Sharing Work](#sharing-work)
-    * [Automation](#automation)
-    * [Development Web Servers](#development-web-servers)
-  * [Beyond JS](#beyond-js)
-    * [ES6 with Babel](#es6-with-babel)
-    * [TypeScript (TS)](#typescript-ts)
-    * [Both?](#both)
-  * [Linting and Formatting](#linting-and-formatting)
-    * [JS/ES6 with ESLint and Prettier](#jses6-with-eslint-and-prettier)
-    * [TypeScript with TSLint and Prettier](#typescript-with-tslint-and-prettier)
-  * [Static File Checking with Flow](#static-file-checking-with-flow)
-  * [Automatic Documentation](#automatic-documentation)
-  * [Automated Tasks with npm](#automated-tasks-with-npm)
-* [Round 2](#round-2)
-* [Round 3](#round-3)
-* [Round 4](#round-4)
-
-# JS Environment Setup in VS Code
-
-1. Implementing language-specific features in Visual Studio Code (VSC).
-1. Setting up a minimal JS/TS development environment (DevEnv).
-
-## **Sources**:
-
-6. ESLint + Prettier + VS Code: https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/
-
 7. ESLint + Babel + Webpack + React: https://www.robinwieruch.de/react-eslint-webpack-babel/
-
----
 
 ## JavaScript
 
@@ -241,40 +207,6 @@ In the case of conflicts, the priority is set in the following order:
 
 ---
 
-## Linting and Formatting
-
-### TypeScript with TSLint and Prettier
-
-You know how this goes by now. We're going to install tslint and and the package that makes it play nice with Prettier (which you should have installed earlier):
-`> npm i -D tslint tslint-config-prettier`
-
-To configure, create a `tslint.json` file and add:
-
-```
-{
-  "extends": [
-    "tslint:latest",
-    "tslint-config-prettier"
-  ]
-}
-```
-
-Let's now get the best of both TSLint and ESLint with this package:
-`> npm i -D tslint-eslint-rules`. Expand the `tslint.json` file like this:
-
-```
-{
-  "extends": [
-    "tslint:latest",
-    "tslint-config-prettier"
-    "tslint-eslint-rules"
-  ],
-  "rules": {
-    "no-constant-condition": true
-  }
-}
-```
-
 ## Static File Checking with Flow
 
 TypeScript provides type checking for JS by providing a classic OOP language. The tsc transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
@@ -348,18 +280,7 @@ The same will eventually be done with documentation. We are already kind of ther
 
 Humble npm, which hooks onto whatever your OS uses as its shell, is all you need to do your task running. Don't add more tech debt/another abstraction layer, such as Gulp or Grunt, unless they can bring your project functionality that you can't get from npm (without an insane amount of work, that is). Each technology/layer of abstraction adds more to your plate in terms of things to keep track of and in terms of possible places your project can break. The same goes for npm dependencies, or anything else that's part of your project really. The more you add, the more potential points of failure you create. So, make sure the value proposition for your additions are air-tight.
 
-Todo: Add some actual scripts to showcase how this works.
-Todo: Explain
-Todo: npm-run-all sequentially and in parallel. Show examples of compound scripts.
-
-##
-
 ---
-
-# Round 2
-
-1. HTTP calls and mocking
-1. Bundling with Webpack
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -369,12 +290,3 @@ If you want to avoid ES2015 class syntax:
 > npm install create-react-class
 Add Babel support for ReactJS
 > npm install babel-preset-react -->
-
-# Round 3
-
-1. Adding a test suite
-
-# Round 4
-
-1. Containers with Docker
-1. Continuous integration

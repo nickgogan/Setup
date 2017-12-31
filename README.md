@@ -13,16 +13,10 @@
 My goals in putting this together:
 
 1. Have a starter kit for the projects I'm interested in.
-1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to follow along, adding any missing dependencies. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app/language logic.
+1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to code along, adding any missing dependencies as you go. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app/language logic.
 1. Give a sense of the standard parts expected from modern software.
 
-To do this, I have assembled 3 starter kit projects, which are _app_foundations_, _app_StaticWebSite_, and _app_NodeJS_.
-
-My working definition of a starter kit project is that each project is characterized by:
-
-1. **Intended output**, e.g. a static web site for _app_StaticWebSite_.
-1. **Checklist subset**, based on the checklist below.
-1. **Set of workflows**, enabled with the `package.json` tasks.
+To do this, I have assembled 3 starter kit projects, which are _Foundations Setup_, _Static Web Sites Setup_, and _NodeJS Setup_.
 
 Inspired by the following sources:
 
@@ -46,7 +40,7 @@ Inspired by the following sources:
 1. Linting (ESLint, TSLint)
 1. Formatting (Prettier)
 1. Transpiling (Babel, tsc)
-1. IntelliSense with Typings
+1. VSC IntelliSense with Typings (@typings/\*)
 1. Development Web Server (lite-server, Express, webpack-dev-server, etc...)
 1. Documentation (documentation.js, sassdoc, etc...)
 1. Sharing work (localtunnel)
@@ -83,13 +77,12 @@ Move all personal files to a separate repo.
 
 # Round 1
 
-1. _Technologies Overview_ : A description of those technologies that are used throughout the supported projects.
-1.
+1. _Checklist Overview_: In this section, I go through each checklist item and provide some answers with sources.
 
 # Round 2
 
-1. _NodeJS projects_
-1. _Static Web Sites_
+1. _NodeJS Setup_
+1. _Static Web Sites Setup_
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -111,5 +104,5 @@ Add Babel support for ReactJS
 
 # Round 5
 
+1. Containers with Docker
 1. Continuous integration
-1. Continuous delivery

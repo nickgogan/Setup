@@ -1,19 +1,3 @@
-# Technologies
-
-The following will be seen in all of the projects supported:
-
-1. npm/yarn: #package-management
-1. Node Security Platform: #package-security
-1. Local Tunnel: #sharing-work
-1. Typings: #typings
-1. Babel: #babel
-1. Documentation.js: #documentation-js
-1. ESLint + Prettier: #syntax-help
-1. sassdoc: #documentation-styling
-1. Node Security Platform: #nsp
-1. TSLint: This is mainly for VSC to provide some IntelliSense.
-1. Local Tunnel: #lt
-
 # Typings
 
 VSC gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. The IDE comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev-time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
@@ -100,46 +84,3 @@ The idea is much the same as with documentation for JS files. Just read the shor
 **Install**: `> yarn add sassdoc --dev`
 
 **Run**: `> yarn sassdoc src/styles -d docs/styles`
-
-# Syntax Help
-
-1. ESLint using AirBnb's styleguide: https://www.npmjs.com/package/eslint-config-airbnb
-
-Linting and formatting in VSC can be effectively done using **ESLint** and **Prettier**. They both have extensions that integrate them into VSC and can be configured to mutually reinforce each other. Prettier will have the auto-formatting first. Then ESLint will automatically fix syntax problems it sees, such as missing semicolons.
-
-**Install**: `> npm i --save-dev eslint prettier`
-
-We need guidelines to judge against and AirBnb's has become the de-facto standard:
-**Install**: `> npm i --save-dev eslint-config-airbnb`, `> install-peerdeps --dev eslint-config-airbnb`.
-
-Finally, we want to run code through Prettier first, to format it, and then pipe the results into ESLint for further processing using its automatic `--fix` flag:
-**Install**: `> npm i prettier-eslint`.
-
-All the software is now installed, so we're ready to configure. Create the `.eslintrc` file at the project root and grab the settings from my file (it's too long to include here): https://github.com/nickgogan/Setup/blob/master/app_foundations/.eslintrc
-
-Set up `.eslintignore` in the same place and add:
-
-```
-# /node_modules/* and /bower_components/* ignored by default
-
-# Ignore built files except build/index.js
-dist/*
-
-# Ignore vendor libraries not from npm
-vendors/*
-```
-
-Ok, let's now integrate all of this into VS Code iteself. Go to _User Settings_, search for `prettier.eslintIntegrations`, and set it to `true`. While there, set the following as well:
-
-```
-  "eslint.autoFixOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
-  "prettier.eslintIntegration": true,
-  "javascript.format.enable": false,
-```
-
-Some useful _plugins_ for ESLint:
-
-1. JSON: `> npm i --save-dev eslint-plugin-json`
-2. HTML/XML: `> npm i --save-dev eslint-plugin-html`
