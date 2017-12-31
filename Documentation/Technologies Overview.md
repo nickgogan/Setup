@@ -177,7 +177,7 @@ Some useful _plugins_ for ESLint:
 
 ## TypeScript
 
-You know how this goes by now. We're going to install tslint and and the package that makes it play nice with Prettier (which you should have installed earlier):
+You know how this goes by now. We're going to install **TSLint** and the package that makes it play nice with Prettier (which you should have installed earlier):
 `> npm i -D tslint tslint-config-prettier`
 
 To configure, create a `tslint.json` file and add:
@@ -207,7 +207,213 @@ Let's now get the best of both TSLint and ESLint with this package:
 }
 ```
 
-# Automation with npm
+If you checked out the _VS Code Extensions_, you'd have seen that TSLint can also be integrated directly into VSC through the **TSLint extension**.
+
+# Transpiling
+
+**Sources**: 1.
+
+# IntelliSense in VSC
+
+**Sources**:
+
+1. https://code.visualstudio.com/docs/editor/intellisense
+1.
+
+## Typings
+
+VSC gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. The IDE comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev-time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
+
+**WARNING**: Prior to TypeSript 2.0, the most commonly-used tool to manage and install type definition files was `typings`. Post-TS-2.0, `npm @types` is used. **_Always_** check the publication date of any article, tutorial, course, or tool you are using. There may be deprecated information contained that will have you going down rabbit holes that are no longer relevant or useful.
+
+Why do this when we have tools like ESLint or TSLint? Because those tools are more specific and sometimes do not have what we need. There is nothing wrong with taking a little bit from all of them when putting together a project's tools. Just make sure that conflicts are properly handled.
+
+Some examples to get you started:
+
+```
+> yarn add @types/node @types/express @types/angular @types/reac --dev
+```
+
+## JS - Static File Checking with Flow
+
+TypeScript provides type checking for JS by providing a classic OOP language. The tsc transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
+
+For folks that are still working in JS, like people developing in Node or React, there are two solutions I can introduce. The first comes built-in with VS Code and it involes just dropping a quick pragma (i.e. a 1-liner at the top of your working file) called `//@ts-check`. So, your file would look like this:
+
+```
+//@ts-check
+let myNum = 42;
+myNum = '42'; //This would lead to a TypeError, thrown by VS Code's [js] checker.
+```
+
+This is a very low-friction way to add at least some type safety to your projects and will prevent headaches down the line. Combine this with ESLint, Prettier, and VS Code's powerful debugging capabilities and you get a pretty smooth dev experience.
+
+Another solution, which I prefer for reasons discussed in the next section on documentation, come from Facebook and is called Flow. It allows you to add types directly inline with your code and the cli will yell at you if those rules are violated. The syntax is pretty much the same as the type annotations you see in TS:
+
+```
+//@flow
+class Greeter {
+  private counter: number = 0;
+  constructor(public name: string) {};
+
+  hello(): string {
+    return `Hello ${this.name} ${this.incrementedCounter()}. time!`;
+  }
+
+  private incrementedCounter(): number {
+    return ++this.counter;
+  }
+}
+```
+
+Now, install Flow itself: `> yarn add --dev flow-bin`. Now, time to configure Flow:
+`> yarn run flow init` to generate the `.flowconfig` file. At its most basic level, .flowconfig tells the Flow background process the root of where to begin checking Flow code for errors.
+
+To get started in actually using Flow, we need to integrate it with Babel to strip out those annotations before running the code through Node or a browser, or w/e. This is done with a Babel preset:
+`> yarn add --dev babel-preset-flow`
+Next, add this to your `.babelrc` config file:
+`"presets": ["flow"]` Obviously, if you have other presets, just add "flow" as another array item.
+
+We also want to integrate flow with ESLint, so that can tell us if we're forgetting to add our annotations:
+`> yarn add --dev eslint-plugin-flowtype`. Then, in the `.eslintrc` file, add this info:
+
+```
+"extends": ["prettier/flowtype],
+"plugins": ["flowtype"]
+```
+
+In the `.flowconfig` file, add this:
+
+```
+[ignore]
+.*/node_modules/*
+.*/dist/*
+```
+
+The final part is integrating Flow with VS Code. This is done using the **Flow Language Support** extension, which will create a new Output console that continuously runs in the background as you code, the same as with ESLint and Prettier.
+
+Note: Flow uses its own version of typings to showcase corrections. These are NOT the same as those used by TS/typings, which we discussed earlier. If you want to use both, you'd have to maintain both separately, which is silly. Some reasearch into this shows that there isn't a solution that combines both yet. So, in the meantime, I have learned that there is a larger number of typings for TS and that they are more reliable. So, for stuff that Flow doesn't cover out of the box, just grab a `@types` library from npm and let VS Code's TS do that work. Just use Flow to do the barebones type checking during dev time to catch errors.
+
+If this were all that Flow provided, I wouldn't recommend it. But, it edges out over `@ts-check` because it can make it drastically easier to automatically document your JS code.
+
+# Development Web Servers
+
+**Sources**: 1.
+
+We have several options:
+
+1. **http-server**:
+
+* Very simple, serves the current directory
+* Live reload
+
+2. **Express**
+
+* Comprehensive and highly configurable
+* Production-grade
+* Can run anywhere
+
+3. **Webpack Dev Server**
+
+* Built directly into the Webpack bundler
+* Serves from memory, as opposed to writing to disk. This makes it fast to see your changes.
+* Supports _hot-reloading_, which means you can instantly see your changes on-screen, no matter how large.
+
+4. **lite-server**
+
+We'll start with **http-server**, since it works out of the box without any configuration. Later on, we will use **Express** (For Node/backend applications) and, later still, **webpack-dev-server** (for React/frontend or fullstack).
+
+**Install**: `> npm i -D http-server`.
+**Run**: `> node_modules/.bin/http-server src/index.js`
+
+# Documentation
+
+Documentation is generated separately for JS and Sass files, using documentation.js and sassdoc, respectively. The output I use is html, but I think these tools have other formats.
+
+## Documentation: JS
+
+**Sources**:
+
+1. https://github.com/documentationjs/documentation 1.https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
+1. http://usejsdoc.org/about-getting-started.html
+
+JSDoc-style comments (annotations) are used at a minimum with documentation.js to add a documentation step to our dev workflow. These annotations can be automatically generated (mostly) with the following VSC extension: **Document This**. With the cursor on a defining piece of code, e.g. function declaration or a class, the following shortcut will generate the comment structure: _Ctrl+Alt+D_
+
+**Install**: `> npm i -D documentation`
+
+**Run**: `> npx documentation build src/functionality/** -f html -o docs/js`
+
+```
+class Book {
+  constructor({title, author, publicationYear}) {
+    Object.assign(this, {title, author, publicationYear});
+  }
+}
+
+function whois({displayName, fullName: {firstName: name}}) {
+  console.log(displayName + ' is ' + name);
+}
+```
+
+Would become, with manual addition from me of the <\*> parts to indicate what you need to input:
+
+```
+/**
+ * <Cursor goes here for description>
+ *
+ * @class Book
+ */
+class Book {
+  constructor({title, author, publicationYear}) {
+    Object.assign(this, {title, author, publicationYear});
+  }
+
+  toString() {
+    console.log(`${title}, by ${author}. Published in ${publicationYear}`);
+  }
+}
+/**
+ * <Cursor goes here for description>
+ *
+ * @param {any} {displayName, fullName: {firstName: name}}  <description>
+ */
+function whois({displayName, fullName: {firstName: name}}) {
+  console.log(displayName + ' is ' + name);
+}
+```
+
+Notice the `{any}` in @param {any} - This is supposed to be the function parameter's type. Since this is vanilla ES2015, it won't have any. This can be remedied by installing Flow, #flow.
+
+## Documentation: Sass
+
+**Sources**:
+
+1. http://sassdoc.com/annotations/
+1. http://sassdoc.com/file-level-annotations/
+
+The idea is much the same as with documentation for JS files. Just read the short sources above and you'll get the idea.
+
+**Install**: `> yarn add sassdoc --dev`
+
+**Run**: `> yarn sassdoc src/styles -d docs/styles`
+
+# Sharing Work
+
+**Sources**:
+
+1. https://localtunnel.github.io/www/
+
+**Local tunnel** is used to open your project to the world via URL. It's totally insecure, but very easy to get up and running with it - just share the URL that it produces and that person can then access your running project.
+
+This avoids having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
+
+**Install**: `> yarn add localtunnel --dev`
+
+**Test**: `yarn lt --version`
+
+**Run**: `> yarn lt --port 3000`
+
+# Build/Task Management
 
 **Sources**:
 

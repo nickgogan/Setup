@@ -43,15 +43,3 @@ Fun fact: Yarn doesn't have this problem at all, which is nice: `> yarn http-ser
 1. https://darrenderidder.github.io/talks/ModulePatterns/#/
 
 This part depends on how you answer the Transpilation item. If you're going to use **Babel**, then use **ES6 Modules**. If you're going to use regular NodeJS without transpilation, then you can use either **CommonJS** or **AMD** modules.
-
-# Sharing Work
-
-**Local tunnel** is used to open your project to the world via URL. It's totally insecure, but very easy to get up and running with it - just share the URL that it produces and that person can then access your running project.
-
-This avoids having to configure stuff like Azure, AWS, etc... to just share work from your local machine. Obviously, don't use these for production deployments.
-
-**Install**: `> yarn add localtunnel --dev`
-
-**Test**: `yarn lt --version`
-
-**Run**: `> yarn lt --port 3000`

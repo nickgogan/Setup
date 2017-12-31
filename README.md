@@ -8,6 +8,8 @@
 * [Round 4](#round-4)
 * [Round 5](#round-5)
 
+Intended product -> checklist subset -> workflows (as instantiated in the scripts section of package.json).
+
 # Repo Goals
 
 My goals in putting this together:
@@ -40,15 +42,15 @@ Inspired by the following sources:
 1. Linting (ESLint, TSLint)
 1. Formatting (Prettier)
 1. Transpiling (Babel, tsc)
-1. VSC IntelliSense with Typings (@typings/\*)
+1. IntelliSense (@typings/\* in VSC and configs)
 1. Development Web Server (lite-server, Express, webpack-dev-server, etc...)
 1. Documentation (documentation.js, sassdoc, etc...)
 1. Sharing work (localtunnel)
+1. Bundling with sourcemaps, minification, concatenation, spriting (for images), and compression (TBD)
 1. Build/Task management (npm with npx, yarn, gulp, grunt, etc...)
 1. Dynamic HTML generation (TBD)
 1. Centralized HTTP (TBD)
 1. Mocking framework (TBD)
-1. Bundling with sourcemaps, minification, concatenation, spriting (for images), and compression (TBD)
 1. Testing suite (TBD)
 1. Deployment (TBD)
 

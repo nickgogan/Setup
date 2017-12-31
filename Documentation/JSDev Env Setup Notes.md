@@ -48,38 +48,6 @@ You can also run multiple commands, either sequentially or simultaneously. When 
 ...
 ```
 
-### Development Web Servers
-
-We have several options:
-
-1. **http-server**:
-
-* Very simple, serves the current directory
-* Live reload
-
-2. **Express**
-
-* Comprehensive and highly configurable
-* Production-grade
-* Can run anywhere
-
-3. **Webpack Dev Server**
-
-* Built directly into the Webpack bundler
-* Serves from memory, as opposed to writing to disk. This makes it fast to see your changes.
-* Supports _hot-reloading_, which means you can instantly see your changes on-screen, no matter how large.
-
-4. **Browsersync**
-
-* Sets up a dedicated IP for sharing work on LAN.
-* All browsers on all devices stay in sync.
-* Integrates into Webpack, Gulp, Grunt, Browserify, etc..
-
-We'll start with **http-server**, since it works out of the box without any configuration. Later on, we will use **Express** (For Node/backend applications) and, later still, **webpack-dev-server** (for React/frontend or fullstack).
-
-**Install**: `> npm i -D http-server`.
-**Run**: `> node_modules/.bin/http-server src/index.js`
-
 ## Beyond JS
 
 There are various _supersets_ of JS that we can use to make development easier and more powerful. TypeScript, from Microsoft, is one of them. Another is basically JS, but in the future. Let's start from the ground; in case you don't know, JS is brought to you by the folks over at _Ecma International_. They're a <del>group of bureaucrats</del> standardization group that focus on specifications for stuff like JavaScript (technically called EcmaScript <del>...b/c bureaucrats</del>). They decide on the what goes into JavaScript/ES and doesn't belong. It's other peoples' jobs then to actually implement these changes in a way that allows the wider public to use it.
@@ -268,13 +236,6 @@ The final part is integrating Flow with VS Code. This is done using the **Flow L
 Note: Flow uses its own version of typings to showcase corrections. These are NOT the same as those used by TS/typings, which we discussed earlier. If you want to use both, you'd have to maintain both separately, which is silly. Some reasearch into this shows that there isn't a solution that combines both yet. So, in the meantime, I have learned that there is a larger number of typings for TS and that they are more reliable. So, for stuff that Flow doesn't cover out of the box, just grab a `@types` library from npm and let VS Code's TS do that work. Just use Flow to do the barebones type checking during dev time to catch errors.
 
 If this were all that Flow provided, I wouldn't recommend it. But, it edges out over `@ts-check` because it can make it drastically easier to automatically document your JS code.
-
-## Automatic Documentation
-
-Documentation is usually an afterthought that ends up becoming crucial as we distance ourselves from projects over time. They are also invaluable for onboarding new team members, along with demo apps that showcase how to create and run projects. The best way to do documentation is to make it easy, like what happened with test suites in the last couple of years. The relative ease of adopting testing in workflows, coupled with a marked decrease in issues throughout the app's lifespan, made the JS community adopt testing as a norm.
-
-The same will eventually be done with documentation. We are already kind of there. If you followed the steps in the previous section, _Static File Checking with Flow_, then you're 67% there. The final piece is automatically generating the documentation based off of your flow+jsdoc-annotated JS files. This piece is contributed by `documentation.js`: `> npm i -g documentation`. Then, just add an npm script:
-`"document": "./node_modules/.bin/documentation build src/** -f html -o docs"`. This will output automatically-generated documentation of your src/ directory into a docs/ directory, all in the form of an html. You can, of course, choose other outputs types, directories, etc - check out their GitHub for that info.
 
 ## Automated Tasks with npm
 
