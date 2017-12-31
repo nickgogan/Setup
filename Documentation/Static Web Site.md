@@ -1,4 +1,4 @@
-# Static Web Sites
+# Introduction
 
 Making a web site is not so simple any more, especially if you're doing it for a client. A good practice is to deliver the finished site + some extra materials, which may include:
 
@@ -39,8 +39,18 @@ assets/
 
 **Note**: Obviously, there are other operations we can place upon the final index.js and main.css files, but the 4 I mentioned serve as a minimal baseline.
 
-## Technologies Used
+# Checklist
 
-On top of the common tech mentioned before, the following were installed as devDependencies:
+**Assumption**: OS-specific work, like setting up shells or getting VSC up and running, was done as part of _Windows System Setup_. This takes care of the first 2 items in the checklist.
 
-1. ESLint + Prettier + Babel: #
+## Package Management - NodeJS/npm
+
+**Install**: https://nodejs.org/en/
+
+* Just go with the LTS package.
+
+**Test**: `> node -v` and `> npm -v`
+
+## Package Security - Node Security Platform
+
+**Install & Test**:

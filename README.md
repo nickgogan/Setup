@@ -35,18 +35,20 @@ Inspired by the following sources:
 3. PluralSight - Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
 
-# Checklist
+# The Checklist
 
 1. OS prerequisites (Chocolatey, PowerShell, VS Code w/ multiple integrated shells)
 1. Project structure and shells used (e.g. Bash, PowerShell, zsh, etc...)
 1. Package management (npm, yarn)
 1. Package security (Node Security Platform)
+1. Module management (CommonJS, AMD, ES6, etc...)
 1. Version control + cloud storage (Git/GitHub)
 1. Linting (ESLint, TSLint)
 1. Formatting (Prettier)
 1. Transpiling (Babel, tsc)
-1. Documentation (documentation.js, sassdoc, etc...)
+1. IntelliSense with Typings
 1. Development Web Server (lite-server, Express, webpack-dev-server, etc...)
+1. Documentation (documentation.js, sassdoc, etc...)
 1. Sharing work (localtunnel)
 1. Build/Task management (npm with npx, yarn, gulp, grunt, etc...)
 1. Dynamic HTML generation (TBD)
@@ -81,8 +83,8 @@ Move all personal files to a separate repo.
 
 # Round 1
 
-1. _General Project Setup_: A description of the supported projects and their commonalities.
-1. _Common Technologies_ : A description of those technologies that are used throughout the supported projects.
+1. _Technologies Overview_ : A description of those technologies that are used throughout the supported projects.
+1.
 
 # Round 2
 
