@@ -21,22 +21,22 @@ Inspired by the following sources:
 
 ## The Checklist
 
-1. OS prerequisites (Chocolatey, PowerShell, VS Code w/ multiple integrated shells)
-1. Project structure and shells used (e.g. Bash, PowerShell, zsh, etc...)
-1. Package management - Managers (npm, yarn)
-1. Package management - Deprecation strategy (Greenkeeper)
-1. Package management - security (Node Security Platform, Snyk, RetireJS)
-1. Module management (CommonJS, AMD, ES6)
-1. Version control + cloud storage (Git/GitHub, SVN, Mercurial)
-1. Linting (ESLint, TSLint)
-1. Formatting (Prettier)
-1. Transpiling (Babel, tsc)
-1. IntelliSense (@types/\* in VSC, tsconfig.json, Flow, )
-1. Development Web Server (http-server, lite-server, Express, webpack-dev-server)
-1. Documentation (documentation.js, sassdoc)
-1. Sharing work (localtunnel)
+1. OS prerequisites
+1. Project structure and shells used
+1. Package management - Managers
+1. Package management - Deprecation strategy
+1. Package management - Security
+1. Module management
+1. Version control + cloud storage
+1. Linting
+1. Formatting
+1. Transpiling
+1. IntelliSense
+1. Development Web Server
+1. Documentation
+1. Sharing work
 1. Bundling with sourcemaps, minification, concatenation, spriting (for images), and compression (TBD)
-1. Build/Task management (npm with npx, yarn)
+1. Build/Task management
 1. Dynamic HTML generation (TBD)
 1. Centralized HTTP (TBD)
 1. Mocking framework (TBD)
