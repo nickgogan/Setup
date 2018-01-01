@@ -1,14 +1,12 @@
-Intended product -> checklist subset -> workflows (as instantiated in the scripts section of package.json). Each of the project-type-specific docs will go through these 3 items. The bulk of the focus will be on the various workflows that the technologies (i.e. the answers to the checklist) afford.
+# Starter Kits
 
-# Repo Goals
+#### Published on January 1, 2018
 
 My goals in putting this together:
 
 1. Have a starter kit for the projects I'm interested in.
-1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to code along, adding any missing dependencies as you go. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app/language logic.
-1. Give a sense of the standard parts expected from modern software.
-
-To do this, I have assembled 3 starter kit projects, which are _Foundations Setup_, _Static Web Sites Setup_, and _NodeJS Setup_.
+1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to code along, adding any missing dependencies as you go. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app and language logic.
+1. Give a sense of the standard moving parts expected from modern software.
 
 Inspired by the following sources:
 
@@ -21,7 +19,7 @@ Inspired by the following sources:
 3. PluralSight - Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
 
-# The Checklist
+## The Checklist
 
 1. OS prerequisites (Chocolatey, PowerShell, VS Code w/ multiple integrated shells)
 1. Project structure and shells used (e.g. Bash, PowerShell, zsh, etc...)
@@ -56,26 +54,21 @@ Move all personal files to a separate repo.
 
 ---
 
-**Assumption**:
+**Assumption**: You're running a Windows 7 machine.
 
-1. You're running a Windows 7 machine.
+The starter kits can be found in the _app\_\*_ folders. Each project is documented by a matching MD file in _Documentation/\*_. Each kit is documented according to:
 
-# Please read the Documentation/\* files in the following order:
+1. The product intended to be created.
+1. How the kit answers The Checklist.
+1. What workflows are available (as instantiated in the `"scripts"` section of `package.json`).
 
-## Round 0
+Before diving into the individual kit, please read the following documents:
 
 1. _Windows System Setup_: Chocolatey, PowerShell, basic VSC setup, and, optionally, Yarn.
-
 1. _VS Code Extensions_: A list of the VSC extensions I've found useful. `vscodeextensions.bat` is meant to install all of them in one shot, sequentially.
-
-# Round 1
-
 1. _Checklist Overview_: In this section, I go through each checklist item and provide some answers with sources.
 
-# Round 2
-
-1. _NodeJS Setup_
-1. _Static Web Sites Setup_
+There is another file I'm maintaining called _Weird Facts_, which is a collection of interesting things that I feel I might forget.
 
 <!-- 12. ReactJS support
 //Runtime dependencies
@@ -85,17 +78,3 @@ If you want to avoid ES2015 class syntax:
 > npm install create-react-class
 Add Babel support for ReactJS
 > npm install babel-preset-react -->
-
-# Round 3
-
-1. HTTP calls and mocking
-1. Bundling with Webpack
-
-# Round 4
-
-1. Adding a test suite
-
-# Round 5
-
-1. Containers with Docker
-1. Continuous integration

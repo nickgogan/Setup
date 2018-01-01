@@ -1,6 +1,6 @@
 # (Windows) System-Wide Setup
 
-#### Published on: December 26th, 2017
+#### Published on January 1, 2018
 
 * [(Windows) System-Wide Setup](#windows-system-wide-setup) - [Published on: December 26th, 2017](#published-on-december-26th-2017)
   * [Chocolatey - A package manager for Windows](#chocolatey---a-package-manager-for-windows)
