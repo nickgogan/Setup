@@ -15,12 +15,12 @@
 
 ## Chocolatey - A package manager for Windows
 
-### Sources:
+**Sources**:
 
+1. https://tidelift.com/blog/2017/12/19/a-brief-history-of-package-management
 1. https://chocolatey.org/about
-1. https://chocolatey.org/install
 
-Windows users got tired of using executables and wanted a package manager, like those available in \*nix-based OS's (MacOS, Linux, etc...). You can think of it as npm, but for Windows programs. It's like working with installers, but much more convenient.
+Windows users got tired of using executables and wanted a package manager, like those available in \*nix-based OS's (MacOS, Linux, etc...). This is the idea behind **Chocolatey** (Source 2), which you can think of it as an npm for Windows programs. It's like working with installers, but much more convenient. Check out Source 1 for a brief system of OS package managers.
 
 You can install with either cmd or PowerShell (v2+), depending on what you currently have. The current version of powershell (check the top of this article for the pubication date) is `5.1`. To test if yours meets the minimum version requirement, run this inside a PowerShell instance:
 `> $PSVersionTable.PSVersion`.
