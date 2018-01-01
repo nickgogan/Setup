@@ -85,7 +85,7 @@ The main shells are going to be the same for all of the projects. It will be tho
 
 Options here include **npm** (Source 1) and **yarn** (Source 2). Check out Sources 3 and 4 for comparisons between npm and yarn. There are also other competitors, such as **pnpm** (Source 7) and **Turbo** (Source 6).
 
-A note on _dependency management_: The reason **pnpm** exists is because the _npm tries to flatten the dependency tree as much as possible_. This can lead to quite a bit of duplication within a given project and across projects (Source 5). Check out Source 6 to see how pnpm handles things differently from npm v3 and above.
+A note on _dependency management_: The reason `pnpm` exists is because the _npm tries to flatten the dependency tree as much as possible_. This can lead to quite a bit of duplication within a given project and across projects (Source 5). Check out Source 6 to see how pnpm handles things differently from npm v3 and above.
 
 # Package Management - Handling Deprecat(ing)ed Packages
 
