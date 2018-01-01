@@ -1,8 +1,39 @@
 # Checklist Overview
 
+#### Published on January 1, 2018
+
 In this article, I'll be taking a look at some of the options available for each of The Checklist items. The various specialized projects are created based off of the options discussed in this doc.
 
 Note that this doc is not meant to be any sort of deep dive or even introduction to the technologies. It only showcases some of the solutions I've seen for each of The Checklist items.
+
+* [Checklist Overview](#checklist-overview) - [Published on January 1, 2018](#published-on-january-1-2018)
+* [OS Prerequisites](#os-prerequisites)
+* [Project Structure and Shells](#project-structure-and-shells)
+* [Package Management - Managers](#package-management---managers)
+* [Package Management - Handling Deprecat(ing)ed Packages](#package-management---handling-deprecatinged-packages)
+* [Package Management - Package Security](#package-management---package-security)
+* [Module Management](#module-management)
+* [Version Control + Cloud Storage](#version-control-cloud-storage)
+* [Linting and Formatting](#linting-and-formatting)
+  * [JavaScript](#javascript)
+  * [TypeScript](#typescript)
+  * [Security](#security)
+* [Transpiling](#transpiling)
+  * [ES6+ with Babel](#es6-with-babel)
+* [IntelliSense in VSC](#intellisense-in-vsc)
+  * [@types](#types)
+  * [JS - Static Type Checking with Flow](#js---static-type-checking-with-flow)
+  * [tsconfig.json](#tsconfigjson)
+* [Development Web Servers](#development-web-servers)
+* [Documentation](#documentation)
+  * [Documentation: JS](#documentation-js)
+  * [Documentation: Sass](#documentation-sass)
+* [Sharing Work](#sharing-work)
+* [Bundling](#bundling)
+* [Build/Task Management](#buildtask-management)
+  * [Multiple Commands per Script](#multiple-commands-per-script)
+  * [npx](#npx)
+* [TBD](#tbd)
 
 # OS Prerequisites
 
@@ -61,8 +92,8 @@ A note on _dependency management_: The reason **pnpm** exists is because the _np
 **Sources**:
 
 1. https://medium.freecodecamp.org/what-is-technical-debt-and-why-do-most-startups-have-it-9a54458daabf
-1. https://developers.redhat.com/blog/2017/04/12/using-snyk-nsp-and-retire-js-to-identify-and-fix-vulnerable-dependencies-in-your-node-js-applications/
 1. https://greenkeeper.io/
+1. https://developers.redhat.com/blog/2017/04/12/using-snyk-nsp-and-retire-js-to-identify-and-fix-vulnerable-dependencies-in-your-node-js-applications/
 1. https://tidelift.com/blog/2017/12/13/dont-judge-a-project-by-its-github-stars-alone
 1. https://tidelift.com/blog/2017/12/07/what-makes-a-top-open-source-package
 
@@ -74,7 +105,7 @@ As you may have noticed, we are working within a thriving language ecosystem tha
 Negatives:
 
 1. Dependencies add more code to the codebase, increasing the complexity of adding more code (Source 1).
-1. Dependencies change over time, sometimes in ways that break the product (Source 2).
+1. Dependencies change over time, sometimes in ways that break the product (Source 3).
 
 A possible solution is using **Greenkeeper**. "Greenkeeper sits between npm and GitHub, observing all of the modules you depend on. When they get updated, your project gets a new branch with that update. Your CI tests kick in, and we watch them to see whether they pass." (Sources 2, 3).
 
@@ -82,21 +113,21 @@ A possible solution is using **Greenkeeper**. "Greenkeeper sits between npm and 
 
 **Sources**:
 
+1. https://www.youtube.com/watch?v=Wx3WlQLFa3w
+1. https://www.youtube.com/watch?v=RDwOZ6vQGKo
 1. https://nodesecurity.io/
 1. https://medium.com/node-security/announcing-the-node-security-platform-28c99f872688
 1. https://snyk.io/
 1. https://retirejs.github.io/retire.js/
 1. https://developers.redhat.com/blog/2017/04/12/using-snyk-nsp-and-retire-js-to-identify-and-fix-vulnerable-dependencies-in-your-node-js-applications/
-1. https://www.youtube.com/watch?v=Wx3WlQLFa3w
-1. https://www.youtube.com/watch?v=RDwOZ6vQGKo
 
-Since any rando can publish to npm, security is a bit of a concern. Check out the talks linked in Sources 6 and 7 to get an idea of how your apps might be hacked.
+Since any rando can publish to npm, security is a bit of a concern. Check out the talks linked in Sources 1 and 2 to get an idea of how your apps might be hacked.
 
-The first thing to understand is that keeping packages updated goes a decent way towards improving security as well. This is another big reason why **Greenkeeper** is recommended (Source 5).
+The first thing to understand is that keeping packages updated goes a decent way towards improving security as well. This is another big reason why **Greenkeeper** is recommended (Source 7).
 
-After that, more security-specialized contenders include **Node Security Platform (nsp)** (Sources 1, 2) and **Snyk** (Source 3).
+After that, more security-specialized contenders include **Node Security Platform (nsp)** (Sources 3, 4) and **Snyk** (Source 5).
 
-**retireJS** (Source 4) can also be included into your security/integrity workflow along with Greenkeeper and nsp/snyk (Source 5).
+**retireJS** (Source 6) can also be included into your security/integrity workflow along with Greenkeeper and nsp/snyk (Source 7).
 
 Last, I have also found a set of linting rules that can help prevent some code patterns that have been labelled as risky. This is discussed a bit more in the Linting section.
 
@@ -268,7 +299,7 @@ Here's a <del>bad</del> history lesson on JS:
 
 We'll just focus on ES6 for now, but you'll be able to guess how to get even the latest (experimental) features into your project, if you want to check them out.
 
-A **transpiler** is used in a build (dev, qa, prod, w/e) to translate these JS supersets into a set that current-day browsers can understand. You don't have to memorize what browsers currently support or any of that. Just use a good transpiler and everything is taken care of. TypeScript uses _tsc_ to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6 and many others into current-day JS. The biggest by far is called _Babel_. These transpilers can be set to output \*.js files in any ES version, but stick to ES5 as it has pretty much universal browser adoption by now.
+A **transpiler** is used in a build system (for dev, qa, staging, prod, w/e...) to translate these JS supersets into code that current-day browsers can understand. You don't have to memorize what browsers currently support or any of that. Just use a good transpiler and everything is taken care of. TypeScript uses **tsc** to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6+ and many others (e.g. Elm) into current-day JS. The biggest transpiler by far is called **Babel**, although TS becoming very popular so `tsc` is also up there. These transpilers can be configured to output \*.js files in any ES version, but stick to ES5 as it has pretty much universal browser adoption by now.
 
 ## ES6+ with Babel
 
@@ -279,9 +310,9 @@ A **transpiler** is used in a build (dev, qa, prod, w/e) to translate these JS s
 
 **Install**: `> npm i -D babel-cli babel-preset-env`
 
-Babel needs to know what ES version you'll be writing in, which is why you need to download what they call a preset. The env preset represents the latest version of the ES standard that they've been able to implement into Babel.
+`Babel` needs to know what ES version you'll be writing in, which is why you need to download what they call a _preset_. The `env` preset represents the latest version of the ES standard that they've been able to implement in Babel.
 
-Once you have all that, next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, any plugins installed (yes, Babel is highly cofigurable and extensible):
+Once you have all that installed, next comes configuration. This can be handled directly in `package.json`, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, any plugins installed (`Babel` is highly cofigurable and extensible):
 
 ```
 {
@@ -343,7 +374,7 @@ Some examples to get you started:
 1. https://www.lullabot.com/articles/flow-for-static-type-checking-javascript
 1. https://hackernoon.com/configure-eslint-prettier-and-flow-in-vs-code-for-react-development-c9d95db07213
 
-TypeScript provides type checking for JS by providing a classic OOP language. The tsc transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
+TypeScript provides type checking for JS by providing a classic OOP language. The `tsc` transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
 
 For folks that are still working in JS, like people developing in Node or React, there are two solutions I can introduce. The first comes built-in with VS Code and it involes just dropping a quick pragma (i.e. a 1-liner at the top of your working file) called `//@ts-check`. So, your file would look like this:
 
@@ -426,7 +457,7 @@ Since VSC is written in TypeScript, it would make sense that you can configure i
     }
 ```
 
-_Note_: tsc will also compile files that are referenced inside any file from that array.
+_Note_: `tsc` will also compile files that are referenced inside any file from that array.
 
 In the case of conflicts, the priority is set in the following order:
 
@@ -673,3 +704,16 @@ If you want to call those packages without traveling to the _node_modules/.bin/_
 ```
 
 Fun fact: Yarn doesn't have this problem at all, which is nice: `> yarn http-server --help`
+
+# TBD
+
+The following topics will be covered in the first quarter of 2018:
+
+1. Bundling with Webpack
+1. Dynamic HTML generation (e.g. Jade, Pug, Handlebars/Moustache)
+1. Centralized HTTP (e.g. Axios, SuperAgent)
+1. Mocking framework
+1. Test suite
+1. Continuous Integration
+1. Infrastructure as Code
+1. Continuous Delivery

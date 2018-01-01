@@ -43,7 +43,7 @@ Inspired by the following sources:
 1. Centralized HTTP (TBD)
 1. Mocking framework (TBD)
 1. Testing suite (TBD)
-1. Deployment (TBD)
+1. Continuous Integration (TBD)
 
 # TODO
 
