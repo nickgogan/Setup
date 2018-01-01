@@ -93,6 +93,8 @@ After that, more security-specialized contenders include **Node Security Platfor
 1. https://webpack.js.org/guides/lazy-loading/
 1. https://dzone.com/articles/lazy-loading-es2015-modules-in-the-browser
 1. https://hacks.mozilla.org/2015/08/es6-in-depth-modules/
+1. https://medium.com/the-node-js-collection/an-update-on-es6-modules-in-node-js-42c958b890c
+1. https://darrenderidder.github.io/talks/ModulePatterns/#/
 
 The Single Responsibility Principle (SSP) is a very good one to follow if you want to write maintanable code. To that end, we've seen the rise of writing modulat-style code, where large-grain tasks are assigned to modules, which are given 1 file. Within that 1 file, the problem is broken down further and implemented.
 
@@ -111,6 +113,8 @@ AMD came about to fill the niche for browser-side module loading, which meant it
 ES6 is getting more and more adoption into the browser, but I believe we still have to use transpilers like Babel to make full use of them. This includes the ES6 Modules portion of the ES6 standard. The nice thing about ES6 Modules is that it was designed to interoperate with existing CommonJS and AMD module systems.
 
 Note: Modules are automatically run in **strict mode**.
+
+This part depends on how you answer the Transpilation item. If you're going to use **Babel**, then use **ES6 Modules**. If you're going to use regular NodeJS without transpilation, then you can use either **CommonJS** or **AMD** modules.
 
 # Version Control + Cloud Storage
 
@@ -208,6 +212,23 @@ Let's now get the best of both TSLint and ESLint with this package:
 ```
 
 If you checked out the _VS Code Extensions_, you'd have seen that TSLint can also be integrated directly into VSC through the **TSLint extension**.
+
+## Security
+
+**Sources**:
+
+1. https://github.com/nodesecurity/eslint-plugin-security
+
+**eslint-plugin-security** provides ESLint "rules that identify potential security hotspots". However, it also "finds a lot of false positives which need triage by a human." In `.eslintrc`:
+
+```
+"plugins": [
+  "security"
+],
+"extends": [
+  "plugin:security/recommended"
+]
+```
 
 # Transpiling
 
@@ -520,19 +541,91 @@ This avoids having to configure stuff like Azure, AWS, etc... to just share work
 
 **Run**: `> yarn lt --port 3000`
 
+# Bundling
+
+**Sources**:
+
+1. https://webpack.js.org/guides/getting-started/
+1. https://www.robinwieruch.de/react-eslint-webpack-babel/
+1. https://monkeyvault.net/react-starting-from-scratch/
+1. https://stanko.github.io/webpack-babel-react-revisited/
+1. https://www.robinwieruch.de/react-eslint-webpack-babel/
+
 # Build/Task Management
+
+Humble npm, which hooks onto whatever your OS uses as its shell, is all you need to do your task running. Don't add more tech debt in the form of yet another abstraction layer, such as Gulp or Grunt, unless they can bring something unique to your project. Each technology/layer of abstraction adds more to your plate in terms of things to keep track of and in terms of possible places your project can break. The same goes for npm dependencies, or anything else that's part of your project really. The more you add, the more potential points of failure you create. So, make sure the value proposition for your additions are air-tight.
+
+It's a good idea to start doing this early on in the project's life, when there are fewer things to automate. To give you an idea of how to use this, I can say that I basically mapped the workflows for the more specific projects (like NodeJS or Static Web Site) to the `"scripts"` in `package.json`. That way, you could call something like `> npm run document-js:html` to re-generate JS documentation as a web site.
+
+So, the `"scripts"` attribute let's you declare what you want npm to do when you hit `npm run {{anything}}`:
+
+```
+...
+"scripts": {
+  "start": "node src/index.js"
+}
+...
+```
+
+You can run the above by typing `> npm start` or `> npm run start`. Notice that you can omit the 'run' portion of the command in this case. This only works if you're trying to run `start` or `test`.
+
+npm (and the rest) also has something called _hooks_, which run at specific points. It's best seen via example:
+
+```
+...
+"scripts": {
+  "prestart": "nsp check",
+  "start": "node src/index.js"
+  "poststart": "lt --port 3000",
+}
+...
+```
+
+Running `> npm start` will first invoke the `prestart` script, which will check that our project's node_modules don't have any known security vulnerabilities. Then, `start` proper is run, which goes through the `index.js` file. Finally, `poststart` exposes the project on port 3000, allowing anyone who knows the generated URL to work with `index.js`.
+
+## Multiple Commands per Script
+
+**Sources**:
+
+1. https://github.com/mysticatea/npm-run-all
+
+What if you wanted to run several (say, custom-made) scripts one after the other, or in parallel? Turns out that there's a very handy tool for doing that called **npm-run-all**. When would you want to do this? An example would be times when you want to both start up an app and share it. Normally, you'd have to open 2 terminal sessions, one for each command, since each one takes over the terminal once run. npm can help us get around that limitation with `npm-run-all --parallel`. We can even write commands that we define separately, but within the same `scripts` object:
+
+```
+...
+"scripts": {
+  "prestart": ....,
+  "start": "npm-run-all --parallel security-check open:src",
+  "poststart": ...,
+  "open-src": "node src/server.js"
+  "security-check": "nsp check",
+  "localtunnel": "lt --port 3000",
+  "share": "npm-run-all --parallel open:src localtunnel"
+}
+...
+```
+
+## npx
 
 **Sources**:
 
 1. https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 1. https://alligator.io/workflow/npx/
 
-# Bundling
+**npx** is a tool that allows you to use locally-installed packages as though they were global. Whenever you install a package using the `-g` flag, that package gets added to your PATH system variable. This means that you can call that package through your terminal without having to know the path to its executable. The other end of that is that any locally installed packages will not work in the same way. An example, with the shell at the project root:
 
-**Sources**:
+```
+> npm i -D http-server
+> http-server --help
+...
+Error: Cannot find module ...
+```
 
-1. webpack
-1. https://www.robinwieruch.de/react-eslint-webpack-babel/
-1. https://monkeyvault.net/react-starting-from-scratch/
-1. https://stanko.github.io/webpack-babel-react-revisited/
-1. https://www.robinwieruch.de/react-eslint-webpack-babel/
+If you want to call those packages without traveling to the _node_modules/.bin/_, you have to specify the path. This problem is alleviated in npm with a built-in tool called **npx**:
+
+```
+> npm i -D http-server
+> npx http-server --help
+```
+
+Fun fact: Yarn doesn't have this problem at all, which is nice: `> yarn http-server --help`
