@@ -211,16 +211,75 @@ If you checked out the _VS Code Extensions_, you'd have seen that TSLint can als
 
 # Transpiling
 
-**Sources**: 1.
+**Sources**:
+
+1. https://en.wikipedia.org/wiki/ECMAScript
+1. https://github.com/tc39
+
+There are various _supersets_ of JS that we can use to make development easier and more powerful. TypeScript, from Microsoft, is one of them. Another is basically JS, but in the future. Let's start from the ground; in case you don't know, JS is brought to you by the folks over at _Ecma International_. They're a <del>group of bureaucrats</del> standardization group that focus on specifications for stuff like JavaScript (technically called EcmaScript <del>...b/c bureaucrats</del>). They decide on the what goes into JavaScript/ES and doesn't belong. It's other peoples' jobs then to actually implement these changes in a way that allows the wider public to use it.
+
+1. Prior to December 1999, there is darkness.
+1. In Dec 1999, the ES3 spec was released and browser vendors got to work implementing parts of it, little by little.
+1. In Dec 2009 (yes, a decade later), ES5 came out because people got drunk, angry, and couldn't agree on what ES4 would be.
+1. Only a little more than half a decade later, in June 2015, ES6 was released, which was so different from all the previous releases that it broke the hearts and minds of the developers. It was basically a new language. It is backward-compatible, so you could continue coding in the old way. However, people quickly found that the coding patterns in ES6, for solving the same problems as before, were almost totally different. So, yeah, pretty much a new language. As you can image, there was very slow browser adoption of the language. But, 2 years later, all browsers are at like 90% support for it!
+1. ES7 was released in June 2016, and was easy on the shattered minds of its developers - it only added 2 new things to learn. There's almost no browser support for this yet.
+1. Present day (Dec 13th, 2017): ES8 has been proposed, again in June of this year, but it won't be for a while longer. Definitely no browser support for this.
+1. ESNext
+
+We'll just focus on ES6 for now, but you'll be able to guess how to get even the latest (experimental) features into your project, if you want to check them out.
+
+A **transpiler** is used in a build (dev, qa, prod, w/e) to translate these JS supersets into a set that current-day browsers can understand. You don't have to memorize what browsers currently support or any of that. Just use a good transpiler and everything is taken care of. TypeScript uses _tsc_ to make \*.ts files into \*.js files that browsers can digest. Similarly, other solutions appeared to translate ES6 and many others into current-day JS. The biggest by far is called _Babel_.
+
+## ES6+ with Babel
+
+**Sources**:
+
+1. Transpiling ESNext: https://babeljs.io/
+2. Everything About Babel: https://kleopetrov.me/2016/03/18/everything-about-babel/
+
+**Important**: Despite what the main website might say, as of this writing, Windows machines need to install Babel _globally_, not locally. No idea why and no idea if this affects Mac or Linux users. This is what I found for Windows machines. Install it using `> npm i -g babel-cli`. This will hopefully not be the case soon and we can just use Babel locally. The presets that Babel will transpile to, however, can be installed locally as of now, i.e. on a per-project basis. The recommended preset is simply called `env`, as in `> npm i babel-env`.
+
+Next comes configuration. This can be handled directly in package.json, but it is recommeded to do so in a separate file called `.babelrc`. This is where we can make use of the presets and, if you have them, the plugins installed (yes, Babel is highly cofigurable and extensible):
+
+```
+{
+  "presets": ["env"],
+  "sourceMaps": true,
+  "ignore": ["*.ts", "./dist/*", "./docs", "./Documentation"]
+}
+```
+
+Next, we need to integrate Babel with ESLint. That way, ESLint won't hate on the new syntax we're using. In `.eslintrc`:
+
+```
+...
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "arrowFunctions": true,
+      "generators": true,
+      "blockBindings": true
+    },
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+...
+```
 
 # IntelliSense in VSC
 
 **Sources**:
 
 1. https://code.visualstudio.com/docs/editor/intellisense
-1.
 
-## Typings
+## @types
+
+**Sources**:
+
+1. https://www.npmjs.com/~types
 
 VSC gets much of its IntelliSense from _typings files_. These are TS files that set up expected structures/patterns for different code situations. The IDE comes packaged with a bunch of these, but we can extend the system with typings from the wider community. Typings files also provide you with some dev-time error checking that would otherwise not be caught until it gives you a confusing error at runtime.
 
@@ -234,7 +293,13 @@ Some examples to get you started:
 > yarn add @types/node @types/express @types/angular @types/reac --dev
 ```
 
-## JS - Static File Checking with Flow
+## JS - Static Type Checking with Flow
+
+**Sources**:
+
+1. https://flow.org
+1. https://www.lullabot.com/articles/flow-for-static-type-checking-javascript
+1. https://hackernoon.com/configure-eslint-prettier-and-flow-in-vs-code-for-react-development-c9d95db07213
 
 TypeScript provides type checking for JS by providing a classic OOP language. The tsc transpiler will lovingly yell at you in much the same way that the old C++/C#/Java/etc... compilers would. This makes you handle mistakes at compile-time, as opposed to run-time (or worse, in production). So, if you're working in TS, then you're set. I'm sure there are augmentations to your toolchain that you can find too.
 
@@ -272,7 +337,7 @@ Now, install Flow itself: `> yarn add --dev flow-bin`. Now, time to configure Fl
 To get started in actually using Flow, we need to integrate it with Babel to strip out those annotations before running the code through Node or a browser, or w/e. This is done with a Babel preset:
 `> yarn add --dev babel-preset-flow`
 Next, add this to your `.babelrc` config file:
-`"presets": ["flow"]` Obviously, if you have other presets, just add "flow" as another array item.
+`"presets": ["env" ,"flow"]` Obviously, if you have other presets, just add "flow" as another array item.
 
 We also want to integrate flow with ESLint, so that can tell us if we're forgetting to add our annotations:
 `> yarn add --dev eslint-plugin-flowtype`. Then, in the `.eslintrc` file, add this info:
@@ -296,9 +361,46 @@ Note: Flow uses its own version of typings to showcase corrections. These are NO
 
 If this were all that Flow provided, I wouldn't recommend it. But, it edges out over `@ts-check` because it can make it drastically easier to automatically document your JS code.
 
+## tsconfig.json
+
+**Sources**:
+
+1. https://blog.angularindepth.com/configuring-typescript-compiler-a84ed8f87e3
+1. https://code.visualstudio.com/docs/languages/jsconfig
+
+Since VSC is written in TypeScript, it would make sense that you can configure it a bit by placing a `tsconfig.json` file at the root of your project. This file also tells `tsc` (Microsoft's TypeScript compiler) the root of a TS project. If you're doing a TS project, no worries - having this file won't interfere with anything. Check out the tsconfig.json file in any of the projects. They are the same file.
+
+If the `paths:` option is set, `tsc` goes through those indicated folders and only checks `node_modules` if nothing is found. The **first** resolved module is used and no other paths are checked. So if you have a module placed inside both `node_modules` and `YourCustomFolder`, the module in your custom folder will be picked up by the compiler. If you need the compiler to use the module inside node_modules folder, add it to paths before your custom folder:
+
+```
+    "paths": {
+      "*": [
+        "*",
+        "node_modules/*",
+        "generated/*"
+      ]
+    }
+```
+
+_Note_: tsc will also compile files that are referenced inside any file from that array.
+
+In the case of conflicts, the priority is set in the following order:
+
+1. Files
+2. Exclude
+3. Include
+
 # Development Web Servers
 
-**Sources**: 1.
+**Sources**:
+
+1. https://github.com/indexzero/http-server
+1. https://expressjs.com/
+1. https://webpack.js.org/configuration/dev-server/
+1. https://github.com/johnpapa/lite-server
+1. https://scotch.io/bar-talk/a-fast-and-convenient-development-server-with-lite-server
+1. https://scotch.io/tutorials/how-to-use-browsersync-for-faster-development
+1. https://scotch.io/@tgreco/how-to-use-browsersync-for-faster-development
 
 We have several options:
 
@@ -319,16 +421,11 @@ We have several options:
 * Serves from memory, as opposed to writing to disk. This makes it fast to see your changes.
 * Supports _hot-reloading_, which means you can instantly see your changes on-screen, no matter how large.
 
-4. **lite-server**
-
-We'll start with **http-server**, since it works out of the box without any configuration. Later on, we will use **Express** (For Node/backend applications) and, later still, **webpack-dev-server** (for React/frontend or fullstack).
-
-**Install**: `> npm i -D http-server`.
-**Run**: `> node_modules/.bin/http-server src/index.js`
+4. **lite-server** (i.e. **Browsersync**)
 
 # Documentation
 
-Documentation is generated separately for JS and Sass files, using documentation.js and sassdoc, respectively. The output I use is html, but I think these tools have other formats.
+Documentation is generated separately for JS and Sass files, using documentation.js and sassdoc, respectively. The output I use is html, but these tools have other formats.
 
 ## Documentation: JS
 
@@ -337,7 +434,7 @@ Documentation is generated separately for JS and Sass files, using documentation
 1. https://github.com/documentationjs/documentation 1.https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
 1. http://usejsdoc.org/about-getting-started.html
 
-JSDoc-style comments (annotations) are used at a minimum with documentation.js to add a documentation step to our dev workflow. These annotations can be automatically generated (mostly) with the following VSC extension: **Document This**. With the cursor on a defining piece of code, e.g. function declaration or a class, the following shortcut will generate the comment structure: _Ctrl+Alt+D_
+**JSDoc**-style comments (annotations) are used at a minimum with documentation.js to add a documentation step to our dev workflow. These annotations can be automatically generated (mostly) with the following VSC extension: **Document This**. With the cursor on a defining piece of code, e.g. function declaration or a class, the following shortcut will generate the comment structure: _Ctrl+Alt+D_
 
 **Install**: `> npm i -D documentation`
 
@@ -384,6 +481,16 @@ function whois({displayName, fullName: {firstName: name}}) {
 
 Notice the `{any}` in @param {any} - This is supposed to be the function parameter's type. Since this is vanilla ES2015, it won't have any. This can be remedied by installing Flow, #flow.
 
+**JSDoc** annotations can also be integrated with **ESLint**, which will let you know if your comments are off. Add this to `.eslintrc`:
+
+```
+"rules": {
+  ...
+  "valid-jsdoc": "warn",
+  ...
+}
+```
+
 ## Documentation: Sass
 
 **Sources**:
@@ -419,3 +526,13 @@ This avoids having to configure stuff like Azure, AWS, etc... to just share work
 
 1. https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 1. https://alligator.io/workflow/npx/
+
+# Bundling
+
+**Sources**:
+
+1. webpack
+1. https://www.robinwieruch.de/react-eslint-webpack-babel/
+1. https://monkeyvault.net/react-starting-from-scratch/
+1. https://stanko.github.io/webpack-babel-react-revisited/
+1. https://www.robinwieruch.de/react-eslint-webpack-babel/

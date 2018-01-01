@@ -1,14 +1,4 @@
-* [Repo Goals](#repo-goals)
-* [Checklist](#checklist)
-* [Please read the Documentation/\* files in the following order:](#please-read-the-documentation-files-in-the-following-order)
-  * [Round 0](#round-0)
-* [Round 1](#round-1)
-* [Round 2](#round-2)
-* [Round 3](#round-3)
-* [Round 4](#round-4)
-* [Round 5](#round-5)
-
-Intended product -> checklist subset -> workflows (as instantiated in the scripts section of package.json).
+Intended product -> checklist subset -> workflows (as instantiated in the scripts section of package.json). Each of the project-type-specific docs will go through these 3 items. The bulk of the focus will be on the various workflows that the technologies (i.e. the answers to the checklist) afford.
 
 # Repo Goals
 
