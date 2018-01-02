@@ -1,0 +1,47 @@
+{
+  "name": "node_homebase",
+  "version": "1.0.0",
+  "description": "A NodeJS scaffold for modern webdev projects.",
+  "main": "main.js",
+  "scripts": {
+    "watch-js": "nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
+    "build-js": "babel ./src/functionality --out-dir dist/js --source-maps",
+    "clean-js": "rm -rf ./dist/js ./docs/js",
+    "document-js:html": "./node_modules/.bin/documentation build src/functionality/** -f html -o docs/js",
+    "publish-js": "npm-run-all -s clean-js build-js document-js:html",
+    "share": "npm-run-all -s start localtunnel",
+    "security": "nsp check --reporter summary",
+    "localtunnel": "lt --port 3000 --localhost test --subdomain nickgogan"
+  },
+  "keywords": [],
+  "author": "Nick Gogan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "4.11.0",
+    "@types/node": "8.5.2",
+    "babel-cli": "6.26.0",
+    "babel-eslint": "8.1.2",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-flow": "6.23.0",
+    "documentation": "5.3.5",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-flowtype": "2.40.1",
+    "eslint-plugin-html": "4.0.1",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-json": "1.2.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
+    "flow-bin": "0.62.0",
+    "install-peerdeps": "1.4.1",
+    "localtunnel": "1.8.3",
+    "nsp": "3.1.0",
+    "retire": "1.4.0",
+    "sassdoc": "2.5.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "express": "4.16.2"
+  }
+}

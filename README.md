@@ -43,15 +43,6 @@ Inspired by the following sources:
 1. Testing suite (TBD)
 1. Continuous Integration (TBD)
 
-# TODO
-
-Move all personal files to a separate repo.
-
-1. _Browser/_: This is a collection of browser snippets I put together from various online resources. These won't be used in this tutorial series, so feel free to get rid of them now.
-1. _docs/_: This directory is automatically made later on, so it can go for now.
-1. _Documentation/_: The files containing this tutorial, so you won't be needing that.
-1. _node_modules/_ and _yarn-offline-mirror/_: You'll need to eventually run `> npm install` or `> yarn install`, so get rid of these. _yarn-offline-mirror/_ is my local, offline dependencies folder that I mainain for my system. You probably want to make your own.
-
 ---
 
 **Assumption**: You're running a Windows 7 machine.
