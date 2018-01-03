@@ -33,6 +33,7 @@ Inspired by the following sources:
 1. Transpiling
 1. IntelliSense
 1. Development Web Server
+1. Debugging
 1. Documentation
 1. Sharing work
 1. Bundling with sourcemaps, minification, concatenation, spriting (for images), and compression (TBD)
@@ -47,10 +48,11 @@ Inspired by the following sources:
 
 **Assumption**: You're running a Windows 7 machine.
 
-The starter kits can be found in the _app\_\*_ folders. Each project is documented by a matching MD file in _Documentation/\*_. Each kit is documented according to:
+The starter kits can be found in the _app\_\*_ folders. Each kit is documented according to:
 
 1. The product intended to be created.
 1. How the kit answers The Checklist.
+1. What debugging capabilities are available.
 1. What workflows are available (as instantiated in the `"scripts"` section of `package.json`).
 
 Before diving into the individual kit, please read the following documents:

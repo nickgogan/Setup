@@ -6,7 +6,6 @@ In this article, we'll be taking a look at some of the options available for eac
 
 Note that this doc is not meant to be any sort of deep dive or even introduction to the technologies mentioned. It only showcases some of the solutions I've seen for each of The Checklist items.
 
-* [Checklist Overview](#checklist-overview) - [Published on January 1, 2018](#published-on-january-1-2018)
 * [OS Prerequisites](#os-prerequisites)
 * [Project Structure and Shells](#project-structure-and-shells)
 * [Package Management - Managers](#package-management---managers)
@@ -504,6 +503,10 @@ We have several options:
 * Good combo of bootstraping ease and power.
 * Allows for simultaneous testing across multiple browsers on multiple devices, including user inputs.
 * Can be integrated with `Webpack`, which will be used in the more advanced articles later on.
+
+# Debugging
+
+This constitutes a huge part of the dev workflow and will be handled on a project-basis. The reason for this is that the tools are highly specialized and the VSC `launch.json` (mostly) unique between them. As such, it's best to take this checklist item on a case-by-case basis.
 
 # Documentation
 
