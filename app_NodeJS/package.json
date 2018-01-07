@@ -1,19 +1,33 @@
 {
   "name": "node_homebase",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A NodeJS scaffold for modern webdev projects.",
   "main": "main.js",
   "scripts": {
-    "watch-js": "npx nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
-    "build-js": "npx babel ./src/functionality --out-dir dist/js --source-maps",
+    "watch-js":
+      "npx nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
+    "build-js":
+      "npx babel ./src/functionality --out-dir dist/js --source-maps",
     "clean-js": "rm -rf ./dist/js ./docs/js",
-    "document-js:html": "npx documentation build src/functionality/** -f html -o docs/js",
+    "document-js:html":
+      "npx documentation build src/functionality/** -f html -o docs/js",
     "publish-js": "npm-run-all -s clean-js build-js document-js:html",
     "share": "npm-run-all -s start localtunnel",
     "security": "npx nsp check --reporter summary",
-    "localtunnel": "npx lt --port 3000 --localhost test --subdomain nickgogan"
+    "localtunnel":
+      "npx lt --port 3000 --localhost test --subdomain nickgogan"
   },
-  "keywords": [],
+  "keywords": [
+    "starter",
+    "kit",
+    "guide",
+    "backend",
+    "debugging",
+    "devWorkflow",
+    "nodeJS",
+    "express",
+    "REST"
+  ],
   "author": "Nick Gogan",
   "license": "MIT",
   "devDependencies": {
