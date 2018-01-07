@@ -34,8 +34,10 @@ This project is a scaffold for making RESTful APIs using NodeJS and Express. Thi
 **Sources**:
 
 1. http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/
-1. http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/
+1. https://github.com/Microsoft/vscode-recipes/tree/master/nodemon
 1. https://stackoverflow.com/questions/39917343/nodemon-babel-restart-the-server-multiple-times
 1. https://stackoverflow.com/questions/31711286/vscode-debug-es6-application
+
+**``nodemon** is used
 
 # Workflows

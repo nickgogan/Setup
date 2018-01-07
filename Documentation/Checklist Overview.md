@@ -24,6 +24,7 @@ Note that this doc is not meant to be any sort of deep dive or even introduction
   * [JS - Static Type Checking with Flow](#js---static-type-checking-with-flow)
   * [tsconfig.json](#tsconfigjson)
 * [Development Web Servers](#development-web-servers)
+* [Debugging](#debugging)
 * [Documentation](#documentation)
   * [Documentation: JS](#documentation-js)
   * [Documentation: Sass](#documentation-sass)
