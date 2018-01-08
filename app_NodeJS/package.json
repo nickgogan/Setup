@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "debug-js":
-      "npx nodemon --inspect=localhost:3001 ./src/main.js --exec babel-node",
+      "npx nodemon --inspect-brk=localhost:3001 ./src/main.js --exec babel-node",
     "debug-express": "set DEBUG=express:*",
     "debug": "npm-run-all -s debug-express debug-js",
     "start-js": "npx nodemon ./src/main.js --exec babel-node",
