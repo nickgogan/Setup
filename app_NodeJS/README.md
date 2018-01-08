@@ -64,7 +64,7 @@ If you want to **restart**, do NOT do it through the VSC debugger. Just hit Ctrl
 
 B. **Debugging several entry points at once**: As an example, the app also includes a `client.js` and `server.js`, which handle exactly what they sound they would. The server being used is Express and the client is just setInterval() with a console.log as the callback. These entry points can be launched via the **nodemon(Server)** and **nodemon(Client)** debuggers. You could even start one of them, debug + refactor for a while, and then launch the other to see how they integrate with your changes. Of course, on each save, nodemon restarts and the debuggers re-attach. Otherwise, what would be the point?
 
-C. **Compound debugging**: The logical next step of B. is to launch both the server and client with "one" debugger,**Fullstack** in this case. VSC is graceous enough to support this. This literally just runs the two debuggers in sequence, which saves you a couple of clicks, but it all adds up. Plus, it's really cool to be able to do this!
+C. **Compound debugging**: The logical next step of B. is to launch both the server and client with "one" debugger,**Fullstack** in this case. VSC is gracious enough to support this. This literally just runs the two debuggers in sequence, which saves you a couple of clicks, but it all adds up. Plus, it's really cool to be able to do this!
 
 ## Method 2: Chrome devTools
 
