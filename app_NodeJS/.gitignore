@@ -15,7 +15,6 @@
 .classpath
 *.launch
 .settings/
-.vscode/
 *.orig
 
 # misc
