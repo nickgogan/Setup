@@ -2,17 +2,18 @@
 
 #### Published on January 1, 2018
 
-* [(Windows) System-Wide Setup](#windows-system-wide-setup) - [Published on: December 26th, 2017](#published-on-december-26th-2017)
-  * [Chocolatey - A package manager for Windows](#chocolatey---a-package-manager-for-windows)
-  * [PowerShell (PS)](#powershell-ps)
-  * [IDE - Visual Studio Code (VSC)](#ide---visual-studio-code-vsc)
-    * [Option 1: Cmder](#option-1-cmder)
-    * [Option 2: PS](#option-2-ps)
-    * [Option 3: Integrating Both by Adding More Terminals](#option-3-integrating-both-by-adding-more-terminals)
-* [Optional](#optional)
-  * [Matching VSC](#matching-vsc)
-  * [Yarn](#yarn)
-    * [Setting up an _offline mirror_](#setting-up-an-offline-mirror)
+- [(Windows) System-Wide Setup](#windows-system-wide-setup)
+      - [Published on January 1, 2018](#published-on-january-1-2018)
+  - [Chocolatey - A package manager for Windows](#chocolatey---a-package-manager-for-windows)
+  - [PowerShell (PS)](#powershell-ps)
+  - [IDE - Visual Studio Code (VSC)](#ide---visual-studio-code-vsc)
+    - [Option 1: Cmder](#option-1-cmder)
+    - [Option 2: PS](#option-2-ps)
+    - [Option 3: Integrating Both by Adding More Terminals](#option-3-integrating-both-by-adding-more-terminals)
+- [Optional](#optional)
+  - [Matching VSC](#matching-vsc)
+  - [Yarn](#yarn)
+    - [Setting up an _offline mirror_](#setting-up-an-offline-mirror)
 
 ## Chocolatey - A package manager for Windows
 
@@ -137,11 +138,11 @@ _Optional_: set up a keybinding to bring it up quickly. Mine is **Ctrl+Shift+t**
 
 # Optional
 
-I've found the following to be nice-to-have's, but not critical to running.
+I've found the following to be nice-to-have's, but not critical to running. They can make you a lot more productive though.
 
 ## Matching VSC
 
-**Extensions**: In the _VSCode_ folder, run the `> vscodeextensions.bat` file to install the same extensions that I have.
+**Extensions**: Open up VSC's terminal and cd into the directory containing the `vscodeextensions` file (whichever file type your system uses. This doc is technically for Windows, so use the `.bat`). Then, just `> ./vscodeextensions.bat`. I have also done this process on a Mac, which requires the setting of execution permissions before running: `> chmod 755 vscodeextensions.sh`.
 
 **Config files**:
 
