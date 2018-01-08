@@ -4,18 +4,20 @@
   "description": "A NodeJS scaffold for modern webdev projects.",
   "main": "main.js",
   "scripts": {
-    "watch-js":
-      "npx nodemon --inspect-brk=9229 ./src/functionality/index.js --exec babel-node",
-    "build-js":
-      "npx babel ./src/functionality --out-dir dist/js --source-maps",
-    "clean-js": "rm -rf ./dist/js ./docs/js",
-    "document-js:html":
-      "npx documentation build src/functionality/** -f html -o docs/js",
-    "publish-js": "npm-run-all -s clean-js build-js document-js:html",
-    "share": "npm-run-all -s start localtunnel",
+    "debug-js":
+      "npx nodemon --inspect=localhost:3001 ./src/main.js --exec babel-node",
+    "debug-express": "set DEBUG=express:*",
+    "debug": "npm-run-all -s debug-express debug-js",
+    "start-js": "npx nodemon ./src/main.js --exec babel-node",
+    "start": "npm-run-all -s security start-js",
+    "share": "npm-run-all -p start localtunnel",
+    "clean": "rm -rf ./dist/* ./docs/*",
+    "build": "npx babel ./src/ --out-dir dist/ --source-maps",
+    "document:html": "npx documentation build src/** -f html -o docs",
+    "publish": "npm-run-all -s clean build document:html",
     "security": "npx nsp check --reporter summary",
     "localtunnel":
-      "npx lt --port 3000 --localhost test --subdomain nickgogan"
+      "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan"
   },
   "keywords": [
     "starter",
