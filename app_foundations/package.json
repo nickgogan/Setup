@@ -8,7 +8,7 @@
     "build-sass": "npx node-sass src/styles --output dist/styles --source-map true --source-map-contents scss",
     "document-sass:html": "rm -rf ./docs/styles & npx sassdoc src/styles -d docs/styles",
     "publish-sass": "npm-run-all -s build-sass document-sass:html",
-    "watch-js": "npx nodemon --inspect-brk=9229 ./src/js/index.js",
+    "watch-js": "npx nodemon --inspect-brk=localhost:9229 ./src/js/index.js",
     "build-js": "rm -rf ./dist/js & cp -r ./src/js dist",
     "document-js:html": "rm -rf ./docs/js & npx documentation build src/js/** -f html -o docs/js",
     "publish-js": "npm-run-all -s build-js document-js:html",
