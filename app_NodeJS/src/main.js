@@ -16,5 +16,5 @@ app.use(
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.listen(port, () =>
-  console.log('Example app listening on port 3001!')
+  console.log(`\nExample app listening on port ${port}\n`)
 );

@@ -1,5 +1,5 @@
 // @flow
 
 setInterval(() => {
-  console.log('client-side');
+  console.log(`Client-side: This is just a test.`);
 }, 1000);
