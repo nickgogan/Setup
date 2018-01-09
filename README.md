@@ -4,8 +4,8 @@
 
 My goals in putting this together:
 
-1. Have a starter kit for the projects I'm interested in.
-1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS videos, use the starter kit to code along, adding any missing dependencies as you go. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app and language logic.
+1. Have starter kits for the projects I'm interested in.
+1. Allow people to follow along with various walkthroughs. Instead of watching NodeJS REST API videos, use the starter kit to code along, adding any missing dependencies as you go. The kit also adds a lot of syntax help, which should hopefully allow you to weed out common mistakes early and focus on the actual app and language logic.
 1. Give a sense of the standard moving parts expected from modern software.
 
 Inspired by the following sources:
@@ -18,6 +18,12 @@ Inspired by the following sources:
 
 3. PluralSight - Visual Studio Code:
    https://app.pluralsight.com/library/courses/visual-studio-code/table-of-contents
+
+4. The Agile Manifesto: http://agilemanifesto.org/
+
+5. The Twelve-Factor App: https://12factor.net/
+
+6. Front-End Developer Handbook 2017: https://frontendmasters.com/books/front-end-handbook/2017/
 
 ## The Checklist
 
@@ -42,7 +48,14 @@ Inspired by the following sources:
 1. Centralized HTTP (TBD)
 1. Mocking framework (TBD)
 1. Testing suite (TBD)
+   a. Framework
+   b. Assertion Library
+   c. Helper Libraries
+   d. Where to run tests
+   e. Where to place tests
+   f. When to run tests
 1. Continuous Integration (TBD)
+1. Continuous Monitoring (TBD)
 
 ---
 
@@ -55,11 +68,12 @@ The starter kits can be found in the _app\_\*_ folders. Each kit is documented a
 1. What debugging capabilities are available.
 1. What workflows are available (as instantiated in the `"scripts"` section of `package.json`).
 
-Before diving into the individual kit, please read the following documents:
+Before diving into the individual kit, please look over the following:
 
-1. _Windows System Setup_: Chocolatey, PowerShell, basic VSC setup, and, optionally, Yarn.
-1. _VS Code Extensions_: A list of the VSC extensions I've found useful. `vscodeextensions.bat` is meant to install all of them in one shot, sequentially.
-1. _Checklist Overview_: In this section, I go through each checklist item and provide some answers with sources.
+1. _Windows System Setup_: If using Windows, the document shows how to install the following applications: Chocolatey, PowerShell, basic VSC setup, and, optionally, Yarn.
+1. _VS Code Extensions_: Contains a list of the VSC extensions I've found useful. `vscodeextensions.bat` is meant to install all of them in one shot, sequentially. If using a \*nix-based system, just change the extension to `sh`.
+1. _Checklist Overview_: In this document, each Checklist item is introduced with some answers with relatively recent sources. The responses are meant as a very general overview, with the sources meant to fill in some of the gaps. The technologies enumerated only represent what I was able to research at the time. In our fast-moving industry, these players might not exist by the time you read this. That's not important. What is important is that you understand what each Checklist item is meant to do when propping up a successfull modern web app.
+1. _Configs_: This half-project-half-not contains base config files that are used throughout the actual boilerplate projects. Its `package.json` contains build scripts that are meant as references when creating your own or customizing those within the boilerplates.
 
 There is another file I'm maintaining called _Weird Facts_, which is a collection of interesting things that I feel I might forget.
 
