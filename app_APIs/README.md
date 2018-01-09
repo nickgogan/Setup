@@ -17,8 +17,8 @@ This project is a scaffold for making RESTful APIs using NodeJS and Express. Thi
 * Additional packages:
   * `cross-env`: Used to set system variables such that they will work in both Windows and \*nix platforms.
 
-1. **Project structure and shells**: Project configs are at the project root, source code is contained in `/src`, final output is contained in `/dist`, and documentation in `/docs`.
-1. **Package Management - Managers**: `npm/npx`
+1. **Project structure and shells**: Project configs are at the project root, source code is contained in `/src` (with a debugging demo), final output is contained in `/dist`, and documentation in `/docs`.
+1. **Package Management - Managers**: `npm/npx`.
 1. **Package Management - Deprecation Strategy**: none here, as there is no CI server. If there was one, integrate `Greenkeeper` and `RetireJS` into the pipeline.
 1. **Package Management - Security**: `Node Security Manager (nsp)`. If a CI server were used, then go with `Snyk`.
 1. **Module Management**: `ES6 Modules`, since we're going to be transpiling with Babel.
@@ -27,27 +27,24 @@ This project is a scaffold for making RESTful APIs using NodeJS and Express. Thi
 1. **Formatting**: `Prettier`.
 1. **Transpiling**: `Babel` with the `env` preset.
 1. **IntelliSense**: I'm assuming VSC is being used as the IDE, so `@types/node` and `@types/express`.
-1. **Debugging**: `nodemon` - See the Debugging section below (#debugging).
+1. **Debugging**: `nodemon` - See the Debugging section below.
 1. **Development Web Server**: `Express`.
 1. **Documentation**: `DocumentationJS`.
-1. **Sharing Work**: `LocalTunnel`.
-1. **Bundling**: `Babel`
-1. **Build/Task Management**: `package.json` using `npx`.
+1. **Sharing Work**: `Localtunnel`.
+1. **Bundling**: `Babel`.
+1. **Build/Task Management**: `package.json` build scripts using `npx`.
 1. **Dynamic HTML Generation**: None needed here.
 1. **Centralized HTTP**: TBD
 1. **Mocking Framework**: TBD
 1. **Testing Suite**: TBD
 1. **Continuous Integration**: TBD
+1. **Continuous Monitoring**: TBD
 
 # Project Setup
 
 ## Structure
 
-Apart from the customized config files taken from `Configs` , this project contains a `demo_Debugging/` folder that showcases how to set up an effective VSC debugging workflow.
-
-Within `demo_Debugging`, there is `app.js`, which sets up a very basic Express middleware that just returns a status code of 200 and a json string. This is used to test the Attach VSC node debugger called `Attach:3001`, which attaches to any node process running on port 3001. To start up this file, just run `> npm run debugDemo`.
-
-The other files in `demoDebugging` are `client.js` and `server.js`, which are meant for exactly what they sound. This app is focused on the backend only, so `client.js` just holds a very small function for the purposes of showcasing the debugger. To start it up, just select `debugDemo(Client)` from the debuggers dropdown and VSC will stop at the breakpoint set in that file. The same holds for `server.js`, which has some minimal Express middleware that is then passed to Node's core http module. To start that one up, run the `debugDemo(Server)` debugger.
+Apart from the customized config files taken from the **Configs** boilerplate, this project has a `src/` directory that's divided between `app/`, which contains the REST API boilerplate and `demo_Debugging`, which showcases how to set up an effective VSC debugging workflow (see the Debugging section below for more info).
 
 # Debugging
 
@@ -61,14 +58,11 @@ The other files in `demoDebugging` are `client.js` and `server.js`, which are me
 1. http://sandny.com/2017/10/30/babel-express-js-node-js-nodemon-to-build-a-node-js-server-with-hot-reloading/
 1. https://stackoverflow.com/questions/39917343/nodemon-babel-restart-the-server-multiple-times
 
-**``nodemon** is the tool most often used to reload JS code upon change or upon saving. While it comes from the Node/JS ecosystem, it can be used to "watch" any kind of file for changes. Examples include HTML, CSS, Sass, Python, Go, etc...It doesn't matter because it's configurable by file extension, making it very general and a great tool to include in your toolchain.
+**`nodemon`** is the tool most often used to reload JS code upon change or upon filesave. While it comes from the Node/JS ecosystem, it can be used to "watch" any kind of file. Examples include HTML, CSS, Sass, Python, Go, etc...It doesn't matter because it's configurable by file extension, making it a very versatile tool to include in the toolchain.
 
-The other piece of the puzzle is VSC's built-in debuggers. See Source 1 for a general clue on how to get started (it's required reading). In this project, there is a `.vscode` folder that contains a `launch.json` file. This is a configuration file that tells VSC the type of debugger to use when, as well as more fine-grained configuration. These debuggers are broken down by **type** (in this case, node) and **task** (either _Launch_ or _Attach_). You'll notice that all, with the exception of the _Attach_ node debugger, were configured to launch with `nodemon` and utilize `babel`. (Sources 2, 3, 4, and 5 if you want to know how I put this together).
+The other piece of the puzzle is VSC's built-in debuggers. See Source 1 for a general clue on how to get started (it's required reading). In this project, there's a `.vscode` folder that contains a `launch.json` file. This is a configuration file that tells VSC the type of debugger to use when, as well as more fine-grained configuration. These debuggers are broken down by **type** (in this case, node) and **task** (either _Launch_ or _Attach_). You'll notice that all, with the exception of the _Attach_ node debugger, were configured to launch with `nodemon` and utilize `babel`. (Sources 2, 3, 4, and 5 if you want to know how I put this together).
 
-The most straightforward way to test this all out is to open `src/app/app.js`, add random breakpoints, and bring up the VSC Debugger panel on the left. Then:
-A. `> npm run debug` + Attach (chosen from the debugging dropdown).
-
-The result is a VSC node debugger attached to whatever node process is currently going at the port you set (the default here is 3001). It gets more exciting that this.
+The demo-related debuggers are obviously named, so that should be straightforward to test. To try out, open up the debugger demo files and add some breakpoints. Then, select a VSC debugger from the dropdown. To see how VSC attaches debuggers to node processes, add breakpoints to `demo_Debugging/app.js`, run `> npm run debug`, and then start the Attach:3001 VSC debugger.
 
 * Note: For some reason, when nodemon is used with Babel, the VSC Attach debugger always hits Babel itself. I could never figure out how to fix this. If anyone know of a way, please let me know! What I have been doing is just moving past that. The next breakpoint VSC hits will be the one you actually set. This problem can be avoided by going with Launch instead, but there are instances where you want to attach to an already-running Node process.
 
@@ -96,10 +90,12 @@ I have not personally investigated this method very much, as I find working with
 
 The workflows possible are more or less captured by the `package.json` scripts. The other workflows possible are the VSC-side debugging ones discussed in the previous section. In this section, I'll go through the `package.json` scripts from top to bottom. For each one, I will end on when it's best to use them.
 
-1. **Debug**: `debug-js` and `debug-express` are the ingredients of the general `debug` script. The js one starts up `nodemon`, with the `--inspect-brk` flag set to the localhost:port you want. _This port has to match the port set for the Attach task in `launch.json`_. The express one will just fire console messages as you call express services. `nodemon` is started with `babel-node` and any changes you make will restart the app. Notice that `npm-run-all -s` is used to run these scripts _sequentially_. This is useful when you want to quickly run through the app and leave yourself the possibility of debugging via the Attach debugger.
+1. **debugDemo**: starts `./src/demo_Debugging/app.js` with the `inspect-brk` flag set to the localhost:port you want. _This port has to match the port set for the Attach task in `launch.json`_. `nodemon` is started with `babel-node` and any changes you make will restart the app. This showcases the scenario where you want to quickly run through an app or file and leave yourself the possibility of debugging via the Attach debugger at some point during runtime.
 
-2. **Start/Share**: `start-js` is the same as `debug-js`, but without the `--inspect-brk` flag. `start` utilizes this and `security` to begin the app, the latter running a helper script for `Node Security Platform`. This is done sequentially via `npm-run-all`. Finally, `share` builds on top of that by running `start` and `share` (a script for `localtunnel`) in parallel, again using `npm-run-all`.
+2. **dev:start**: Uses `npm-run-all -s` to _sequentially_ run the **`security`** and **``dev:start-app** build scripts. `security` uses Node Security Platform (nsp) to check for known package vulnerabilities in the project and `dev:start-app` runs babel-node on the main app entry point. This is for when you just want to go through the app, but not attach any VSC debuggers.
 
-3. **Publish**: Next come a set of scripts that constitute `publish`. `clean` is used to remove all content from the output `dist/` and `docs/` folders. `build` uses Babel to output ES5 files (with sourcemaps) from the `src/` directory. `documentation:html` generates documentation in the `docs/` folder by reading off the JSDoc + Flow annotations in the `src/*.js` files. `publish` brings it all together using `npm-run-all -s`.
+3. **dev:debug-app** & **dev:debug-server**: Uses `nodemon` with the debugger flag and `babel-node` to start up these two app entry points. Either of these are useful for running the app from either endpoints with the possibility of attaching a debugger at some point during runtime.
 
-Note on the helper scripts: Scripts like `security` and `localtunnel` aren't really meant to be run by themselves, but as part of a build process. Obviously, if somethng goes wrong, then run them to check integrity of the build processes.
+4. **start**: Runs the nsp security check and then the `publish` build script. The publishing process begins with the `clean` script, which empties out the `dist./` and `docs/`. Then, the `build` step, which uses `babel` to output ES5 in `dist/` with sourcemaps. Finally, `documentation:html` generates documentation in the `docs/` folder by reading off the JSDoc + Flow annotations in the `src/*.js` files.
+
+5. **Helper scripts**: Build scripts like `security` and `localtunnel` aren't really meant to be run by themselves, but as part of a build process. Obviously, if somethng goes wrong, then run them to check the integrity of the build processes.

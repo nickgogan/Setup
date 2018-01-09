@@ -7,14 +7,14 @@
     "debugDemo":
       "npx nodemon --inspect-brk=localhost:3001 ./src/demo_Debugging/app.js --exec babel-node",
 
-    "dev:start": "npm-run-all -s security dev:start-js",
-    "dev:start-js": "npx --exec babel-node ./src/app.js",
-    "dev:debug-app":
-      "npx nodemon --inspect-brk=localhost:3001 ./src/app.js --exec babel-node",
-    "dev:debug-server":
-      "npx nodemon --inspect-brk=localhost:3001 ./src/server.js --exec babel-node",
+    "dev:start": "npm-run-all -s security dev:start-app",
+    "dev:start-app": "npx --exec babel-node ./src/app/app.js",
 
-    "share": "npm-run-all -p localtunnel",
+    "dev:debug-app":
+      "npx nodemon --inspect-brk=localhost:3001 ./src/app/app.js --exec babel-node",
+    "dev:debug-server":
+      "npx nodemon --inspect-brk=localhost:3001 ./src/app/server/server.js --exec babel-node",
+
     "start": "npm-run-all -s security publish",
     "publish": "npm-run-all -s clean build document:html",
     "document:html":
@@ -22,6 +22,7 @@
     "build": "npx babel ./src/app/ --out-dir dist/ --source-maps",
     "clean": "rm -rf ./dist/* ./docs/*",
 
+    "share": "npm-run-all -p localtunnel",
     "security": "npx nsp check --reporter summary",
     "localtunnel":
       "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan"
