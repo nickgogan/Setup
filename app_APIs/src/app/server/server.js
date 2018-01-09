@@ -1,7 +1,7 @@
-// @flow
+// @ts-check
 
 import http from 'http';
-import app from './src/app/app.js';
+import app from '../app';
 
 const port = process.env.PORT || 3001;
 const server = http.createServer(app);
