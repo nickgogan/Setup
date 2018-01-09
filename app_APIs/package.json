@@ -6,22 +6,18 @@
   "scripts": {
     "debugDemo":
       "npx nodemon --inspect-brk=localhost:3001 ./src/demo_Debugging/app.js --exec babel-node",
-
     "dev:start": "npm-run-all -s security dev:start-app",
-    "dev:start-app": "npx --exec babel-node ./src/app/app.js",
-
+    "dev:start-app": "babel-node ./src/app/server/server.js",
     "dev:debug-app":
       "npx nodemon --inspect-brk=localhost:3001 ./src/app/app.js --exec babel-node",
     "dev:debug-server":
       "npx nodemon --inspect-brk=localhost:3001 ./src/app/server/server.js --exec babel-node",
-
     "start": "npm-run-all -s security publish",
     "publish": "npm-run-all -s clean build document:html",
     "document:html":
       "npx documentation build ./src/app/* -f html -o docs",
     "build": "npx babel ./src/app/ --out-dir dist/ --source-maps",
     "clean": "rm -rf ./dist/* ./docs/*",
-
     "share": "npm-run-all -p localtunnel",
     "security": "npx nsp check --reporter summary",
     "localtunnel":
@@ -64,12 +60,13 @@
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",
     "nodemon": "1.14.7",
-    "nsp": "3.1.0",
-    "retire": "1.4.0",
-    "sassdoc": "2.5.0"
+    "nsp": "3.1.0"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
-    "express": "4.16.2"
+    "express": "4.16.2",
+    "morgan": "1.9.0",
+    "winston": "2.4.0",
+    "file-stream-rotator": "0.2.0"
   }
 }
