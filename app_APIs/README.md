@@ -1,4 +1,4 @@
-# NodeJS for RESTful APIs
+# REST APIs with Node and Express
 
 #### Published on January 5, 2018
 
