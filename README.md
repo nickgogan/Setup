@@ -48,12 +48,12 @@ Inspired by the following sources:
 1. Centralized HTTP (TBD)
 1. Mocking framework (TBD)
 1. Testing suite (TBD)
-   a. Framework
-   b. Assertion Library
-   c. Helper Libraries
-   d. Where to run tests
-   e. Where to place tests
-   f. When to run tests
+   1. Framework
+   1. Assertion Library
+   1. Helper Libraries
+   1. Where to run tests
+   1. Where to place tests
+   1. When to run tests
 1. Continuous Integration (TBD)
 1. Continuous Monitoring (TBD)
 
