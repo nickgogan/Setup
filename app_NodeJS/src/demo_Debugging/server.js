@@ -1,11 +1,10 @@
 // @flow
 
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 
-console.log('server-side');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // Use for static assets, like external data mocks.
 app.use(
@@ -18,3 +17,13 @@ app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(port, () =>
   console.log('Example app listening on port 3001!')
 );
+
+// Middleware
+
+// Routes
+
+// Catch 404s
+
+// Error handlers
+
+// Start server
