@@ -1,0 +1,30 @@
+//Note: jsconfig.json is just tsconfig.json with the "allowJS" attribute set to true.
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/bundle",
+    "baseUrl": "./src/",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es6",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types",
+      "typings/*"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
+}

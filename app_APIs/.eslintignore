@@ -1,0 +1,8 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+# Ignore built files except dist/main.js
+dist/*
+!build/main.js
+
+# Ignore vendor libraries not from npm
+vendors/*
