@@ -1,7 +1,6 @@
 // @ts-check
 
 import express from 'express';
-// import { passingLog, errorLog } from './server/helpers';
 import * as helpers from './server/helpers';
 
 const app = express();
@@ -18,16 +17,18 @@ app.use((req, res, next) => {
   });
 });
 
+// 404 handler
 // app.use(helpers.resourceMissing)
 app.use((req, res, next) => {
-  const error = new Error('Not found...');
+  const error = new Error('Resource not found');
   error.status = 404;
   next(error);
 });
 
 app.use((error, req, res, next) => {
   // Respond to client
-  const err = app.get('env') === 'development' ? error : {};
+  // const err = app.get('env') === 'development' ? error : {};
+  const err = helpers.env.NODE_ENV === 'dev' ? error : {};
   const status = err.status || 500;
 
   res.status(status).json({
@@ -39,4 +40,5 @@ app.use((error, req, res, next) => {
   console.log(error);
 });
 
+// console.log(env);
 export default app;
