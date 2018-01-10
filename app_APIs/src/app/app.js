@@ -2,28 +2,45 @@
 
 import express from 'express';
 import * as helpers from './server/helpers';
+import * as productRoutes from './server/routes/products';
 
 const app = express();
 
-// Middlewares
-// - Log handlers
+/*
+########################################
+                        Routes
+########################################
+*/
+
+app.get('/', (req, res, next) => {
+  res.status(200).json({
+    message: 'Root service'
+  });
+  console.log(
+    `~~~~~~~~~~~~~~~~~~~~\n\tAt root\n~~~~~~~~~~~~~~~~~~~~`
+  );
+});
+
+app.use('/products', productRoutes);
+
+/*
+########################################
+                        Middlewares
+########################################
+*/
+
+// Log handlers
 app.use(helpers.outputLog);
 app.use(helpers.errorLog);
+app.use(helpers.winstorLoggerWriter);
 
-// - Error handlers
-app.use((req, res, next) => {
-  res.status(200).json({
-    message: 'Middleware works!'
-  });
-});
-
-// 404 handler
-// app.use(helpers.resourceMissing)
-app.use((req, res, next) => {
-  const error = new Error('Resource not found');
-  error.status = 404;
-  next(error);
-});
+// HTTP 404 handler
+app.use(helpers.resourceMissing);
+// app.use((req, res, next) => {
+//   const error = new Error('Resource not found');
+//   error.status = 404;
+//   next(error);
+// });
 
 app.use((error, req, res, next) => {
   // Respond to client
@@ -40,5 +57,4 @@ app.use((error, req, res, next) => {
   console.log(error);
 });
 
-// console.log(env);
 export default app;
