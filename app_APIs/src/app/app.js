@@ -21,7 +21,7 @@ app.get('/', (req, res, next) => {
   );
 });
 
-app.use('/products', productRoutes);
+app.use('/products', productRoutes.router);
 
 /*
 ########################################
