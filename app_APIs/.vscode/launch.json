@@ -94,8 +94,8 @@
     {
       "name": "debugDemo(Fullstack)",
       "configurations": [
-        "debugDemo(server)",
-        "debugDemo(app)"
+        "debugDemo(Server)",
+        "debugDemo(Client)"
       ]
     },
     {
