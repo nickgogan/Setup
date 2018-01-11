@@ -14,11 +14,11 @@ Import the environment variables from external file
 ########################################
 */
 
-export const env = dotEnv.load({
-  path: 'src/app/server/env/.env',
-  sample: 'src/app/server/env/.env.example',
-  allowEmptyValues: true
-});
+// export const env = dotEnv.load({
+//   path: 'src/app/server/env/.env',
+//   sample: 'src/app/server/env/.env.example',
+//   allowEmptyValues: true
+// });
 
 /*
 ########################################
@@ -28,28 +28,31 @@ Setup variables for server logging frameworks
 ########################################
 */
 
-const logLevel = env.LOG_logLevel || 'debug';
+// const logLevel = env.LOG_logLevel || 'debug';
 
-const logDir = path.join(__dirname, 'logs');
+// const logDir = path.join(__dirname, 'logs');
 
-const logTypes = {
-  stderr: 'errors',
-  stdout: 'output'
-};
+// const logTypes = {
+//   stderr: 'errors',
+//   stdout: 'output'
+// };
 
-const logErrorStream = fileStreamRotator.getStream({
-  filename: path.join(logDir, logTypes.stderr),
-  frequency: 'daily',
-  verbose: false,
-  date_format: 'YYYYMMDD'
-});
+// const logErrorStream = fileStreamRotator.getStream({
+//   filename: path.join(logDir, logTypes.stderr),
+//   frequency: 'daily',
+//   verbose: false,
+//   date_format: 'YYYY-MM-DD'
+// });
 
-const logOutputStream = fileStreamRotator.getStream({
-  filename: path.join(logDir, logTypes.stdout),
-  frequency: 'daily',
-  verbose: false,
-  date_format: 'YYYYMMDD'
-});
+// const logOutputStream = fileStreamRotator.getStream({
+//   filename: path.join(logDir, logTypes.stdout),
+//   frequency: 'daily',
+//   verbose: false,
+//   date_format: 'YYYY-MM-DD'
+// });
+
+// Checking out Winston for the console output
+// const logConsoleStream =
 
 /*
 ########################################
@@ -62,41 +65,52 @@ Use 'combined' when NODE_ENV='prod' so that these extra color characters aren't 
 ########################################
 */
 
-export const outputLog = morgan('dev', {
-  skip: (req, res) => res.statusCode < 400,
-  stream: logOutputStream
-});
+// export const outputLog = morgan('combined', {
+//   skip: (req, res) => res.statusCode < 400,
+//   stream: logOutputStream
+// });
 
-// Make your life easier by putting actual HTTP errors in a separate log file.
-export const errorLog = morgan('dev', {
-  skip: (req, res) => res.statusCode >= 400,
-  stream: logErrorStream
-});
+// // Make your life easier by putting actual HTTP errors in a separate log file.
+// export const errorLog = morgan('combined', {
+//   skip: (req, res) => res.statusCode >= 400,
+//   stream: logErrorStream
+// });
 
 /*
 ########################################
                     Logging - Console
+
+Create a custom Winston logger. The defaultLogger of the module has a generic win . Note that if you want the generic logger, you don't have to create an instance of it. Just use the 'winston' var after importing.
 ########################################
 */
-const winstonLogger = new winston.Logger({
-  transports: [
-    new winston.transports.Console({
-      level: 'debug',
-      handleExceptions: true,
-      json: false,
-      colorize: true,
-      timestamp: () => new Date().toISOString()
-    })
-  ],
-  exitOnError: false
-});
-winstonLogger.emitErrs = true;
-// console.log(typeof winstonLogger);
+// const winstonLogger = new winston.Logger({
+// const winston = require('winston');
 
-export function winstorLoggerWriter(message, encoding) {
-  winstonLogger.info(message);
-}
-// console.log(typeof winstorLoggerWriter);
+// const winstonLogger = winston.Logger({
+//   transports: [
+//     new winston.transports.Console({
+//       level: 'info',
+//       colorize: true,
+//       timestamp: () => new Date().toISOString(),
+//       json: false,
+//       prettyPrint: true,
+//       humanReadableUnhandledException: true,
+//       handleExceptions: true
+//     })
+//   ],
+//   exitOnError: false
+// });
+// winstonLogger.emitErrs = true;
+
+// export function winstorLoggerWriter(message, encoding) {
+//   winstonLogger.info(message);
+// }
+// console.log(typeof winstorLogge;rWriter);
+// module.exports.streamWinston = {
+//   write: (message, encoding) => {
+//     winstonLogger.info(message);
+//   }
+// };
 
 /*
 ########################################
