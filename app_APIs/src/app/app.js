@@ -7,8 +7,8 @@ import * as helpers from './server/helpers';
 import logger from './server/loggers';
 
 const env = dotEnv.load({
-  path: 'src/app/server/env/.env',
-  sample: 'src/app/server/env/.env.example',
+  path: 'src/app/env/.env',
+  sample: 'src/app/env/.env.example',
   allowEmptyValues: true
 });
 

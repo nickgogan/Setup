@@ -6,8 +6,8 @@ import app from '../app';
 import * as helpers from './helpers';
 
 const env = dotEnv.load({
-  path: 'src/app/server/env/.env',
-  sample: 'src/app/server/env/.env.example',
+  path: 'src/app/env/.env',
+  sample: 'src/app/env/.env.example',
   allowEmptyValues: true
 });
 
