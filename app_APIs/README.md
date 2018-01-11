@@ -14,8 +14,12 @@ This project is a scaffold for making RESTful APIs using NodeJS and Express. Thi
 
 1. **OS prerequisites**: _Windows Setup_ and this gist for getting NodeJS to play nice with Windows - https://gist.github.com/nickgogan/84b0dbb5328ffeafbd6358a235a01db6
 
+https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html
+
 * Additional packages:
   * `cross-env`: Used to set system variables such that they will work in both Windows and \*nix platforms.
+  * `morgan`: Express logger.
+  * `winston`: More general logger used to provided more detailed, differentiated, and rotating logs.
 
 1. **Project structure and shells**: Project configs are at the project root, source code is contained in `/src` (with a debugging demo), final output is contained in `/dist`, and documentation in `/docs`.
 1. **Package Management - Managers**: `npm/npx`.
@@ -38,7 +42,7 @@ This project is a scaffold for making RESTful APIs using NodeJS and Express. Thi
 1. **Mocking Framework**: TBD
 1. **Testing Suite**: TBD
 1. **Continuous Integration**: TBD
-1. **Continuous Monitoring**: TBD
+1. **Continuous Monitoring**: `morgan` and `winston`
 
 # Project Setup
 
@@ -85,6 +89,20 @@ C. **Compound debugging**: The logical next step of B. is to launch both the ser
 Chrome has a set of built-in NodeJS devTools that can be accessed at `about://inspect`. Simply start Express (or whatever Node-based web server you want) and then access the inspector. Source 1 is a recent writeup that showcases how this works step-by-step. It's worth reading through to have an idea of how this works. Source 2 is a two minute video that does this with Node's built-in HTTP server (which Express is built on top of).
 
 I have not personally investigated this method very much, as I find working with `nodemon` and VSC a very smooth experience. I prefer to minimize context switching, so keeping things in VSC works great for me. Plus, the hot reloading that nodemon yields is just great, and I haven't found a way to hook that with Chrome's Node Inspector.
+
+# Server Logging
+
+**Sources**:
+
+1. http://www.jyotman.xyz/post/logging-in-node.js-done-right
+2. http://tostring.it/2014/06/23/advanced-logging-with-nodejs/
+3. https://www.loggly.com/ultimate-guide/node-logging-basics/
+4. https://blog.tompawlak.org/rotate-winston-logs-based-on-time
+5. https://www.npmjs.com/package/winston-daily-rotate-file
+6. https://stackoverflow.com/questions/27906551/node-js-logging-use-morgan-and-winston
+7. https://www.codeday.top/2017/10/20/50689.html
+8. https://github.com/expressjs/morgan/issues/56
+9. https://gist.github.com/pbaio/ac934a06b91b99be6526
 
 # Workflows
 
