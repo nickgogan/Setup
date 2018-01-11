@@ -1,1 +1,8 @@
-{"level":"info","message":"\u001b[0mGET /products \u001b[32m200 \u001b[0m8.345 ms - 26\u001b[0m\n","timestamp":"2018-01-11T17:38:35.208Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m3.247 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:46:57.630Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m0.577 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:47:05.525Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m0.264 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:47:05.692Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m2.485 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:52:02.987Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m1.885 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:52:03.707Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m6.310 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:54:35.267Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m2.238 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:56:17.869Z"}
+{"level":"info","message":"\u001b[0mGET / \u001b[32m200 \u001b[0m2.439 ms - 26\u001b[0m\n","timestamp":"2018-01-11T22:56:18.791Z"}

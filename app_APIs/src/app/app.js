@@ -4,7 +4,9 @@ import express from 'express';
 import morgan from 'morgan';
 import * as dotEnv from 'dotenv-safe';
 import * as helpers from './server/helpers/helpers';
-import logger from './server/helpers/loggers';
+// import loggers from './server/helpers/loggers';
+
+const loggers = require('./server/helpers/loggers');
 
 const env = dotEnv.load({
   path: 'src/app/env/.env',
@@ -15,7 +17,10 @@ const env = dotEnv.load({
 const app = express();
 
 // Pass all events through the loggers first
-app.use(morgan('dev', { stream: logger.stream }));
+app.use(morgan('dev', { stream: loggers.console.stream }));
+app.use(morgan('dev', { stream: loggers.info.stream }));
+app.use(morgan('dev', { stream: loggers.warning.stream }));
+app.use(morgan('dev', { stream: loggers.error.stream }));
 
 /*
 ########################################
