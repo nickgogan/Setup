@@ -2,13 +2,13 @@
 
 import path from 'path';
 import winston from 'winston';
-// import * as dotEnv from 'dotenv-safe';
+import * as dotEnv from 'dotenv-safe';
 
-// const env = dotEnv.load({
-//   path: 'src/app/server/env/.env',
-//   sample: 'src/app/server/env/.env.example',
-//   allowEmptyValues: true
-// });
+const env = dotEnv.load({
+  path: 'src/app/server/env/.env',
+  sample: 'src/app/server/env/.env.example',
+  allowEmptyValues: true
+});
 
 /*
 ########################################

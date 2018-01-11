@@ -1,27 +1,37 @@
 // @ts-check
 
 import express from 'express';
+import morgan from 'morgan';
+import * as dotEnv from 'dotenv-safe';
 import * as helpers from './server/helpers';
-import * as productRoutes from './server/routes/products';
+import logger from './server/loggers';
+
+const env = dotEnv.load({
+  path: 'src/app/server/env/.env',
+  sample: 'src/app/server/env/.env.example',
+  allowEmptyValues: true
+});
 
 const app = express();
+
+// Pass all events through the loggers first
+app.use(morgan('dev', { stream: logger.stream }));
 
 /*
 ########################################
                         Routes
 ########################################
 */
+const productRoutes = require('./server/routes/products');
+const ordersRoutes = require('./server/routes/orders');
 
 app.get('/', (req, res, next) => {
   res.status(200).json({
     message: 'Root service'
   });
-  console.log(
-    `~~~~~~~~~~~~~~~~~~~~\n\tAt root\n~~~~~~~~~~~~~~~~~~~~`
-  );
 });
 
-app.use('/products', productRoutes.router);
+app.use('/products', productRoutes);
 
 /*
 ########################################
@@ -30,31 +40,31 @@ app.use('/products', productRoutes.router);
 */
 
 // Log handlers
-app.use(helpers.outputLog);
-app.use(helpers.errorLog);
-app.use(helpers.winstorLoggerWriter);
+// app.use(helpers.outputLog);
+// app.use(helpers.errorLog);
+// app.use(helpers.winstorLoggerWriter);
 
 // HTTP 404 handler
-app.use(helpers.resourceMissing);
+// app.use(helpers.resourceMissing);
 // app.use((req, res, next) => {
 //   const error = new Error('Resource not found');
 //   error.status = 404;
 //   next(error);
 // });
 
-app.use((error, req, res, next) => {
-  // Respond to client
-  // const err = app.get('env') === 'development' ? error : {};
-  const err = helpers.env.NODE_ENV === 'dev' ? error : {};
-  const status = err.status || 500;
+// app.use((error, req, res, next) => {
+//   // Respond to client
+//   // const err = app.get('env') === 'development' ? error : {};
+//   const err = helpers.env.NODE_ENV === 'dev' ? error : {};
+//   const status = err.status || 500;
 
-  res.status(status).json({
-    error: {
-      message: err.message
-    }
-  });
-  // Respond to myself
-  console.log(error);
-});
+//   res.status(status).json({
+//     error: {
+//       message: err.message
+//     }
+//   });
+//   // Respond to myself
+//   console.log(error);
+// });
 
 export default app;
