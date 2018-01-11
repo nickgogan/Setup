@@ -3,8 +3,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import * as dotEnv from 'dotenv-safe';
-import * as helpers from './server/helpers';
-import logger from './server/loggers';
+import * as helpers from './server/helpers/helpers';
+import logger from './server/helpers/loggers';
 
 const env = dotEnv.load({
   path: 'src/app/env/.env',

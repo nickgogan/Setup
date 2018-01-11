@@ -3,7 +3,6 @@
 import http from 'http';
 import * as dotEnv from 'dotenv-safe';
 import app from '../app';
-import * as helpers from './helpers';
 
 const env = dotEnv.load({
   path: 'src/app/env/.env',
