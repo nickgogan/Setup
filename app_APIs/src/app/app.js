@@ -22,8 +22,8 @@ app.use(morgan('dev', { stream: logger.stream }));
                         Routes
 ########################################
 */
-const productRoutes = require('./server/routes/products');
-const ordersRoutes = require('./server/routes/orders');
+const productRoutes = require('./server/API/product/product.routes');
+const orderRoutes = require('./server/API/order/order.routes');
 
 app.get('/', (req, res, next) => {
   res.status(200).json({

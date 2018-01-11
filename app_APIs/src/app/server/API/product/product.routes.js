@@ -1,4 +1,4 @@
-// @flow
+// @ts-check
 
 import express from 'express';
 
@@ -30,4 +30,5 @@ router.post('/', (req, res, next) => {
   });
 });
 
-export { router };
+// export { router };
+module.exports = router;
