@@ -26,7 +26,7 @@ router.get('/:productID', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   res.status(200).json({
-    message: 'POST products'
+    message: `POST products`
   });
 });
 

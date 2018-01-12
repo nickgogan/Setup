@@ -16,7 +16,14 @@ const env = dotEnv.load({
 
 const app = express();
 
-// Pass all events through the loggers first
+/*
+########################################
+                        Loggers
+
+
+Pass HTTP events through loggersd first
+########################################
+*/
 app.use(morgan('dev', { stream: loggers.console.stream }));
 app.use(morgan('dev', { stream: loggers.info.stream }));
 app.use(morgan('dev', { stream: loggers.warning.stream }));
@@ -37,39 +44,33 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/products', productRoutes);
-
+app.use('/orders', orderRoutes);
 /*
 ########################################
                         Middlewares
 ########################################
 */
 
-// Log handlers
-// app.use(helpers.outputLog);
-// app.use(helpers.errorLog);
-// app.use(helpers.winstorLoggerWriter);
-
 // HTTP 404 handler
-// app.use(helpers.resourceMissing);
+app.use(helpers.resourceMissing);
 // app.use((req, res, next) => {
 //   const error = new Error('Resource not found');
 //   error.status = 404;
 //   next(error);
 // });
 
-// app.use((error, req, res, next) => {
-//   // Respond to client
-//   // const err = app.get('env') === 'development' ? error : {};
-//   const err = helpers.env.NODE_ENV === 'dev' ? error : {};
-//   const status = err.status || 500;
+app.use((error, req, res, next) => {
+  // Respond to client
+  const err = helpers.env.NODE_ENV === 'dev' ? error : {};
+  const status = err.status || 500;
 
-//   res.status(status).json({
-//     error: {
-//       message: err.message
-//     }
-//   });
-//   // Respond to myself
-//   console.log(error);
-// });
+  res.status(status).json({
+    error: {
+      message: err.message
+    }
+  });
+  // Respond to myself
+  console.log(error);
+});
 
 export default app;
