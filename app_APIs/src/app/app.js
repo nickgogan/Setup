@@ -3,17 +3,11 @@
 import express from 'express';
 import morgan from 'morgan';
 import * as dotEnv from 'dotenv-safe';
-import * as helpers from './server/helpers/helpers';
-// import loggers from './server/helpers/loggers';
 
+const helpers = require('./server/helpers/helpers');
 const loggers = require('./server/helpers/loggers');
 
-const env = dotEnv.load({
-  path: 'src/app/env/.env',
-  sample: 'src/app/env/.env.example',
-  allowEmptyValues: true
-});
-
+console.log(helpers.environment.PORT);
 const app = express();
 
 /*

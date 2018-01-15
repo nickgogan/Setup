@@ -2,13 +2,6 @@
 
 import path from 'path';
 import winston from 'winston';
-import * as dotEnv from 'dotenv-safe';
-
-const env = dotEnv.load({
-  path: 'src/app/env/.env',
-  sample: 'src/app/env/.env.example',
-  allowEmptyValues: true
-});
 
 /*
 ########################################
@@ -18,8 +11,6 @@ Create transport streams and add to Winston
 ########################################
 */
 winston.transports.DailyRotateFile = require('winston-daily-rotate-file');
-
-const logDir = '../logs';
 
 const devWinstonConsoleStream = new winston.transports.Console({
   level: 'debug',
@@ -31,6 +22,7 @@ const devWinstonInfoStream = new winston.transports.DailyRotateFile({
   level: 'info',
   name: 'log.info',
   filename: path.join(
+    // Quirk: path.join seems to be required by winston-daily-rotate-file, otherwise no file will be outputted. Hypothesis: The configuration object that the module uses to instantiate itself looks for these fields verfy explicitly.
     __dirname,
     '../../server/logs/info',
     'log.info'
@@ -46,11 +38,7 @@ const devWinstonInfoStream = new winston.transports.DailyRotateFile({
 const devWinstonWarnStream = new winston.transports.DailyRotateFile({
   level: 'warn',
   name: 'log.warn',
-  filename: path.join(
-    __dirname,
-    '../../server/logs/warnings',
-    'log.warnings'
-  ),
+  filename: path.join(__dirname, '../../server/logs/warnings', 'log.warnings'),
   datePattern: '.yyyy-MM-dd',
   createTree: true,
   handleExceptions: false,
@@ -62,11 +50,7 @@ const devWinstonWarnStream = new winston.transports.DailyRotateFile({
 const devWinstonErrorStream = new winston.transports.DailyRotateFile({
   level: 'error',
   name: 'log.error',
-  filename: path.join(
-    __dirname,
-    '../../server/logs/errors',
-    'log.errors'
-  ),
+  filename: path.join(__dirname, '../../server/logs/errors', 'log.errors'),
   datePattern: '.yyyy-MM-dd',
   createTree: true,
   handleExceptions: true,
