@@ -20,6 +20,7 @@ https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-j
   * `cross-env`: Used to set system variables such that they will work in both Windows and \*nix platforms.
   * `morgan`: Express logger.
   * `winston`: More general logger used to provided more detailed, differentiated, and rotating logs.
+  * `rimraf`: Cross-platform utility for deleting files and folders. Along with `cross-env`, this module makes this project work across operating systems.
 
 1. **Project structure and shells**: Project configs are at the project root, source code is contained in `/src` (with a debugging demo), final output is contained in `/dist`, and documentation in `/docs`.
 1. **Package Management - Managers**: `npm/npx`.
