@@ -55,6 +55,9 @@
       "type": "node",
       "request": "launch",
       "name": "debug(file)",
+      "env": {
+        "NODE_ENV": "dev"
+      },
       "runtimeExecutable": "nodemon",
       "args": [
         "--exec",
