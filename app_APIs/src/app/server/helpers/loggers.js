@@ -1,4 +1,5 @@
 // @ts-check
+// @flow
 
 import path from 'path';
 import winston from 'winston';
@@ -7,7 +8,8 @@ import winston from 'winston';
 ########################################
                         Winston Setup
 
-Create transport streams and add to Winston
+Create transport streams and add to separate
+Winston instances.
 ########################################
 */
 winston.transports.DailyRotateFile = require('winston-daily-rotate-file');

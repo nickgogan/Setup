@@ -1,13 +1,12 @@
 // @ts-check
+// @flow
 
 import express from 'express';
 import morgan from 'morgan';
-import * as dotEnv from 'dotenv-safe';
 
 const helpers = require('./server/helpers/helpers');
 const loggers = require('./server/helpers/loggers');
 
-console.log(helpers.environment.PORT);
 const app = express();
 
 /*
@@ -41,17 +40,12 @@ app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 /*
 ########################################
-                        Middlewares
+                      Error-handling
 ########################################
 */
 
 // HTTP 404 handler
 app.use(helpers.resourceMissing);
-// app.use((req, res, next) => {
-//   const error = new Error('Resource not found');
-//   error.status = 404;
-//   next(error);
-// });
 
 app.use((error, req, res, next) => {
   // Respond to client
