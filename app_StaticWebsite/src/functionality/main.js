@@ -1,3 +1,4 @@
+// @ts-check
 // @flow
 
 import Test from './test';
