@@ -1,8 +1,14 @@
 // @ts-check
 // @flow
+import ConsoleLogHTML from 'console-log-html';
 
-import Test from './test';
-
-const myObject1 = new Test();
-
-console.log(myObject1.fullName);
+Promise.all([
+  import(/* webpackChunkName: "foo" */ './foo'),
+  import(/* webpackChunkName: "bar" */ './bar')
+])
+  .then(([{ Foo }, { Bar }]) => {
+    console.log('Lazy-loaded modules exports ', Foo(), Bar());
+  })
+  .catch(e => {
+    console.error(e);
+  });
