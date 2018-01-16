@@ -2,6 +2,7 @@
 
 # env
 /src/app/env/dev.env
+/src/app/env/test.env
 /src/app/env/prod.env
 
 # compiled output
