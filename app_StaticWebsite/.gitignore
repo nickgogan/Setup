@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# env
+/src/app/env/dev.env
+/src/app/env/prod.env
+
 # compiled output
 /dist
 /tmp
