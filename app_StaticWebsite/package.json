@@ -43,7 +43,11 @@
     "url": "git+https://github.com/nickgogan/Setup"
   },
   "devDependencies": {
+    "@types/extract-text-webpack-plugin": "3.0.0",
+    "@types/html-webpack-plugin": "2.30.1",
     "@types/webpack": "3.8.2",
+    "@types/webpack-dev-server": "2.9.2",
+    "@types/webpack-merge": "4.1.1",
     "babel-cli": "6.26.0",
     "babel-eslint": "8.1.2",
     "babel-loader": "7.1.2",
@@ -60,8 +64,10 @@
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-jsx-a11y": "6.0.2",
     "eslint-plugin-react": "7.4.0",
+    "extract-text-webpack-plugin": "3.0.2",
     "flow-bin": "0.62.0",
     "flow-scripts": "0.4.0",
+    "html-webpack-plugin": "2.30.1",
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",
     "nodemon": "1.14.7",
@@ -71,7 +77,8 @@
     "uglifyjs-webpack-plugin": "1.1.6",
     "webpack": "3.10.0",
     "webpack-dev-server": "2.11.0",
-    "webpack-merge": "4.1.1"
+    "webpack-merge": "4.1.1",
+    "webpack-node-externals": "1.6.0"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
