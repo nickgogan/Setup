@@ -43,6 +43,7 @@
     "url": "git+https://github.com/nickgogan/Setup"
   },
   "devDependencies": {
+    "@types/webpack": "3.8.2",
     "babel-cli": "6.26.0",
     "babel-eslint": "8.1.2",
     "babel-loader": "7.1.2",
