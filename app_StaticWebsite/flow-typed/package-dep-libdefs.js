@@ -4,10 +4,26 @@ declare module 'babel-polyfill' {
   declare module.exports: any;
 }
 
+declare module 'console-log-html' {
+  declare module.exports: any;
+}
+
 declare module 'cross-env' {
   declare module.exports: any;
 }
 
 declare module 'dotenv-safe' {
+  declare module.exports: any;
+}
+
+declare module './test' {
+  declare module.exports: any;
+}
+
+declare module './foo' {
+  declare module.exports: any;
+}
+
+declare module './bar' {
   declare module.exports: any;
 }
