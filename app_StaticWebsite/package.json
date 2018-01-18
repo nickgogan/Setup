@@ -6,30 +6,17 @@
   "scripts": {
     "dev:webpack":
       "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
-    "dashboard":
+    "dev:dashboard":
       "webpack-dashboard -- webpack-dev-server --history-api-fallback --inline --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
-    "dev:webpack2":
-      "webpack-dev-server --history-api-fallback --inline --progress --colors --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
-    "debugDemo":
-      "nodemon --inspect-brk=localhost:3001 ./src/demo_Debugging/app.js --exec babel-node",
-    "dev:start":
-      "npx cross-env NODE_ENV=dev npm-run-all -s security dev:start-app",
-    "dev:start-app":
-      "npx cross-env NODE_ENV=dev babel-node ./src/app/server/server.js",
-    "dev:debug-app":
-      "npx cross-env NODE_ENV=dev nodemon --inspect-brk=localhost:3001 ./src/app/app.js --exec babel-node",
-    "dev:debug-server":
-      "npx cross-env NODE_ENV=dev nodemon --inspect-brk=localhost:3001 ./src/app/server/server.js --exec babel-node",
-    "prod:debug-app":
-      "npx cross-env NODE_ENV=prod nodemon --inspect-brk=localhost:3001 ./dist/app.js",
-    "prod:debug-server":
-      "npx cross-env NODE_ENV=prod nodemon --inspect-brk=localhost:3001 ./dist/server/server.js",
+    "dev:webpack-server":
+      "webpack-dev-server --history-api-fallback --inline --progress --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
+    "server":
+      "nodemon --watch webpack.*.js --exec npm run \"dev:webpack-server\"",
     "start": "npm-run-all -s security publish start-app",
-    "start-app": "npx cross-env NODE_ENV=prod node ./dist/server/server.js",
     "publish": "npm-run-all -s clean build document:html",
     "document:html": "npx documentation build ./src/app/* -f html -o docs",
     "build":
-      "npx cross-env NODE_ENV=prod babel ./src/app/ --out-dir dist/ --source-maps",
+      "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
     "clean": "rimraf -rf ./dist/* ./docs/*",
     "share": "npm-run-all -p localtunnel",
     "security": "npx nsp check --reporter summary",
@@ -86,6 +73,7 @@
     "extract-text-webpack-plugin": "3.0.2",
     "flow-bin": "0.62.0",
     "flow-scripts": "0.4.0",
+    "html-webpack-harddisk-plugin": "0.1.0",
     "html-webpack-plugin": "2.30.1",
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",

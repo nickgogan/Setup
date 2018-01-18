@@ -2,5 +2,5 @@
 // @flow
 
 export default function Bar() {
-  return 'bar';
+  return 'Hello from bar!';
 }

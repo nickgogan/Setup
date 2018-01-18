@@ -6,9 +6,9 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>
-    Webpack App
+    <%= htmlWebpackPlugin.options.title %>
   </title>
-  <meta name="description" content="Webpack App"> // HERE
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>"> // HERE
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -25,6 +25,6 @@
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date; ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')</script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-  <script type="text/javascript" src="./build/main.js"></script></body>
+  </body>
 
 </html>

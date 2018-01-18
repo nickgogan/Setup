@@ -4,6 +4,7 @@ import path from 'path';
 import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge';
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
+import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 import WebpackDashboardPlugin from 'webpack-dashboard/plugin'; // eslint-disable-line import/no-extraneous-dependencies
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
@@ -18,11 +19,20 @@ const dotEnv = new DotenvWebpackPlugin({
   path: 'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/env/dev.env',
   safe: false
 });
-const webpackDashboard = new WebpackDashboardPlugin();
-const htmlTemplate = new WebpackHtmlPlugin({
-  template: path.resolve(__dirname, '../templates/index.html'),
-  inject: 'body'
+const webpackDashboard = new WebpackDashboardPlugin({
+  port: 3001
 });
+const htmlToHdd = new WebpackHtmlHarddiskPlugin({
+  outputPath: path.resolve(__dirname, '../../dist')
+});
+const htmlIndex = new WebpackHtmlPlugin({
+  template: path.resolve(__dirname, '../templates/index.html'),
+  title: 'test',
+  desc: 'desc',
+  inject: 'body',
+  alwaysWriteToDisk: true
+});
+const HMR = new webpack.HotModuleReplacementPlugin();
 
 /*
 ########################################
@@ -69,9 +79,11 @@ module.exports = WebpackMerge(commonConfig, {
       }
     ]
   },
-  plugins: [dotEnv, htmlTemplate, webpackDashboard],
+  plugins: [dotEnv, htmlIndex, htmlToHdd, webpackDashboard, HMR],
   devServer: {
-    contentBase: '../../build',
+    contentBase:
+      'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/assets/',
+    host: 'localhost',
     port: 3001
   }
 });

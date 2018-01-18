@@ -13,8 +13,11 @@ import fs from 'fs';
 */
 const SRC_PATH = './src/';
 const SRC_FULL_PATH = path.resolve(__dirname, '../../src');
-const PUBLIC_PATH = './build/';
-const PUBLIC_FULL_PATH = path.resolve(__dirname, '../../', PUBLIC_PATH);
+const PUBLIC_PATH = '../../dist/assets/';
+const PUBLIC_FULL_PATH = path.resolve(__dirname, PUBLIC_PATH);
+
+console.log(`~~~~~~~~~~~~~~~~~~~~\n\t${PUBLIC_FULL_PATH}\n~~~~~~~~~~~~~~~~~~~~
+`);
 
 /*
 ########################################
@@ -27,7 +30,11 @@ module.exports = {
   // target: node
 
   entry: {
-    main: path.join(SRC_FULL_PATH, 'js/main.js')
+    main: path.join(SRC_FULL_PATH, 'js/main.js'),
+    hmr: [
+      'webpack/hot/dev-server',
+      `webpack-dev-server/client?http://localhost:3001`
+    ]
   },
 
   // Prevents weird fs errors. See 'Weird Findings' #6
@@ -43,8 +50,8 @@ module.exports = {
   output: {
     path: PUBLIC_FULL_PATH,
     filename: `[name].js`,
-    chunkFilename: `[name].v${pkg.version}.js`,
-    publicPath: PUBLIC_PATH
+    chunkFilename: `[name].v${pkg.version}.js`
+    // publicPath: PUBLIC_PATH
   },
 
   // Allow absolute paths in imports.

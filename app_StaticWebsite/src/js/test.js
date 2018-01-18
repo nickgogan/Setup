@@ -2,5 +2,5 @@
 // @flow
 
 export default function test() {
-  return 'test run';
+  return 'Hello from test!';
 }
