@@ -2,10 +2,11 @@
 // @flow
 
 import ConsoleLogHTML from 'console-log-html';
-import test from './test.js';
+import test from './test';
 
 ConsoleLogHTML.connect(document.querySelector('#log'));
-console.log(console.log(`~~~~~~~~~~~~~~~~~~~~\n\tWebpack compiled ${test()}\n~~~~~~~~~~~~~~~~~~~~`);)
+
+console.log(process.env.SRC_PATH);
 
 // TODO: Investigate possibility of using async/await here.
 Promise.all([
