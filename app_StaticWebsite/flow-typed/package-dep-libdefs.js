@@ -16,14 +16,14 @@ declare module 'dotenv-safe' {
   declare module.exports: any;
 }
 
-declare module './test' {
+declare module 'clean-webpack-plugin' {
   declare module.exports: any;
 }
 
-declare module './foo' {
+declare module 'html-webpack-plugin' {
   declare module.exports: any;
 }
 
-declare module './bar' {
+declare module 'webpack-merge' {
   declare module.exports: any;
 }

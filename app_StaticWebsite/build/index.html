@@ -1,0 +1,30 @@
+<!-- Based on the latest HTML5BP version (v6.0.1) -->
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    Webpack App
+  </title>
+  <meta name="description" content="Webpack App"> // HERE
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="styles/main.css" </head>
+
+  <body>
+    <!--[if lte IE 9]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p><![endif]-->
+    <h3>JS Console</h3>
+    <ul id="log"></ul>
+    <script type="module" src="./dist/main.js"></script>
+    <script nomodule src="./dist/legacy/main.js"></script>
+    <div id="root"></div>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date; ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')</script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+  <script type="text/javascript" src="./build/main.js"></script></body>
+
+</html>
