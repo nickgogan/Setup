@@ -6,7 +6,6 @@ import WebpackMerge from 'webpack-merge';
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
 import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
-import WebpackDashboardPlugin from 'webpack-dashboard/plugin'; // eslint-disable-line import/no-extraneous-dependencies
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import commonConfig from './webpack.common';
 
@@ -19,9 +18,6 @@ const dotEnv = new DotenvWebpackPlugin({
   path: 'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/env/dev.env',
   safe: false
 });
-const webpackDashboard = new WebpackDashboardPlugin({
-  port: 3001
-});
 const htmlToHdd = new WebpackHtmlHarddiskPlugin({
   outputPath: path.resolve(__dirname, '../../dist')
 });
@@ -33,6 +29,16 @@ const htmlIndex = new WebpackHtmlPlugin({
   alwaysWriteToDisk: true
 });
 const HMR = new webpack.HotModuleReplacementPlugin();
+
+/*
+########################################
+                        PROD
+########################################
+*/
+const extractText = new WebpackExtractTextPlugin({
+  allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
+  filename: '../../dist/styles/[name].css'
+});
 
 /*
 ########################################
@@ -76,10 +82,43 @@ module.exports = WebpackMerge(commonConfig, {
             }
           }
         ]
+      },
+      {
+        // TODO: Figure out source maps
+        // DEV
+        test: /\.css$/,
+        // include,
+        // exclude,
+        // use: [
+        //   'style-loader',
+        //   {
+        //     loader: 'css-loader',
+        //     options: {
+        //       importLoaders: 2
+        //     },
+        //     loader: 'postcss-loader',
+        //     options: {
+        //       plugins: () => [require('precss'), require('postcss-cssnext')()]
+        //     }
+        //   }
+        // ]
+        // PROD
+        use: extractText.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader' },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [require('precss'), require('postcss-cssnext')()]
+              }
+            }
+          ]
+        })
       }
     ]
   },
-  plugins: [dotEnv, htmlIndex, htmlToHdd, webpackDashboard, HMR],
+  plugins: [dotEnv, htmlIndex, htmlToHdd, extractText, HMR],
   devServer: {
     contentBase:
       'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/assets/',
