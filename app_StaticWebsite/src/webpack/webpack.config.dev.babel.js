@@ -106,7 +106,12 @@ module.exports = WebpackMerge(commonConfig, {
         use: extractText.extract({
           fallback: 'style-loader',
           use: [
-            { loader: 'css-loader' },
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2
+              }
+            },
             {
               loader: 'postcss-loader',
               options: {
