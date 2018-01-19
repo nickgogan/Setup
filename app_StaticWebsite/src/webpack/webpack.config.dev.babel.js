@@ -89,37 +89,43 @@ module.exports = WebpackMerge(commonConfig, {
         test: /\.css$/,
         // include,
         // exclude,
-        // use: [
-        //   'style-loader',
-        //   {
-        //     loader: 'css-loader',
-        //     options: {
-        //       importLoaders: 2
-        //     },
-        //     loader: 'postcss-loader',
-        //     options: {
-        //       plugins: () => [require('precss'), require('postcss-cssnext')()]
-        //     }
-        //   }
-        // ]
-        // PROD
-        use: extractText.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 2
-              }
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [require('precss'), require('postcss-cssnext')()]
-              }
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [require('precss'), require('postcss-cssnext')()]
             }
-          ]
-        })
+          }
+        ]
+        // TEST: Combine HMR with extracting CSS to file
+        // use: ['css-hot-loader'].concat(
+        // PROD
+        // extractText.extract({
+        //   fallback: 'style-loader',
+        //   use: [
+        //     {
+        //       loader: 'css-loader',
+        //       options: {
+        //         importLoaders: 2
+        //       }
+        //     },
+        //     {
+        //       loader: 'postcss-loader',
+        //       options: {
+        //         plugins: () => [
+        //           require('precss'),
+        //           require('postcss-cssnext')()
+        //         ]
+        //       }
+        //     }
+        //   ]
+        // })
+        // )
       }
     ]
   },
