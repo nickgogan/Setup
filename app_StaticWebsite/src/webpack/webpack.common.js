@@ -3,34 +3,55 @@
 
 import path from 'path';
 import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
+import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
+import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
 import pkg from '../../package.json';
-import fs from 'fs';
 
 /*
 ########################################
                         Constants
 ########################################
 */
-const SRC_PATH = './src/';
-const SRC_FULL_PATH = path.resolve(__dirname, '../../src');
-const PUBLIC_PATH = '../../dist/assets/';
-const PUBLIC_FULL_PATH = path.resolve(__dirname, PUBLIC_PATH);
+// Used just within this particular config file.
+const env = dotEnv.load({
+  path: path.resolve(__dirname, './../env/common.env'),
+  sample: path.resolve(__dirname, './../env/common.example.env')
+}).parsed;
 
-console.log(`~~~~~~~~~~~~~~~~~~~~\n\t${PUBLIC_FULL_PATH}\n~~~~~~~~~~~~~~~~~~~~
-`);
+// Make webpack add these to the program-wide process.env object.
+const dotEnvWebpack = new DotenvWebpackPlugin({
+  path: path.resolve(__dirname, '../env/common.env'),
+  safe: false
+});
+
+// Make the paths cross-platform and then export them out for the higher-level configs.
+function setPaths() {
+  const SRC_PATH = path.normalize(env.SRC_PATH);
+  const SRC_FULL_PATH = path.resolve(__dirname, '../', SRC_PATH);
+  const OUT_PATH = path.normalize(env.OUT_PATH);
+  const OUT_FULL_PATH = path.resolve(__dirname, '../', OUT_PATH);
+
+  return {
+    SRC_PATH,
+    SRC_FULL_PATH,
+    OUT_PATH,
+    OUT_FULL_PATH
+  };
+}
+const PATHS = setPaths();
+module.exports.PATHS = PATHS;
 
 /*
 ########################################
               Exported Webpack Config
 ########################################
 */
-module.exports = {
+module.exports.config = {
   // context:
-
   // target: node
 
   entry: {
-    main: path.join(SRC_FULL_PATH, 'js/main.js'),
+    main: path.join(PATHS.SRC_FULL_PATH, 'js/main.js'),
     hmr: [
       'webpack/hot/dev-server',
       `webpack-dev-server/client?http://localhost:3001`
@@ -48,20 +69,20 @@ module.exports = {
   // },
 
   output: {
-    path: PUBLIC_FULL_PATH,
+    path: PATHS.OUT_FULL_PATH,
     filename: `[name].js`,
     chunkFilename: `[name].v${pkg.version}.js`
-    // publicPath: PUBLIC_PATH
+    // publicPath: OUT_PATH
   },
 
   // Allow absolute paths in imports.
   resolve: {
-    modules: ['node_modules', SRC_FULL_PATH],
+    modules: ['node_modules', PATHS.SRC_FULL_PATH],
     extensions: ['.js']
   },
 
   plugins: [
     // cleaning up the build directory prior to update
-    new CleanWebpackPlugin([PUBLIC_PATH])
+    new CleanWebpackPlugin([PATHS.OUT_FULL_PATH])
   ]
 };
