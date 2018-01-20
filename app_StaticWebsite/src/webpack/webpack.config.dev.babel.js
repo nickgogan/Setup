@@ -9,12 +9,14 @@ import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-di
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
 import common from './webpack.common';
+import cssConfig from './parts/dev/webpack_postcss';
 
 /*
 ########################################
                     Define Constants
 ########################################
 */
+// Needed for use in this config file.
 const env = dotEnv.load({
   path: path.resolve(__dirname, './../env/dev.env'),
   sample: path.resolve(__dirname, './../env/dev.example.env')
@@ -26,6 +28,7 @@ const ENV = Object.assign({}, common.PATHS, env);
                       Define Plugins
 ########################################
 */
+// Needed to tell the app files what the environment is.
 const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/dev.env'),
   safe: false
@@ -57,7 +60,11 @@ const extractText = new WebpackExtractTextPlugin({
               Exported Webpack Config
 ########################################
 */
-module.exports = WebpackMerge(common.config, {
+// babelConfig()
+// const initBabel = babelConfig();
+// console.log(babelConfig());
+// module.exports = WebpackMerge(common.config, {
+export default WebpackMerge(common.config, {
   module: {
     rules: [
       {
@@ -96,11 +103,11 @@ module.exports = WebpackMerge(common.config, {
         ]
       },
       {
-        // TODO: Figure out source maps
-        // DEV
+        //   // TODO: Figure out source maps
+        //   // DEV
         test: /\.css$/,
-        // include,
-        // exclude,
+        //   // include,
+        //   // exclude,
         use: [
           'style-loader',
           {
@@ -117,31 +124,31 @@ module.exports = WebpackMerge(common.config, {
             }
           }
         ]
-        // TEST: Combine HMR with extracting CSS to file
-        // use:
-        // ['css-hot-loader'].concat(
-        // PROD
-        // extractText.extract({
-        //   fallback: 'style-loader',
-        //   use: [
-        //     {
-        //       loader: 'css-loader',
-        //       options: {
-        //         importLoaders: 2
-        //       }
-        //     },
-        //     {
-        //       loader: 'postcss-loader',
-        //       options: {
-        //         plugins: () => [
-        //           require('precss'),
-        //           require('postcss-cssnext')()
-        //         ]
-        //       }
-        //     }
-        //   ]
-        // })
-        // )
+        //   // TEST: Combine HMR with extracting CSS to file
+        //   // use:
+        //   // ['css-hot-loader'].concat(
+        //   // PROD
+        //   // extractText.extract({
+        //   //   fallback: 'style-loader',
+        //   //   use: [
+        //   //     {
+        //   //       loader: 'css-loader',
+        //   //       options: {
+        //   //         importLoaders: 2
+        //   //       }
+        //   //     },
+        //   //     {
+        //   //       loader: 'postcss-loader',
+        //   //       options: {
+        //   //         plugins: () => [
+        //   //           require('precss'),
+        //   //           require('postcss-cssnext')()
+        //   //         ]
+        //   //       }
+        //   //     }
+        //   //   ]
+        //   // })
+        //   // )
       }
     ]
   },
@@ -150,6 +157,7 @@ module.exports = WebpackMerge(common.config, {
     contentBase:
       'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/assets/',
     host: ENV.HOST,
-    port: ENV.PORT
+    port: ENV.PORT,
+    overlay: true
   }
 });
