@@ -3,15 +3,12 @@
 
 // type args = { include: string, exclude: string, use: [{}] };
 
-// exports.extractCSS = ({ include, exclude = 'node_modules', use }: args) => ({
-exports.extractCSS = function() {
-  return {
+module.exports = () => ({
     module: {
       rules: [
         {
           test: /.js$/,
-          // include,
-          // exclude,
+          exclude: /node_modules/,
           use: [
             {
               loader: 'babel-loader',
@@ -46,5 +43,4 @@ exports.extractCSS = function() {
         }
       ]
     }
-  };
-};
+  });

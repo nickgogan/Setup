@@ -8,7 +8,13 @@ import '../styles/main.css';
 
 ConsoleLogHTML.connect(document.querySelector('#log'));
 
-console.log('Hello from main!');
+class Test {
+  constructor(message) {
+    console.log(message);
+  }
+}
+
+const newTest = new Test('Hello from main!');
 console.log(test());
 
 // TODO: Investigate possibility of using async/await here.

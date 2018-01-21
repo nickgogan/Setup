@@ -1,11 +1,11 @@
 :root {
-  --color-primary: #12345678;
+  --color-primary: #123456;
 }
 
 $color-secondary: #abcdef;
 
 body {
-  color: $color-secondary;
+  color: var(--color-primary);
   /* background: linear-gradient(
     45deg,
     rgba(212, 228, 239, 1) 0%,

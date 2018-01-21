@@ -8,8 +8,15 @@ import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
+
+/*
+########################################
+        Import Lower Config and Loaders
+########################################
+*/
 import common from './webpack.common';
-import cssConfig from './parts/dev/webpack_postcss';
+import loadStyles from './parts/dev/webpack.config.postcssLoader.babel';
+import loadBabel from './parts/webpack_babel';
 
 /*
 ########################################
@@ -38,8 +45,8 @@ const htmlToHdd = new WebpackHtmlHarddiskPlugin({
 });
 const htmlIndex = new WebpackHtmlPlugin({
   template: path.resolve(__dirname, '../templates/index.html'),
-  title: 'test',
-  desc: 'desc',
+  title: 'MyApp',
+  desc: 'This is my app.',
   inject: 'body',
   alwaysWriteToDisk: true
 });
@@ -60,102 +67,10 @@ const extractText = new WebpackExtractTextPlugin({
               Exported Webpack Config
 ########################################
 */
-// babelConfig()
-// const initBabel = babelConfig();
-// console.log(babelConfig());
-// module.exports = WebpackMerge(common.config, {
-export default WebpackMerge(common.config, {
-  module: {
-    rules: [
-      {
-        test: /.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  'env',
-                  {
-                    targets: {
-                      browsers: [
-                        'Chrome >= 60',
-                        'Safari >= 10.1',
-                        'iOS >= 10.3',
-                        'Firefox >= 54',
-                        'Edge >= 15'
-                      ]
-                    },
-                    modules: false,
-                    useBuiltIns: true,
-                    debug: false
-                  }
-                ],
-                'flow'
-              ],
-              plugins: [
-                'babel-plugin-syntax-dynamic-import',
-                'transform-runtime'
-              ]
-            }
-          }
-        ]
-      },
-      {
-        //   // TODO: Figure out source maps
-        //   // DEV
-        test: /\.css$/,
-        //   // include,
-        //   // exclude,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            },
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                require('precss'),
-                require('postcss-cssnext')({ browsers: 'ie >= 11' })
-              ]
-            }
-          }
-        ]
-        //   // TEST: Combine HMR with extracting CSS to file
-        //   // use:
-        //   // ['css-hot-loader'].concat(
-        //   // PROD
-        //   // extractText.extract({
-        //   //   fallback: 'style-loader',
-        //   //   use: [
-        //   //     {
-        //   //       loader: 'css-loader',
-        //   //       options: {
-        //   //         importLoaders: 2
-        //   //       }
-        //   //     },
-        //   //     {
-        //   //       loader: 'postcss-loader',
-        //   //       options: {
-        //   //         plugins: () => [
-        //   //           require('precss'),
-        //   //           require('postcss-cssnext')()
-        //   //         ]
-        //   //       }
-        //   //     }
-        //   //   ]
-        //   // })
-        //   // )
-      }
-    ]
-  },
+export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
   plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, extractText, HMR],
   devServer: {
-    contentBase:
-      'C:/A.Project0/PersonalTools/A.Setup/app_StaticWebsite/src/assets/',
+    contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
     host: ENV.HOST,
     port: ENV.PORT,
     overlay: true

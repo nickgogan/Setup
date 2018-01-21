@@ -4,14 +4,19 @@
   "description": "A Static Web Site scaffold for simple web sites.",
   "main": "./src/functionality/main.js",
   "scripts": {
-    "dev:webpack": "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
-    "dev:webpack-server": "webpack-dev-server --history-api-fallback --inline --progress --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
-    "server": "nodemon --watch webpack.*.js --exec npm run \"dev:webpack-server\"",
-    "build": "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
+    "dev:webpack":
+      "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
+    "dev:webpack-server":
+      "webpack-dev-server --history-api-fallback --inline --progress --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
+    "server":
+      "nodemon --watch webpack.*.js --exec npm run \"dev:webpack-server\"",
+    "build":
+      "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
     "clean": "rimraf -rf ./dist/* ./docs/*",
     "share": "npm-run-all -p localtunnel",
     "security": "npx nsp check --reporter summary",
-    "localtunnel": "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
+    "localtunnel":
+      "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
     "postinstall": "flow-scripts stub"
   },
   "keywords": [
@@ -89,5 +94,10 @@
     "babel-polyfill": "6.26.0",
     "console-log-html": "2.0.2",
     "dotenv-webpack": "1.5.4"
+  },
+  "postcss": {
+    "map": false,
+    "from": "./src/styles/main.css",
+    "to": "./build/main_parsed.css"
   }
 }
