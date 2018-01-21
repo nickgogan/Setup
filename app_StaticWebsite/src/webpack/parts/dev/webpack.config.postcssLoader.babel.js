@@ -1,12 +1,13 @@
 import PreCSS from 'precss';
 import CSSNext from 'postcss-cssnext';
+import PostCSSImport from 'postcss-import';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 module.exports = () => {
   // Output extracted CSS to a file
-  const plugin = new ExtractTextPlugin({
+  const extractText = new ExtractTextPlugin({
     allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
-    filename: '[name].css'
+    filename: './styles.bundle.css'
   });
 
   return {
@@ -15,22 +16,28 @@ module.exports = () => {
         {
           test: /\.css$/,
           exclude: /node_modules/,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 2
-              },
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [PreCSS, CSSNext({ browsers: 'ie >= 11' })]
+          use: extractText.extract({
+            fallback: 'style-loader',
+            use: [
+              {
+                loader: 'css-loader',
+                options: { importLoaders: 1 },
+                loader: 'postcss-loader',
+                options: {
+                  plugins: () => [
+                    PostCSSImport,
+                    PreCSS,
+                    CSSNext({
+                      features: { autoprefixer: true }
+                    })
+                  ]
+                }
               }
-            }
-          ]
+            ]
+          })
         }
       ]
-    }
-    // plugins: [ExtractTextPlugin]
+    },
+    plugins: [extractText]
   };
 };

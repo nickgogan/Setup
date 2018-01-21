@@ -1,0 +1,13 @@
+:root {
+  --centered: {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  --flex-row: {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

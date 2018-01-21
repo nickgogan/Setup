@@ -59,7 +59,7 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 */
 const extractText = new WebpackExtractTextPlugin({
   allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
-  filename: './dist/styles/[name].css'
+  filename: './styles.bundle.css'
 });
 
 /*
@@ -67,6 +67,7 @@ const extractText = new WebpackExtractTextPlugin({
               Exported Webpack Config
 ########################################
 */
+
 export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
   plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, extractText, HMR],
   devServer: {

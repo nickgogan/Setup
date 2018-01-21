@@ -1,3 +1,15 @@
+@import './shared/reset.scss';
+@import './shared/variables.scss';
+@import './shared/typography.scss';
+@import './shared/grid.scss';
+@import './shared/base.scss';
+@import './shared/utilities.scss';
+
+@import './components/footer/footer.scss';
+@import './components/header/header.scss';
+@import './components/mainContent/mainContent.scss';
+@import './components/sideContent/sideContent.scss';
+
 $badass: #bada55;
 
 body {

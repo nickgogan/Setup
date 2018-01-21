@@ -1,14 +1,32 @@
-:root {
-  --color-primary: #123456;
-}
+@import './shared/reset.css';
+/*// @import './shared/variables.css';
+// @import './shared/typography.css';
+// @import './shared/grid.css';*/
+@import './shared/base.css';
+@import './shared/utilities.css';
 
-$color-secondary: #abcdef;
+/*// @import './components/footer/footer.css';
+// @import './components/header/header.css';
+// @import './components/mainContent/mainContent.css';
+// @import './components/sideContent/sideContent.css'; */
+
+/* :root {
+  --color-primary: #123456;
+} */
 
 body {
   color: var(--color-primary);
-  /* background: linear-gradient(
+  background: linear-gradient(
     45deg,
     rgba(212, 228, 239, 1) 0%,
     rgba(134, 174, 204, 1) 100%
-  ); */
+  );
+}
+
+p {
+  color: var(--color-highlight);
+}
+
+.centered {
+  @apply var(--centered);
 }
