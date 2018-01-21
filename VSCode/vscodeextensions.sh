@@ -48,3 +48,4 @@ code --install-extension emmanuelbeziat.vscode-great-icons
 code --install-extension konstantin.wrapSelection
 code --install-extension DotJoshJohnson.xml
 code --install-extension adamvoss.yaml
+code --install-extension mhmadhamster.postcss-language

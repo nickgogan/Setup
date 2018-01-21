@@ -103,3 +103,5 @@
 1. YAML (adamvoss.yaml): YAML for Visual Studio Code.
 
 1. Git Lens (eamodio.gitlens): git blame annotations, code lens, and more.
+
+1. postcss-sugarss-language (mhmadhamster.postcss-language): add syntax highlighting and some IntelliSense for PostCSS files (.pcss, .postcss, .sss files).
