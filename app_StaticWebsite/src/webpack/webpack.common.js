@@ -51,11 +51,11 @@ module.exports.config = {
   // target: node
 
   entry: {
-    main: path.join(PATHS.SRC_FULL_PATH, 'js/main.js'),
-    hmr: [
-      'webpack/hot/dev-server',
-      `webpack-dev-server/client?http://localhost:3001`
-    ]
+    main: path.join(PATHS.SRC_FULL_PATH, 'js/main.js')
+    // hmr: [
+    //   'webpack/hot/dev-server',
+    //   `webpack-dev-server/client?http://localhost:3001`
+    // ]
   },
 
   // Prevents weird fs errors. See 'Weird Findings' #6

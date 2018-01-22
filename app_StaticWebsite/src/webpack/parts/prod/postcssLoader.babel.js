@@ -1,7 +1,7 @@
-import PreCSS from 'precss';
-import CSSNext from 'postcss-cssnext';
-import PostCSSImport from 'postcss-import';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import PreCSS from 'precss'; // eslint-disable-line
+import CSSNext from 'postcss-cssnext'; // eslint-disable-line
+import PostCSSImport from 'postcss-import'; // eslint-disable-line
+import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 
 module.exports = () => {
   // Output extracted CSS to a file
@@ -22,12 +22,10 @@ module.exports = () => {
               {
                 loader: 'css-loader',
                 options: {
-                  importLoaders: 1,
-                  sourceMap: true
+                  importLoaders: 1
                 },
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
                   plugins: () => [
                     PostCSSImport({ addDependencyTo: 'webpack' }),
                     PreCSS,

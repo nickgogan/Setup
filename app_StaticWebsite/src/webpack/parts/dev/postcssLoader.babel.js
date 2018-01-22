@@ -1,6 +1,9 @@
-import PreCSS from 'precss';
-import CSSNext from 'postcss-cssnext';
-import PostCSSImport from 'postcss-import';
+// @ts-check
+// @flow
+
+import PreCSS from 'precss'; // eslint-disable-line
+import CSSNext from 'postcss-cssnext'; // eslint-disable-line
+import PostCSSImport from 'postcss-import'; // eslint-disable-line
 
 module.exports = () => ({
   module: {

@@ -52,18 +52,11 @@ const htmlIndex = new WebpackHtmlPlugin({
   inject: 'body'
   // alwaysWriteToDisk: true // htmlToHdd should handle this.
 });
+// const extractCSS = new WebpackExtractTextPlugin({
+//   allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
+//   filename: './styles.bundle.css'
+// }); extractCSS
 const HMR = new webpack.HotModuleReplacementPlugin();
-
-/*
-########################################
-                        PROD
-########################################
-*/
-// extractCSS
-const extractText = new WebpackExtractTextPlugin({
-  allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
-  filename: './styles.bundle.css'
-});
 
 /*
 ########################################
@@ -72,7 +65,13 @@ const extractText = new WebpackExtractTextPlugin({
 */
 
 export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
-  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, extractText, HMR],
+  entry: {
+    hmr: [
+      'webpack/hot/dev-server',
+      `webpack-dev-server/client?http://localhost:3001`
+    ]
+  },
+  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, HMR],
   devServer: {
     contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
     host: ENV.HOST,
