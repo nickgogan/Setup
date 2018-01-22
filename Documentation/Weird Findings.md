@@ -87,3 +87,5 @@ Note: `babel-register` is required to work with filename-loaders as seen in `web
 6. **postcss-cssnext** (Jan 21st, 2018): The @apply rule and custom property sets are confirmed to not be included in the next major release of postcss-cssnext. This is because these feature will most likely not get support from browser vendors, since the specs for these are considered deprecate. Alternative solutions are being discussed. In the meantime, use PreCSS to fill in this gap and turn off these feature in the postcss config.
 **Sources**:
 1. https://github.com/pascalduez/postcss-apply
+
+7. **postcss-cssnext/initial value plugin**: It seems that `display:initial;`  is not cleaned up after compilation.

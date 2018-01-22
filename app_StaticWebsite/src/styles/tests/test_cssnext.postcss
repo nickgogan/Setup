@@ -1,0 +1,111 @@
+/* custom properties */
+:root {
+  --fontSize: 1rem;
+  --mainColor: #12345678;
+  --highlightColor: hwb(190, 35%, 20%);
+}
+div.variables {
+  font-size: var(--fontSize);
+  color: var(--mainColor);
+}
+span.variables {
+  color: var(--highlightColor);
+}
+
+/*reduced calc()*/
+h2 {
+  font-size: calc(var(--fontSize) * 2);
+}
+
+/*Custom Media Queries with ranges*/
+@custom-media --small only screen and (min-width <= 34em); /* 544px */
+@custom-media --medium only screen and (min-width >= 35em) and (min-width <= 48em); /* 768px */
+@custom-media --large only screen and (min-width >= 49em) and (min-width <= 62em); /* 992px */
+@custom-media --extra-large only screen and (min-width >= 63) and (min-width <= 75em); /* 1200px */
+@media (--medium) {
+  div {
+    background-color: var(--mainColor);
+  }
+}
+
+/*Custom selectors*/
+@custom-selector :--button .button;
+@custom-selector :--examined :hover, :focus;
+@custom-selector :--pressed :after;
+@custom-selector :--reset :active:after;
+
+:--button {
+  position: relative;
+  background-color: #f39c12;
+  border: none;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+}
+:--button:--examined {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #97b1bf;
+  color: #000;
+}
+:--button:--pressed {
+  content: '';
+  background: #f1c40f;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+:--button:--reset {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+/*Color systems and functions*/
+.foo {
+  color: color(hwb(90, 0%, 0%, 0.5) alpha(-10%));
+  background-color: gray(10%, 50%);
+}
+// Fallback to rgb by ignoring that last alpha input.
+.bar {
+  background: rgba(153, 221, 253, 0.8);
+}
+
+/*Filters*/
+.blur {
+  filter: blur(0.4rem);
+}
+
+/*:any-link pseudo-class simplifies seletctors targeting links by selecting for both visited and unvisited links.*/
+nav :any-link > span {
+  background-color: yellow;
+}
+
+/*:matches pseudo-class*/
+p:matches(:first-child, .special) {
+  color: red;
+}
+
+/*:not pseudo-class*/
+p:not(:first-child, .special) {
+  color: red;
+}
+
+/*::pseudo syntax adjusts :: to : if browser scope covers old browsers, like IE8. Browser scope it set in a browserlist. It's usually done for the sake of the Autoprefixer plugin, but this plugin utilizes it as well.*/
+a::before {
+  text-decoration: none;
+}
+
+/* system-ui font-family and overflow-wrap property (falls back to word-wrap)*/
+body {
+  overflow-wrap: break-word;
+  font-family: system-ui;
+}
