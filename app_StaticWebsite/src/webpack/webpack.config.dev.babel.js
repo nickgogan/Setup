@@ -5,7 +5,9 @@ import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge';
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
 import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
+// DELETE
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
+// DELETE
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
 
@@ -15,8 +17,8 @@ import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-de
 ########################################
 */
 import common from './webpack.common';
-import loadStyles from './parts/dev/webpack.config.postcssLoader.babel';
-import loadBabel from './parts/webpack_babel';
+import loadStyles from './parts/dev/postcssLoader.babel';
+import loadBabel from './parts/dev/babelLoader.babel';
 
 /*
 ########################################
@@ -35,20 +37,20 @@ const ENV = Object.assign({}, common.PATHS, env);
                       Define Plugins
 ########################################
 */
-// Needed to tell the app files what the environment is.
+// Webpack sets the app-wide process.env.* variables.
 const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/dev.env'),
   safe: false
 });
 const htmlToHdd = new WebpackHtmlHarddiskPlugin({
-  outputPath: path.resolve(__dirname, '../../dist')
+  outputPath: path.resolve(__dirname, '../../build')
 });
 const htmlIndex = new WebpackHtmlPlugin({
   template: path.resolve(__dirname, '../templates/index.html'),
   title: 'MyApp',
   desc: 'This is my app.',
-  inject: 'body',
-  alwaysWriteToDisk: true
+  inject: 'body'
+  // alwaysWriteToDisk: true // htmlToHdd should handle this.
 });
 const HMR = new webpack.HotModuleReplacementPlugin();
 
@@ -57,6 +59,7 @@ const HMR = new webpack.HotModuleReplacementPlugin();
                         PROD
 ########################################
 */
+// extractCSS
 const extractText = new WebpackExtractTextPlugin({
   allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
   filename: './styles.bundle.css'

@@ -21,17 +21,22 @@ module.exports = () => {
             use: [
               {
                 loader: 'css-loader',
-                options: { importLoaders: 1 },
+                options: {
+                  importLoaders: 1,
+                  sourceMap: true
+                },
                 loader: 'postcss-loader',
                 options: {
+                  sourceMap: true,
                   plugins: () => [
-                    PostCSSImport,
+                    PostCSSImport({ addDependencyTo: 'webpack' }),
                     PreCSS,
                     CSSNext({
                       features: {
                         autoprefixer: true,
                         applyRule: false, // Deprecated
-                        customProperties: false // Deprecated
+                        customProperties: false, // Deprecated
+                        compress: true
                       }
                     })
                   ]
