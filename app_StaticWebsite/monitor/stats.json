@@ -1,0 +1,491 @@
+[
+  {
+    "timeStamp": 1516652869889,
+    "time": 6793,
+    "hash": "a6512691695922831936",
+    "errors": [],
+    "size": 729598,
+    "assets": [
+      {
+        "name": "main.js",
+        "chunks": [
+          0
+        ],
+        "size": 375385,
+        "miniSize": 306962,
+        "minified": false
+      },
+      {
+        "name": "hmr.js",
+        "chunks": [
+          1
+        ],
+        "size": 352767,
+        "miniSize": 287981,
+        "minified": false
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 1446
+      }
+    ],
+    "chunks": [
+      {
+        "size": 343379,
+        "files": [
+          "main.js"
+        ],
+        "modules": [
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 509,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/html-entities/lib/html5-entities.js",
+            "size": 48986,
+            "id": 1
+          },
+          {
+            "name": "(webpack)/hot/log.js",
+            "size": 1044,
+            "id": 2
+          },
+          {
+            "name": "(webpack)-dev-server/client?http://localhost:3001",
+            "size": 7913,
+            "id": 3
+          },
+          {
+            "name": "(webpack)/hot/emitter.js",
+            "size": 77,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/url/url.js",
+            "size": 23317,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/punycode/punycode.js",
+            "size": 14670,
+            "id": 6
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 517,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/url/util.js",
+            "size": 314,
+            "id": 8
+          },
+          {
+            "name": "./node_modules/querystring-es3/index.js",
+            "size": 127,
+            "id": 9
+          },
+          {
+            "name": "./node_modules/querystring-es3/decode.js",
+            "size": 2510,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/querystring-es3/encode.js",
+            "size": 2544,
+            "id": 11
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/strip-ansi/index.js",
+            "size": 150,
+            "id": 12
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-regex/index.js",
+            "size": 253,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/loglevel/lib/loglevel.js",
+            "size": 7862,
+            "id": 14
+          },
+          {
+            "name": "(webpack)-dev-server/client/socket.js",
+            "size": 1080,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/sockjs-client/dist/sockjs.js",
+            "size": 180708,
+            "id": 16
+          },
+          {
+            "name": "(webpack)-dev-server/client/overlay.js",
+            "size": 3671,
+            "id": 17
+          },
+          {
+            "name": "./node_modules/ansi-html/index.js",
+            "size": 4263,
+            "id": 18
+          },
+          {
+            "name": "./node_modules/html-entities/index.js",
+            "size": 231,
+            "id": 19
+          },
+          {
+            "name": "./node_modules/html-entities/lib/xml-entities.js",
+            "size": 2993,
+            "id": 20
+          },
+          {
+            "name": "./node_modules/html-entities/lib/html4-entities.js",
+            "size": 6587,
+            "id": 21
+          },
+          {
+            "name": "(webpack)/hot nonrecursive ^\\.\\/log$",
+            "size": 170,
+            "id": 22
+          },
+          {
+            "name": "./node_modules/events/events.js",
+            "size": 8328,
+            "id": 23
+          },
+          {
+            "name": "./node_modules/css-loader?{\"importLoaders\":1}!./node_modules/postcss-loader/lib?{}!./src/styles/main.postcss",
+            "size": 1172,
+            "id": 24
+          },
+          {
+            "name": "multi (webpack)-dev-server/client?http://localhost:3001 ./src/js/main.js",
+            "size": 40,
+            "id": 25
+          },
+          {
+            "name": "./src/js/main.js",
+            "size": 800,
+            "id": 26
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": 27
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": 28
+          },
+          {
+            "name": "./src/js/components/test.js",
+            "size": 76,
+            "id": 29
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 1232,
+            "id": 30
+          },
+          {
+            "name": "./node_modules/css-loader/lib/css-base.js",
+            "size": 2260,
+            "id": 31
+          },
+          {
+            "name": "./node_modules/style-loader/lib/addStyles.js",
+            "size": 9457,
+            "id": 32
+          },
+          {
+            "name": "./node_modules/style-loader/lib/urls.js",
+            "size": 3008,
+            "id": 33
+          }
+        ]
+      },
+      {
+        "size": 321804,
+        "files": [
+          "hmr.js"
+        ],
+        "modules": [
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 509,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/html-entities/lib/html5-entities.js",
+            "size": 48986,
+            "id": 1
+          },
+          {
+            "name": "(webpack)/hot/log.js",
+            "size": 1044,
+            "id": 2
+          },
+          {
+            "name": "(webpack)-dev-server/client?http://localhost:3001",
+            "size": 7913,
+            "id": 3
+          },
+          {
+            "name": "(webpack)/hot/emitter.js",
+            "size": 77,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/url/url.js",
+            "size": 23317,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/punycode/punycode.js",
+            "size": 14670,
+            "id": 6
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 517,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/url/util.js",
+            "size": 314,
+            "id": 8
+          },
+          {
+            "name": "./node_modules/querystring-es3/index.js",
+            "size": 127,
+            "id": 9
+          },
+          {
+            "name": "./node_modules/querystring-es3/decode.js",
+            "size": 2510,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/querystring-es3/encode.js",
+            "size": 2544,
+            "id": 11
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/strip-ansi/index.js",
+            "size": 150,
+            "id": 12
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-regex/index.js",
+            "size": 253,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/loglevel/lib/loglevel.js",
+            "size": 7862,
+            "id": 14
+          },
+          {
+            "name": "(webpack)-dev-server/client/socket.js",
+            "size": 1080,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/sockjs-client/dist/sockjs.js",
+            "size": 180708,
+            "id": 16
+          },
+          {
+            "name": "(webpack)-dev-server/client/overlay.js",
+            "size": 3671,
+            "id": 17
+          },
+          {
+            "name": "./node_modules/ansi-html/index.js",
+            "size": 4263,
+            "id": 18
+          },
+          {
+            "name": "./node_modules/html-entities/index.js",
+            "size": 231,
+            "id": 19
+          },
+          {
+            "name": "./node_modules/html-entities/lib/xml-entities.js",
+            "size": 2993,
+            "id": 20
+          },
+          {
+            "name": "./node_modules/html-entities/lib/html4-entities.js",
+            "size": 6587,
+            "id": 21
+          },
+          {
+            "name": "(webpack)/hot nonrecursive ^\\.\\/log$",
+            "size": 170,
+            "id": 22
+          },
+          {
+            "name": "./node_modules/events/events.js",
+            "size": 8328,
+            "id": 23
+          },
+          {
+            "name": "multi (webpack)-dev-server/client?http://localhost:3001 webpack/hot/dev-server webpack-dev-server/client?http://localhost:3001",
+            "size": 52,
+            "id": 34
+          },
+          {
+            "name": "(webpack)/hot/dev-server.js",
+            "size": 1615,
+            "id": 35
+          },
+          {
+            "name": "(webpack)/hot/log-apply-result.js",
+            "size": 1313,
+            "id": 36
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timeStamp": 1516653168271,
+    "time": 1713,
+    "hash": "271379886a616af3b55a",
+    "errors": [],
+    "size": 4854,
+    "assets": [
+      {
+        "name": "main.js",
+        "chunks": [
+          0
+        ],
+        "size": 2480,
+        "minified": true
+      },
+      {
+        "name": "./styles.bundle.css",
+        "chunks": [
+          0
+        ],
+        "size": 931
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 1443
+      }
+    ],
+    "chunks": [
+      {
+        "size": 7427,
+        "files": [
+          "main.js",
+          "./styles.bundle.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js",
+            "size": 800,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": 2
+          },
+          {
+            "name": "./src/js/components/test.js",
+            "size": 76,
+            "id": 3
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": 4
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 845,
+    "unPureCssSize": 931
+  },
+  {
+    "timeStamp": 1516653354385,
+    "time": 2405,
+    "hash": "60fb8a262a43bb362d8c",
+    "errors": [],
+    "size": 4151,
+    "assets": [
+      {
+        "name": "main.js",
+        "chunks": [
+          0
+        ],
+        "size": 2480,
+        "minified": true
+      },
+      {
+        "name": "./styles.bundle.css",
+        "chunks": [
+          0
+        ],
+        "size": 228
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 1443
+      }
+    ],
+    "chunks": [
+      {
+        "size": 7427,
+        "files": [
+          "main.js",
+          "./styles.bundle.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js",
+            "size": 800,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": 2
+          },
+          {
+            "name": "./src/js/components/test.js",
+            "size": 76,
+            "id": 3
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": 4
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 233,
+    "unPureCssSize": 228
+  }
+]

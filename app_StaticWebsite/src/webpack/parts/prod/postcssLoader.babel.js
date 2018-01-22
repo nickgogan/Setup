@@ -1,6 +1,7 @@
 import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
+import CSSNano from 'cssnano'; // eslint-disable-line
 import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 
 module.exports = () => {
@@ -14,7 +15,7 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.postcss$/,
+          test: /\.postcss($|\?)/i,
           exclude: /node_modules/,
           use: extractText.extract({
             fallback: 'style-loader',
@@ -33,10 +34,10 @@ module.exports = () => {
                       features: {
                         autoprefixer: true,
                         applyRule: false, // Deprecated
-                        customProperties: false, // Deprecated
-                        compress: true
+                        customProperties: false // Deprecated
                       }
-                    })
+                    }),
+                    CSSNano
                   ]
                 }
               }

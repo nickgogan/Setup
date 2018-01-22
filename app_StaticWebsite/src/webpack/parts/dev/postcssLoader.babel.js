@@ -5,11 +5,11 @@ import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
 
-module.exports = () => ({
+export default () => ({
   module: {
     rules: [
       {
-        test: /\.postcss$/,
+        test: /\.postcss($|\?)/i,
         exclude: /node_modules/,
         use: [
           'style-loader',

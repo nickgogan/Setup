@@ -3,11 +3,11 @@
 
 // type args = { include: string, exclude: string, use: [{}] };
 
-module.exports = () => ({
+export default () => ({
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /.js($|\?)/i,
         exclude: /node_modules/,
         use: [
           {

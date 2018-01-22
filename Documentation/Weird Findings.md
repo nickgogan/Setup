@@ -85,7 +85,12 @@ Note: `babel-register` is required to work with filename-loaders as seen in `web
 3. https://github.com/webpack-contrib/css-loader/issues/447
 
 6. **postcss-cssnext** (Jan 21st, 2018): The @apply rule and custom property sets are confirmed to not be included in the next major release of postcss-cssnext. This is because these feature will most likely not get support from browser vendors, since the specs for these are considered deprecate. Alternative solutions are being discussed. In the meantime, use PreCSS to fill in this gap and turn off these feature in the postcss config.
+- **Date:** 1/20/2018
 **Sources**:
 1. https://github.com/pascalduez/postcss-apply
 
 7. **postcss-cssnext/initial value plugin**: It seems that `display:initial;`  is not cleaned up after compilation.
+- **Date:** 1/21/2018
+
+8. **postcss-cssnext/cssnano**: Couldn't get this to work as part of CSSNext, but was able to make it happen by using it separately from it.
+- **Date:** 1/22/2018

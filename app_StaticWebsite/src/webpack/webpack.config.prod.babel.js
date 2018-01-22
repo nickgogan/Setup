@@ -7,12 +7,21 @@ import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-di
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
 
+import WebpackMonitorPlugin from 'webpack-monitor';
+
+const webpackMonitor = new WebpackMonitorPlugin({
+  capture: true,
+  launch: true,
+  port: 3000
+});
+
 /*
 ########################################
         Import Lower Config and Loaders
 ########################################
 */
 import common from './webpack.common';
+// import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
 
@@ -58,3 +67,6 @@ const extractText = new WebpackExtractTextPlugin({
               Exported Webpack Config
 ########################################
 */
+export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
+  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, webpackMonitor]
+});

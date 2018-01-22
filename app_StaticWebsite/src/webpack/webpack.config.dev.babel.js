@@ -3,11 +3,9 @@
 import path from 'path';
 import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge';
+import WebpackMonitorPlugin from 'webpack-monitor';
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
 import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
-// DELETE
-import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
-// DELETE
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
 import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
 
@@ -17,6 +15,7 @@ import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-de
 ########################################
 */
 import common from './webpack.common';
+// import loadTemplates from './parts/dev/templatesLoader.babel';
 import loadStyles from './parts/dev/postcssLoader.babel';
 import loadBabel from './parts/dev/babelLoader.babel';
 
@@ -52,10 +51,11 @@ const htmlIndex = new WebpackHtmlPlugin({
   inject: 'body'
   // alwaysWriteToDisk: true // htmlToHdd should handle this.
 });
-// const extractCSS = new WebpackExtractTextPlugin({
-//   allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
-//   filename: './styles.bundle.css'
-// }); extractCSS
+const webpackMonitor = new WebpackMonitorPlugin({
+  capture: true,
+  launch: true,
+  port: 3000
+});
 const HMR = new webpack.HotModuleReplacementPlugin();
 
 /*
@@ -71,7 +71,7 @@ export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
       `webpack-dev-server/client?http://localhost:3001`
     ]
   },
-  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, HMR],
+  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, webpackMonitor, HMR],
   devServer: {
     contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
     host: ENV.HOST,
