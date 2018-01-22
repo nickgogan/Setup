@@ -1,11 +1,11 @@
 import path from 'path';
 import webpack from 'webpack';
-import WebpackMerge from 'webpack-merge';
+import WebpackMerge from 'webpack-merge'; // eslint-disable-line
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
+import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin'; // eslint-disable-line
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
-import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
-import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
+import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
+import dotEnv from 'dotenv-safe'; // eslint-disable-line
 
 import WebpackMonitorPlugin from 'webpack-monitor';
 
@@ -20,10 +20,10 @@ const webpackMonitor = new WebpackMonitorPlugin({
         Import Lower Config and Loaders
 ########################################
 */
-import common from './webpack.common';
-// import loadTemplates from './parts/prod/templatesLoader.babel';
-import loadStyles from './parts/prod/postcssLoader.babel';
-import loadBabel from './parts/prod/babelLoader.babel';
+import common from './webpack.common'; // eslint-disable-line
+// import loadTemplates from './parts/prod/htmlLoader.babel';
+import loadStyles from './parts/prod/postcssLoader.babel'; // eslint-disable-line
+import loadBabel from './parts/prod/babelLoader.babel'; // eslint-disable-line
 
 /*
 ########################################
@@ -68,5 +68,5 @@ const extractText = new WebpackExtractTextPlugin({
 ########################################
 */
 export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
-  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, webpackMonitor]
+  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd] // , webpackMonitor
 });

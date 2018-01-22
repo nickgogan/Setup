@@ -21,11 +21,10 @@ export default () => ({
             loader: 'postcss-loader',
             options: {
               plugins: () => [
-                PostCSSImport, // ({ addDependencyTo: 'webpack' }),
+                PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
                 PreCSS,
                 CSSNext({
                   features: {
-                    autoprefixer: true,
                     applyRule: false, // Deprecated, so turning off.
                     customProperties: false // Deprecated, so turning off.
                   }

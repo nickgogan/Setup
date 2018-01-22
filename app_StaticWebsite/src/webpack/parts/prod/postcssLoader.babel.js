@@ -2,14 +2,16 @@ import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
 import CSSNano from 'cssnano'; // eslint-disable-line
-import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
+import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
+import WebpackPurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
 
-module.exports = () => {
+export default () => {
   // Output extracted CSS to a file
-  const extractText = new ExtractTextPlugin({
+  const extractCSS = new WebpackExtractTextPlugin({
     allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
     filename: './styles.bundle.css'
   });
+  const purifyCSS = new WebpackPurifyCSSPlugin({});
 
   return {
     module: {
@@ -17,7 +19,7 @@ module.exports = () => {
         {
           test: /\.postcss($|\?)/i,
           exclude: /node_modules/,
-          use: extractText.extract({
+          use: extractCSS.extract({
             fallback: 'style-loader',
             use: [
               {
@@ -28,16 +30,17 @@ module.exports = () => {
                 loader: 'postcss-loader',
                 options: {
                   plugins: () => [
-                    PostCSSImport({ addDependencyTo: 'webpack' }),
+                    PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
                     PreCSS,
                     CSSNext({
                       features: {
-                        autoprefixer: true,
                         applyRule: false, // Deprecated
                         customProperties: false // Deprecated
                       }
                     }),
-                    CSSNano
+                    CSSNano({
+                      autoprefixer: false // On by default, but autoprefixing is handled by CSSNext.
+                    })
                   ]
                 }
               }
@@ -46,6 +49,6 @@ module.exports = () => {
         }
       ]
     },
-    plugins: [extractText]
+    plugins: [extractCSS]
   };
 };
