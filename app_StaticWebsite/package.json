@@ -1,6 +1,6 @@
 {
   "name": "staticwebsite_homebase",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Static Web Site scaffold for simple web sites.",
   "main": "./src/js/main.js",
   "scripts": {
@@ -36,12 +36,26 @@
     "babel"
   ],
   "author": "Nick Gogan <gogannick@gmail.com>",
+  "contributors": [
+    {
+      "name": "Nick Gogan",
+      "email": "gogannick@gmail.com"
+    }
+  ],
   "license": "ISC",
+  "homepage": "https://github.com/nickgogan/Setup",
+  "logo": "./src/assets/favicon.svg",
+  "bugs": {
+    "url": "https://github.com/nickgogan/Setup/issues",
+    "email": "gogannick@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nickgogan/Setup"
   },
-  "logo": "./src/assets/favicon.svg",
+  "engines": {
+    "node": ">=9.2.0"
+  },
   "browserslist": [
     "Chrome >= 60",
     "Safari >= 10.1",
@@ -95,6 +109,8 @@
     "postcss-import": "11.0.0",
     "postcss-loader": "2.0.10",
     "precss": "3.0.0",
+    "purify-css": "1.2.5",
+    "purifycss-webpack": "0.7.0",
     "rimraf": "2.6.2",
     "style-loader": "0.19.1",
     "uglifyjs-webpack-plugin": "1.1.6",
