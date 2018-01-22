@@ -2,7 +2,7 @@
   "name": "staticwebsite_homebase",
   "version": "0.0.1",
   "description": "A Static Web Site scaffold for simple web sites.",
-  "main": "./src/functionality/main.js",
+  "main": "./src/js/main.js",
   "scripts": {
     "dev:webpack":
       "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
@@ -37,8 +37,16 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickgogan/Setup"
+    "url": "https://github.com/nickgogan/Setup"
   },
+  "logo": "./src/assets/favicon.svg",
+  "browserslist": [
+    "Chrome >= 60",
+    "Safari >= 10.1",
+    "iOS >= 10.3",
+    "Firefox >= 54",
+    "Edge >= 15"
+  ],
   "devDependencies": {
     "@types/clean-webpack-plugin": "0.1.0",
     "@types/extract-text-webpack-plugin": "3.0.0",
