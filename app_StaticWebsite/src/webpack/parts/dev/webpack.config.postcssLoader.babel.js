@@ -14,7 +14,7 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.postcss$/,
           exclude: /node_modules/,
           use: extractText.extract({
             fallback: 'style-loader',

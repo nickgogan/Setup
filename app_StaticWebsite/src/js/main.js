@@ -3,7 +3,7 @@
 
 import ConsoleLogHTML from 'console-log-html';
 import test from './components/test';
-import '../styles/main.css';
+import '../styles/main.postcss';
 
 ConsoleLogHTML.connect(document.querySelector('#log'));
 
