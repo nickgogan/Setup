@@ -28,7 +28,11 @@ module.exports = () => {
                     PostCSSImport,
                     PreCSS,
                     CSSNext({
-                      features: { autoprefixer: true }
+                      features: {
+                        autoprefixer: true,
+                        applyRule: false, // Deprecated
+                        customProperties: false // Deprecated
+                      }
                     })
                   ]
                 }
