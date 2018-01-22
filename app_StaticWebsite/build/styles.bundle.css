@@ -1,18 +1,25 @@
 /**/
-@import './tests/test_precss.css';
-
+.menu {
+  width: 800px;
+}
+.menu-link {
+  width: 200px;
+  background: #056ef0;
+  height: 200px
+}
+.menu-link:link,.menu-link:visited {
+  background-color: rgba(5, 110, 240, .5);
+}
 /*@import './shared/reset.css';*/
 /*@import './shared/variables.css';*/
 /*@import './shared/typography.css';*/
 /*@import './shared/grid.css';*/
 /*@import './shared/base.css'; */
 /*@import './shared/utilities.css';*/
-
 /*@import './components/footer/footer.css';*/
 /*@import './components/header/header.css';*/
 /*@import './components/mainContent/mainContent.css';*/
 /*@import './components/sideContent/sideContent.css'; */
-
 /* :root {
   --color-primary: #123456;
 } */
