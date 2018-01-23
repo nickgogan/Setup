@@ -12,7 +12,7 @@ import WebpackMonitorPlugin from 'webpack-monitor';
 ########################################
 */
 import common from './webpack.common'; // eslint-disable-line
-// import loadTemplates from './parts/prod/htmlLoader.babel';
+import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel'; // eslint-disable-line
 import loadBabel from './parts/prod/babelLoader.babel'; // eslint-disable-line
 
@@ -51,12 +51,18 @@ const webpackMonitor = new WebpackMonitorPlugin({
               Exported Webpack Config
 ########################################
 */
-export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
-  output: {
-    path: ENV.OUT_FULL_PATH,
-    filename: `[name].js`,
-    chunkFilename: `[name].v${ENV.VERSION}.js`
-    // publicPath: OUT_PATH
-  },
-  plugins: [dotEnvWebpack, cleanWebpack] // , webpackMonitor
-});
+export default WebpackMerge(
+  common.config,
+  loadBabel(),
+  loadStyles(),
+  loadTemplates(),
+  {
+    output: {
+      path: ENV.OUT_FULL_PATH,
+      filename: `[name].js`,
+      chunkFilename: `[name].v${ENV.VERSION}.js`
+      // publicPath: OUT_PATH
+    },
+    plugins: [dotEnvWebpack, cleanWebpack] // , webpackMonitor
+  }
+);
