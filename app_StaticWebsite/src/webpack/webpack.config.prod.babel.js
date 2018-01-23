@@ -1,9 +1,8 @@
 import path from 'path';
-import webpack from 'webpack';
-import WebpackMerge from 'webpack-merge'; // eslint-disable-line
-import dotEnv from 'dotenv-safe'; // eslint-disable-line
-import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
-import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line
+import WebpackMerge from 'webpack-merge';
+import dotEnv from 'dotenv-safe';
+import DotenvWebpackPlugin from 'dotenv-webpack';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 import WebpackMonitorPlugin from 'webpack-monitor';
 
 /*

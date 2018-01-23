@@ -1,10 +1,6 @@
-// @ts-check
-// @flow
-
 import path from 'path';
-import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
-import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line import/no-extraneous-dependencies
-import dotEnv from 'dotenv-safe'; // eslint-disable-line import/no-extraneous-dependencies
+import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
+import dotEnv from 'dotenv-safe'; // eslint-disable-line
 import pkg from '../../package.json';
 
 /*
@@ -56,13 +52,6 @@ module.exports.config = {
   // node: {
   //   fs: 'empty'
   //   // fs: 'commonjs fs'
-  // },
-
-  // output: {
-  //   path: PATHS.OUT_FULL_PATH,
-  //   filename: `[name].js`,
-  //   chunkFilename: `[name].v${pkg.version}.js`
-  //   // publicPath: OUT_PATH
   // },
 
   // Allow absolute paths in imports.

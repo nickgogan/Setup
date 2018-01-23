@@ -1,13 +1,10 @@
-// @ts-check
-// @flow
-
 import path from 'path';
 import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge';
 import WebpackMonitorPlugin from 'webpack-monitor';
 import DotenvWebpackPlugin from 'dotenv-webpack';
 import dotEnv from 'dotenv-safe';
-import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
+import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line
 
 /*
 ########################################
