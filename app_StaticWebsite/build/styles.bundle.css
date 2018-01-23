@@ -1,25 +1,55 @@
-/**/
-.menu {
-  width: 800px;
+/*@import './tests/test_precss.postcss';*/
+/*@import './tests/test_cssnext.postcss';*/
+html {
+  box-sizing: border-box;
 }
-.menu-link {
-  width: 200px;
-  background: #056ef0;
-  height: 200px
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
-.menu-link:link,.menu-link:visited {
-  background-color: rgba(5, 110, 240, .5);
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
-/*@import './shared/reset.css';*/
-/*@import './shared/variables.css';*/
-/*@import './shared/typography.css';*/
-/*@import './shared/grid.css';*/
-/*@import './shared/base.css'; */
-/*@import './shared/utilities.css';*/
-/*@import './components/footer/footer.css';*/
-/*@import './components/header/header.css';*/
-/*@import './components/mainContent/mainContent.css';*/
-/*@import './components/sideContent/sideContent.css'; */
-/* :root {
-  --color-primary: #123456;
-} */
+ol,
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* Color Scheme */
+/* breakpoints (borrowed from bootstrap 4) */
+/* 544px */
+/* 768px */
+/* 992px */
+/* 1200px */
+/*@import './shared/typography.postcss';*/
+/*@import './shared/grid.postcss';*/
+/*@import './shared/base.postcss';*/
+/*@import './shared/utilities.postcss';*/
+/*@import './components/footer/footer.postcss';*/
+/*@import './components/header/header.postcss';*/
+/*@import './components/mainContent/mainContent.postcss';*/
+/*@import './components/sideContent/sideContent.postcss'; */
+body {
+  background-color: rgb(89, 185, 204);
+}
+p {
+  color: #876543;
+}
+vid#purifycsstest {
+  display: flex;
+}
