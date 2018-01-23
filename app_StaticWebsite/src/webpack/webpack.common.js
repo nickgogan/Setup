@@ -26,16 +26,11 @@ const dotEnvWebpack = new DotenvWebpackPlugin({
 
 // Make the paths cross-platform and then export them out for the higher-level configs.
 function setPaths() {
-  const SRC_PATH = path.normalize(env.SRC_PATH);
-  const SRC_FULL_PATH = path.resolve(__dirname, '../', SRC_PATH);
-  const OUT_PATH = path.normalize(env.OUT_PATH);
-  const OUT_FULL_PATH = path.resolve(__dirname, '../', OUT_PATH);
+  const SRC_FULL_PATH = path.resolve(__dirname, '../../', env.SRC);
 
   return {
-    SRC_PATH,
     SRC_FULL_PATH,
-    OUT_PATH,
-    OUT_FULL_PATH
+    VERSION: pkg.version
   };
 }
 const PATHS = setPaths();
@@ -47,7 +42,6 @@ module.exports.PATHS = PATHS;
 ########################################
 */
 module.exports.config = {
-  // context:
   // target: node
 
   entry: {
@@ -64,21 +58,18 @@ module.exports.config = {
   //   // fs: 'commonjs fs'
   // },
 
-  output: {
-    path: PATHS.OUT_FULL_PATH,
-    filename: `[name].js`,
-    chunkFilename: `[name].v${pkg.version}.js`
-    // publicPath: OUT_PATH
-  },
+  // output: {
+  //   path: PATHS.OUT_FULL_PATH,
+  //   filename: `[name].js`,
+  //   chunkFilename: `[name].v${pkg.version}.js`
+  //   // publicPath: OUT_PATH
+  // },
 
   // Allow absolute paths in imports.
   resolve: {
     modules: ['node_modules', PATHS.SRC_FULL_PATH],
     extensions: ['.js']
-  },
+  }
 
-  plugins: [
-    // cleaning up the build directory prior to update
-    new CleanWebpackPlugin([PATHS.OUT_FULL_PATH])
-  ]
+  // plugins: []
 };

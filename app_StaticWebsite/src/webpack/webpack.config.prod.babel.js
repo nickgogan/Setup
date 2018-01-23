@@ -1,19 +1,10 @@
 import path from 'path';
 import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge'; // eslint-disable-line
-import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin'; // eslint-disable-line
-import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
-import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
 import dotEnv from 'dotenv-safe'; // eslint-disable-line
-
+import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
+import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line
 import WebpackMonitorPlugin from 'webpack-monitor';
-
-const webpackMonitor = new WebpackMonitorPlugin({
-  capture: true,
-  launch: true,
-  port: 3000
-});
 
 /*
 ########################################
@@ -35,6 +26,7 @@ const env = dotEnv.load({
   path: path.resolve(__dirname, './../env/prod.env'),
   sample: path.resolve(__dirname, './../env/prod.example.env')
 }).parsed;
+env.OUT_FULL_PATH = path.resolve(__dirname, '../../', env.DEST);
 const ENV = Object.assign({}, common.PATHS, env);
 
 /*
@@ -47,19 +39,11 @@ const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/prod.env'),
   safe: false
 });
-const htmlToHdd = new WebpackHtmlHarddiskPlugin({
-  outputPath: path.resolve(__dirname, '../../dist')
-});
-const htmlIndex = new WebpackHtmlPlugin({
-  template: path.resolve(__dirname, '../templates/index.html'),
-  title: 'MyApp',
-  desc: 'This is my app.',
-  inject: 'body'
-  // alwaysWriteToDisk: true // htmlToHdd should handle this.
-});
-const extractText = new WebpackExtractTextPlugin({
-  allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
-  filename: './styles.bundle.css'
+const cleanWebpack = new CleanWebpackPlugin([ENV.OUT_FULL_PATH]);
+const webpackMonitor = new WebpackMonitorPlugin({
+  capture: true,
+  launch: true,
+  port: 3000
 });
 
 /*
@@ -68,5 +52,11 @@ const extractText = new WebpackExtractTextPlugin({
 ########################################
 */
 export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
-  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd] // , webpackMonitor
+  output: {
+    path: ENV.OUT_FULL_PATH,
+    filename: `[name].js`,
+    chunkFilename: `[name].v${ENV.VERSION}.js`
+    // publicPath: OUT_PATH
+  },
+  plugins: [dotEnvWebpack, cleanWebpack] // , webpackMonitor
 });

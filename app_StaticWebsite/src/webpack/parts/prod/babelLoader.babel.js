@@ -4,7 +4,7 @@ import WebpackUglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-li
 
 // type args = { include: string, exclude: string, use: [{}] };
 
-module.exports = () => {
+export default () => {
   // Minify JS.
   const Uglifier = new WebpackUglifyJSPlugin({
     cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
