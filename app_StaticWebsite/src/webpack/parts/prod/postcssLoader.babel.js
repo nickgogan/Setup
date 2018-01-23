@@ -1,3 +1,5 @@
+import path from 'path'; // eslint-disable-line
+import glob from 'glob'; // eslint-disable-line
 import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
@@ -11,7 +13,10 @@ export default () => {
     allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
     filename: './styles.bundle.css'
   });
-  const purifyCSS = new WebpackPurifyCSSPlugin({});
+  const purifyCSS = new WebpackPurifyCSSPlugin({
+    paths: glob.sync(path.join(__dirname, '../../../../src')),
+    minimize: true
+  });
 
   return {
     module: {
@@ -37,10 +42,10 @@ export default () => {
                         applyRule: false, // Deprecated
                         customProperties: false // Deprecated
                       }
-                    }),
-                    CSSNano({
-                      autoprefixer: false // On by default, but autoprefixing is handled by CSSNext.
                     })
+                    // CSSNano({ // Now handled by CSSPurify
+                    //   autoprefixer: false // On by default, but autoprefixing is handled by CSSNext.
+                    // })
                   ]
                 }
               }
@@ -49,6 +54,6 @@ export default () => {
         }
       ]
     },
-    plugins: [extractCSS]
+    plugins: [extractCSS, purifyCSS]
   };
 };
