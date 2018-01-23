@@ -8,22 +8,6 @@ declare module 'console-log-html' {
   declare module.exports: any;
 }
 
-declare module 'cross-env' {
-  declare module.exports: any;
-}
-
-declare module 'dotenv-safe' {
-  declare module.exports: any;
-}
-
-declare module 'clean-webpack-plugin' {
-  declare module.exports: any;
-}
-
-declare module 'html-webpack-plugin' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-merge' {
+declare module 'dotenv-webpack' {
   declare module.exports: any;
 }

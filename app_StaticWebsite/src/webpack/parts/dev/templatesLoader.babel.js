@@ -7,7 +7,7 @@ export default () => {
     outputPath: path.resolve(__dirname, '../../dist')
   });
   const htmlIndex = new WebpackHtmlPlugin({
-    template: path.resolve(__dirname, '../templates/index.html'),
+    template: path.resolve(__dirname, '../../../templates/index.html'),
     title: 'MyApp',
     desc: 'This is my app.',
     inject: 'body'

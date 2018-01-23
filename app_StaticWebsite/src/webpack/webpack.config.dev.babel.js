@@ -1,13 +1,13 @@
 // @ts-check
+// @flow
 
 import path from 'path';
 import webpack from 'webpack';
-import WebpackMerge from 'webpack-merge'; // eslint-disable-line
-import WebpackMonitorPlugin from 'webpack-monitor'; // eslint-disable-line
-import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin';
-import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
-import dotEnv from 'dotenv-safe'; // eslint-disable-line
+import WebpackMerge from 'webpack-merge';
+import WebpackMonitorPlugin from 'webpack-monitor';
+import DotenvWebpackPlugin from 'dotenv-webpack';
+import dotEnv from 'dotenv-safe';
+import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line import/no-extraneous-dependencies
 
 /*
 ########################################
@@ -15,7 +15,7 @@ import dotEnv from 'dotenv-safe'; // eslint-disable-line
 ########################################
 */
 import common from './webpack.common';
-// import loadTemplates from './parts/dev/htmlLoader.babel';
+import loadTemplates from './parts/dev/templatesLoader.babel';
 import loadStyles from './parts/dev/postcssLoader.babel';
 import loadBabel from './parts/dev/babelLoader.babel';
 
@@ -29,6 +29,7 @@ const env = dotEnv.load({
   path: path.resolve(__dirname, './../env/dev.env'),
   sample: path.resolve(__dirname, './../env/dev.example.env')
 }).parsed;
+env.OUT_FULL_PATH = path.resolve(__dirname, '../../', env.DEST);
 const ENV = Object.assign({}, common.PATHS, env);
 
 /*
@@ -41,16 +42,7 @@ const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/dev.env'),
   safe: false
 });
-const htmlToHdd = new WebpackHtmlHarddiskPlugin({
-  outputPath: path.resolve(__dirname, '../../build')
-});
-const htmlIndex = new WebpackHtmlPlugin({
-  template: path.resolve(__dirname, '../templates/index.html'),
-  title: 'MyApp',
-  desc: 'This is my app.',
-  inject: 'body'
-  // alwaysWriteToDisk: true // htmlToHdd should handle this.
-});
+const cleanWebpack = new CleanWebpackPlugin([ENV.OUT_FULL_PATH]);
 const webpackMonitor = new WebpackMonitorPlugin({
   capture: true,
   launch: true,
@@ -64,18 +56,30 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 ########################################
 */
 
-export default WebpackMerge(common.config, loadBabel(), loadStyles(), {
-  entry: {
-    hmr: [
-      'webpack/hot/dev-server',
-      `webpack-dev-server/client?http://localhost:3001`
-    ]
-  },
-  plugins: [dotEnvWebpack, htmlIndex, htmlToHdd, webpackMonitor, HMR],
-  devServer: {
-    contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
-    host: ENV.HOST,
-    port: ENV.PORT,
-    overlay: true
+export default WebpackMerge(
+  common.config,
+  loadBabel(),
+  loadStyles(),
+  loadTemplates(),
+  {
+    entry: {
+      hmr: [
+        'webpack/hot/dev-server',
+        `webpack-dev-server/client?http://localhost:3001`
+      ]
+    },
+    plugins: [dotEnvWebpack, cleanWebpack, HMR], // , webpackMonitor
+    output: {
+      path: ENV.OUT_FULL_PATH,
+      filename: `[name].js`,
+      chunkFilename: `[name].v${ENV.VERSION}.js`
+      // publicPath: OUT_PATH
+    },
+    devServer: {
+      contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
+      host: ENV.HOST,
+      port: ENV.PORT,
+      overlay: true
+    }
   }
-});
+);
