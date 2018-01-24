@@ -17,26 +17,16 @@ export default () => ({
                 [
                   'env',
                   {
-                    // Handled in package.json
-                    // targets: {
-                    //   browsers: [
-                    //     'Chrome >= 60',
-                    //     'Safari >= 10.1',
-                    //     'iOS >= 10.3',
-                    //     'Firefox >= 54',
-                    //     'Edge >= 15'
-                    //   ]
-                    // },
-                    modules: false,
-                    useBuiltIns: true,
+                    modules: false, // Lets webpack deal with the imports.
+                    useBuiltIns: true, // Enables polyfills.
                     debug: false
                   }
                 ],
                 'flow'
               ],
               plugins: [
-                'babel-plugin-syntax-dynamic-import',
-                'transform-runtime'
+                'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
+                'transform-runtime' // Prevents polution of global scope with Promise objects.
               ]
             }
           }
