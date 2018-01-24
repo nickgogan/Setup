@@ -38,7 +38,7 @@ module.exports.PATHS = PATHS;
 ########################################
 */
 module.exports.config = {
-  // target: node
+  target: env.platform,
 
   entry: {
     main: [
