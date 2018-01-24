@@ -1,22 +1,23 @@
 import path from 'path';
 import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import WebpackHtmlHarddiskPlugin from 'html-webpack-harddisk-plugin'; // eslint-disable-line
 import WebpackGenerateRobotsPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import WebpackFaviconsGenerator from 'favicons-webpack-plugin'; // eslint-disable-line
 
 export default () => {
-  const htmlToHdd = new WebpackHtmlHarddiskPlugin({
-    outputPath: path.resolve(__dirname, '../../dist')
-  });
   const htmlIndex = new WebpackHtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/index.html'),
+    filename: path.resolve(__dirname, '../../../../dist/index.html'),
+    includeChunks: ['main'],
+    excludeChunks: ['page'],
     title: 'MyApp',
     desc: 'This is my app.',
     inject: 'body'
-    // alwaysWriteToDisk: true // htmlToHdd should handle this.
   });
   const htmlPage = new WebpackHtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/page.html'),
+    filename: path.resolve(__dirname, '../../../../dist/page.html'),
+    includeChunks: ['page'],
+    excludeChunks: ['main'],
     title: 'myPage',
     desc: 'This is my other page.',
     inject: 'body'
@@ -74,6 +75,6 @@ export default () => {
     module: {
       rules: []
     },
-    plugins: [htmlIndex, htmlPage, htmlToHdd, generateRobots, faviconsGenerator]
+    plugins: [htmlIndex, htmlPage, generateRobots, faviconsGenerator]
   };
 };

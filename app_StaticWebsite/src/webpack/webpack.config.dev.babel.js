@@ -4,7 +4,6 @@ import WebpackMerge from 'webpack-merge';
 import WebpackMonitorPlugin from 'webpack-monitor';
 import DotenvWebpackPlugin from 'dotenv-webpack';
 import dotEnv from 'dotenv-safe';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 /*
 ########################################
@@ -39,7 +38,6 @@ const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/dev.env'),
   safe: false
 });
-const cleanWebpack = new CleanWebpackPlugin([ENV.OUT_FULL_PATH]);
 const webpackMonitor = new WebpackMonitorPlugin({
   capture: true,
   launch: true,
@@ -65,7 +63,7 @@ export default WebpackMerge(
         `webpack-dev-server/client?http://localhost:3001`
       ]
     },
-    plugins: [dotEnvWebpack, cleanWebpack, HMR], // , webpackMonitor
+    plugins: [dotEnvWebpack, HMR], // , webpackMonitor
     output: {
       path: ENV.OUT_FULL_PATH,
       filename: `[name].js`,

@@ -2,7 +2,6 @@ import path from 'path';
 import WebpackMerge from 'webpack-merge';
 import dotEnv from 'dotenv-safe';
 import DotenvWebpackPlugin from 'dotenv-webpack';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
 import WebpackMonitorPlugin from 'webpack-monitor';
 
 /*
@@ -38,7 +37,6 @@ const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.join(__dirname, '../env/prod.env'),
   safe: false
 });
-const cleanWebpack = new CleanWebpackPlugin([ENV.OUT_FULL_PATH]);
 const webpackMonitor = new WebpackMonitorPlugin({
   capture: true,
   launch: true,
@@ -62,6 +60,6 @@ export default WebpackMerge(
       chunkFilename: `[name].v${ENV.VERSION}.js`
       // publicPath: OUT_PATH
     },
-    plugins: [dotEnvWebpack, cleanWebpack] // , webpackMonitor
+    plugins: [dotEnvWebpack] // , webpackMonitor
   }
 );

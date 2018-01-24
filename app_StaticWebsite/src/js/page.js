@@ -2,19 +2,19 @@
 // @flow
 
 import ConsoleLogHTML from 'console-log-html';
-import test from './components/test';
-import '../styles/main.postcss';
+import foo from './components/foo';
+import '../styles/page.postcss';
 
 ConsoleLogHTML.connect(document.querySelector('#log'));
 
-class Main {
+class Page {
   constructor(message) {
     console.log(message);
   }
 }
 
-const newTest = new Main('Hello from main!');
-console.log(test());
+const newTest = new Page('Hello from page!');
+console.log(foo());
 
 // TODO: Investigate possibility of using async/await here.
 // Promise.all([
