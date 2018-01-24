@@ -6,6 +6,7 @@ import PostCSSImport from 'postcss-import'; // eslint-disable-line
 import CSSNano from 'cssnano'; // eslint-disable-line
 import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 import WebpackPurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
+import WebpackCriticalCSSPlugin from 'html-critical-webpack-plugin'; //eslint-disable-line
 
 export default () => {
   // Output extracted CSS to a file
@@ -16,6 +17,20 @@ export default () => {
   const purifyCSS = new WebpackPurifyCSSPlugin({
     paths: glob.sync(path.join(__dirname, '../../../../src')),
     minimize: true
+  });
+  const criticalCSS = new WebpackCriticalCSSPlugin({
+    base: path.resolve(__dirname, '../../../../dist'),
+    src: 'index.html',
+    dest: 'index.html',
+    inline: true,
+    minify: false,
+    extract: false,
+    // Most common viewport size in U.S. in 2017: https://deviceatlas.com/blog/mobile-viewport-size-statistics-2017
+    width: 414,
+    height: 736,
+    penthouse: {
+      blockJSRequests: false
+    }
   });
 
   return {
@@ -54,6 +69,6 @@ export default () => {
         }
       ]
     },
-    plugins: [extractCSS, purifyCSS]
+    plugins: [extractCSS, purifyCSS, criticalCSS] // criticalCSS must come at the end.
   };
 };

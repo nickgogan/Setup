@@ -10,10 +10,10 @@ import WebpackMonitorPlugin from 'webpack-monitor';
         Import Lower Config and Loaders
 ########################################
 */
-import common from './webpack.common'; // eslint-disable-line
+import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
-import loadStyles from './parts/prod/postcssLoader.babel'; // eslint-disable-line
-import loadBabel from './parts/prod/babelLoader.babel'; // eslint-disable-line
+import loadStyles from './parts/prod/postcssLoader.babel';
+import loadBabel from './parts/prod/babelLoader.babel';
 
 /*
 ########################################
@@ -53,8 +53,8 @@ const webpackMonitor = new WebpackMonitorPlugin({
 export default WebpackMerge(
   common.config,
   loadBabel(),
+  loadTemplates(), // This has to come first to get Critical CSS working.
   loadStyles(),
-  loadTemplates(),
   {
     output: {
       path: ENV.OUT_FULL_PATH,

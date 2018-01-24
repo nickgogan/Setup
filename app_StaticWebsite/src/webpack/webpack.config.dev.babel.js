@@ -4,7 +4,7 @@ import WebpackMerge from 'webpack-merge';
 import WebpackMonitorPlugin from 'webpack-monitor';
 import DotenvWebpackPlugin from 'dotenv-webpack';
 import dotEnv from 'dotenv-safe';
-import CleanWebpackPlugin from 'clean-webpack-plugin'; // eslint-disable-line
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 /*
 ########################################
@@ -56,8 +56,8 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 export default WebpackMerge(
   common.config,
   loadBabel(),
-  loadStyles(),
   loadTemplates(),
+  loadStyles(),
   {
     entry: {
       hmr: [
