@@ -1,13 +1,15 @@
-@import './shared/reset.postcss';
-@import './shared/variables.postcss';
+/*@import './shared/reset.postcss';*/
 
-body {
-  background-color: var(--color-primary);
-}
-p {
-  color: var(--color-secondary);
+:root {
+  --color-tertiary: #abcdef;
+  --color-quaternary: #654321;
 }
 
-div#test {
-  display: flex;
+div.page {
+  background-color: var(--color-tertiary);
+  color: var(--color-quaternary);
+}
+
+p.page {
+  background-color: var(--color-quaternary);
 }

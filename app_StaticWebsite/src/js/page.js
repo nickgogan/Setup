@@ -2,7 +2,7 @@
 // @flow
 
 import ConsoleLogHTML from 'console-log-html';
-import foo from './components/foo';
+import bar from './components/bar';
 import '../styles/page.postcss';
 
 ConsoleLogHTML.connect(document.querySelector('#log'));
@@ -13,8 +13,8 @@ class Page {
   }
 }
 
-const newTest = new Page('Hello from page!');
-console.log(foo());
+const newTest = new Page('Hello from PAGE!');
+console.log(bar());
 
 // TODO: Investigate possibility of using async/await here.
 // Promise.all([
