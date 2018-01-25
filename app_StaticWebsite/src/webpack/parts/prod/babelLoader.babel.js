@@ -36,8 +36,9 @@ export default () => {
                   'flow'
                 ],
                 plugins: [
+                  // 'babel-plugin-transform-import', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed. No member-style imports in the boilerplate, so not enabling it by default.
                   'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
-                  'transform-runtime' // Prevents polution of global scope with Promise objects.
+                  'transform-runtime' // Prevents polution of global scope with Promise objects.,
                 ]
               }
             }

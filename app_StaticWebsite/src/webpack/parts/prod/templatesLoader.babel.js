@@ -75,6 +75,6 @@ export default () => {
     module: {
       rules: []
     },
-    plugins: [htmlIndex, generateRobots, faviconsGenerator] // htmlPage
+    plugins: [htmlIndex, generateRobots] // htmlPage, faviconsGenerator
   };
 };

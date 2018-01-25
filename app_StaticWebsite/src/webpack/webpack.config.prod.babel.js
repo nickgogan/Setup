@@ -4,6 +4,8 @@ import WebpackMerge from 'webpack-merge';
 import dotEnv from 'dotenv-safe';
 import DotenvWebpackPlugin from 'dotenv-webpack';
 import WebpackMonitorPlugin from 'webpack-monitor';
+import WebpackGitRevisionPlugin from 'git-revision-webpack-plugin';
+import WebpackCompressionPlugin from 'compression-webpack-plugin';
 
 /*
 ########################################
@@ -44,6 +46,13 @@ const webpackMonitor = new WebpackMonitorPlugin({
   launch: true,
   port: 3000
 });
+const webpackCompression = new WebpackCompressionPlugin({
+  test: /\.js($|\?)/i,
+  deleteOriginalAssets: true
+});
+const webpackBanner = new webpack.BannerPlugin({
+  banner: new WebpackGitRevisionPlugin().version()
+});
 
 /*
 ########################################
@@ -63,9 +72,6 @@ export default WebpackMerge(
   ]),
   {
     // Bundles to split off from main (which is in webpack.common.js)
-    // entry: {
-    //   vendor: ['ConsoleLogHTML']
-    // }
     entry: {
       react: ['react']
     },
@@ -75,6 +81,6 @@ export default WebpackMerge(
       chunkFilename: `[name].v${ENV.VERSION}.js`
       // publicPath: OUT_PATH
     },
-    plugins: [dotEnvWebpack] // , webpackMonitor
+    plugins: [dotEnvWebpack, webpackCompression, webpackMonitor] // , webpackMonitor
   }
 );
