@@ -7,8 +7,13 @@
 
 # compiled output
 /dist
+/build
+C:\A.Project0\PersonalTools\A.Setup\app_StaticWebsite\build
 /tmp
 /typings
+src/global-styles/css/*
+cdn/
+temp/
 
 # dependencies
 /node_modules
@@ -40,12 +45,6 @@ npm-debug*
 # System Files
 .DS_Store
 Thumbs.db
-
-# Our build files
-src/global-styles/css/*
-dist/
-cdn/
-temp/
 
 docs.json
 debug.log
