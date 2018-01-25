@@ -1,6 +1,4 @@
 // @ts-check
 // @flow
 
-export default function Bar() {
-  return 'Hello from bar!';
-}
+export default (text = 'Hello from BAAAR') => text;

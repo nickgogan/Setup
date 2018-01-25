@@ -1,7 +1,6 @@
 // @ts-check
 // @flow
 
-export default function Foo() {
-  // [1, 2, 3].fill(4).find(i => i === 4);
-  return 'Hello from Foo!';
-}
+import '../../styles/foo.postcss';
+
+export default (text = 'Hello from FOOOOO') => text;

@@ -17,7 +17,7 @@
       "generators": true,
       "blockBindings": true
     },
-    "allowImportExportEverywhere": false,
+    "allowImportExportEverywhere": true,
     "codeFrame": false
   },
   "env": {
