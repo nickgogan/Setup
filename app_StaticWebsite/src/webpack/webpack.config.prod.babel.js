@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import WebpackMerge from 'webpack-merge';
 import dotEnv from 'dotenv-safe';
 import DotenvWebpackPlugin from 'dotenv-webpack';
@@ -13,6 +14,7 @@ import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
+import extractBundles from './parts/prod/extractBundles.babel';
 
 /*
 ########################################
@@ -53,7 +55,20 @@ export default WebpackMerge(
   loadBabel(),
   loadTemplates(), // This has to come first to get Critical CSS working.
   loadStyles(),
+  extractBundles([
+    {
+      name: 'react',
+      minChunks: ({ resource }) => /node_modules/.test(resource) // Only pull in the used code form node_modules.
+    }
+  ]),
   {
+    // Bundles to split off from main (which is in webpack.common.js)
+    // entry: {
+    //   vendor: ['ConsoleLogHTML']
+    // }
+    entry: {
+      react: ['react']
+    },
     output: {
       path: ENV.OUT_FULL_PATH,
       filename: `[name].js`,
