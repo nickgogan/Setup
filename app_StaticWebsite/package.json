@@ -107,6 +107,7 @@
     "precss": "3.0.0",
     "purify-css": "1.2.5",
     "purifycss-webpack": "0.7.0",
+    "react": "16.2.0",
     "rimraf": "2.6.2",
     "robotstxt-webpack-plugin": "4.0.0",
     "style-loader": "0.19.1",
