@@ -45,12 +45,12 @@ module.exports.config = {
       'babel-polyfill', // Imports polyfills from babel-polyfill based on the given browserlist (ion this project, located in package.json).
       'core-js/es6/promise', // Shim for dealing with Promise-based code that features like Code Splitting write to weback's bootstrap after it processes the loaders.
       path.join(PATHS.SRC_FULL_PATH, 'js/main.js')
-    ],
-    page: [
-      'babel-polyfill',
-      'core-js/es6/promise',
-      path.join(PATHS.SRC_FULL_PATH, 'js/page.js')
     ]
+    // page: [
+    //   'babel-polyfill',
+    //   'core-js/es6/promise',
+    //   path.join(PATHS.SRC_FULL_PATH, 'js/page.js')
+    // ]
   },
 
   // Prevents weird fs errors. See 'Weird Findings' #6

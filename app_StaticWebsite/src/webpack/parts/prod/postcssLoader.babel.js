@@ -1,5 +1,5 @@
 import path from 'path'; // eslint-disable-line
-import glob from 'glob'; // eslint-disable-line
+import glob from 'glob-all'; // eslint-disable-line
 import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
@@ -15,7 +15,10 @@ export default () => {
     filename: './styles.bundle.css'
   });
   const purifyCSS = new WebpackPurifyCSSPlugin({
-    paths: glob.sync(path.join(__dirname, '../../../../src')),
+    paths: glob.sync([
+      path.join(__dirname, '../../../../src/**/*.js'),
+      path.join(__dirname, '../../../../src/**/*.html')
+    ]),
     minimize: true
   });
   const criticalCSS = new WebpackCriticalCSSPlugin({

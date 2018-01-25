@@ -1,8 +1,8 @@
 /*@import './tests/test_precss.postcss';*/
 /*@import './tests/test_cssnext.postcss';*/
 
-@import './shared/reset.postcss';
-@import './shared/variables.postcss';
+/*@import './shared/reset.postcss';*/
+/*@import './shared/variables.postcss';*/
 /*@import './shared/typography.postcss';*/
 /*@import './shared/grid.postcss';*/
 /*@import './shared/base.postcss';*/
@@ -12,13 +12,26 @@
 /*@import './components/header/header.postcss';*/
 /*@import './components/mainContent/mainContent.postcss';*/
 /*@import './components/sideContent/sideContent.postcss'; */
+
+:root {
+  --color-primary: #123456;
+  --color-secondary: #fedcba;
+  --color-tertiary: #ab34cd;
+}
+
 body {
   background-color: var(--color-primary);
 }
-p {
+.main {
+  background-color: var(--color-primary);
   color: var(--color-secondary);
 }
+div.test {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--color-tertiary);
+}
 
-div#test {
+#flex {
   display: flex;
 }
