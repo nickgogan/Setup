@@ -1,8 +1,8 @@
 // @ts-check
 // @flow
-import CommonShakePlugin from 'webpack-common-shake';
+import CJSShakePlugin from 'webpack-common-shake';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
-import PrepackPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
+import PrepackJSPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
 import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
 
 // type args = { include: string, exclude: string, use: [{}] };
@@ -15,9 +15,9 @@ export default () => {
       ie8: false,
     },
   });
-  const precompileJS = new PrepackPlugin({});
+  const precompileJS = new PrepackJSPlugin({});
   const enhanceJS = new OptimizeJSPlugin();
-  const treeshakeCommonJS = new CommonShakePlugin.Plugin({});
+  const treeshakeCommonJS = new CJSShakePlugin.Plugin({});
 
   return {
     module: {

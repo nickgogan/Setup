@@ -3,15 +3,15 @@ import glob from 'glob-all'; // eslint-disable-line
 import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
-import WebpackExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
-import WebpackPurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
+import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
+import PurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
 
 export default () => {
-  const extractCSS = new WebpackExtractTextPlugin({
+  const extractCSS = new ExtractTextPlugin({
     allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
     filename: './styles.[contenthash:8].css',
   });
-  const purifyCSS = new WebpackPurifyCSSPlugin({
+  const purifyCSS = new PurifyCSSPlugin({
     paths: glob.sync([
       path.join(__dirname, '../../../../src/**/*.js'),
       path.join(__dirname, '../../../../src/**/*.html'),

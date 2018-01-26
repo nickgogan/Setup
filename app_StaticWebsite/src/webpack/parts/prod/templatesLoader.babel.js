@@ -1,51 +1,51 @@
 import path from 'path';
-import WebpackHtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import WebpackGenerateRobotsPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
-import WebpackFaviconsGenerator from 'favicons-webpack-plugin'; // eslint-disable-line
+import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
+import robotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
+import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
 
 export default () => {
-  const htmlIndex = new WebpackHtmlPlugin({
+  const indexPage = new HtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/index.html'),
     filename: path.resolve(__dirname, '../../../../dist/index.html'),
     includeChunks: ['main'],
     excludeChunks: ['page'],
     title: 'MyApp',
     desc: 'This is my app.',
-    inject: 'body'
+    inject: 'body',
   });
-  const htmlPage = new WebpackHtmlPlugin({
+  const pagePage = new HtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/page.html'),
     filename: path.resolve(__dirname, '../../../../dist/page.html'),
     includeChunks: ['page'],
     excludeChunks: ['main'],
     title: 'myPage',
     desc: 'This is my other page.',
-    inject: 'body'
+    inject: 'body',
   });
-  const generateRobots = new WebpackGenerateRobotsPlugin({
+  const robotsGenerator = new robotsGeneratorPlugin({
     policy: [
       {
         userAgent: 'Googlebot',
         allow: '/',
         disallow: '/search',
-        crawlDelay: 2
+        crawlDelay: 2,
       },
       {
         userAgent: 'OtherBot',
         allow: ['/allow-for-all-bots', '/allow-only-for-other-bot'],
         disallow: ['/admin', '/login'],
-        crawlDelay: 2
+        crawlDelay: 2,
       },
       {
         userAgent: '*',
         allow: '/',
         disallow: '/search',
         crawlDelay: 10,
-        cleanParam: 'ref /articles/'
-      }
-    ]
+        cleanParam: 'ref /articles/',
+      },
+    ],
   });
-  const faviconsGenerator = new WebpackFaviconsGenerator({
+  const faviconsGenerator = new GenerateFaviconsPlugin({
     logo: path.resolve(__dirname, '../../../assets/favicon.png'),
     title: 'My App',
     appTitle: 'My App',
@@ -65,16 +65,16 @@ export default () => {
       opengraph: true,
       twitter: true,
       yandex: true,
-      windows: true
+      windows: true,
     },
     emitStats: true,
-    statsFilename: 'iconstats.json'
+    statsFilename: 'iconstats.json',
   });
 
   return {
     module: {
-      rules: []
+      rules: [],
     },
-    plugins: [htmlIndex, generateRobots] // htmlPage, faviconsGenerator
+    plugins: [indexPage, robotsGenerator, faviconsGenerator], // pagePage, faviconsGenerator
   };
 };
