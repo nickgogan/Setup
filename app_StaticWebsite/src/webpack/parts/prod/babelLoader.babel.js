@@ -1,18 +1,21 @@
 // @ts-check
 // @flow
-import WebpackUglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
+import PrepackPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
+import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
 
 // type args = { include: string, exclude: string, use: [{}] };
 
 export default () => {
-  // Minify JS.
-  const Uglifier = new WebpackUglifyJSPlugin({
+  const uglifyJS = new UglifyJSPlugin({
     cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
     parallel: true,
     uglifyOptions: {
-      ie8: false
-    }
+      ie8: false,
+    },
   });
+  const precompileJS = new PrepackPlugin({});
+  const enhanceJS = new OptimizeJSPlugin();
 
   return {
     module: {
@@ -30,22 +33,26 @@ export default () => {
                     {
                       modules: false, // Lets webpack deal with the imports.
                       useBuiltIns: true, // Enables polyfills.
-                      debug: false
-                    }
+                      debug: false,
+                    },
                   ],
-                  'flow'
+                  'flow',
                 ],
                 plugins: [
                   // 'babel-plugin-transform-import', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed. No member-style imports in the boilerplate, so not enabling it by default.
                   'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
-                  'transform-runtime' // Prevents polution of global scope with Promise objects.,
-                ]
-              }
-            }
-          ]
-        }
-      ]
+                  'transform-runtime', // Prevents polution of global scope with Promise objects.,
+                ],
+              },
+            },
+          ],
+        },
+      ],
     },
-    plugins: [Uglifier]
+    plugins: [
+      precompileJS, // Must come before uglifying
+      uglifyJS,
+      enhanceJS, // Must come after uglifying
+    ],
   };
 };
