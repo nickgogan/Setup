@@ -1,6 +1,6 @@
 // @ts-check
 // @flow
-import CJSShakePlugin from 'webpack-common-shake';
+import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
 import PrepackJSPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
 import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
@@ -12,12 +12,12 @@ export default () => {
     cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
     parallel: true,
     uglifyOptions: {
-      ie8: false,
-    },
+      ie8: false
+    }
   });
-  const precompileJS = new PrepackJSPlugin({});
+  const precompileJS = new PrepackJSPlugin();
   const enhanceJS = new OptimizeJSPlugin();
-  const treeshakeCommonJS = new CJSShakePlugin.Plugin({});
+  const treeshakeCommonJS = new CJSShakePlugin.Plugin();
 
   return {
     module: {
@@ -27,7 +27,7 @@ export default () => {
           exclude: /node_modules/,
           use: [
             {
-              loader: 'cache-loader',
+              loader: 'cache-loader'
             },
             {
               loader: 'babel-loader', // babel-loader?cacheDirectory - Removed in favor of cache-loader
@@ -38,27 +38,27 @@ export default () => {
                     {
                       modules: false, // Lets webpack deal with the imports.
                       useBuiltIns: true, // Enables polyfills.
-                      debug: false,
-                    },
+                      debug: false
+                    }
                   ],
-                  'flow',
+                  'flow'
                 ],
                 plugins: [
                   'babel-plugin-transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
                   'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
-                  'transform-runtime', // Prevents polution of global scope with Promise objects.,
-                ],
-              },
-            },
-          ],
-        },
-      ],
+                  'transform-runtime' // Prevents polution of global scope with Promise objects.,
+                ]
+              }
+            }
+          ]
+        }
+      ]
     },
     plugins: [
       treeshakeCommonJS,
       precompileJS, // Must come before uglifying
       uglifyJS,
-      enhanceJS, // Must come after uglifying
-    ],
+      enhanceJS // Must come after uglifying
+    ]
   };
 };

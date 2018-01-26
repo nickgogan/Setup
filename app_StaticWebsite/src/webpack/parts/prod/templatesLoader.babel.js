@@ -1,14 +1,14 @@
 import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import robotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
+import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
 
 export default () => {
   const indexPage = new HtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/index.html'),
     filename: path.resolve(__dirname, '../../../../dist/index.html'),
-    includeChunks: ['main'],
-    excludeChunks: ['page'],
+    includeChunks: ['main',],
+    excludeChunks: ['page',],
     title: 'MyApp',
     desc: 'This is my app.',
     inject: 'body',
@@ -16,13 +16,13 @@ export default () => {
   const pagePage = new HtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/page.html'),
     filename: path.resolve(__dirname, '../../../../dist/page.html'),
-    includeChunks: ['page'],
-    excludeChunks: ['main'],
+    includeChunks: ['page',],
+    excludeChunks: ['main',],
     title: 'myPage',
     desc: 'This is my other page.',
     inject: 'body',
   });
-  const robotsGenerator = new robotsGeneratorPlugin({
+  const robotsGenerator = new RobotsGeneratorPlugin({
     policy: [
       {
         userAgent: 'Googlebot',
@@ -32,8 +32,8 @@ export default () => {
       },
       {
         userAgent: 'OtherBot',
-        allow: ['/allow-for-all-bots', '/allow-only-for-other-bot'],
-        disallow: ['/admin', '/login'],
+        allow: ['/allow-for-all-bots', '/allow-only-for-other-bot',],
+        disallow: ['/admin', '/login',],
         crawlDelay: 2,
       },
       {
@@ -59,7 +59,7 @@ export default () => {
       android: true,
       appleIcon: true,
       appleStartup: true,
-      coast: { offset: 25 },
+      coast: { offset: 25, },
       favicons: true,
       firefox: true,
       opengraph: true,
@@ -72,9 +72,6 @@ export default () => {
   });
 
   return {
-    module: {
-      rules: [],
-    },
-    plugins: [indexPage, robotsGenerator, faviconsGenerator], // pagePage, faviconsGenerator
+    plugins: [indexPage,], // pagePage, robotsGenerator, faviconsGenerator
   };
 };
