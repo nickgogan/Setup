@@ -32,6 +32,6 @@
     "no-plusplus": "error",
     "no-unused-vars": "warn",
     "valid-jsdoc": "warn",
-    "comma-dangle": "always"
+    "comma-dangle": ["warn", "always"]
   }
 }
