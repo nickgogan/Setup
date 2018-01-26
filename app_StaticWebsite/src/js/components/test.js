@@ -8,7 +8,7 @@ export default (text = 'Hi from TEST') => {
 
   // Trigger lazy-loading of foo.js when cliking the button.
   element.onclick = () => {
-    import('./foo')
+    import(/* webpackChunkName: "foo" */ './foo')
       .then(foo => {
         element.textContent = foo.default();
       })

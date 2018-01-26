@@ -4,11 +4,10 @@
 import ConsoleLogHTML from 'console-log-html';
 import 'react'; // eslint-disable-line
 import component from './components/test';
-// import foo from './components/foo';
 import '../styles/main.postcss';
-ConsoleLogHTML.connect(document.querySelector('#log'));
+import { bake, } from './components/treeshake';
 
-import { bake } from './components/treeshake';
+ConsoleLogHTML.connect(document.querySelector('#log'));
 
 bake();
 class Main {
@@ -27,7 +26,7 @@ Promise.all([
   // .then(([foo, bar]) => {
   //   console.log(`Lazy-loaded modules:\n ${foo.default()}\n${bar.default()}`);
   // })
-  .then(([bar]) => {
+  .then(([bar,]) => {
     console.log(`Lazy-loaded modules:\n${bar.default()}`);
   })
   .catch(e => {

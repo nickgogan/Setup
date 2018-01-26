@@ -1,6 +1,6 @@
 import path from 'path';
-import webpack from 'webpack';
 import dotEnv from 'dotenv-safe';
+import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
@@ -70,10 +70,10 @@ export default MergePlugin(
   extractBundles([
     {
       name: 'react',
-      minChunks: ({ resource }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
+      minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
     },
     {
-      name: 'WebpackRuntime',
+      name: 'runtime',
       minChunks: Infinity,
     },
     //
@@ -84,20 +84,39 @@ export default MergePlugin(
     },
   ]),
   {
+    entry: {
+      polyfill: 'babel-polyfill', // Imports polyfills from babel-polyfill based on the given browserlist (ion this project, located in package.json).
+    },
     output: {
       path: ENV.OUT_FULL_PATH,
       filename: `[name].[chunkhash:8].js`,
-      chunkFilename: `[name].v${ENV.VERSION}.js`,
+      // chunkFilename: `[name].v${ENV.VERSION}.js`
       // publicPath: OUT_PATH
     },
     plugins: [
       appEnv,
       webpackBanner,
+      new webpack.NamedModulesPlugin(),
+      new webpack.NamedChunksPlugin(), // Uses the /* webpackChunkName: "..." */ labels
+      {
+        apply(compiler) {
+          compiler.plugin('compilation', compilation => {
+            compilation.plugin('before-module-ids', modules => {
+              modules.forEach(module => {
+                if (module.id !== null) {
+                  return;
+                }
+                module.id = module.identifier(); // eslint-disable-line
+              });
+            });
+          });
+        },
+      },
       webpackModuleConcatenator,
       // webpackCompression,
       new CacheBundles(),
       // webpackMonitor
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin()
     ],
-  },
+  }
 );
