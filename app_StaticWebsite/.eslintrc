@@ -27,10 +27,11 @@
     "node": true
   },
   "rules": {
-    //"react/jsx-filename-extension": [1, {"extensions": [".js"]}] //Might not need this
+    //"react/jsx-filename-extension": [1, {"extensions": [".jsx"]}] //Might not need this
     "max-len": [1, 80, 2, { "ignoreComments": true }],
     "no-plusplus": "error",
     "no-unused-vars": "warn",
-    "valid-jsdoc": "warn"
+    "valid-jsdoc": "warn",
+    "comma-dangle": "always"
   }
 }
