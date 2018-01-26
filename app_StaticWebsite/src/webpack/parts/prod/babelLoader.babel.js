@@ -1,5 +1,6 @@
 // @ts-check
 // @flow
+import CommonShakePlugin from 'webpack-common-shake';
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
 import PrepackPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
 import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
@@ -16,6 +17,7 @@ export default () => {
   });
   const precompileJS = new PrepackPlugin({});
   const enhanceJS = new OptimizeJSPlugin();
+  const treeshakeCommonJS = new CommonShakePlugin.Plugin({});
 
   return {
     module: {
@@ -28,7 +30,7 @@ export default () => {
               loader: 'cache-loader',
             },
             {
-              loader: 'babel-loader?cacheDirectory',
+              loader: 'babel-loader', // babel-loader?cacheDirectory - Removed in favor of cache-loader
               options: {
                 presets: [
                   [
@@ -42,7 +44,7 @@ export default () => {
                   'flow',
                 ],
                 plugins: [
-                  // 'babel-plugin-transform-import', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed. No member-style imports in the boilerplate, so not enabling it by default.
+                  'babel-plugin-transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
                   'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
                   'transform-runtime', // Prevents polution of global scope with Promise objects.,
                 ],
@@ -53,6 +55,7 @@ export default () => {
       ],
     },
     plugins: [
+      treeshakeCommonJS,
       precompileJS, // Must come before uglifying
       uglifyJS,
       enhanceJS, // Must come after uglifying
