@@ -12,13 +12,13 @@ import pkg from '../../package.json';
 // Used just within this particular config file.
 const env = dotEnv.load({
   path: path.resolve(__dirname, './../env/common.env'),
-  sample: path.resolve(__dirname, './../env/common.example.env')
+  sample: path.resolve(__dirname, './../env/common.example.env'),
 }).parsed;
 
 // Make webpack add these to the program-wide process.env object.
 const dotEnvWebpack = new DotenvWebpackPlugin({
   path: path.resolve(__dirname, '../env/common.env'),
-  safe: false
+  safe: false,
 });
 
 // Make the paths cross-platform and then export them out for the higher-level configs.
@@ -27,7 +27,7 @@ function setPaths() {
 
   return {
     SRC_FULL_PATH,
-    VERSION: pkg.version
+    VERSION: pkg.version,
   };
 }
 const PATHS = setPaths();
@@ -43,20 +43,17 @@ module.exports.config = {
 
   entry: {
     main: [
-      'babel-polyfill', // Imports polyfills from babel-polyfill based on the given browserlist (ion this project, located in package.json).
       // 'core-js/es6/promise', // Shim for dealing with Promise-based code that features like Code Splitting writes to weback's bootstrap after it processes the loaders. -> Handled in babelLoader's 'transform-runtime' ??
-      path.join(PATHS.SRC_FULL_PATH, 'js/main.js')
-    ]
+      path.join(PATHS.SRC_FULL_PATH, 'js/main.js'),
+    ],
     // page: [
-    //   'babel-polyfill',
-    //   'core-js/es6/promise',
     //   path.join(PATHS.SRC_FULL_PATH, 'js/page.js')
     // ]
   },
 
   // Prevents weird fs errors. See 'Weird Findings' #6
   externals: {
-    fs: 'commonjs fs'
+    fs: 'commonjs fs',
   },
 
   // node: {
@@ -66,9 +63,9 @@ module.exports.config = {
 
   // Allow absolute paths in imports.
   resolve: {
-    modules: ['node_modules', PATHS.SRC_FULL_PATH],
-    extensions: ['.js']
+    modules: ['node_modules', PATHS.SRC_FULL_PATH,],
+    extensions: ['.js',],
   },
 
-  plugins: [new webpack.NamedModulesPlugin()]
+  // plugins: []
 };
