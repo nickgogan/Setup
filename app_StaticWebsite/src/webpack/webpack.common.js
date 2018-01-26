@@ -1,3 +1,4 @@
+import webpack from 'webpack'; // eslint-disable-line
 import path from 'path';
 import DotenvWebpackPlugin from 'dotenv-webpack'; // eslint-disable-line
 import dotEnv from 'dotenv-safe'; // eslint-disable-line
@@ -67,7 +68,7 @@ module.exports.config = {
   resolve: {
     modules: ['node_modules', PATHS.SRC_FULL_PATH],
     extensions: ['.js']
-  }
+  },
 
-  // plugins: []
+  plugins: [new webpack.NamedModulesPlugin()]
 };
