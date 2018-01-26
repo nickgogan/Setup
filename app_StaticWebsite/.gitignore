@@ -29,6 +29,7 @@ temp/
 *.orig
 
 # misc
+.cache-loader
 /.sass-cache
 /connect.lock
 /coverage/*

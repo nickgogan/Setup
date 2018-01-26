@@ -25,6 +25,9 @@ export default () => {
           exclude: /node_modules/,
           use: [
             {
+              loader: 'cache-loader',
+            },
+            {
               loader: 'babel-loader?cacheDirectory',
               options: {
                 presets: [
