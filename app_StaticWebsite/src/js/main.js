@@ -6,7 +6,9 @@ import react from 'react'; // eslint-disable-line
 import component from './components/test';
 import '../styles/main.postcss';
 import { bake, } from './components/treeshake';
+import * as OfflinePlugin from 'offline-plugin/runtime';
 
+OfflinePlugin.install();
 ConsoleLogHTML.connect(document.querySelector('#log'));
 
 bake();

@@ -9,6 +9,7 @@ import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import CacheBundles from 'hard-source-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 
 /*
 ########################################
@@ -111,10 +112,11 @@ export default MergePlugin(
       },
       webpackModuleConcatenator,
       new InlineManifestPlugin(),
-      webpackCompression,
+      // webpackCompression,
       new CacheBundles(),
       // webpackMonitor,
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin()
+      new OfflinePlugin(),
     ],
   }
 );
