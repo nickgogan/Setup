@@ -8,7 +8,7 @@ export default () => {
     template: path.resolve(__dirname, '../../../templates/index.html'),
     filename: path.resolve(__dirname, '../../../../dist/index.html'),
     includeChunks: ['main',],
-    excludeChunks: ['page',],
+    excludeChunks: ['vendors', 'page',],
     title: 'MyApp',
     desc: 'This is my app.',
     inject: 'body',
@@ -17,7 +17,7 @@ export default () => {
     template: path.resolve(__dirname, '../../../templates/page.html'),
     filename: path.resolve(__dirname, '../../../../dist/page.html'),
     includeChunks: ['page',],
-    excludeChunks: ['main',],
+    excludeChunks: ['vendors', 'main',],
     title: 'myPage',
     desc: 'This is my other page.',
     inject: 'body',
@@ -72,6 +72,6 @@ export default () => {
   });
 
   return {
-    plugins: [indexPage,], // pagePage, robotsGenerator, faviconsGenerator
+    plugins: [indexPage, robotsGenerator,], // pagePage, faviconsGenerator
   };
 };

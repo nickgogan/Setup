@@ -5,7 +5,7 @@
   "main": "./src/js/main.js",
   "scripts": {
     "prod": "npm-run-all -s prod:clean prod:webpack",
-    "prod:webpack": "webpack --display-used-exports --progress --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
+    "prod:webpack": "webpack --display-chunks --display-modules --display-used-exports --progress --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "server": "nodemon --watch webpack.*.js --exec npm run \"dev:webpack-server\"",
     "dev": "npm-run-all -s dev:clean dev:webpack",
@@ -100,6 +100,7 @@
     "glob-all": "3.1.0",
     "hard-source-webpack-plugin": "0.5.16",
     "html-webpack-plugin": "2.30.1",
+    "inline-manifest-webpack-plugin": "3.0.1",
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",
     "nodemon": "1.14.7",
