@@ -6,6 +6,7 @@ import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import GitRevisionPlugin from 'git-revision-webpack-plugin';
+import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import CacheBundles from 'hard-source-webpack-plugin';
 
@@ -69,14 +70,14 @@ export default MergePlugin(
   loadStyles(),
   extractBundles([
     {
-      name: 'react',
+      name: 'vendor',
       minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
     },
     {
-      name: 'runtime',
+      name: 'manifest',
+      filename: 'webpack-runtime.js',
       minChunks: Infinity,
     },
-    //
     {
       async: true,
       children: true,
@@ -84,20 +85,16 @@ export default MergePlugin(
     },
   ]),
   {
-    entry: {
-      polyfill: 'babel-polyfill', // Imports polyfills from babel-polyfill based on the given browserlist (ion this project, located in package.json).
-    },
     output: {
       path: ENV.OUT_FULL_PATH,
       filename: `[name].[chunkhash:8].js`,
-      // chunkFilename: `[name].v${ENV.VERSION}.js`
-      // publicPath: OUT_PATH
     },
     plugins: [
       appEnv,
       webpackBanner,
       new webpack.NamedModulesPlugin(),
       new webpack.NamedChunksPlugin(), // Uses the /* webpackChunkName: "..." */ labels
+      // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
       {
         apply(compiler) {
           compiler.plugin('compilation', compilation => {
@@ -113,9 +110,10 @@ export default MergePlugin(
         },
       },
       webpackModuleConcatenator,
-      // webpackCompression,
+      new InlineManifestPlugin(),
+      webpackCompression,
       new CacheBundles(),
-      // webpackMonitor
+      // webpackMonitor,
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin()
     ],
   }
