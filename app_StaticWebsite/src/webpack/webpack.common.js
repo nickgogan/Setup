@@ -42,10 +42,7 @@ module.exports.config = {
   target: env.platform,
 
   entry: {
-    main: [
-      // 'core-js/es6/promise', // Shim for dealing with Promise-based code that features like Code Splitting writes to weback's bootstrap after it processes the loaders. -> Handled in babelLoader's 'transform-runtime' ??
-      path.join(PATHS.SRC_FULL_PATH, 'js/main.js'),
-    ],
+    main: [path.join(PATHS.SRC_FULL_PATH, 'js/main.js'),],
     // page: [
     //   path.join(PATHS.SRC_FULL_PATH, 'js/page.js')
     // ]
@@ -66,6 +63,5 @@ module.exports.config = {
     modules: ['node_modules', PATHS.SRC_FULL_PATH,],
     extensions: ['.js',],
   },
-
   // plugins: []
 };
