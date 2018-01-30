@@ -1,14 +1,14 @@
 // @ts-check
 // @flow
 
-export default (text = 'Hi from TEST') => {
+export default (text: string = 'Hi from TEST') => {
   const element = document.createElement('button');
 
   element.innerHTML = text;
 
   // Trigger lazy-loading of foo.js when cliking the button.
   element.onclick = () => {
-    import(/* webpackChunkName: "foo" */ './foo')
+    import(/* webpackChunkName: "async-foo" */ './foo')
       .then(foo => {
         element.textContent = foo.default();
       })
