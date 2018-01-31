@@ -104,13 +104,13 @@
     "git-revision-webpack-plugin": "2.5.1",
     "glob-all": "3.1.0",
     "hard-source-webpack-plugin": "0.5.16",
+    "html-critical-webpack-plugin": "1.1.0",
     "html-webpack-plugin": "2.30.1",
     "inline-manifest-webpack-plugin": "3.0.1",
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",
     "nodemon": "1.14.7",
     "nsp": "3.1.0",
-    "offline-plugin": "4.9.0",
     "optimize-js-plugin": "0.0.4",
     "postcss-cssnext": "3.0.2",
     "postcss-import": "11.0.0",
@@ -137,6 +137,7 @@
   "dependencies": {
     "babel-polyfill": "6.26.0",
     "console-log-html": "2.0.2",
-    "dotenv-webpack": "1.5.4"
+    "dotenv-webpack": "1.5.4",
+    "offline-plugin": "4.9.0"
   }
 }
