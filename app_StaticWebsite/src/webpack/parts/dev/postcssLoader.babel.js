@@ -47,48 +47,6 @@ export default () => {
         },
       ],
     },
+    plugins: [purifyCSS,],
   };
 };
-
-// export default () => {
-//   const purifyCSS = new PurifyCSSPlugin({
-//     paths: glob.sync([
-//       path.join(__dirname, '../../../../src/**/*.js'),
-//       path.join(__dirname, '../../../../src/**/*.html'),
-//     ]),
-//     minimize: false,
-//   });
-
-//   return {
-//     module: {
-//     rules: [
-//       {
-//         test: /\.postcss($|\?)/i,
-//         exclude: /node_modules/,
-//         use: [
-//           'style-loader',
-//           {
-//             loader: 'css-loader',
-//             options: { importLoaders: 1, },
-//           },
-//           {
-//             loader: 'postcss-loader',
-//             options: {
-//               plugins: () => [
-//                 PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
-//                 PreCSS,
-//                 CSSNext({
-//                   features: {
-//                     applyRule: false, // Deprecated, so turning off.
-//                     customProperties: false, // Deprecated, so turning off.
-//                   },
-//                 }),
-//               ],
-//             },
-//           },
-//         ],
-//       },
-//     ],
-//   }
-//   },
-// };

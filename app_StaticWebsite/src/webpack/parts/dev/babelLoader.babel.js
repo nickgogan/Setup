@@ -4,13 +4,13 @@ import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
 // type args = { include: string, exclude: string, use: [{}] };
 
 export default () => {
-  const uglifyJS = new UglifyJSPlugin({
-    cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
-    parallel: true,
-    uglifyOptions: {
-      ie8: false,
-    },
-  });
+  // const uglifyJS = new UglifyJSPlugin({
+  //   cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
+  //   parallel: true,
+  //   uglifyOptions: {
+  //     ie8: false,
+  //   },
+  // });
   const treeshakeCommonJS = new CJSShakePlugin.Plugin();
 
   return {
@@ -48,6 +48,6 @@ export default () => {
         },
       ],
     },
-    plugins: [treeshakeCommonJS,],
+    // plugins: [],
   };
 };
