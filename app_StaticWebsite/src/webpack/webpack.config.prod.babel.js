@@ -19,7 +19,7 @@ import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
-import extractBundles from './parts/prod/extractBundles.babel';
+import extractBundles from './parts/extractBundles.babel';
 
 /*
 ########################################
@@ -42,7 +42,7 @@ const ENV = Object.assign({}, common.PATHS, env);
 // Webpack sets the app-wide process.env.* variables.
 const appEnv = new DotenvPlugin({
   path: path.join(__dirname, '../env/prod.env'),
-  safe: false,
+  safe: path.join(__dirname, '../env/prod.example.env'),
 });
 const webpackMonitor = new MonitorPlugin({
   capture: true,
@@ -111,10 +111,10 @@ export default MergePlugin(
       },
       webpackModuleConcatenator,
       new InlineManifestPlugin(),
-      // webpackCompression,
-      // webpackMonitor,
-      // new BundleAnalyzerPlugin.BundleAnalyzerPlugin()
-      new OfflinePlugin(),
+      webpackCompression,
+      webpackMonitor,
+      // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
+      // new OfflinePlugin(),
     ],
   }
 );
