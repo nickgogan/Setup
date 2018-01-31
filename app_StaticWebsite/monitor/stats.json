@@ -29978,5 +29978,2895 @@
     ],
     "pureCssSize": 227,
     "unPureCssSize": 350
+  },
+  {
+    "timeStamp": 1517421896758,
+    "time": 9909,
+    "hash": "a35647d35c299981e17e",
+    "errors": [],
+    "size": 48908,
+    "assets": [
+      {
+        "name": "main.387c73d9.js.gz",
+        "chunks": [],
+        "size": 800
+      },
+      {
+        "name": "./styles.85517b07.css",
+        "chunks": [
+          "main"
+        ],
+        "size": 624
+      },
+      {
+        "name": "robots.txt",
+        "chunks": [],
+        "size": 281
+      },
+      {
+        "name": "async-bar.4a88c871.js.gz",
+        "chunks": [],
+        "size": 298
+      },
+      {
+        "name": "async-foo.5a703000.js.gz",
+        "chunks": [],
+        "size": 328
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2982
+      },
+      {
+        "name": "webpack-runtime.js.gz",
+        "chunks": [],
+        "size": 830
+      },
+      {
+        "name": "vendor.1555758f.js.gz",
+        "chunks": [],
+        "size": 16214
+      },
+      {
+        "name": "sw.js",
+        "chunks": [],
+        "size": 26380
+      },
+      {
+        "name": "appcache/manifest.appcache",
+        "chunks": [],
+        "size": 113
+      },
+      {
+        "name": "appcache/manifest.html",
+        "chunks": [],
+        "size": 58
+      }
+    ],
+    "chunks": [
+      {
+        "size": 162,
+        "files": [
+          "async-bar.4a88c871.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/bar.js",
+            "size": 162,
+            "id": "./src/js/components/bar.js"
+          }
+        ]
+      },
+      {
+        "size": 240,
+        "files": [
+          "async-foo.5a703000.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/foo.js",
+            "size": 199,
+            "id": "./src/js/components/foo.js"
+          },
+          {
+            "name": "./src/styles/foo.postcss",
+            "size": 41,
+            "id": "./src/styles/foo.postcss"
+          }
+        ]
+      },
+      {
+        "size": 1932,
+        "files": [
+          "main.387c73d9.js",
+          "./styles.85517b07.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js + 2 modules",
+            "size": 1863,
+            "id": "./src/js/main.js"
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": "./src/styles/main.postcss"
+          },
+          {
+            "name": "multi ./src/js/main.js",
+            "size": 28,
+            "id": "multi C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\src\\js\\main.js"
+          }
+        ]
+      },
+      {
+        "size": 0,
+        "files": [
+          "webpack-runtime.js"
+        ],
+        "modules": []
+      },
+      {
+        "size": 118595,
+        "files": [
+          "vendor.1555758f.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-runtime/core-js/get-iterator.js",
+            "size": 93,
+            "id": "./node_modules/babel-runtime/core-js/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/is-iterable.js",
+            "size": 92,
+            "id": "./node_modules/babel-runtime/core-js/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/promise.js",
+            "size": 88,
+            "id": "./node_modules/babel-runtime/core-js/promise.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": "./node_modules/babel-runtime/helpers/classCallCheck.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/slicedToArray.js",
+            "size": 1204,
+            "id": "./node_modules/babel-runtime/helpers/slicedToArray.js"
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": "./node_modules/console-log-html/console-log-html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/get-iterator.js",
+            "size": 141,
+            "id": "./node_modules/core-js/library/fn/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/is-iterable.js",
+            "size": 140,
+            "id": "./node_modules/core-js/library/fn/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/promise.js",
+            "size": 298,
+            "id": "./node_modules/core-js/library/fn/promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 125,
+            "id": "./node_modules/core-js/library/modules/_a-function.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_add-to-unscopables.js",
+            "size": 46,
+            "id": "./node_modules/core-js/library/modules/_add-to-unscopables.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-instance.js",
+            "size": 237,
+            "id": "./node_modules/core-js/library/modules/_an-instance.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 154,
+            "id": "./node_modules/core-js/library/modules/_an-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 924,
+            "id": "./node_modules/core-js/library/modules/_array-includes.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_classof.js",
+            "size": 718,
+            "id": "./node_modules/core-js/library/modules/_classof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 106,
+            "id": "./node_modules/core-js/library/modules/_cof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 122,
+            "id": "./node_modules/core-js/library/modules/_core.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 520,
+            "id": "./node_modules/core-js/library/modules/_ctx.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_defined.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 184,
+            "id": "./node_modules/core-js/library/modules/_descriptors.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_dom-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": "./node_modules/core-js/library/modules/_enum-bug-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2317,
+            "id": "./node_modules/core-js/library/modules/_export.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 104,
+            "id": "./node_modules/core-js/library/modules/_fails.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_for-of.js",
+            "size": 1176,
+            "id": "./node_modules/core-js/library/modules/_for-of.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 369,
+            "id": "./node_modules/core-js/library/modules/_global.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 120,
+            "id": "./node_modules/core-js/library/modules/_has.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 286,
+            "id": "./node_modules/core-js/library/modules/_hide.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_html.js",
+            "size": 101,
+            "id": "./node_modules/core-js/library/modules/_html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": "./node_modules/core-js/library/modules/_ie8-dom-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_invoke.js",
+            "size": 701,
+            "id": "./node_modules/core-js/library/modules/_invoke.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-array-iter.js",
+            "size": 279,
+            "id": "./node_modules/core-js/library/modules/_is-array-iter.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 110,
+            "id": "./node_modules/core-js/library/modules/_is-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-call.js",
+            "size": 410,
+            "id": "./node_modules/core-js/library/modules/_iter-call.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-create.js",
+            "size": 526,
+            "id": "./node_modules/core-js/library/modules/_iter-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-define.js",
+            "size": 2805,
+            "id": "./node_modules/core-js/library/modules/_iter-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-detect.js",
+            "size": 645,
+            "id": "./node_modules/core-js/library/modules/_iter-detect.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-step.js",
+            "size": 86,
+            "id": "./node_modules/core-js/library/modules/_iter-step.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iterators.js",
+            "size": 21,
+            "id": "./node_modules/core-js/library/modules/_iterators.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_library.js",
+            "size": 23,
+            "id": "./node_modules/core-js/library/modules/_library.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_microtask.js",
+            "size": 1900,
+            "id": "./node_modules/core-js/library/modules/_microtask.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": "./node_modules/core-js/library/modules/_new-promise-capability.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-create.js",
+            "size": 1505,
+            "id": "./node_modules/core-js/library/modules/_object-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dps.js",
+            "size": 404,
+            "id": "./node_modules/core-js/library/modules/_object-dps.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gpo.js",
+            "size": 493,
+            "id": "./node_modules/core-js/library/modules/_object-gpo.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": "./node_modules/core-js/library/modules/_object-keys-internal.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 222,
+            "id": "./node_modules/core-js/library/modules/_object-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_perform.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_perform.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_promise-resolve.js",
+            "size": 397,
+            "id": "./node_modules/core-js/library/modules/_promise-resolve.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 173,
+            "id": "./node_modules/core-js/library/modules/_property-desc.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine-all.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_redefine-all.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine.js",
+            "size": 37,
+            "id": "./node_modules/core-js/library/modules/_redefine.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-species.js",
+            "size": 435,
+            "id": "./node_modules/core-js/library/modules/_set-species.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": "./node_modules/core-js/library/modules/_set-to-string-tag.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 159,
+            "id": "./node_modules/core-js/library/modules/_shared-key.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 202,
+            "id": "./node_modules/core-js/library/modules/_shared.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_species-constructor.js",
+            "size": 348,
+            "id": "./node_modules/core-js/library/modules/_species-constructor.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_string-at.js",
+            "size": 620,
+            "id": "./node_modules/core-js/library/modules/_string-at.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": "./node_modules/core-js/library/modules/_to-absolute-index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 161,
+            "id": "./node_modules/core-js/library/modules/_to-integer.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_to-iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 215,
+            "id": "./node_modules/core-js/library/modules/_to-length.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_to-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 655,
+            "id": "./node_modules/core-js/library/modules/_to-primitive.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_uid.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_wks.js",
+            "size": 358,
+            "id": "./node_modules/core-js/library/modules/_wks.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator-method.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator.js",
+            "size": 296,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.is-iterable.js",
+            "size": 373,
+            "id": "./node_modules/core-js/library/modules/core.is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": "./node_modules/core-js/library/modules/es6.array.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.to-string.js",
+            "size": 0,
+            "id": "./node_modules/core-js/library/modules/es6.object.to-string.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.promise.js",
+            "size": 9255,
+            "id": "./node_modules/core-js/library/modules/es6.promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": "./node_modules/core-js/library/modules/es6.string.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": "./node_modules/core-js/library/modules/es7.promise.finally.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.try.js",
+            "size": 477,
+            "id": "./node_modules/core-js/library/modules/es7.promise.try.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/web.dom.iterable.js",
+            "size": 969,
+            "id": "./node_modules/core-js/library/modules/web.dom.iterable.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "./node_modules/fbjs/lib/emptyFunction.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "./node_modules/fbjs/lib/emptyObject.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": "./node_modules/fbjs/lib/invariant.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": "./node_modules/fbjs/lib/warning.js"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "./node_modules/object-assign/index.js"
+          },
+          {
+            "name": "./node_modules/offline-plugin/runtime.js",
+            "size": 1717,
+            "id": "./node_modules/offline-plugin/runtime.js"
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": "./node_modules/prop-types/checkPropTypes.js"
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": "./node_modules/react/cjs/react.development.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": "./node_modules/react/cjs/react.production.min.js"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "./node_modules/react/index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 600,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_object-dp.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_task.js",
+            "size": 2484,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_task.js"
+          },
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5418,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\process\\browser.js"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 223,
+    "unPureCssSize": 624
+  },
+  {
+    "timeStamp": 1517422053225,
+    "time": 5075,
+    "hash": "575ebe4ab3da3eb51575",
+    "errors": [],
+    "size": 48634,
+    "assets": [
+      {
+        "name": "main.387c73d9.js.gz",
+        "chunks": [],
+        "size": 800
+      },
+      {
+        "name": "./styles.1eb1ec76.css",
+        "chunks": [
+          "main"
+        ],
+        "size": 350
+      },
+      {
+        "name": "robots.txt",
+        "chunks": [],
+        "size": 281
+      },
+      {
+        "name": "async-bar.4a88c871.js.gz",
+        "chunks": [],
+        "size": 298
+      },
+      {
+        "name": "async-foo.5a703000.js.gz",
+        "chunks": [],
+        "size": 328
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2982
+      },
+      {
+        "name": "webpack-runtime.js.gz",
+        "chunks": [],
+        "size": 830
+      },
+      {
+        "name": "vendor.1555758f.js.gz",
+        "chunks": [],
+        "size": 16214
+      },
+      {
+        "name": "sw.js",
+        "chunks": [],
+        "size": 26380
+      },
+      {
+        "name": "appcache/manifest.appcache",
+        "chunks": [],
+        "size": 113
+      },
+      {
+        "name": "appcache/manifest.html",
+        "chunks": [],
+        "size": 58
+      }
+    ],
+    "chunks": [
+      {
+        "size": 162,
+        "files": [
+          "async-bar.4a88c871.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/bar.js",
+            "size": 162,
+            "id": "./src/js/components/bar.js"
+          }
+        ]
+      },
+      {
+        "size": 240,
+        "files": [
+          "async-foo.5a703000.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/foo.js",
+            "size": 199,
+            "id": "./src/js/components/foo.js"
+          },
+          {
+            "name": "./src/styles/foo.postcss",
+            "size": 41,
+            "id": "./src/styles/foo.postcss"
+          }
+        ]
+      },
+      {
+        "size": 1932,
+        "files": [
+          "main.387c73d9.js",
+          "./styles.1eb1ec76.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js + 2 modules",
+            "size": 1863,
+            "id": "./src/js/main.js"
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": "./src/styles/main.postcss"
+          },
+          {
+            "name": "multi ./src/js/main.js",
+            "size": 28,
+            "id": "multi C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\src\\js\\main.js"
+          }
+        ]
+      },
+      {
+        "size": 0,
+        "files": [
+          "webpack-runtime.js"
+        ],
+        "modules": []
+      },
+      {
+        "size": 118595,
+        "files": [
+          "vendor.1555758f.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-runtime/core-js/get-iterator.js",
+            "size": 93,
+            "id": "./node_modules/babel-runtime/core-js/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/is-iterable.js",
+            "size": 92,
+            "id": "./node_modules/babel-runtime/core-js/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/promise.js",
+            "size": 88,
+            "id": "./node_modules/babel-runtime/core-js/promise.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": "./node_modules/babel-runtime/helpers/classCallCheck.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/slicedToArray.js",
+            "size": 1204,
+            "id": "./node_modules/babel-runtime/helpers/slicedToArray.js"
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": "./node_modules/console-log-html/console-log-html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/get-iterator.js",
+            "size": 141,
+            "id": "./node_modules/core-js/library/fn/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/is-iterable.js",
+            "size": 140,
+            "id": "./node_modules/core-js/library/fn/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/promise.js",
+            "size": 298,
+            "id": "./node_modules/core-js/library/fn/promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 125,
+            "id": "./node_modules/core-js/library/modules/_a-function.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_add-to-unscopables.js",
+            "size": 46,
+            "id": "./node_modules/core-js/library/modules/_add-to-unscopables.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-instance.js",
+            "size": 237,
+            "id": "./node_modules/core-js/library/modules/_an-instance.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 154,
+            "id": "./node_modules/core-js/library/modules/_an-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 924,
+            "id": "./node_modules/core-js/library/modules/_array-includes.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_classof.js",
+            "size": 718,
+            "id": "./node_modules/core-js/library/modules/_classof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 106,
+            "id": "./node_modules/core-js/library/modules/_cof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 122,
+            "id": "./node_modules/core-js/library/modules/_core.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 520,
+            "id": "./node_modules/core-js/library/modules/_ctx.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_defined.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 184,
+            "id": "./node_modules/core-js/library/modules/_descriptors.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_dom-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": "./node_modules/core-js/library/modules/_enum-bug-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2317,
+            "id": "./node_modules/core-js/library/modules/_export.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 104,
+            "id": "./node_modules/core-js/library/modules/_fails.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_for-of.js",
+            "size": 1176,
+            "id": "./node_modules/core-js/library/modules/_for-of.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 369,
+            "id": "./node_modules/core-js/library/modules/_global.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 120,
+            "id": "./node_modules/core-js/library/modules/_has.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 286,
+            "id": "./node_modules/core-js/library/modules/_hide.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_html.js",
+            "size": 101,
+            "id": "./node_modules/core-js/library/modules/_html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": "./node_modules/core-js/library/modules/_ie8-dom-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_invoke.js",
+            "size": 701,
+            "id": "./node_modules/core-js/library/modules/_invoke.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-array-iter.js",
+            "size": 279,
+            "id": "./node_modules/core-js/library/modules/_is-array-iter.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 110,
+            "id": "./node_modules/core-js/library/modules/_is-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-call.js",
+            "size": 410,
+            "id": "./node_modules/core-js/library/modules/_iter-call.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-create.js",
+            "size": 526,
+            "id": "./node_modules/core-js/library/modules/_iter-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-define.js",
+            "size": 2805,
+            "id": "./node_modules/core-js/library/modules/_iter-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-detect.js",
+            "size": 645,
+            "id": "./node_modules/core-js/library/modules/_iter-detect.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-step.js",
+            "size": 86,
+            "id": "./node_modules/core-js/library/modules/_iter-step.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iterators.js",
+            "size": 21,
+            "id": "./node_modules/core-js/library/modules/_iterators.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_library.js",
+            "size": 23,
+            "id": "./node_modules/core-js/library/modules/_library.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_microtask.js",
+            "size": 1900,
+            "id": "./node_modules/core-js/library/modules/_microtask.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": "./node_modules/core-js/library/modules/_new-promise-capability.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-create.js",
+            "size": 1505,
+            "id": "./node_modules/core-js/library/modules/_object-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dps.js",
+            "size": 404,
+            "id": "./node_modules/core-js/library/modules/_object-dps.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gpo.js",
+            "size": 493,
+            "id": "./node_modules/core-js/library/modules/_object-gpo.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": "./node_modules/core-js/library/modules/_object-keys-internal.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 222,
+            "id": "./node_modules/core-js/library/modules/_object-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_perform.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_perform.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_promise-resolve.js",
+            "size": 397,
+            "id": "./node_modules/core-js/library/modules/_promise-resolve.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 173,
+            "id": "./node_modules/core-js/library/modules/_property-desc.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine-all.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_redefine-all.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine.js",
+            "size": 37,
+            "id": "./node_modules/core-js/library/modules/_redefine.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-species.js",
+            "size": 435,
+            "id": "./node_modules/core-js/library/modules/_set-species.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": "./node_modules/core-js/library/modules/_set-to-string-tag.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 159,
+            "id": "./node_modules/core-js/library/modules/_shared-key.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 202,
+            "id": "./node_modules/core-js/library/modules/_shared.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_species-constructor.js",
+            "size": 348,
+            "id": "./node_modules/core-js/library/modules/_species-constructor.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_string-at.js",
+            "size": 620,
+            "id": "./node_modules/core-js/library/modules/_string-at.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": "./node_modules/core-js/library/modules/_to-absolute-index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 161,
+            "id": "./node_modules/core-js/library/modules/_to-integer.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_to-iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 215,
+            "id": "./node_modules/core-js/library/modules/_to-length.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_to-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 655,
+            "id": "./node_modules/core-js/library/modules/_to-primitive.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_uid.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_wks.js",
+            "size": 358,
+            "id": "./node_modules/core-js/library/modules/_wks.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator-method.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator.js",
+            "size": 296,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.is-iterable.js",
+            "size": 373,
+            "id": "./node_modules/core-js/library/modules/core.is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": "./node_modules/core-js/library/modules/es6.array.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.to-string.js",
+            "size": 0,
+            "id": "./node_modules/core-js/library/modules/es6.object.to-string.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.promise.js",
+            "size": 9255,
+            "id": "./node_modules/core-js/library/modules/es6.promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": "./node_modules/core-js/library/modules/es6.string.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": "./node_modules/core-js/library/modules/es7.promise.finally.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.try.js",
+            "size": 477,
+            "id": "./node_modules/core-js/library/modules/es7.promise.try.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/web.dom.iterable.js",
+            "size": 969,
+            "id": "./node_modules/core-js/library/modules/web.dom.iterable.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "./node_modules/fbjs/lib/emptyFunction.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "./node_modules/fbjs/lib/emptyObject.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": "./node_modules/fbjs/lib/invariant.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": "./node_modules/fbjs/lib/warning.js"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "./node_modules/object-assign/index.js"
+          },
+          {
+            "name": "./node_modules/offline-plugin/runtime.js",
+            "size": 1717,
+            "id": "./node_modules/offline-plugin/runtime.js"
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": "./node_modules/prop-types/checkPropTypes.js"
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": "./node_modules/react/cjs/react.development.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": "./node_modules/react/cjs/react.production.min.js"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "./node_modules/react/index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 600,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_object-dp.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_task.js",
+            "size": 2484,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_task.js"
+          },
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5418,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\process\\browser.js"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 227,
+    "unPureCssSize": 350
+  },
+  {
+    "timeStamp": 1517422196632,
+    "time": 6166,
+    "hash": "18a41d592ba36979c55d",
+    "errors": [],
+    "size": 21927,
+    "assets": [
+      {
+        "name": "./styles.1eb1ec76.css",
+        "chunks": [
+          "main"
+        ],
+        "size": 350
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2982
+      },
+      {
+        "name": "robots.txt",
+        "chunks": [],
+        "size": 281
+      },
+      {
+        "name": "async-bar.4a88c871.js.gz",
+        "chunks": [],
+        "size": 298
+      },
+      {
+        "name": "async-foo.5a703000.js.gz",
+        "chunks": [],
+        "size": 328
+      },
+      {
+        "name": "webpack-runtime.js.gz",
+        "chunks": [],
+        "size": 831
+      },
+      {
+        "name": "main.387c73d9.js.gz",
+        "chunks": [],
+        "size": 800
+      },
+      {
+        "name": "vendor.8d826424.js.gz",
+        "chunks": [],
+        "size": 16057
+      }
+    ],
+    "chunks": [
+      {
+        "size": 162,
+        "files": [
+          "async-bar.4a88c871.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/bar.js",
+            "size": 162,
+            "id": "./src/js/components/bar.js"
+          }
+        ]
+      },
+      {
+        "size": 240,
+        "files": [
+          "async-foo.5a703000.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/foo.js",
+            "size": 199,
+            "id": "./src/js/components/foo.js"
+          },
+          {
+            "name": "./src/styles/foo.postcss",
+            "size": 41,
+            "id": "./src/styles/foo.postcss"
+          }
+        ]
+      },
+      {
+        "size": 1932,
+        "files": [
+          "main.387c73d9.js",
+          "./styles.1eb1ec76.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js + 2 modules",
+            "size": 1863,
+            "id": "./src/js/main.js"
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": "./src/styles/main.postcss"
+          },
+          {
+            "name": "multi ./src/js/main.js",
+            "size": 28,
+            "id": "multi C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\src\\js\\main.js"
+          }
+        ]
+      },
+      {
+        "size": 0,
+        "files": [
+          "webpack-runtime.js"
+        ],
+        "modules": []
+      },
+      {
+        "size": 117257,
+        "files": [
+          "vendor.8d826424.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-runtime/core-js/get-iterator.js",
+            "size": 93,
+            "id": "./node_modules/babel-runtime/core-js/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/is-iterable.js",
+            "size": 92,
+            "id": "./node_modules/babel-runtime/core-js/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/promise.js",
+            "size": 88,
+            "id": "./node_modules/babel-runtime/core-js/promise.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": "./node_modules/babel-runtime/helpers/classCallCheck.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/slicedToArray.js",
+            "size": 1204,
+            "id": "./node_modules/babel-runtime/helpers/slicedToArray.js"
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": "./node_modules/console-log-html/console-log-html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/get-iterator.js",
+            "size": 141,
+            "id": "./node_modules/core-js/library/fn/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/is-iterable.js",
+            "size": 140,
+            "id": "./node_modules/core-js/library/fn/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/promise.js",
+            "size": 298,
+            "id": "./node_modules/core-js/library/fn/promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 125,
+            "id": "./node_modules/core-js/library/modules/_a-function.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_add-to-unscopables.js",
+            "size": 46,
+            "id": "./node_modules/core-js/library/modules/_add-to-unscopables.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-instance.js",
+            "size": 237,
+            "id": "./node_modules/core-js/library/modules/_an-instance.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 154,
+            "id": "./node_modules/core-js/library/modules/_an-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 924,
+            "id": "./node_modules/core-js/library/modules/_array-includes.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_classof.js",
+            "size": 718,
+            "id": "./node_modules/core-js/library/modules/_classof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 106,
+            "id": "./node_modules/core-js/library/modules/_cof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 122,
+            "id": "./node_modules/core-js/library/modules/_core.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 520,
+            "id": "./node_modules/core-js/library/modules/_ctx.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_defined.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 184,
+            "id": "./node_modules/core-js/library/modules/_descriptors.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_dom-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": "./node_modules/core-js/library/modules/_enum-bug-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2317,
+            "id": "./node_modules/core-js/library/modules/_export.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 104,
+            "id": "./node_modules/core-js/library/modules/_fails.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_for-of.js",
+            "size": 1176,
+            "id": "./node_modules/core-js/library/modules/_for-of.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 369,
+            "id": "./node_modules/core-js/library/modules/_global.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 120,
+            "id": "./node_modules/core-js/library/modules/_has.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 286,
+            "id": "./node_modules/core-js/library/modules/_hide.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_html.js",
+            "size": 101,
+            "id": "./node_modules/core-js/library/modules/_html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": "./node_modules/core-js/library/modules/_ie8-dom-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_invoke.js",
+            "size": 701,
+            "id": "./node_modules/core-js/library/modules/_invoke.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-array-iter.js",
+            "size": 279,
+            "id": "./node_modules/core-js/library/modules/_is-array-iter.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 110,
+            "id": "./node_modules/core-js/library/modules/_is-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-call.js",
+            "size": 410,
+            "id": "./node_modules/core-js/library/modules/_iter-call.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-create.js",
+            "size": 526,
+            "id": "./node_modules/core-js/library/modules/_iter-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-define.js",
+            "size": 2805,
+            "id": "./node_modules/core-js/library/modules/_iter-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-detect.js",
+            "size": 645,
+            "id": "./node_modules/core-js/library/modules/_iter-detect.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-step.js",
+            "size": 86,
+            "id": "./node_modules/core-js/library/modules/_iter-step.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iterators.js",
+            "size": 21,
+            "id": "./node_modules/core-js/library/modules/_iterators.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_library.js",
+            "size": 23,
+            "id": "./node_modules/core-js/library/modules/_library.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_microtask.js",
+            "size": 1900,
+            "id": "./node_modules/core-js/library/modules/_microtask.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": "./node_modules/core-js/library/modules/_new-promise-capability.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-create.js",
+            "size": 1505,
+            "id": "./node_modules/core-js/library/modules/_object-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dps.js",
+            "size": 404,
+            "id": "./node_modules/core-js/library/modules/_object-dps.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gpo.js",
+            "size": 493,
+            "id": "./node_modules/core-js/library/modules/_object-gpo.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": "./node_modules/core-js/library/modules/_object-keys-internal.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 222,
+            "id": "./node_modules/core-js/library/modules/_object-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_perform.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_perform.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_promise-resolve.js",
+            "size": 397,
+            "id": "./node_modules/core-js/library/modules/_promise-resolve.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 173,
+            "id": "./node_modules/core-js/library/modules/_property-desc.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine-all.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_redefine-all.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine.js",
+            "size": 37,
+            "id": "./node_modules/core-js/library/modules/_redefine.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-species.js",
+            "size": 435,
+            "id": "./node_modules/core-js/library/modules/_set-species.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": "./node_modules/core-js/library/modules/_set-to-string-tag.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 159,
+            "id": "./node_modules/core-js/library/modules/_shared-key.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 202,
+            "id": "./node_modules/core-js/library/modules/_shared.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_species-constructor.js",
+            "size": 348,
+            "id": "./node_modules/core-js/library/modules/_species-constructor.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_string-at.js",
+            "size": 620,
+            "id": "./node_modules/core-js/library/modules/_string-at.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": "./node_modules/core-js/library/modules/_to-absolute-index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 161,
+            "id": "./node_modules/core-js/library/modules/_to-integer.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_to-iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 215,
+            "id": "./node_modules/core-js/library/modules/_to-length.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_to-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 655,
+            "id": "./node_modules/core-js/library/modules/_to-primitive.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_uid.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_wks.js",
+            "size": 358,
+            "id": "./node_modules/core-js/library/modules/_wks.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator-method.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator.js",
+            "size": 296,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.is-iterable.js",
+            "size": 373,
+            "id": "./node_modules/core-js/library/modules/core.is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": "./node_modules/core-js/library/modules/es6.array.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.to-string.js",
+            "size": 0,
+            "id": "./node_modules/core-js/library/modules/es6.object.to-string.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.promise.js",
+            "size": 9255,
+            "id": "./node_modules/core-js/library/modules/es6.promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": "./node_modules/core-js/library/modules/es6.string.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": "./node_modules/core-js/library/modules/es7.promise.finally.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.try.js",
+            "size": 477,
+            "id": "./node_modules/core-js/library/modules/es7.promise.try.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/web.dom.iterable.js",
+            "size": 969,
+            "id": "./node_modules/core-js/library/modules/web.dom.iterable.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "./node_modules/fbjs/lib/emptyFunction.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "./node_modules/fbjs/lib/emptyObject.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": "./node_modules/fbjs/lib/invariant.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": "./node_modules/fbjs/lib/warning.js"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "./node_modules/object-assign/index.js"
+          },
+          {
+            "name": "./node_modules/offline-plugin/runtime.js",
+            "size": 379,
+            "id": "./node_modules/offline-plugin/runtime.js"
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": "./node_modules/prop-types/checkPropTypes.js"
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": "./node_modules/react/cjs/react.development.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": "./node_modules/react/cjs/react.production.min.js"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "./node_modules/react/index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 600,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_object-dp.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_task.js",
+            "size": 2484,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_task.js"
+          },
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5418,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\process\\browser.js"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 227,
+    "unPureCssSize": 350
+  },
+  {
+    "timeStamp": 1517423947363,
+    "time": 7103,
+    "hash": "58b6ddd233855f9013f4",
+    "errors": [],
+    "size": 21757,
+    "assets": [
+      {
+        "name": "./styles.1eb1ec76.css",
+        "chunks": [
+          "main"
+        ],
+        "size": 350
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2982
+      },
+      {
+        "name": "robots.txt",
+        "chunks": [],
+        "size": 281
+      },
+      {
+        "name": "async-bar.4a88c871.js.gz",
+        "chunks": [],
+        "size": 298
+      },
+      {
+        "name": "async-foo.5a703000.js.gz",
+        "chunks": [],
+        "size": 328
+      },
+      {
+        "name": "main.7e3e7cae.js.gz",
+        "chunks": [],
+        "size": 774
+      },
+      {
+        "name": "webpack-runtime.js.gz",
+        "chunks": [],
+        "size": 827
+      },
+      {
+        "name": "vendor.71371ae6.js.gz",
+        "chunks": [],
+        "size": 15917
+      }
+    ],
+    "chunks": [
+      {
+        "size": 162,
+        "files": [
+          "async-bar.4a88c871.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/bar.js",
+            "size": 162,
+            "id": "./src/js/components/bar.js"
+          }
+        ]
+      },
+      {
+        "size": 240,
+        "files": [
+          "async-foo.5a703000.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/foo.js",
+            "size": 199,
+            "id": "./src/js/components/foo.js"
+          },
+          {
+            "name": "./src/styles/foo.postcss",
+            "size": 41,
+            "id": "./src/styles/foo.postcss"
+          }
+        ]
+      },
+      {
+        "size": 1933,
+        "files": [
+          "main.7e3e7cae.js",
+          "./styles.1eb1ec76.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js + 2 modules",
+            "size": 1864,
+            "id": "./src/js/main.js"
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": "./src/styles/main.postcss"
+          },
+          {
+            "name": "multi ./src/js/main.js",
+            "size": 28,
+            "id": "multi C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\src\\js\\main.js"
+          }
+        ]
+      },
+      {
+        "size": 0,
+        "files": [
+          "webpack-runtime.js"
+        ],
+        "modules": []
+      },
+      {
+        "size": 116878,
+        "files": [
+          "vendor.71371ae6.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-runtime/core-js/get-iterator.js",
+            "size": 93,
+            "id": "./node_modules/babel-runtime/core-js/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/is-iterable.js",
+            "size": 92,
+            "id": "./node_modules/babel-runtime/core-js/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/promise.js",
+            "size": 88,
+            "id": "./node_modules/babel-runtime/core-js/promise.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": "./node_modules/babel-runtime/helpers/classCallCheck.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/slicedToArray.js",
+            "size": 1204,
+            "id": "./node_modules/babel-runtime/helpers/slicedToArray.js"
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": "./node_modules/console-log-html/console-log-html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/get-iterator.js",
+            "size": 141,
+            "id": "./node_modules/core-js/library/fn/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/is-iterable.js",
+            "size": 140,
+            "id": "./node_modules/core-js/library/fn/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/promise.js",
+            "size": 298,
+            "id": "./node_modules/core-js/library/fn/promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 125,
+            "id": "./node_modules/core-js/library/modules/_a-function.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_add-to-unscopables.js",
+            "size": 46,
+            "id": "./node_modules/core-js/library/modules/_add-to-unscopables.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-instance.js",
+            "size": 237,
+            "id": "./node_modules/core-js/library/modules/_an-instance.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 154,
+            "id": "./node_modules/core-js/library/modules/_an-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 924,
+            "id": "./node_modules/core-js/library/modules/_array-includes.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_classof.js",
+            "size": 718,
+            "id": "./node_modules/core-js/library/modules/_classof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 106,
+            "id": "./node_modules/core-js/library/modules/_cof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 122,
+            "id": "./node_modules/core-js/library/modules/_core.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 520,
+            "id": "./node_modules/core-js/library/modules/_ctx.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_defined.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 184,
+            "id": "./node_modules/core-js/library/modules/_descriptors.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_dom-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": "./node_modules/core-js/library/modules/_enum-bug-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2317,
+            "id": "./node_modules/core-js/library/modules/_export.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 104,
+            "id": "./node_modules/core-js/library/modules/_fails.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_for-of.js",
+            "size": 1176,
+            "id": "./node_modules/core-js/library/modules/_for-of.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 369,
+            "id": "./node_modules/core-js/library/modules/_global.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 120,
+            "id": "./node_modules/core-js/library/modules/_has.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 286,
+            "id": "./node_modules/core-js/library/modules/_hide.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_html.js",
+            "size": 101,
+            "id": "./node_modules/core-js/library/modules/_html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": "./node_modules/core-js/library/modules/_ie8-dom-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_invoke.js",
+            "size": 701,
+            "id": "./node_modules/core-js/library/modules/_invoke.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-array-iter.js",
+            "size": 279,
+            "id": "./node_modules/core-js/library/modules/_is-array-iter.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 110,
+            "id": "./node_modules/core-js/library/modules/_is-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-call.js",
+            "size": 410,
+            "id": "./node_modules/core-js/library/modules/_iter-call.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-create.js",
+            "size": 526,
+            "id": "./node_modules/core-js/library/modules/_iter-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-define.js",
+            "size": 2805,
+            "id": "./node_modules/core-js/library/modules/_iter-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-detect.js",
+            "size": 645,
+            "id": "./node_modules/core-js/library/modules/_iter-detect.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-step.js",
+            "size": 86,
+            "id": "./node_modules/core-js/library/modules/_iter-step.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iterators.js",
+            "size": 21,
+            "id": "./node_modules/core-js/library/modules/_iterators.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_library.js",
+            "size": 23,
+            "id": "./node_modules/core-js/library/modules/_library.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_microtask.js",
+            "size": 1900,
+            "id": "./node_modules/core-js/library/modules/_microtask.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": "./node_modules/core-js/library/modules/_new-promise-capability.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-create.js",
+            "size": 1505,
+            "id": "./node_modules/core-js/library/modules/_object-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dps.js",
+            "size": 404,
+            "id": "./node_modules/core-js/library/modules/_object-dps.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gpo.js",
+            "size": 493,
+            "id": "./node_modules/core-js/library/modules/_object-gpo.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": "./node_modules/core-js/library/modules/_object-keys-internal.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 222,
+            "id": "./node_modules/core-js/library/modules/_object-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_perform.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_perform.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_promise-resolve.js",
+            "size": 397,
+            "id": "./node_modules/core-js/library/modules/_promise-resolve.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 173,
+            "id": "./node_modules/core-js/library/modules/_property-desc.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine-all.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_redefine-all.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine.js",
+            "size": 37,
+            "id": "./node_modules/core-js/library/modules/_redefine.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-species.js",
+            "size": 435,
+            "id": "./node_modules/core-js/library/modules/_set-species.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": "./node_modules/core-js/library/modules/_set-to-string-tag.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 159,
+            "id": "./node_modules/core-js/library/modules/_shared-key.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 202,
+            "id": "./node_modules/core-js/library/modules/_shared.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_species-constructor.js",
+            "size": 348,
+            "id": "./node_modules/core-js/library/modules/_species-constructor.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_string-at.js",
+            "size": 620,
+            "id": "./node_modules/core-js/library/modules/_string-at.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": "./node_modules/core-js/library/modules/_to-absolute-index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 161,
+            "id": "./node_modules/core-js/library/modules/_to-integer.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_to-iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 215,
+            "id": "./node_modules/core-js/library/modules/_to-length.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_to-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 655,
+            "id": "./node_modules/core-js/library/modules/_to-primitive.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_uid.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_wks.js",
+            "size": 358,
+            "id": "./node_modules/core-js/library/modules/_wks.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator-method.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator.js",
+            "size": 296,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.is-iterable.js",
+            "size": 373,
+            "id": "./node_modules/core-js/library/modules/core.is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": "./node_modules/core-js/library/modules/es6.array.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.to-string.js",
+            "size": 0,
+            "id": "./node_modules/core-js/library/modules/es6.object.to-string.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.promise.js",
+            "size": 9255,
+            "id": "./node_modules/core-js/library/modules/es6.promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": "./node_modules/core-js/library/modules/es6.string.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": "./node_modules/core-js/library/modules/es7.promise.finally.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.try.js",
+            "size": 477,
+            "id": "./node_modules/core-js/library/modules/es7.promise.try.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/web.dom.iterable.js",
+            "size": 969,
+            "id": "./node_modules/core-js/library/modules/web.dom.iterable.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "./node_modules/fbjs/lib/emptyFunction.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "./node_modules/fbjs/lib/emptyObject.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": "./node_modules/fbjs/lib/invariant.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": "./node_modules/fbjs/lib/warning.js"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "./node_modules/object-assign/index.js"
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": "./node_modules/prop-types/checkPropTypes.js"
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": "./node_modules/react/cjs/react.development.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": "./node_modules/react/cjs/react.production.min.js"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "./node_modules/react/index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 600,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_object-dp.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_task.js",
+            "size": 2484,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_task.js"
+          },
+          {
+            "name": "./node_modules/process/browser.js",
+            "size": 5418,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\process\\browser.js"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 227,
+    "unPureCssSize": 350
+  },
+  {
+    "timeStamp": 1517424097483,
+    "time": 6504,
+    "hash": "279457f429698ff03b71",
+    "errors": [],
+    "size": 16668,
+    "assets": [
+      {
+        "name": "./styles.1eb1ec76.css",
+        "chunks": [
+          "main"
+        ],
+        "size": 350
+      },
+      {
+        "name": "index.html",
+        "chunks": [],
+        "size": 2982
+      },
+      {
+        "name": "robots.txt",
+        "chunks": [],
+        "size": 281
+      },
+      {
+        "name": "async-bar.4a88c871.js.gz",
+        "chunks": [],
+        "size": 298
+      },
+      {
+        "name": "async-foo.5a703000.js.gz",
+        "chunks": [],
+        "size": 328
+      },
+      {
+        "name": "main.7e3e7cae.js.gz",
+        "chunks": [],
+        "size": 774
+      },
+      {
+        "name": "webpack-runtime.js.gz",
+        "chunks": [],
+        "size": 828
+      },
+      {
+        "name": "vendor.e68ba35d.js.gz",
+        "chunks": [],
+        "size": 10827
+      }
+    ],
+    "chunks": [
+      {
+        "size": 162,
+        "files": [
+          "async-bar.4a88c871.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/bar.js",
+            "size": 162,
+            "id": "./src/js/components/bar.js"
+          }
+        ]
+      },
+      {
+        "size": 240,
+        "files": [
+          "async-foo.5a703000.js"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/components/foo.js",
+            "size": 199,
+            "id": "./src/js/components/foo.js"
+          },
+          {
+            "name": "./src/styles/foo.postcss",
+            "size": 41,
+            "id": "./src/styles/foo.postcss"
+          }
+        ]
+      },
+      {
+        "size": 1933,
+        "files": [
+          "main.7e3e7cae.js",
+          "./styles.1eb1ec76.css"
+        ],
+        "modules": [
+          {
+            "name": "./src/js/main.js + 2 modules",
+            "size": 1864,
+            "id": "./src/js/main.js"
+          },
+          {
+            "name": "./src/styles/main.postcss",
+            "size": 41,
+            "id": "./src/styles/main.postcss"
+          },
+          {
+            "name": "multi ./src/js/main.js",
+            "size": 28,
+            "id": "multi C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\src\\js\\main.js"
+          }
+        ]
+      },
+      {
+        "size": 0,
+        "files": [
+          "webpack-runtime.js"
+        ],
+        "modules": []
+      },
+      {
+        "size": 59712,
+        "files": [
+          "vendor.e68ba35d.js"
+        ],
+        "modules": [
+          {
+            "name": "./node_modules/babel-runtime/core-js/get-iterator.js",
+            "size": 93,
+            "id": "./node_modules/babel-runtime/core-js/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/is-iterable.js",
+            "size": 92,
+            "id": "./node_modules/babel-runtime/core-js/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/core-js/promise.js",
+            "size": 88,
+            "id": "./node_modules/babel-runtime/core-js/promise.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/classCallCheck.js",
+            "size": 208,
+            "id": "./node_modules/babel-runtime/helpers/classCallCheck.js"
+          },
+          {
+            "name": "./node_modules/babel-runtime/helpers/slicedToArray.js",
+            "size": 1204,
+            "id": "./node_modules/babel-runtime/helpers/slicedToArray.js"
+          },
+          {
+            "name": "./node_modules/console-log-html/console-log-html.js",
+            "size": 6302,
+            "id": "./node_modules/console-log-html/console-log-html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/get-iterator.js",
+            "size": 141,
+            "id": "./node_modules/core-js/library/fn/get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/is-iterable.js",
+            "size": 140,
+            "id": "./node_modules/core-js/library/fn/is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/fn/promise.js",
+            "size": 298,
+            "id": "./node_modules/core-js/library/fn/promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_a-function.js",
+            "size": 125,
+            "id": "./node_modules/core-js/library/modules/_a-function.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_add-to-unscopables.js",
+            "size": 46,
+            "id": "./node_modules/core-js/library/modules/_add-to-unscopables.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-instance.js",
+            "size": 237,
+            "id": "./node_modules/core-js/library/modules/_an-instance.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_an-object.js",
+            "size": 154,
+            "id": "./node_modules/core-js/library/modules/_an-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_array-includes.js",
+            "size": 924,
+            "id": "./node_modules/core-js/library/modules/_array-includes.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_classof.js",
+            "size": 718,
+            "id": "./node_modules/core-js/library/modules/_classof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_cof.js",
+            "size": 106,
+            "id": "./node_modules/core-js/library/modules/_cof.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_core.js",
+            "size": 122,
+            "id": "./node_modules/core-js/library/modules/_core.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ctx.js",
+            "size": 520,
+            "id": "./node_modules/core-js/library/modules/_ctx.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_defined.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_defined.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_descriptors.js",
+            "size": 184,
+            "id": "./node_modules/core-js/library/modules/_descriptors.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_dom-create.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_dom-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_enum-bug-keys.js",
+            "size": 160,
+            "id": "./node_modules/core-js/library/modules/_enum-bug-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_export.js",
+            "size": 2317,
+            "id": "./node_modules/core-js/library/modules/_export.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_fails.js",
+            "size": 104,
+            "id": "./node_modules/core-js/library/modules/_fails.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_for-of.js",
+            "size": 1176,
+            "id": "./node_modules/core-js/library/modules/_for-of.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_global.js",
+            "size": 369,
+            "id": "./node_modules/core-js/library/modules/_global.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_has.js",
+            "size": 120,
+            "id": "./node_modules/core-js/library/modules/_has.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_hide.js",
+            "size": 286,
+            "id": "./node_modules/core-js/library/modules/_hide.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_html.js",
+            "size": 101,
+            "id": "./node_modules/core-js/library/modules/_html.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_ie8-dom-define.js",
+            "size": 199,
+            "id": "./node_modules/core-js/library/modules/_ie8-dom-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_invoke.js",
+            "size": 701,
+            "id": "./node_modules/core-js/library/modules/_invoke.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iobject.js",
+            "size": 289,
+            "id": "./node_modules/core-js/library/modules/_iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-array-iter.js",
+            "size": 279,
+            "id": "./node_modules/core-js/library/modules/_is-array-iter.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_is-object.js",
+            "size": 110,
+            "id": "./node_modules/core-js/library/modules/_is-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-call.js",
+            "size": 410,
+            "id": "./node_modules/core-js/library/modules/_iter-call.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-create.js",
+            "size": 526,
+            "id": "./node_modules/core-js/library/modules/_iter-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-define.js",
+            "size": 2805,
+            "id": "./node_modules/core-js/library/modules/_iter-define.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-detect.js",
+            "size": 645,
+            "id": "./node_modules/core-js/library/modules/_iter-detect.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iter-step.js",
+            "size": 86,
+            "id": "./node_modules/core-js/library/modules/_iter-step.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_iterators.js",
+            "size": 21,
+            "id": "./node_modules/core-js/library/modules/_iterators.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_library.js",
+            "size": 23,
+            "id": "./node_modules/core-js/library/modules/_library.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_microtask.js",
+            "size": 1900,
+            "id": "./node_modules/core-js/library/modules/_microtask.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_new-promise-capability.js",
+            "size": 504,
+            "id": "./node_modules/core-js/library/modules/_new-promise-capability.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-create.js",
+            "size": 1505,
+            "id": "./node_modules/core-js/library/modules/_object-create.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dps.js",
+            "size": 404,
+            "id": "./node_modules/core-js/library/modules/_object-dps.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-gpo.js",
+            "size": 493,
+            "id": "./node_modules/core-js/library/modules/_object-gpo.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys-internal.js",
+            "size": 537,
+            "id": "./node_modules/core-js/library/modules/_object-keys-internal.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-keys.js",
+            "size": 222,
+            "id": "./node_modules/core-js/library/modules/_object-keys.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_perform.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_perform.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_promise-resolve.js",
+            "size": 397,
+            "id": "./node_modules/core-js/library/modules/_promise-resolve.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_property-desc.js",
+            "size": 173,
+            "id": "./node_modules/core-js/library/modules/_property-desc.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine-all.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_redefine-all.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_redefine.js",
+            "size": 37,
+            "id": "./node_modules/core-js/library/modules/_redefine.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-species.js",
+            "size": 435,
+            "id": "./node_modules/core-js/library/modules/_set-species.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_set-to-string-tag.js",
+            "size": 262,
+            "id": "./node_modules/core-js/library/modules/_set-to-string-tag.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared-key.js",
+            "size": 159,
+            "id": "./node_modules/core-js/library/modules/_shared-key.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_shared.js",
+            "size": 202,
+            "id": "./node_modules/core-js/library/modules/_shared.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_species-constructor.js",
+            "size": 348,
+            "id": "./node_modules/core-js/library/modules/_species-constructor.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_string-at.js",
+            "size": 620,
+            "id": "./node_modules/core-js/library/modules/_string-at.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-absolute-index.js",
+            "size": 223,
+            "id": "./node_modules/core-js/library/modules/_to-absolute-index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-integer.js",
+            "size": 161,
+            "id": "./node_modules/core-js/library/modules/_to-integer.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-iobject.js",
+            "size": 217,
+            "id": "./node_modules/core-js/library/modules/_to-iobject.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-length.js",
+            "size": 215,
+            "id": "./node_modules/core-js/library/modules/_to-length.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-object.js",
+            "size": 132,
+            "id": "./node_modules/core-js/library/modules/_to-object.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_to-primitive.js",
+            "size": 655,
+            "id": "./node_modules/core-js/library/modules/_to-primitive.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_uid.js",
+            "size": 162,
+            "id": "./node_modules/core-js/library/modules/_uid.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_wks.js",
+            "size": 358,
+            "id": "./node_modules/core-js/library/modules/_wks.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator-method.js",
+            "size": 297,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator-method.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.get-iterator.js",
+            "size": 296,
+            "id": "./node_modules/core-js/library/modules/core.get-iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/core.is-iterable.js",
+            "size": 373,
+            "id": "./node_modules/core-js/library/modules/core.is-iterable.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.array.iterator.js",
+            "size": 1116,
+            "id": "./node_modules/core-js/library/modules/es6.array.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.object.to-string.js",
+            "size": 0,
+            "id": "./node_modules/core-js/library/modules/es6.object.to-string.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.promise.js",
+            "size": 9255,
+            "id": "./node_modules/core-js/library/modules/es6.promise.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
+            "size": 531,
+            "id": "./node_modules/core-js/library/modules/es6.string.iterator.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.finally.js",
+            "size": 763,
+            "id": "./node_modules/core-js/library/modules/es7.promise.finally.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/es7.promise.try.js",
+            "size": 477,
+            "id": "./node_modules/core-js/library/modules/es7.promise.try.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/web.dom.iterable.js",
+            "size": 969,
+            "id": "./node_modules/core-js/library/modules/web.dom.iterable.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": "./node_modules/fbjs/lib/emptyFunction.js"
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": "./node_modules/fbjs/lib/emptyObject.js"
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": "./node_modules/object-assign/index.js"
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": "./node_modules/react/cjs/react.production.min.js"
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": "./node_modules/react/index.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_object-dp.js",
+            "size": 600,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_object-dp.js"
+          },
+          {
+            "name": "./node_modules/core-js/library/modules/_task.js",
+            "size": 2484,
+            "id": "C:\\A.Project0\\PersonalTools\\A.Setup\\app_StaticWebsite\\node_modules\\core-js\\library\\modules\\_task.js"
+          }
+        ]
+      }
+    ],
+    "pureCssSize": 227,
+    "unPureCssSize": 350
   }
 ]
