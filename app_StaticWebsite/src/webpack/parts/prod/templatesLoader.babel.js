@@ -84,6 +84,6 @@ export default () => {
   });
 
   return {
-    plugins: [indexPage, criticalCSS, robotsGenerator,], // pagePage, faviconsGenerator
+    plugins: [indexPage, criticalCSS, robotsGenerator, faviconsGenerator,], // pagePage,
   };
 };

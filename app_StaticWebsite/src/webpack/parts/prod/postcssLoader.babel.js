@@ -52,6 +52,6 @@ export default () => {
         },
       ],
     },
-    plugins: [extractCSS, purifyCSS],
+    plugins: [extractCSS, purifyCSS,],
   };
 };

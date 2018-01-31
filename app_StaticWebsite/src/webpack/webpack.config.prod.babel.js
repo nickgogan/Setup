@@ -112,9 +112,9 @@ export default MergePlugin(
       webpackModuleConcatenator,
       new InlineManifestPlugin(),
       webpackCompression,
-      webpackMonitor,
+      // webpackMonitor,
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
-      // new OfflinePlugin(),
+      new OfflinePlugin(),
     ],
   }
 );
