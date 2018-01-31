@@ -2,6 +2,7 @@ import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
 import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
+import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
 
 export default () => {
   const indexPage = new HtmlPlugin({
@@ -21,6 +22,17 @@ export default () => {
     title: 'myPage',
     desc: 'This is my other page.',
     inject: 'body',
+  });
+  const criticalCSS = new CriticalCSS({
+    base: path.resolve(__dirname, '../../../../dist'),
+    src: 'index.html',
+    dest: 'index.html',
+    inline: true,
+    width: 375,
+    height: 565,
+    penthouse: {
+      blockJSRequests: false,
+    },
   });
   const robotsGenerator = new RobotsGeneratorPlugin({
     policy: [
@@ -72,6 +84,6 @@ export default () => {
   });
 
   return {
-    plugins: [indexPage, robotsGenerator,], // pagePage, faviconsGenerator
+    plugins: [indexPage, criticalCSS, robotsGenerator,], // pagePage, faviconsGenerator
   };
 };
