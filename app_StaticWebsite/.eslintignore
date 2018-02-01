@@ -2,7 +2,7 @@
 
 # Ignore built files except dist/main.js
 dist/*
-!build/main.js
+build/*
 
 # Ignore vendor libraries not from npm
 vendors/*

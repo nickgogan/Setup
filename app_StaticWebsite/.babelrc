@@ -1,5 +1,19 @@
 {
-  "presets": [["env", { "modules": false }], "flow"],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "flow"
+  ],
   "sourceMaps": true,
-  "ignore": ["*.ts", "./dist/*", "./docs", "./Documentation"]
+  "ignore": [
+    "*.ts",
+    "./dist/*",
+    "./build/*",
+    "./docs",
+    "./Documentation"
+  ]
 }
