@@ -5,20 +5,16 @@
   "main": "./src/js/main.js",
   "scripts": {
     "prod": "npm-run-all -s prod:clean prod:build",
-    "prod:build":
-      "webpack --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
+    "prod:build": "webpack --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "server": "nodemon --watch webpack.*.js --exec npm run \"dev:server\"",
     "dev": "npm-run-all -s dev:clean dev:build",
-    "dev:server":
-      "webpack-dev-server --inline --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
-    "dev:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
+    "dev:server": "webpack-dev-server --inline --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
+    "dev:build": "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "share": "npm-run-all -s security localtunnel",
     "security": "npx nsp check --reporter summary",
-    "localtunnel":
-      "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
+    "localtunnel": "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
     "postinstall": "flow-scripts stub"
   },
   "keywords": [
@@ -82,7 +78,6 @@
     "cache-loader": "1.2.0",
     "compression-webpack-plugin": "1.1.3",
     "copy-webpack-plugin": "4.3.1",
-    "css-hot-loader": "1.3.5",
     "css-loader": "0.28.9",
     "documentation": "5.3.5",
     "dotenv-safe": "4.0.4",
@@ -102,7 +97,6 @@
     "flow-scripts": "0.4.0",
     "git-revision-webpack-plugin": "2.5.1",
     "glob-all": "3.1.0",
-    "hard-source-webpack-plugin": "0.5.16",
     "html-critical-webpack-plugin": "1.1.0",
     "html-webpack-plugin": "2.30.1",
     "inline-manifest-webpack-plugin": "3.0.1",
@@ -130,8 +124,7 @@
     "webpack-common-shake": "1.5.3",
     "webpack-dev-server": "2.11.0",
     "webpack-merge": "4.1.1",
-    "webpack-monitor": "1.0.14",
-    "webpack-node-externals": "1.6.0"
+    "webpack-monitor": "1.0.14"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
