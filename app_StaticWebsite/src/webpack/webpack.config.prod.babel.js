@@ -90,6 +90,7 @@ export default MergePlugin(
       filename: `[name].[chunkhash:8].js`,
     },
     plugins: [
+      new webpack.ProgressPlugin(),
       appEnv,
       webpackBanner,
       new webpack.NamedModulesPlugin(),
@@ -115,6 +116,11 @@ export default MergePlugin(
       // webpackMonitor,
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
       new OfflinePlugin(),
+      new webpack.SourceMapDevToolPlugin({
+        filename: '[name].[chunkhash:8].map',
+        // Excluded by chunk names
+        exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
+      }),
     ],
   }
 );

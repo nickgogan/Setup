@@ -7,7 +7,6 @@ import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 
 /*
@@ -53,10 +52,6 @@ const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin
 const webpackBanner = new webpack.BannerPlugin({
   banner: new GitRevisionPlugin().version(),
 });
-const webpackCompression = new CompressionPlugin({
-  test: /\.js($|\?)/i,
-  deleteOriginalAssets: true,
-});
 const HMR = new webpack.HotModuleReplacementPlugin();
 
 /*
@@ -98,6 +93,7 @@ export default MergePlugin(
       filename: `[name].[chunkhash:8].js`,
     },
     plugins: [
+      new webpack.ProgressPlugin(),
       appEnv,
       new webpack.NamedModulesPlugin(),
       new webpack.NamedChunksPlugin(), // Uses the /* webpackChunkName: "..." */ labels
@@ -118,17 +114,26 @@ export default MergePlugin(
       },
       webpackModuleConcatenator,
       new InlineManifestPlugin(),
-      // webpackCompression,
       // webpackMonitor,
       // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
       new OfflinePlugin(),
+      new webpack.SourceMapDevToolPlugin({
+        filename: '[name].[chunkhash:8].map',
+        // Excluded by chunk names
+        exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
+      }),
       HMR,
     ],
+    // devtool: 'source-map',
     devServer: {
       contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
+      watchContentBase: true,
       host: ENV.HOST,
       port: ENV.PORT,
+      historyApiFallback: true,
+      clientLogLevel: ENV.LOG_LEVEL,
       overlay: true,
+      progress: true,
     },
   }
 );
