@@ -1,5 +1,3 @@
-// @ts-check
-// @flow
 import path from 'path'; // eslint-disable-line
 import glob from 'glob-all'; // eslint-disable-line
 import PreCSS from 'precss'; // eslint-disable-line

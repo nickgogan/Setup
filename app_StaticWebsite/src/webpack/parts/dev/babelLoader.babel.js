@@ -19,8 +19,6 @@ export default () => {
             {
               loader: 'babel-loader', // babel-loader?cacheDirectory - Removed in favor of cache-loader,
               options: {
-                // sourceMaps: 'inline',
-                // sourceMaps: true,
                 presets: [
                   [
                     'env',

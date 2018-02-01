@@ -60,10 +60,8 @@ export default () => {
   const faviconsGenerator = new GenerateFaviconsPlugin({
     logo: path.resolve(__dirname, '../../../assets/favicon.png'),
     title: 'My App',
-    appTitle: 'My App',
-    appDescription: 'My App',
     description: 'My description',
-    persistentCache: true,
+    // persistentCache: true,
     inject: true,
     background: '#fff',
     theme_color: '#fff',
@@ -80,7 +78,7 @@ export default () => {
       windows: true,
     },
     emitStats: true,
-    statsFilename: 'iconstats.json',
+    statsFilename: 'iconstats-[hash].json',
   });
 
   return {
