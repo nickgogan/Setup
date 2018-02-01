@@ -61,7 +61,7 @@ module.exports.config = {
   // Allow absolute paths in imports.
   resolve: {
     modules: ['node_modules', PATHS.SRC_FULL_PATH,],
-    extensions: ['.js',],
+    extensions: ['.js', '.postcss', 'html',],
   },
   // plugins: []
 };

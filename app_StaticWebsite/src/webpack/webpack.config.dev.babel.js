@@ -5,9 +5,7 @@ import MergePlugin from 'webpack-merge';
 import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
-import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
 
 /*
 ########################################
@@ -39,19 +37,41 @@ const ENV = Object.assign({}, common.PATHS, env);
 ########################################
 */
 // Webpack sets the app-wide process.env.* variables.
+const webpackProgress = new webpack.ProgressPlugin();
 const appEnv = new DotenvPlugin({
   path: path.join(__dirname, '../env/dev.env'),
   safe: path.join(__dirname, '../env/dev.example.env'),
 });
+// const webpackSourceMaps = new webpack.SourceMapDevToolPlugin({
+//   filename: '[name].[chunkhash:8].map',
+//   // Excluded by chunk names
+//   exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
+// });
+const webpackNamedModules = new webpack.NamedModulesPlugin();
+const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
+// Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules., new OfflinePlugin(),], // , webpackMonitor
+const nameNonNormalModules = {
+  apply(compiler) {
+    compiler.plugin('compilation', compilation => {
+      compilation.plugin('before-module-ids', modules => {
+        modules.forEach(module => {
+          if (module.id !== null) {
+            return;
+          }
+          module.id = module.identifier(); // eslint-disable-line
+        });
+      });
+    });
+  },
+};
+const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
+const webpackInlineManifest = new InlineManifestPlugin();
 const webpackMonitor = new MonitorPlugin({
   capture: true,
   launch: true,
   port: 3000,
 });
-const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
-const webpackBanner = new webpack.BannerPlugin({
-  banner: new GitRevisionPlugin().version(),
-});
+const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 const HMR = new webpack.HotModuleReplacementPlugin();
 
 /*
@@ -93,38 +113,18 @@ export default MergePlugin(
       filename: `[name].[chunkhash:8].js`,
     },
     plugins: [
-      new webpack.ProgressPlugin(),
+      webpackProgress,
       appEnv,
-      new webpack.NamedModulesPlugin(),
-      new webpack.NamedChunksPlugin(), // Uses the /* webpackChunkName: "..." */ labels
-      // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules., new OfflinePlugin(),], // , webpackMonitor
-      {
-        apply(compiler) {
-          compiler.plugin('compilation', compilation => {
-            compilation.plugin('before-module-ids', modules => {
-              modules.forEach(module => {
-                if (module.id !== null) {
-                  return;
-                }
-                module.id = module.identifier(); // eslint-disable-line
-              });
-            });
-          });
-        },
-      },
+      // webpackSourceMaps,
+      webpackNamedModules,
+      webpackNamedChunks,
+      nameNonNormalModules,
       webpackModuleConcatenator,
-      new InlineManifestPlugin(),
-      // webpackMonitor,
-      // new BundleAnalyzerPlugin.BundleAnalyzerPlugin(),
-      new OfflinePlugin(),
-      new webpack.SourceMapDevToolPlugin({
-        filename: '[name].[chunkhash:8].map',
-        // Excluded by chunk names
-        exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
-      }),
+      webpackInlineManifest,
       HMR,
+      // webpackMonitor,
+      // webpackBundleAnalyzer,
     ],
-    // devtool: 'source-map',
     devServer: {
       contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
       watchContentBase: true,
