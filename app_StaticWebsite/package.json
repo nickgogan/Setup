@@ -6,12 +6,12 @@
   "scripts": {
     "prod": "npm-run-all -s prod:clean prod:build",
     "prod:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
+      "webpack --colors --config ./src/webpack/webpack.config.js --env.env=prod --env.platform=web",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "server": "nodemon --watch webpack.*.js --exec npm run \"dev:server\"",
     "dev": "npm-run-all -s dev:clean dev:build",
     "dev:server":
-      "webpack-dev-server --history-api-fallback --inline --progress --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
+      "webpack-dev-server --inline --color --env.env=dev --env.platform=web --config ./src/webpack/webpack.config.js",
     "dev:build":
       "webpack --progress --colors --config ./src/webpack/webpack.config.js --env.env=dev --env.platform=web",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
