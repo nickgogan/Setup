@@ -58,6 +58,7 @@
     "eslint-plugin-react": "7.4.0",
     "flow-bin": "0.62.0",
     "flow-scripts": "0.4.0",
+    "gitignore": "0.6.0",
     "install-peerdeps": "1.4.1",
     "localtunnel": "1.8.3",
     "nodemon": "1.14.7",
