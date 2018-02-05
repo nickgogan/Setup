@@ -16,6 +16,7 @@ import common from './webpack.common';
 import loadTemplates from './parts/dev/templatesLoader.babel';
 import loadStyles from './parts/dev/postcssLoader.babel';
 import loadBabel from './parts/dev/babelLoader.babel';
+import loadAssets from './parts/dev/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*
@@ -82,9 +83,10 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 
 export default MergePlugin(
   common.config,
+  // loadAssets(),
+  loadStyles(),
   loadBabel(),
   loadTemplates(),
-  loadStyles(),
   extractBundles([
     {
       name: 'vendor',

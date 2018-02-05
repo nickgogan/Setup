@@ -2,6 +2,7 @@
 /*@import './tests/test_cssnext.postcss';*/
 
 @import './shared/reset.postcss';
+/* @import '../assets/fonts/leaguespartan-bold.woff2'; */
 /*@import './shared/variables.postcss';*/
 /*@import './shared/typography.postcss';*/
 /*@import './shared/grid.postcss';*/
@@ -19,17 +20,35 @@
   --color-tertiary: #ab34cd;
 }
 
+@font-face {
+  font-family: 'LeagueSpartan';
+  src: url('../assets/fonts/leaguespartan-bold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+}
+
 body {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
 }
 .main {
   background-color: var(--color-primary);
   color: var(--color-secondary);
+  font-family: 'LeagueSpartan', sans-serif;
 }
-div.test {
+.jgp_over {
   width: 100%;
   height: 5rem;
-  background-color: var(--color-tertiary);
+  background: url('../assets/images/smallImg_0.jpg') center center no-repeat;
+}
+.png_under {
+  width: 100%;
+  height: 5rem;
+  background: url('../assets/images/tbd.png') center center no-repeat;
+}
+.svg_over {
+  width: 100%;
+  height: 5rem;
+  background-image: url('../assets/images/test.svg');
 }
 
 #flex {

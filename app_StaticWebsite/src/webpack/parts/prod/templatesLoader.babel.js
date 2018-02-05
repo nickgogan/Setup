@@ -1,8 +1,9 @@
 import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
+import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
 import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
-import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
+import GenerateSocialInfo from 'social-tags-webpack-plugin'; // eslint-disable-line
 
 export default () => {
   const indexPage = new HtmlPlugin({
@@ -80,8 +81,40 @@ export default () => {
     emitStats: true,
     statsFilename: 'iconstats-[hash].json',
   });
+  const socialinfoGenerator = new GenerateSocialInfo({
+    appUrl: 'http://example.com/',
+    facebook: {
+      'fb:app_id': '123456789',
+      'og:url': 'http://example.com/page.html',
+      'og:type': 'website',
+      'og:title': 'Content Title',
+      // 'og:image': path.resolve('./assets/'),
+      'og:description': 'Description Here',
+      'og:site_name': 'Site Name',
+      'og:locale': 'en_US',
+      'og:article:author': '',
+    },
+    twitter: {
+      'twitter:card': 'summary',
+      'twitter:site': '@site_account',
+      'twitter:creator': '@individual_account',
+      'twitter:url': 'http://example.com/page.html',
+      'twitter:title': 'Content Title',
+      'twitter:description': 'Content description less than 200 characters',
+      // 'twitter:image': path.resolve('src/img/book.png'),
+    },
+  });
 
   return {
-    plugins: [indexPage, criticalCSS, robotsGenerator, faviconsGenerator,], // pagePage,
+    module: {
+      rules: [],
+    },
+    plugins: [
+      indexPage,
+      criticalCSS,
+      robotsGenerator,
+      // faviconsGenerator,
+      socialinfoGenerator,
+    ], // pagePage,
   };
 };

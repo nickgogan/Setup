@@ -19,6 +19,7 @@ import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
+import loadAssets from './parts/prod/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*
@@ -93,9 +94,10 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 */
 export default MergePlugin(
   common.config,
+  loadStyles(),
   loadBabel(),
   loadTemplates(), // This has to come first to get Critical CSS working.
-  loadStyles(),
+  // loadAssets(),
   extractBundles([
     {
       name: 'vendor',
@@ -115,6 +117,7 @@ export default MergePlugin(
   {
     output: {
       path: ENV.OUT_FULL_PATH,
+      // publicPath: path.resolve(__dirname, '../../dist/'),
       filename: `[name].[chunkhash:8].js`,
     },
     plugins: [
@@ -127,8 +130,8 @@ export default MergePlugin(
       nameNonNormalModules,
       webpackModuleConcatenator,
       webpackInlineManifest,
-      webpackCompression,
-      webpackServiceWorker,
+      // webpackCompression,
+      // webpackServiceWorker,
       // webpackMonitor,
       // webpackBundleAnalyzer
     ],
