@@ -7,7 +7,7 @@ export default () => ({
           {
             loader: 'url-loader', // `${require.resolve('file-loader')}`,
             options: {
-              limit: 8000,
+              limit: 800,
               name: './assets/images/[name].[hash:8].[ext]',
             },
           },
@@ -17,7 +17,7 @@ export default () => ({
       {
         test: /\.(ttf|eot|woff|woff2)$/,
         use: {
-          loader: 'file-loader', // `${require.resolve('file-loader')}`, // url-loader for inlining to prevent FOUC
+          loader: 'file-loader', // url-loader for inlining to prevent FOUC
           options: {
             name: './assets/fonts/[name].[hash:8].[ext]',
           },

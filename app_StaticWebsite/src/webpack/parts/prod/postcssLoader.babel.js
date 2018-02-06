@@ -8,12 +8,9 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-l
 import PurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
 
 export default () => {
-  const assetsPath = path.resolve(__dirname, '../../../../dist');
-
   const extractCSS = new ExtractTextPlugin({
     allChunks: true, // Needed to work with CommonsChunkPlugin to extract the CSS from those extracted chunks.
     filename: 'styles.[contenthash:8].css',
-    publicPath: assetsPath,
   });
   const purifyCSS = new PurifyCSSPlugin({
     paths: glob.sync([
@@ -26,44 +23,72 @@ export default () => {
   return {
     module: {
       rules: [
+        // {
+        //   test: /\.postcss($|\?)/i,
+        //   exclude: /node_modules/,
+        //   use: extractCSS.extract({
+        //     fallback: 'style-loader',
+        //     publicPath: '/',
+        //     use: [
+        //       // PostCSS handles both fonts and images
+        //       {
+        //         loader: 'css-loader',
+        //         options: {
+        //           importLoaders: 1,
+        //           // url: false,
+        //         },
+        //         loader: 'postcss-loader', // eslint-disable-line
+        //         options: {
+        //           plugins: () => [
+        //             PostCSSURL({
+        //               url: 'copy',
+        //               basePath: path.join(__dirname, '../../../assets/'),
+        //               // assetsPath: path.join(assetsPath, './assets'),
+        //               assetsPath: `${process.cwd()  }/dist/assets`,
+        //               useHash: true,
+        //             }),
+        //             PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
+        //             PreCSS,
+        //             CSSNext({
+        //               features: {
+        //                 applyRule: false, // Deprecated
+        //                 customProperties: false, // Deprecated
+        //               },
+        //             }),
+        //           ],
+        //         },
+        //       },
+        //     ],
+        //   }),
+        // },
         {
           test: /\.postcss($|\?)/i,
           exclude: /node_modules/,
-          use: extractCSS.extract({
-            fallback: 'style-loader',
-            use: [
-              // PostCSS handles both fonts and images
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  url: false,
-                },
-                loader: 'postcss-loader',
-                options: {
-                  plugins: () => [
-                    PostCSSURL({
-                      url: 'copy',
-                      basePath: path.join(__dirname, '../../../assets/'),
-                      assetsPath: path.join(assetsPath, '../dist/assets/'),
-                      useHash: true,
-                    }),
-                    PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
-                    PreCSS,
-                    CSSNext({
-                      features: {
-                        applyRule: false, // Deprecated
-                        customProperties: false, // Deprecated
-                      },
-                    }),
-                  ],
-                },
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader', // Also allows url-loader to find images
+              options: { importLoaders: 1, },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
+                  PreCSS,
+                  CSSNext({
+                    features: {
+                      applyRule: false, // Deprecated, so turning off.
+                      customProperties: false, // Deprecated, so turning off.
+                    },
+                  }),
+                ],
               },
-            ],
-          }),
+            },
+          ],
         },
       ],
     },
-    plugins: [extractCSS, purifyCSS,], //
+    plugins: [purifyCSS,], // extractCSS,
   };
 };

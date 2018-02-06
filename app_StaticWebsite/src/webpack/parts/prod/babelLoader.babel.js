@@ -1,11 +1,7 @@
-// @ts-check
-// @flow
 import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
 import PrepackJSPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
 import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
-
-// type args = { include: string, exclude: string, use: [{}] };
 
 export default () => {
   const uglifyJS = new UglifyJSPlugin({

@@ -94,10 +94,10 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 */
 export default MergePlugin(
   common.config,
-  loadStyles(),
   loadBabel(),
   loadTemplates(), // This has to come first to get Critical CSS working.
-  // loadAssets(),
+  loadStyles(),
+  loadAssets(),
   extractBundles([
     {
       name: 'vendor',
@@ -105,7 +105,7 @@ export default MergePlugin(
     },
     {
       name: 'manifest',
-      filename: 'webpack-runtime.js',
+      filename: 'webpack-runtime.[hash:8].js',
       minChunks: Infinity,
     },
     {
@@ -117,7 +117,6 @@ export default MergePlugin(
   {
     output: {
       path: ENV.OUT_FULL_PATH,
-      // publicPath: path.resolve(__dirname, '../../dist/'),
       filename: `[name].[chunkhash:8].js`,
     },
     plugins: [
