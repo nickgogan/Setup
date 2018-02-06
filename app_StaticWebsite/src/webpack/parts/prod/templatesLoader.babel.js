@@ -32,19 +32,6 @@ export default () => {
     desc: 'This is my other page.',
     inject: 'body',
   });
-  const criticalCSS = new CriticalCSS({
-    base: path.resolve(__dirname, '../../../../dist'),
-    src: 'index.html',
-    dest: 'index.html',
-    inline: true,
-    minify: true,
-    extract: true,
-    width: 375,
-    height: 565,
-    penthouse: {
-      blockJSRequests: false,
-    },
-  });
   const robotsGenerator = new RobotsGeneratorPlugin({
     policy: [
       {
@@ -124,7 +111,6 @@ export default () => {
       socialinfoGenerator,
       robotsGenerator,
       // faviconsGenerator
-      criticalCSS,
     ], // pagePage,
   };
 };

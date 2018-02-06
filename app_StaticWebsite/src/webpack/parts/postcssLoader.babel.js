@@ -8,8 +8,8 @@ import PurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
 export default () => {
   const purifyCSS = new PurifyCSSPlugin({
     paths: glob.sync([
-      path.join(__dirname, '../../../../src/**/*.js'),
-      path.join(__dirname, '../../../../src/**/*.html'),
+      path.join(__dirname, '../../../src/**/*.js'),
+      path.join(__dirname, '../../../src/**/*.html'),
     ]),
     minimize: true,
   });

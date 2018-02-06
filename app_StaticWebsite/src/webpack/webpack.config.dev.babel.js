@@ -13,10 +13,10 @@ import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 ########################################
 */
 import common from './webpack.common';
-import loadTemplates from './parts/dev/templatesLoader.babel';
-import loadStyles from './parts/dev/postcssLoader.babel';
 import loadBabel from './parts/dev/babelLoader.babel';
-import loadAssets from './parts/dev/assetsLoader.babel';
+import loadAssets from './parts/assetsLoader.babel';
+import loadTemplates from './parts/dev/templatesLoader.babel';
+import loadStyles from './parts/postcssLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*

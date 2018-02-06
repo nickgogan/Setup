@@ -17,8 +17,9 @@ import OfflinePlugin from 'offline-plugin';
 */
 import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
-import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
+import loadStyles from './parts/postcssLoader.babel';
+import loadAssets from './parts/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*
@@ -96,6 +97,7 @@ export default MergePlugin(
   loadBabel(),
   loadTemplates(), // This has to come first to get Critical CSS working.
   loadStyles(),
+  loadAssets(),
   extractBundles([
     {
       name: 'vendor',
@@ -127,8 +129,8 @@ export default MergePlugin(
       nameNonNormalModules,
       webpackInlineManifest,
       webpackModuleConcatenator,
-      // webpackCompression,
-      // webpackServiceWorker,
+      webpackCompression,
+      webpackServiceWorker,
       // webpackMonitor,
       // webpackBundleAnalyzer
     ],

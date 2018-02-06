@@ -48,7 +48,7 @@ export default () => {
                       url: 'copy',
                       basePath: path.join(__dirname, '../../../assets/'),
                       assetsPath: path.join(distPath, 'assets'),
-                      useHash: true,
+                      // useHash: true // This messes up the output folder structure.
                     }),
                     PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
                     PreCSS,
