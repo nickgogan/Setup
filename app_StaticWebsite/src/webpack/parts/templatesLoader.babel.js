@@ -7,31 +7,22 @@ import GenerateSocialInfo from 'social-tags-webpack-plugin'; // eslint-disable-l
 
 /*
 ########################################
-                    Template-Generator
-
-
-Generate baseTemplate
-########################################
-*/
-
-/*
-########################################
                         Templates
 
 
 Generate templates based on environment.
 ########################################
 */
-const baseTemplate = {
-  template: path.resolve(__dirname, '../../templates/index.html'),
+const baseTemplate = page => ({
+  template: path.resolve(__dirname, `../../templates/${page}.html`),
   includeChunks: ['main',],
   excludeChunks: ['page',],
   title: 'MyApp',
   desc: 'This is my app.',
   inject: 'body',
-};
-const productionTemplate = {
-  filename: path.resolve(__dirname, '../../../dist/index.html'),
+});
+const productionTemplate = page => ({
+  filename: path.resolve(__dirname, `../../../dist/${page}.html`),
   minify: {
     html5: true, // TODO: Update if upgrading to HTML6
     collapseWhitespace: true,
@@ -39,11 +30,29 @@ const productionTemplate = {
     removeComments: true,
     trimCustomFragments: true,
   },
-};
-const developmentTemplate = {
-  filename: path.resolve(__dirname, '../../../build/index.html'),
-  indexPage: true,
-};
+});
+const developmentTemplate = page => ({
+  filename: path.resolve(__dirname, `../../../build/${page}.html`),
+  // indexPage: true,
+});
+/*
+########################################
+                    Template-Generator
+
+
+Generate baseTemplate
+########################################
+*/
+// Config Generator
+const TemplateGenerator = (env, pageNames) =>
+  pageNames.map(page => {
+    if (env === 'development') {
+      // return Object.assign({}, baseTemplate(page), productionTemplate(page));
+      return Object.assign({}, baseTemplate(page), developmentTemplate(page));
+    }
+    return Object.assign({}, baseTemplate(page), productionTemplate(page));
+    // return Object.assign({}, baseTemplate(page), developmentTemplate(page));
+  });
 /*
 ########################################
                         Useful Plugins
@@ -129,16 +138,21 @@ const socialinfoGenerator = new GenerateSocialInfo({
 What actually gets sent to webpack config.
 ########################################
 */
-export default env => {
-  const indexPageConfig =
-    env === 'production'
-      ? Object.assign({}, baseTemplate, productionTemplate)
-      : Object.assign({}, baseTemplate, developmentTemplate);
-  const indexPage = new HtmlPlugin(indexPageConfig);
+export default (env, pagesNames) => {
+  const pageConfigs = TemplateGenerator(env, pagesNames);
+  // const indexPageConfig =
+  //   env === 'production'
+  //     ? Object.assign({}, baseTemplate, productionTemplate)
+  //     : Object.assign({}, baseTemplate, developmentTemplate);
+  // const indexPage = new HtmlPlugin(indexPageConfig);
+  const templates = pageConfigs.map(pageConfig => {
+    const pageTemplate = new HtmlPlugin(pageConfig);
+    return pageTemplate;
+  });
 
   return {
     plugins: [
-      indexPage,
+      ...templates,
       socialinfoGenerator,
       robotsGenerator,
       // faviconsGenerator

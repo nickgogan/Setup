@@ -37,6 +37,7 @@ export default () => {
                       debug: false,
                     },
                   ],
+                  'stage-0',
                   'flow',
                 ],
                 plugins: [

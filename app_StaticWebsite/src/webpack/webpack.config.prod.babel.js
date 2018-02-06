@@ -95,7 +95,7 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 export default MergePlugin(
   common.config, // Must be the first merged item.
   loadBabel(),
-  loadTemplates(ENV.WEBPACK_ENV), // This has to come first to get Critical CSS working.
+  loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
   loadStyles(),
   loadAssets(),
   extractBundles([
