@@ -93,11 +93,10 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 ########################################
 */
 export default MergePlugin(
-  common.config,
+  common.config, // Must be the first merged item.
   loadBabel(),
   loadTemplates(), // This has to come first to get Critical CSS working.
   loadStyles(),
-  loadAssets(),
   extractBundles([
     {
       name: 'vendor',
@@ -127,8 +126,8 @@ export default MergePlugin(
       webpackNamedModules,
       webpackNamedChunks,
       nameNonNormalModules,
-      webpackModuleConcatenator,
       webpackInlineManifest,
+      webpackModuleConcatenator,
       // webpackCompression,
       // webpackServiceWorker,
       // webpackMonitor,
