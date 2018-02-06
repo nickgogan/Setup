@@ -16,7 +16,7 @@ import OfflinePlugin from 'offline-plugin';
 ########################################
 */
 import common from './webpack.common';
-import loadTemplates from './parts/prod/templatesLoader.babel';
+import loadTemplates from './parts/templatesLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import loadAssets from './parts/assetsLoader.babel';
@@ -95,7 +95,7 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 export default MergePlugin(
   common.config, // Must be the first merged item.
   loadBabel(),
-  loadTemplates(), // This has to come first to get Critical CSS working.
+  loadTemplates(ENV.WEBPACK_ENV), // This has to come first to get Critical CSS working.
   loadStyles(),
   loadAssets(),
   extractBundles([

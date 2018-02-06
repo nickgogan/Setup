@@ -1,3 +1,5 @@
+
+// DEPRECATED
 import path from 'path'; // eslint-disable-line
 import glob from 'glob-all'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
@@ -70,3 +72,4 @@ export default () => {
     plugins: [purifyCSS, extractCSS,], // extractCSS,
   };
 };
+// DEPRECATED
