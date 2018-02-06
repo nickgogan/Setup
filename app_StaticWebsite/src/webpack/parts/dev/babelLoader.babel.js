@@ -1,7 +1,4 @@
-// @ts-check
-// @flow
 import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
-// type args = { include: string, exclude: string, use: [{}] };
 
 export default () => {
   const treeshakeCommonJS = new CJSShakePlugin.Plugin();

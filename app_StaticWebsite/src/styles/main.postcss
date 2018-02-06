@@ -2,7 +2,6 @@
 /*@import './tests/test_cssnext.postcss';*/
 
 @import './shared/reset.postcss';
-/* @import '../assets/fonts/leaguespartan-bold.woff2'; */
 /*@import './shared/variables.postcss';*/
 /*@import './shared/typography.postcss';*/
 /*@import './shared/grid.postcss';*/
@@ -28,27 +27,36 @@
 }
 
 body {
-  background: var(--color-primary);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-content: space-evenly;
+  background-color: var(--color-primary);
+  background-image: url('../assets/images/test.svg');
 }
 .main {
   background-color: var(--color-primary);
   color: var(--color-secondary);
+  position: relative;
+  z-index: 1;
+  grid-column: 1fr;
+  text-align: left;
   font-family: 'LeagueSpartan', sans-serif;
 }
-.jgp_over {
+/* .jgp_over {
   width: 100%;
   height: 5rem;
   background: url('../assets/images/smallImg_0.jpg') center center no-repeat;
-}
-.png_under {
+} */
+/* .png_under {
   width: 100%;
   height: 5rem;
   background: url('../assets/images/tbd.png') center center no-repeat;
-}
+} */
 .svg_over {
   width: 100%;
-  height: 5rem;
-  background-image: url('../assets/images/test.svg');
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
 #flex {

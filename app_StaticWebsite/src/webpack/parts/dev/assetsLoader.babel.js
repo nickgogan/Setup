@@ -3,7 +3,25 @@ export default () => ({
     rules: [
       {
         test: /\.(jpe?g|png|svg)($|\?)/i,
-        use: ['url-loader?limit=10000', 'img-loader',],
+        use: [
+          {
+            loader: 'url-loader', // `${require.resolve('file-loader')}`,
+            options: {
+              limit: 8000,
+              name: './assets/images/[name].[hash:8].[ext]',
+            },
+          },
+          'img-loader',
+        ],
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use: {
+          loader: 'file-loader', // `${require.resolve('file-loader')}`, // url-loader for inlining to prevent FOUC
+          options: {
+            name: './assets/fonts/[name].[hash:8].[ext]',
+          },
+        },
       },
     ],
   },

@@ -83,10 +83,10 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 
 export default MergePlugin(
   common.config,
-  // loadAssets(),
-  loadStyles(),
   loadBabel(),
   loadTemplates(),
+  loadStyles(),
+  loadAssets(),
   extractBundles([
     {
       name: 'vendor',
@@ -94,7 +94,7 @@ export default MergePlugin(
     },
     {
       name: 'manifest',
-      filename: 'webpack-runtime.js',
+      filename: 'webpack-runtime.[hash:8].js',
       minChunks: Infinity,
     },
     {
@@ -128,7 +128,7 @@ export default MergePlugin(
       // webpackBundleAnalyzer,
     ],
     devServer: {
-      contentBase: path.join(ENV.SRC_FULL_PATH, 'assets'),
+      contentBase: path.join(ENV.OUT_FULL_PATH, 'assets'),
       watchContentBase: true,
       host: ENV.HOST,
       port: ENV.PORT,
