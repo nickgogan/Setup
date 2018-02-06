@@ -99,6 +99,7 @@ Note: `babel-register` is required to work with filename-loaders as seen in `web
 - **Date:** 2/05/2018
 
 10. **postcss-url**: Tried adding this to the PostCSS pipeline to get around the prod webpack config issues in point 9. After much config wrangling, it finally somewhat worked - had to use another plugin called **post-url-mapper** in order to fix the outputted url() values in the final css. However, the browser didn't render the image files and it also doubled them in file size - unacceptable.
-11. - **Date:** 2/05/2018
+- **Date:** 2/05/2018
 
-11.
+11. **html-webpack-plugin**: Not able to alter config object settings once set.
+- **Date**: 2/06/2018
