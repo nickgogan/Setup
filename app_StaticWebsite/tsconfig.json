@@ -2,8 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist",
-    "baseUrl": "./src/",
+    "outDir": "dist",
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
     "module": "es6",
