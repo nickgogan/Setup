@@ -14,6 +14,14 @@ export default () => {
     title: 'MyApp',
     desc: 'This is my app.',
     inject: 'body',
+    showErrors: true, // TODO: Turn off when done.
+    minify: {
+      html5: true, // TODO: Update if upgrading to HTML6
+      collapseWhitespace: true,
+      collapseInlineTagWhitespace: true,
+      removeComments: true,
+      trimCustomFragments: true,
+    },
   });
   const pagePage = new HtmlPlugin({
     template: path.resolve(__dirname, '../../../templates/page.html'),
@@ -29,6 +37,8 @@ export default () => {
     src: 'index.html',
     dest: 'index.html',
     inline: true,
+    minify: true,
+    extract: true,
     width: 375,
     height: 565,
     penthouse: {
@@ -111,10 +121,10 @@ export default () => {
     },
     plugins: [
       indexPage,
-      criticalCSS,
-      robotsGenerator,
-      // faviconsGenerator,
       socialinfoGenerator,
+      robotsGenerator,
+      // faviconsGenerator
+      criticalCSS,
     ], // pagePage,
   };
 };
