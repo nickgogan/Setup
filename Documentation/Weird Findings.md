@@ -94,3 +94,11 @@ Note: `babel-register` is required to work with filename-loaders as seen in `web
 
 8. **postcss-cssnext/cssnano**: Couldn't get this to work as part of CSSNext, but was able to make it happen by using it separately from it.
 - **Date:** 1/22/2018
+
+9. **extract-text-webpack-plugin**: Could not get this to work with file-loader and/or url-loader. The latter didn't output anything. Using these loaders in the dev postcss webpack config worked fine.
+- **Date:** 2/05/2018
+
+10. **postcss-url**: Tried adding this to the PostCSS pipeline to get around the prod webpack config issues in point 9. After much config wrangling, it finally somewhat worked - had to use another plugin called **post-url-mapper** in order to fix the outputted url() values in the final css. However, the browser didn't render the image files and it also doubled them in file size - unacceptable.
+11. - **Date:** 2/05/2018
+
+11.
