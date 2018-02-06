@@ -19,7 +19,6 @@ import common from './webpack.common';
 import loadTemplates from './parts/prod/templatesLoader.babel';
 import loadStyles from './parts/prod/postcssLoader.babel';
 import loadBabel from './parts/prod/babelLoader.babel';
-import loadAssets from './parts/prod/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*
