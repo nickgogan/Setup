@@ -13,7 +13,7 @@ import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 ########################################
 */
 import common from './webpack.common';
-import loadBabel from './parts/dev/babelLoader.babel';
+import loadBabel from './parts/babelLoader.babel';
 import loadAssets from './parts/assetsLoader.babel';
 import loadTemplates from './parts/templatesLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
@@ -83,7 +83,7 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 
 export default MergePlugin(
   common.config,
-  loadBabel(),
+  loadBabel(ENV.WEBPACK_ENV),
   loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
   loadStyles(),
   loadAssets(),

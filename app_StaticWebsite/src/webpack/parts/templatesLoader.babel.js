@@ -1,9 +1,10 @@
 import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
+// import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
 import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
 import GenerateSocialInfo from 'social-tags-webpack-plugin'; // eslint-disable-line
+import { getIfUtils, removeEmpty } from 'webpack-config-utils'; //eslint-disable-line
 
 /*
 ########################################
@@ -30,10 +31,11 @@ const productionTemplate = page => ({
     removeComments: true,
     trimCustomFragments: true,
   },
+  showErrors: false,
 });
 const developmentTemplate = page => ({
   filename: path.resolve(__dirname, `../../../build/${page}.html`),
-  // indexPage: true,
+  showErrors: true,
 });
 /*
 ########################################
@@ -44,15 +46,13 @@ Generate baseTemplate
 ########################################
 */
 // Config Generator
-const TemplateGenerator = (env, pageNames) =>
-  pageNames.map(page => {
-    if (env === 'development') {
-      // return Object.assign({}, baseTemplate(page), productionTemplate(page));
-      return Object.assign({}, baseTemplate(page), developmentTemplate(page));
-    }
-    return Object.assign({}, baseTemplate(page), productionTemplate(page));
-    // return Object.assign({}, baseTemplate(page), developmentTemplate(page));
-  });
+const TemplateGenerator = (env, pageNames, ifProduction) =>
+  pageNames.map(page =>
+    ifProduction(
+      Object.assign({}, baseTemplate(page), productionTemplate(page)),
+      Object.assign({}, baseTemplate(page), developmentTemplate(page))
+    )
+  );
 /*
 ########################################
                         Useful Plugins
@@ -139,23 +139,18 @@ What actually gets sent to webpack config.
 ########################################
 */
 export default (env, pagesNames) => {
-  const pageConfigs = TemplateGenerator(env, pagesNames);
-  // const indexPageConfig =
-  //   env === 'production'
-  //     ? Object.assign({}, baseTemplate, productionTemplate)
-  //     : Object.assign({}, baseTemplate, developmentTemplate);
-  // const indexPage = new HtmlPlugin(indexPageConfig);
-  const templates = pageConfigs.map(pageConfig => {
-    const pageTemplate = new HtmlPlugin(pageConfig);
-    return pageTemplate;
-  });
+  const { ifProduction, ifNotProduction, } = getIfUtils(env);
+
+  const pageConfigs = TemplateGenerator(env, pagesNames, ifProduction);
+  const templates = pageConfigs.map(pageConfig => new HtmlPlugin(pageConfig));
 
   return {
-    plugins: [
+    cache: ifProduction(),
+    plugins: removeEmpty([
       ...templates,
-      socialinfoGenerator,
-      robotsGenerator,
-      // faviconsGenerator
-    ], // pagePage,
+      ifProduction(socialinfoGenerator),
+      ifProduction(robotsGenerator),
+      // ifProd(faviconsGenerator)
+    ]), // pagePage,
   };
 };

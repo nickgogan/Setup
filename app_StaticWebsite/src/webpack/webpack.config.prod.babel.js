@@ -17,7 +17,7 @@ import OfflinePlugin from 'offline-plugin';
 */
 import common from './webpack.common';
 import loadTemplates from './parts/templatesLoader.babel';
-import loadBabel from './parts/prod/babelLoader.babel';
+import loadBabel from './parts/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import loadAssets from './parts/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
@@ -94,7 +94,7 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
 */
 export default MergePlugin(
   common.config, // Must be the first merged item.
-  loadBabel(),
+  loadBabel(ENV.WEBPACK_ENV),
   loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
   loadStyles(),
   loadAssets(),
@@ -118,6 +118,7 @@ export default MergePlugin(
     output: {
       path: ENV.OUT_FULL_PATH,
       filename: `[name].[chunkhash:8].js`,
+      publicPath: ENV.OUT_FULL_PATH,
     },
     plugins: [
       webpackProgress,

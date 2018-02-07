@@ -129,6 +129,7 @@
     "webpack": "3.10.0",
     "webpack-bundle-analyzer": "2.9.2",
     "webpack-common-shake": "1.5.3",
+    "webpack-config-utils": "2.3.0",
     "webpack-dev-server": "2.11.0",
     "webpack-merge": "4.1.1",
     "webpack-monitor": "1.0.14"

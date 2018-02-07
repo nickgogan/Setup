@@ -2,18 +2,21 @@ import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
 import PrepackJSPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
 import OptimizeJSPlugin from 'optimize-js-plugin'; //eslint-disable-line
+import { getIfUtils, removeEmpty } from 'webpack-config-utils'; //eslint-disable-line
 
-export default () => {
-  const uglifyJS = new UglifyJSPlugin({
-    cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
-    parallel: true,
-    uglifyOptions: {
-      ie8: false,
-    },
-  });
-  const precompileJS = new PrepackJSPlugin();
-  const enhanceJS = new OptimizeJSPlugin();
-  const treeshakeCommonJS = new CJSShakePlugin.Plugin();
+const uglifyJS = new UglifyJSPlugin({
+  cache: true, // Default dir: node_modules/.cache/uglifyjs-webpack-plugin.
+  parallel: true,
+  uglifyOptions: {
+    ie8: false,
+  },
+});
+const precompileJS = new PrepackJSPlugin();
+const enhanceJS = new OptimizeJSPlugin();
+const treeshakeCommonJS = new CJSShakePlugin.Plugin();
+
+export default env => {
+  const { ifProduction, } = getIfUtils(env);
 
   return {
     module: {
@@ -51,11 +54,11 @@ export default () => {
         },
       ],
     },
-    plugins: [
+    plugins: removeEmpty([
       treeshakeCommonJS,
-      precompileJS, // Must come before uglifying
-      uglifyJS,
-      enhanceJS, // Must come after uglifying
-    ],
+      ifProduction(precompileJS), // Must come before uglifying
+      ifProduction(uglifyJS),
+      ifProduction(enhanceJS), // Must come after uglifying
+    ]),
   };
 };
