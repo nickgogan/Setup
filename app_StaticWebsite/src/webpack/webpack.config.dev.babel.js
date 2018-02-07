@@ -6,13 +6,13 @@ import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
-
+import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
+import setEnvironment from './helpers/setEnvironment';
 /*
 ########################################
-        Import Lower Config and Loaders
+        Create env and import Loaders
 ########################################
 */
-import common from './webpack.common';
 import loadBabel from './parts/babelLoader.babel';
 import loadAssets from './parts/assetsLoader.babel';
 import loadTemplates from './parts/templatesLoader.babel';
@@ -21,28 +21,10 @@ import extractBundles from './parts/extractBundles.babel';
 
 /*
 ########################################
-                    Define Constants
-########################################
-*/
-// Needed for use in this config file.
-const env = dotEnv.load({
-  path: path.resolve(__dirname, './../env/dev.env'),
-  sample: path.resolve(__dirname, './../env/dev.example.env'),
-}).parsed;
-env.OUT_FULL_PATH = path.resolve(__dirname, '../../', env.DEST);
-const ENV = Object.assign({}, common.PATHS, env);
-
-/*
-########################################
                       Define Plugins
 ########################################
 */
-// Webpack sets the app-wide process.env.* variables.
 const webpackProgress = new webpack.ProgressPlugin();
-const appEnv = new DotenvPlugin({
-  path: path.join(__dirname, '../env/dev.env'),
-  safe: path.join(__dirname, '../env/dev.example.env'),
-});
 // const webpackSourceMaps = new webpack.SourceMapDevToolPlugin({
 //   filename: '[name].[chunkhash:8].map',
 //   // Excluded by chunk names
@@ -81,61 +63,82 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 ########################################
 */
 
-export default MergePlugin(
-  common.config,
-  loadBabel(ENV.WEBPACK_ENV),
-  loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
-  loadStyles(),
-  loadAssets(),
-  extractBundles([
+module.exports = env => {
+  const ENV = setEnvironment(env);
+  const { ifProduction, ifNotProduction, } = getIfUtils(ENV.WEBPACK_ENV);
+
+  return MergePlugin(
+    loadBabel(ENV.WEBPACK_ENV),
+    loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
+    loadStyles(),
+    loadAssets(),
+    extractBundles([
+      {
+        name: 'vendor',
+        minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
+      },
+      {
+        name: 'manifest',
+        filename: 'webpack-runtime.[hash:8].js',
+        minChunks: Infinity,
+      },
+      {
+        async: true,
+        children: true,
+        name: 'CommonLazy',
+      },
+    ]),
     {
-      name: 'vendor',
-      minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
-    },
-    {
-      name: 'manifest',
-      filename: 'webpack-runtime.[hash:8].js',
-      minChunks: Infinity,
-    },
-    {
-      async: true,
-      children: true,
-      name: 'CommonLazy',
-    },
-  ]),
-  {
-    entry: {
-      hmr: [
-        'webpack/hot/dev-server',
-        `webpack-dev-server/client?http://localhost:3001`,
+      target: ENV.PLATFORM,
+      entry: {
+        main: [path.join(ENV.SRC_FULL_PATH, 'js/main.js'),],
+        hmr: [
+          'webpack/hot/dev-server',
+          `webpack-dev-server/client?http://localhost:3001`,
+        ],
+      },
+      output: {
+        path: ENV.OUT_FULL_PATH,
+        filename: `[name].[chunkhash:8].js`,
+      },
+      // Prevents weird fs errors. See 'Weird Findings' #6
+      externals: {
+        fs: 'commonjs fs',
+      },
+      // node: {
+      //   fs: 'empty'
+      //   // fs: 'commonjs fs'
+      // },
+
+      // Allow absolute paths in imports.
+      resolve: {
+        modules: ['node_modules', ENV.SRC_FULL_PATH,],
+        extensions: ['.js', '.postcss', 'html',],
+      },
+
+      plugins: [
+        webpackProgress,
+        new DotenvPlugin(ENV), // Webpack sets the app-wide process.env.* variables.
+        // webpackSourceMaps,
+        webpackNamedModules,
+        webpackNamedChunks,
+        nameNonNormalModules,
+        webpackModuleConcatenator,
+        webpackInlineManifest,
+        HMR,
+        // webpackMonitor,
+        // webpackBundleAnalyzer,
       ],
-    },
-    output: {
-      path: ENV.OUT_FULL_PATH,
-      filename: `[name].[chunkhash:8].js`,
-    },
-    plugins: [
-      webpackProgress,
-      appEnv,
-      // webpackSourceMaps,
-      webpackNamedModules,
-      webpackNamedChunks,
-      nameNonNormalModules,
-      webpackModuleConcatenator,
-      webpackInlineManifest,
-      HMR,
-      // webpackMonitor,
-      // webpackBundleAnalyzer,
-    ],
-    devServer: {
-      contentBase: path.join(ENV.OUT_FULL_PATH, 'assets'),
-      watchContentBase: true,
-      host: ENV.HOST,
-      port: ENV.PORT,
-      historyApiFallback: true,
-      clientLogLevel: ENV.LOG_LEVEL,
-      overlay: true,
-      progress: true,
-    },
-  }
-);
+      devServer: {
+        contentBase: path.join(ENV.OUT_FULL_PATH, 'assets'),
+        watchContentBase: true,
+        host: ENV.HOST,
+        port: ENV.PORT,
+        historyApiFallback: true,
+        clientLogLevel: ENV.LOG_LEVEL,
+        overlay: true,
+        progress: true,
+      },
+    }
+  );
+};
