@@ -1,6 +1,6 @@
 import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
-// import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
+import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
 import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
 import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
 import GenerateSocialInfo from 'social-tags-webpack-plugin'; // eslint-disable-line
@@ -61,6 +61,17 @@ const TemplateGenerator = (env, pageNames, ifProduction) =>
 Various plugins for a wider net of situations.
 ########################################
 */
+const criticalCSS = new CriticalCSS({
+  base: path.resolve(__dirname, '../../../dist'),
+  src: 'index.html',
+  dest: 'index.html',
+  inline: true,
+  width: 375,
+  height: 565,
+  penthouse: {
+    blockJSRequests: false,
+  },
+});
 const robotsGenerator = new RobotsGeneratorPlugin({
   policy: [
     {
@@ -139,7 +150,7 @@ What actually gets sent to webpack config.
 ########################################
 */
 export default (env, pagesNames) => {
-  const { ifProduction, ifNotProduction, } = getIfUtils(env);
+  const { ifProduction, } = getIfUtils(env);
 
   const pageConfigs = TemplateGenerator(env, pagesNames, ifProduction);
   const templates = pageConfigs.map(pageConfig => new HtmlPlugin(pageConfig));
@@ -148,6 +159,7 @@ export default (env, pagesNames) => {
     cache: ifProduction(),
     plugins: removeEmpty([
       ...templates,
+      ifProduction(criticalCSS),
       ifProduction(socialinfoGenerator),
       ifProduction(robotsGenerator),
       // ifProd(faviconsGenerator)

@@ -2,7 +2,6 @@ import path from 'path';
 import dotEnv from 'dotenv-safe';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
-import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import GitRevisionPlugin from 'git-revision-webpack-plugin';
@@ -20,7 +19,6 @@ import setEnvironment from './helpers/setEnvironment';
 import loadTemplates from './parts/templatesLoader.babel';
 import loadBabel from './parts/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
-import loadAssets from './parts/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 /*
 ########################################
@@ -66,8 +64,7 @@ export default env => {
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
     loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
-    loadStyles(),
-    loadAssets(),
+    loadStyles(ENV.WEBPACK_ENV), // Assets handled by the PostCSS pipeline.
     extractBundles([
       {
         name: 'vendor',

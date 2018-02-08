@@ -14,7 +14,7 @@
     "dev:server":
       "webpack-dev-server --inline --color --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js --env.dev",
+      "webpack --progress --colors  --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "share": "npm-run-all -s security localtunnel",
     "security": "npx nsp check --reporter summary",
@@ -116,7 +116,8 @@
     "postcss-cssnext": "3.0.2",
     "postcss-import": "11.0.0",
     "postcss-loader": "2.0.10",
-    "postcss-url": "7.3.0",
+    "postcss-smart-asset": "0.5.6",
+    "postcss-svg": "2.4.0",
     "postcss-url-mapper": "1.2.0",
     "precss": "3.0.0",
     "prepack": "0.2.6",
@@ -131,7 +132,6 @@
     "text-transform-loader": "2.0.0",
     "uglifyjs-webpack-plugin": "1.1.6",
     "url-loader": "0.6.2",
-    "webpack": "3.10.0",
     "webpack-bundle-analyzer": "2.9.2",
     "webpack-common-shake": "1.5.3",
     "webpack-config-utils": "2.3.0",
@@ -141,8 +141,8 @@
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
+    "webpack": "3.10.0",
     "console-log-html": "2.0.2",
-    "dotenv-webpack": "1.5.4",
     "offline-plugin": "4.9.0"
   }
 }

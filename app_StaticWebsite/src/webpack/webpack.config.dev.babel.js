@@ -1,8 +1,7 @@
 import path from 'path';
-import dotEnv from 'dotenv-safe';
+import dotEnv, { load, } from 'dotenv-safe';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
-import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
@@ -56,7 +55,7 @@ export default env => {
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
     loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
-    loadStyles(),
+    loadStyles(ENV.WEBPACK_ENV),
     loadAssets(),
     extractBundles([
       {
