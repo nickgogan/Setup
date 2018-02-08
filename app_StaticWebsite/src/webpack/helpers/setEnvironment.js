@@ -1,6 +1,5 @@
 import path from 'path';
 import dotEnv from 'dotenv-safe'; // eslint-disable-line
-import { getIfUtils } from 'webpack-config-utils'; // eslint-disable-line
 import pkg from '../../../package.json';
 
 const generateEnv = env => {
