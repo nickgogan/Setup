@@ -1,5 +1,4 @@
 import path from 'path';
-import dotEnv from 'dotenv-safe';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
@@ -8,7 +7,6 @@ import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
-// import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 /*
@@ -36,7 +34,6 @@ const webpackBanner = new webpack.BannerPlugin({
 });
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
-// Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
 const webpackInlineManifest = new InlineManifestPlugin();
 const webpackCompression = new CompressionPlugin({
@@ -113,6 +110,7 @@ export default env => {
         webpackBanner,
         webpackNamedModules,
         webpackNamedChunks,
+        // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
         webpackInlineManifest,
         webpackModuleConcatenator,

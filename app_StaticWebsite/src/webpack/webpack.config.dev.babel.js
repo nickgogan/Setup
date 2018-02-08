@@ -1,5 +1,4 @@
 import path from 'path';
-import dotEnv, { load, } from 'dotenv-safe';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
@@ -32,7 +31,6 @@ const webpackProgress = new webpack.ProgressPlugin();
 // });
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
-
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
 const webpackInlineManifest = new InlineManifestPlugin();
 const webpackMonitor = new MonitorPlugin({
@@ -108,6 +106,7 @@ export default env => {
         // webpackSourceMaps,
         webpackNamedModules,
         webpackNamedChunks,
+        // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest,
