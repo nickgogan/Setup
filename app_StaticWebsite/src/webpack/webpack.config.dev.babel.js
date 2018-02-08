@@ -6,11 +6,12 @@ import DotenvPlugin from 'dotenv-webpack';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
-import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
+// import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
+import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 /*
 ########################################
-        Create env and import Loaders
+                      Import loaders
 ########################################
 */
 import loadBabel from './parts/babelLoader.babel';
@@ -32,21 +33,7 @@ const webpackProgress = new webpack.ProgressPlugin();
 // });
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
-// Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules., new OfflinePlugin(),], // , webpackMonitor
-const nameNonNormalModules = {
-  apply(compiler) {
-    compiler.plugin('compilation', compilation => {
-      compilation.plugin('before-module-ids', modules => {
-        modules.forEach(module => {
-          if (module.id !== null) {
-            return;
-          }
-          module.id = module.identifier(); // eslint-disable-line
-        });
-      });
-    });
-  },
-};
+
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
 const webpackInlineManifest = new InlineManifestPlugin();
 const webpackMonitor = new MonitorPlugin({
@@ -63,9 +50,8 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 ########################################
 */
 
-module.exports = env => {
+export default env => {
   const ENV = setEnvironment(env);
-  const { ifProduction, ifNotProduction, } = getIfUtils(ENV.WEBPACK_ENV);
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
@@ -101,6 +87,7 @@ module.exports = env => {
         path: ENV.OUT_FULL_PATH,
         filename: `[name].[chunkhash:8].js`,
       },
+
       // Prevents weird fs errors. See 'Weird Findings' #6
       externals: {
         fs: 'commonjs fs',
@@ -118,7 +105,7 @@ module.exports = env => {
 
       plugins: [
         webpackProgress,
-        new DotenvPlugin(ENV), // Webpack sets the app-wide process.env.* variables.
+        new webpack.DefinePlugin(ENV), // Webpack sets the app-wide process.env.* variables.
         // webpackSourceMaps,
         webpackNamedModules,
         webpackNamedChunks,

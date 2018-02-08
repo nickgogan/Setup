@@ -6,7 +6,7 @@
   "scripts": {
     "prod": "npm-run-all -s prod:clean prod:build",
     "prod:build":
-      "webpack --colors --config ./src/webpack/webpack.config.js --env.prod --env.platform=web",
+      "webpack --colors --env.prod --config ./src/webpack/webpack.config.prod.babel.js",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "server":
       "nodemon --watch ./src/webpack --ignore node_modules --exec npm run \"dev:server\"",

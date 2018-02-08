@@ -9,43 +9,25 @@ import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
-
+// import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
+import nameNonNormalModules from './helpers/nameNonNormalModules';
+import setEnvironment from './helpers/setEnvironment';
 /*
 ########################################
-        Import Lower Config and Loaders
+                      Import loaders
 ########################################
 */
-import common from './webpack.common';
 import loadTemplates from './parts/templatesLoader.babel';
 import loadBabel from './parts/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import loadAssets from './parts/assetsLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
-
-/*
-########################################
-                    Define Constants
-########################################
-*/
-// Needed for use in this config file.
-const env = dotEnv.load({
-  path: path.resolve(__dirname, './../env/prod.env'),
-  sample: path.resolve(__dirname, './../env/prod.example.env'),
-}).parsed;
-env.OUT_FULL_PATH = path.resolve(__dirname, '../../', env.DEST);
-const ENV = Object.assign({}, common.PATHS, env);
-
 /*
 ########################################
                       Define Plugins
 ########################################
 */
-// Webpack sets the app-wide process.env.* variables.
 const webpackProgress = new webpack.ProgressPlugin();
-const appEnv = new DotenvPlugin({
-  path: path.join(__dirname, '../env/prod.env'),
-  safe: path.join(__dirname, '../env/prod.example.env'),
-});
 // const webpackSourceMaps = new webpack.SourceMapDevToolPlugin({
 //   filename: '[name].[chunkhash:8].map',
 //   // Excluded by chunk names
@@ -57,20 +39,6 @@ const webpackBanner = new webpack.BannerPlugin({
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
 // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
-const nameNonNormalModules = {
-  apply(compiler) {
-    compiler.plugin('compilation', compilation => {
-      compilation.plugin('before-module-ids', modules => {
-        modules.forEach(module => {
-          if (module.id !== null) {
-            return;
-          }
-          module.id = module.identifier(); // eslint-disable-line
-        });
-      });
-    });
-  },
-};
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
 const webpackInlineManifest = new InlineManifestPlugin();
 const webpackCompression = new CompressionPlugin({
@@ -92,48 +60,70 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
               Exported Webpack Config
 ########################################
 */
-export default MergePlugin(
-  common.config, // Must be the first merged item.
-  loadBabel(ENV.WEBPACK_ENV),
-  loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
-  loadStyles(),
-  loadAssets(),
-  extractBundles([
+export default env => {
+  const ENV = setEnvironment(env);
+
+  return MergePlugin(
+    loadBabel(ENV.WEBPACK_ENV),
+    loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
+    loadStyles(),
+    loadAssets(),
+    extractBundles([
+      {
+        name: 'vendor',
+        minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
+      },
+      {
+        name: 'manifest',
+        filename: 'webpack-runtime.[hash:8].js',
+        minChunks: Infinity,
+      },
+      {
+        async: true,
+        children: true,
+        name: 'CommonLazy',
+      },
+    ]),
     {
-      name: 'vendor',
-      minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
-    },
-    {
-      name: 'manifest',
-      filename: 'webpack-runtime.[hash:8].js',
-      minChunks: Infinity,
-    },
-    {
-      async: true,
-      children: true,
-      name: 'CommonLazy',
-    },
-  ]),
-  {
-    output: {
-      path: ENV.OUT_FULL_PATH,
-      filename: `[name].[chunkhash:8].js`,
-      publicPath: ENV.OUT_FULL_PATH,
-    },
-    plugins: [
-      webpackProgress,
-      appEnv,
-      // webpackSourceMaps,
-      webpackBanner,
-      webpackNamedModules,
-      webpackNamedChunks,
-      nameNonNormalModules,
-      webpackInlineManifest,
-      webpackModuleConcatenator,
-      webpackCompression,
-      webpackServiceWorker,
-      // webpackMonitor,
-      // webpackBundleAnalyzer
-    ],
-  }
-);
+      target: ENV.PLATFORM,
+      entry: {
+        main: [path.join(ENV.SRC_FULL_PATH, 'js/main.js'),],
+      },
+      output: {
+        path: ENV.OUT_FULL_PATH,
+        filename: `[name].[chunkhash:8].js`,
+      },
+
+      // Prevents weird fs errors. See 'Weird Findings' #6
+      externals: {
+        fs: 'commonjs fs',
+      },
+      // node: {
+      //   fs: 'empty'
+      //   // fs: 'commonjs fs'
+      // },
+
+      // Allow absolute paths in imports.
+      resolve: {
+        modules: ['node_modules', ENV.SRC_FULL_PATH,],
+        extensions: ['.js', '.postcss', 'html',],
+      },
+
+      plugins: [
+        webpackProgress,
+        new webpack.DefinePlugin(ENV), // Webpack sets the app-wide process.env.* variables.
+        // webpackSourceMaps,
+        webpackBanner,
+        webpackNamedModules,
+        webpackNamedChunks,
+        nameNonNormalModules,
+        webpackInlineManifest,
+        webpackModuleConcatenator,
+        // webpackCompression,
+        webpackServiceWorker,
+        // webpackMonitor,
+        // webpackBundleAnalyzer
+      ],
+    }
+  );
+};
