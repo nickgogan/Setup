@@ -4,38 +4,14 @@ declare module 'babel-polyfill' {
   declare module.exports: any;
 }
 
+declare module 'webpack' {
+  declare module.exports: any;
+}
+
 declare module 'console-log-html' {
   declare module.exports: any;
 }
 
-declare module 'dotenv-webpack' {
-  declare module.exports: any;
-}
-
-declare module 'dotenv-safe' {
-  declare module.exports: any;
-}
-
-declare module 'clean-webpack-plugin' {
-  declare module.exports: any;
-}
-
-declare module 'html-webpack-plugin' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-merge' {
-  declare module.exports: any;
-}
-
-declare module './test' {
-  declare module.exports: any;
-}
-
-declare module './foo' {
-  declare module.exports: any;
-}
-
-declare module './bar' {
+declare module 'offline-plugin' {
   declare module.exports: any;
 }

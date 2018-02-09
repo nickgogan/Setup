@@ -4,7 +4,9 @@ import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import GitRevisionPlugin from 'git-revision-webpack-plugin';
-import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
+import WebpackManifestPlugin from 'inline-manifest-webpack-plugin';
+import PWAManifest from 'webpack-pwa-manifest';
+import WebpackCopyPlugin from 'copy-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import nameNonNormalModules from './helpers/nameNonNormalModules';
@@ -35,13 +37,31 @@ const webpackBanner = new webpack.BannerPlugin({
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
-const webpackInlineManifest = new InlineManifestPlugin();
+const webpackInlineManifest = new WebpackManifestPlugin();
 const webpackCompression = new CompressionPlugin({
   test: /\.js($|\?)/i,
   algorithm: 'gzip',
   minRatio: 0.8,
   deleteOriginalAssets: true,
 });
+const webpackPWAManifest = new PWAManifest({
+  filename: 'assets.json',
+  name: 'My Progressive Web App',
+  short_name: 'MyPWA',
+  description: 'My awesome Progressive Web App!',
+  background_color: '#ffffff',
+  icons: [
+    {
+      src: path.resolve('./src/assets/favicon.png'),
+      sizes: [96, 128, 192, 256, 384, 512,], // multiple sizes
+    },
+  ],
+});
+const webpackCopyManifest = new WebpackCopyPlugin([
+  {
+    from: path.resolve(__dirname, '../assets/manifest.json'),
+  },
+]);
 const webpackServiceWorker = new OfflinePlugin();
 const webpackMonitor = new MonitorPlugin({
   capture: true,
@@ -113,8 +133,10 @@ export default env => {
         // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
         webpackInlineManifest,
+        webpackPWAManifest,
+        webpackCopyManifest,
         webpackModuleConcatenator,
-        // webpackCompression,
+        webpackCompression,
         webpackServiceWorker,
         // webpackMonitor,
         // webpackBundleAnalyzer

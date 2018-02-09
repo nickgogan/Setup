@@ -96,7 +96,7 @@ const robotsGenerator = new RobotsGeneratorPlugin({
   ],
 });
 const faviconsGenerator = new GenerateFaviconsPlugin({
-  logo: path.resolve(__dirname, '../../../assets/favicon.png'),
+  logo: path.resolve(__dirname, '../../assets/favicon.png'),
   title: 'MyApp',
   description: 'This is my app.',
   persistentCache: true,
@@ -162,7 +162,7 @@ export default (env, pagesNames) => {
       ifProduction(criticalCSS),
       ifProduction(socialinfoGenerator),
       ifProduction(robotsGenerator),
-      // ifProd(faviconsGenerator)
+      // ifProduction(faviconsGenerator),
     ]), // pagePage,
   };
 };

@@ -4,7 +4,6 @@ import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
-// import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 /*
