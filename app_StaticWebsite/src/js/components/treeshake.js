@@ -1,5 +1,5 @@
 // Testing treeshaking: "shake" should not appear in the main bundle.
-const shake = () => console.log('shake');
-const bake = () => console.log('bake');
+const shake = () => console.log('TREESHAKE: shake');
+const bake = () => console.log('TREESHAKE: bake');
 
-export { shake, bake };
+export { shake, bake, };

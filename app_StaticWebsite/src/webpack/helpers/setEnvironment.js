@@ -20,7 +20,6 @@ const generateEnv = env => {
       sample: path.resolve(__dirname, './../../env/dev.example.env'),
     }).parsed;
   }
-
   return Object.assign({}, commonEnv, specificEnv);
 };
 

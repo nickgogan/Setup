@@ -6,6 +6,7 @@ import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
+import stringifyEnvironment from './helpers/stringifyEnvironment';
 /*
 ########################################
                       Import loaders
@@ -101,7 +102,7 @@ export default env => {
 
       plugins: [
         webpackProgress,
-        new webpack.DefinePlugin(ENV), // Webpack sets the app-wide process.env.* variables.
+        new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
         // webpackSourceMaps,
         webpackNamedModules,
         webpackNamedChunks,

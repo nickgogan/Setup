@@ -1,4 +1,4 @@
 // @ts-check
 // @flow
 
-export default (text = 'Hello from BAAAR') => text;
+export default (text = 'LAZY-LOAD: BAR') => text;

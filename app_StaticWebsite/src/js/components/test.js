@@ -10,7 +10,7 @@ export default (text: string = 'Hi from TEST') => {
   element.onclick = () => {
     import(/* webpackChunkName: "async-foo" */ './foo')
       .then(foo => {
-        element.textContent = foo.default();
+        element.textContent = `TEST COMPONENT:\n${foo.default()}`;
       })
       .catch(err => {
         console.error(err);

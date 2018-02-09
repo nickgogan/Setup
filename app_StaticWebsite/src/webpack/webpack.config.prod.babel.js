@@ -7,10 +7,12 @@ import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import WebpackManifestPlugin from 'inline-manifest-webpack-plugin';
 import PWAManifest from 'webpack-pwa-manifest';
 import WebpackCopyPlugin from 'copy-webpack-plugin';
+import Test_OfflinePlugin from 'offline-plugin';
+import Test_SWPrecachePlugin from 'sw-precache-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
+import stringifyEnvironment from './helpers/stringifyEnvironment';
 /*
 ########################################
                       Import loaders
@@ -71,7 +73,20 @@ const webpackCopyManifest = new WebpackCopyPlugin([
     from: path.resolve(__dirname, '../assets/favicon.png'),
   },
 ]);
-const webpackServiceWorker = new OfflinePlugin();
+const webpackServiceWorker_OfflinePlugin = new Test_OfflinePlugin({
+  // externals: ['index.html',], // Make it aware of anything that webpack doesn't handle.
+  AppCache: false,
+  caches: 'all',
+  ServiceWorker: { events: true, }, // entry: 'sw-handler.js', },
+});
+const webpackServiceWorker_SWPrecache = new Test_SWPrecachePlugin({
+  cacheId: 'TEST',
+  dontCacheBustUrlsMatching: /\.(\w{8}|\w{6})\./,
+  filename: 'service-worker.js',
+  minify: true,
+  navigateFallback: './index.html',
+  staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/,],
+});
 const webpackMonitor = new MonitorPlugin({
   capture: true,
   launch: true,
@@ -89,7 +104,7 @@ export default env => {
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
-    loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
+    loadTemplates(ENV.WEBPACK_ENV, ['index',]), // '404', '500',
     loadStyles(ENV.WEBPACK_ENV), // Assets handled by the PostCSS pipeline.
     extractBundles([
       {
@@ -134,7 +149,7 @@ export default env => {
 
       plugins: [
         webpackProgress,
-        new webpack.DefinePlugin(ENV), // Webpack sets the app-wide process.env.* variables.
+        new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
         // webpackSourceMaps,
         webpackBanner,
         webpackNamedModules,
@@ -145,7 +160,8 @@ export default env => {
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
         webpackPWAManifest, // For the favicons. Generates assets.[hash].json
         webpackCopyManifest, // Copies the web app's manifest.json with the basic info/
-        webpackServiceWorker, // Caches everything in dist/* and that comes over the network
+        webpackServiceWorker_OfflinePlugin, // Caches everything in dist/* and that comes over the network
+        // webpackServiceWorker_SWPrecache,
         // webpackCompression,
         // webpackMonitor,
         // webpackBundleAnalyzer

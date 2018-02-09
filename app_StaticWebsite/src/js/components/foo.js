@@ -3,4 +3,4 @@
 
 import '../../styles/foo.postcss';
 
-export default (text = 'Hello from FOOOOO') => text;
+export default (text = 'LAZY-LOAD: FOO') => text;
