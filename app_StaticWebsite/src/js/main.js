@@ -1,6 +1,6 @@
 // @ts-check
 // @flow
-
+import 'babel-polyfill';
 import ConsoleLogHTML from 'console-log-html';
 import react from 'react'; // eslint-disable-line
 import * as OfflinePlugin from 'offline-plugin/runtime';

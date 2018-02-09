@@ -99,7 +99,14 @@ Note: `babel-register` is required to work with filename-loaders as seen in `web
 - **Date:** 2/05/2018
 
 10. **postcss-url**: Tried adding this to the PostCSS pipeline to get around the prod webpack config issues in point 9. After much config wrangling, it finally somewhat worked - had to use another plugin called **post-url-mapper** in order to fix the outputted url() values in the final css. However, the browser didn't render the image files and it also doubled them in file size - unacceptable.
-- **Date:** 2/05/2018
+- **Date:** 2/06/2018
 
 11. **html-webpack-plugin**: Not able to alter config object settings once set.
-- **Date**: 2/06/2018
+- **Date**: 2/07/2018
+
+12. **Babel 7:** Do not upgrade to Babel 7 - it's still too finicky. Also, make sure to `import 'babel-polyfill'` in `main.js`. Otherwise, the polyfill won't be available. Also, server ES6, not ES5, with `babel-preset-env` supporting the last 2 versions of browsers, safari > 8, and not ie < 11.
+- **Date:** 2/08/2018
+
+14. **webpack.LoaderOptionsPlugin**: Set it with options `minimize` and `debug` to eliminate debug code and to minize older webpack plugins. It resulted in non-trivial decreased in compiled priject size (as per **Webpack Monitor**).
+- **Date:** 2/08/2018
+
