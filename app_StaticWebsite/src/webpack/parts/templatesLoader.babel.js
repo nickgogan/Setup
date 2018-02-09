@@ -2,7 +2,7 @@ import path from 'path';
 import HtmlPlugin from 'html-webpack-plugin'; // eslint-disable-line
 import CriticalCSS from 'html-critical-webpack-plugin'; // eslint-disable-line
 import RobotsGeneratorPlugin from 'robotstxt-webpack-plugin'; // eslint-disable-line
-import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
+// import GenerateFaviconsPlugin from 'favicons-webpack-plugin'; // eslint-disable-line
 import GenerateSocialInfo from 'social-tags-webpack-plugin'; // eslint-disable-line
 import { getIfUtils, removeEmpty } from 'webpack-config-utils'; //eslint-disable-line
 
@@ -95,29 +95,29 @@ const robotsGenerator = new RobotsGeneratorPlugin({
     },
   ],
 });
-const faviconsGenerator = new GenerateFaviconsPlugin({
-  logo: path.resolve(__dirname, '../../assets/favicon.png'),
-  title: 'MyApp',
-  description: 'This is my app.',
-  persistentCache: true,
-  inject: true,
-  background: '#fff',
-  theme_color: '#fff',
-  icons: {
-    android: true,
-    appleIcon: true,
-    appleStartup: true,
-    coast: { offset: 25, },
-    favicons: true,
-    firefox: true,
-    opengraph: true,
-    twitter: true,
-    yandex: true,
-    windows: true,
-  },
-  emitStats: true,
-  statsFilename: 'iconstats-[hash].json',
-});
+// const faviconsGenerator = new GenerateFaviconsPlugin({
+//   logo: path.resolve(__dirname, '../../assets/favicon.png'),
+//   title: 'MyApp',
+//   description: 'This is my app.',
+//   persistentCache: true,
+//   inject: true,
+//   background: '#fff',
+//   theme_color: '#fff',
+//   icons: {
+//     android: true,
+//     appleIcon: true,
+//     appleStartup: true,
+//     coast: { offset: 25, },
+//     favicons: true,
+//     firefox: true,
+//     opengraph: true,
+//     twitter: true,
+//     yandex: true,
+//     windows: true,
+//   },
+//   emitStats: true,
+//   statsFilename: 'iconstats-[hash].json',
+// });
 const socialinfoGenerator = new GenerateSocialInfo({
   appUrl: 'http://example.com/',
   facebook: {

@@ -45,21 +45,30 @@ const webpackCompression = new CompressionPlugin({
   deleteOriginalAssets: true,
 });
 const webpackPWAManifest = new PWAManifest({
-  filename: 'assets.json',
+  filename: 'assets-manifest.json', // Don't name as manifest.json - This filename is used internally by htmlWebpackPlugin for H5 app cache manifest.
+  start_url: './index.html',
+  display: 'standalone',
+  orientation: 'portrait',
   name: 'My Progressive Web App',
   short_name: 'MyPWA',
   description: 'My awesome Progressive Web App!',
   background_color: '#ffffff',
+  theme_color: '#ffffff',
+  ios: {
+    'apple-mobile-web-app-title': 'AppTitle',
+    'apple-mobile-web-app-status-bar-style': 'black',
+  },
   icons: [
     {
       src: path.resolve('./src/assets/favicon.png'),
       sizes: [96, 128, 192, 256, 384, 512,], // multiple sizes
+      ios: true,
     },
   ],
 });
 const webpackCopyManifest = new WebpackCopyPlugin([
   {
-    from: path.resolve(__dirname, '../assets/manifest.json'),
+    from: path.resolve(__dirname, '../assets/favicon.png'),
   },
 ]);
 const webpackServiceWorker = new OfflinePlugin();
@@ -89,7 +98,7 @@ export default env => {
       },
       {
         name: 'manifest',
-        filename: 'webpack-runtime.[hash:8].js',
+        filename: 'webpack-runtime.js',
         minChunks: Infinity,
       },
       {
@@ -132,12 +141,12 @@ export default env => {
         webpackNamedChunks,
         // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
-        webpackInlineManifest,
-        webpackPWAManifest,
-        webpackCopyManifest,
         webpackModuleConcatenator,
-        webpackCompression,
-        webpackServiceWorker,
+        webpackInlineManifest, // For Webpack assets. Inlines into index.html
+        webpackPWAManifest, // For the favicons. Generates assets.[hash].json
+        webpackCopyManifest, // Copies the web app's manifest.json with the basic info/
+        webpackServiceWorker, // Caches everything in dist/* and that comes over the network
+        // webpackCompression,
         // webpackMonitor,
         // webpackBundleAnalyzer
       ],
