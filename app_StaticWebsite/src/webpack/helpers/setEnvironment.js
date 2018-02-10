@@ -34,7 +34,7 @@ export default env => {
     HOST: ENV.HOST,
     PORT: ENV.PORT,
     LOG_LEVEL: ENV.LOG_LEVEL,
-    NODE_ENV: ENV.NODE_ENV,
+    'process.env.NODE_ENV': ENV.NODE_ENV, // Mostly for React
     WEBPACK_ENV: ENV.WEBPACK_ENV,
   };
 };

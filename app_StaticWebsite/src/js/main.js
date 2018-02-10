@@ -1,9 +1,8 @@
 // @ts-check
 // @flow
-import 'babel-polyfill';
+// import 'babel-polyfill'; // Only use after verifying you need it.
 import ConsoleLogHTML from 'console-log-html';
 import react from 'react'; // eslint-disable-line
-// import * as OfflinePlugin from 'offline-plugin/runtime';
 import component from './components/test';
 import '../styles/main.postcss';
 import { bake, } from './components/treeshake';
@@ -12,17 +11,22 @@ ConsoleLogHTML.connect(document.querySelector('#log'));
 
 if (WEBPACK_ENV === 'production') {
   console.log('MAIN: PROD');
+  console.log(`NODE_ENV:${process.env.NODE_ENV}`);
 
-  const runtime = require('offline-plugin/runtime');
-  runtime.install();
+  const OfflinePluginRuntime = require('offline-plugin/runtime');
+  OfflinePluginRuntime.install();
 
   // (function() {
   //   if ('serviceWorker' in navigator) {
   //     navigator.serviceWorker.register('/service-worker.js');
   //   }
   // })();
-} else {
+} else if (WEBPACK_ENV === 'development') {
   console.log('MAIN: DEV');
+  console.log(`NODE_ENV:${process.env.NODE_ENV}`);
+} else {
+  console.log(`WEBPACK_ENV not seen:${WEBPACK_ENV}`);
+  console.log(`NODE_ENV:${process.env.NODE_ENV}`);
 }
 
 class Main {

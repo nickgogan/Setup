@@ -48,7 +48,7 @@ const webpackCompression = new CompressionPlugin({
 });
 const webpackPWAManifest = new PWAManifest({
   filename: 'assets-manifest.json', // Don't name as manifest.json - This filename is used internally by htmlWebpackPlugin for H5 app cache manifest.
-  start_url: './index.html',
+  start_url: 'https://static-web-site-16a54.firebaseapp.com/',
   display: 'standalone',
   orientation: 'portrait',
   name: 'My Progressive Web App',
@@ -63,7 +63,7 @@ const webpackPWAManifest = new PWAManifest({
   icons: [
     {
       src: path.resolve('./src/assets/favicon.png'),
-      sizes: [96, 128, 192, 256, 384, 512,], // multiple sizes
+      sizes: [16, 144,], // 32, 36, 48, 96, 128, 152, 167, 180, 192, 256, 384, 512,], // multiple sizes
       ios: true,
     },
   ],
@@ -158,13 +158,13 @@ export default env => {
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
-        webpackPWAManifest, // For the favicons. Generates assets.[hash].json
-        webpackCopyManifest, // Copies the web app's manifest.json with the basic info/
+        webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
+        webpackCopyManifest, // For favicon.png
         webpackServiceWorker_OfflinePlugin, // Caches everything in dist/* and that comes over the network
-        // webpackServiceWorker_SWPrecache,
-        // webpackCompression,
+        // webpackServiceWorker_SWPrecache, // TODO:
+        // webpackCompression, // Only use to estimate deployment size.
         // webpackMonitor,
-        // webpackBundleAnalyzer
+        // webpackBundleAnalyzer,
       ],
     }
   );
