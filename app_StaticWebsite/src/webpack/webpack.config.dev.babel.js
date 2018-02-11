@@ -52,7 +52,12 @@ export default env => {
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
-    loadTemplates(ENV.WEBPACK_ENV, ['index', '404', '500',]),
+    loadTemplates(ENV.WEBPACK_ENV, [
+      'index',
+      // 'unreachableServer',
+      '5xx',
+      'missingResource',
+    ]),
     loadStyles(ENV.WEBPACK_ENV),
     loadAssets(),
     extractBundles([

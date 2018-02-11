@@ -72,6 +72,9 @@ const webpackCopyManifest = new WebpackCopyPlugin([
   {
     from: path.resolve(__dirname, '../assets/favicon.png'),
   },
+  {
+    from: path.resolve(__dirname, '../assets/.htaccess'),
+  },
 ]);
 const webpackServiceWorker_OfflinePlugin = new Test_OfflinePlugin({
   // externals: ['index.html',], // Make it aware of anything that webpack doesn't handle.
@@ -80,12 +83,12 @@ const webpackServiceWorker_OfflinePlugin = new Test_OfflinePlugin({
   ServiceWorker: { events: true, }, // entry: 'sw-handler.js', },
 });
 const webpackServiceWorker_SWPrecache = new Test_SWPrecachePlugin({
-  cacheId: 'TEST',
-  dontCacheBustUrlsMatching: /\.(\w{8}|\w{6})\./,
+  cacheId: 'service-worker',
+  dontCacheBustUrlsMatching: /\.(\w{6,})\./,
   filename: 'service-worker.js',
   minify: true,
   navigateFallback: './index.html',
-  staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/,],
+  staticFileGlobsIgnorePatterns: [/\.map$/m, /^assets-manifest/m,],
 });
 const webpackMonitor = new MonitorPlugin({
   capture: true,
@@ -104,7 +107,12 @@ export default env => {
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
-    loadTemplates(ENV.WEBPACK_ENV, ['index',]), // '404', '500',
+    loadTemplates(ENV.WEBPACK_ENV, [
+      'index',
+      // 'unreachableServer',
+      '5xx',
+      // 'missingResource',
+    ]),
     loadStyles(ENV.WEBPACK_ENV), // Assets handled by the PostCSS pipeline.
     extractBundles([
       {
