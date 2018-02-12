@@ -7,8 +7,14 @@ import component from './components/test';
 import '../styles/main.postcss';
 import { bake, } from './components/treeshake';
 
+// Showcase console messages.
 ConsoleLogHTML.connect(document.querySelector('#log'));
 
+/*
+########################################
+                    Service Worker
+########################################
+*/
 if (WEBPACK_ENV === 'production') {
   console.log('MAIN: PROD');
   console.log(`NODE_ENV:${process.env.NODE_ENV}`);
@@ -16,9 +22,11 @@ if (WEBPACK_ENV === 'production') {
   const OfflinePluginRuntime = require('offline-plugin/runtime');
   OfflinePluginRuntime.install({
     onUpdateReady() {
+      console.log('[SW] Updated content found.');
       OfflinePluginRuntime.applyUpdate();
     },
     onUpdated() {
+      console.log('[SW] Updated content reloading.');
       window.location.reload();
     },
   });
@@ -81,16 +89,21 @@ if (WEBPACK_ENV === 'production') {
   console.log(`WEBPACK_ENV not seen:${WEBPACK_ENV}`);
   console.log(`NODE_ENV:${process.env.NODE_ENV}`);
 }
-
+// Test - Babel
 class Main {
   constructor(message) {
     console.log(message);
   }
 }
 const newTest = new Main('MAIN: BABEL WORKING');
+
+// Test - Tree shaking
 bake();
+
+// Lazy-load module/component.
 document.body.appendChild(component());
 
+// Async load module/component.
 // TODO: Investigate possibility of using async/await here.
 Promise.all([import(/* webpackChunkName: "async-bar" */ './components/bar'),])
   .then(([bar,]) => {

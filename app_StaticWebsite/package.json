@@ -6,23 +6,17 @@
   "scripts": {
     "deploy": "npm run prod && firebase deploy",
     "prod": "npm-run-all -s prod:clean prod:build",
-    "prod:build":
-      "webpack --colors --env.prod --config ./src/webpack/webpack.config.prod.babel.js",
+    "prod:build": "webpack --colors --env.prod --config ./src/webpack/webpack.config.prod.babel.js",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
-    "prod:server":
-      "webpack-dev-server --inline --progress --color --env.prod --config ./src/webpack/webpack.config.prod.babel.js",
-    "server":
-      "nodemon --watch ./src/webpack --ignore node_modules --exec npm run \"dev:server\"",
+    "prod:server": "webpack-dev-server --inline --progress --color --env.prod --config ./src/webpack/webpack.config.prod.babel.js",
+    "server": "nodemon --watch ./src/webpack --ignore node_modules --exec npm run \"dev:server\"",
     "dev": "npm-run-all -s dev:clean dev:build",
-    "dev:server":
-      "webpack-dev-server --inline --color --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
-    "dev:build":
-      "webpack --progress --colors  --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
+    "dev:server": "webpack-dev-server --inline --color --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
+    "dev:build": "webpack --progress --colors  --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "share": "npm-run-all -s security localtunnel",
     "security": "npx nsp check --reporter summary",
-    "localtunnel":
-      "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
+    "localtunnel": "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
     "postinstall": "flow-scripts stub"
   },
   "keywords": [
@@ -131,7 +125,6 @@
     "robotstxt-webpack-plugin": "4.0.0",
     "social-tags-webpack-plugin": "0.0.8",
     "style-loader": "0.19.1",
-    "sw-precache-webpack-plugin": "0.11.4",
     "text-transform-loader": "2.0.0",
     "uglifyjs-webpack-plugin": "1.1.6",
     "url-loader": "0.6.2",

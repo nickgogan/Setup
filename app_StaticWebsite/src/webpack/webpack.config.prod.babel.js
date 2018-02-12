@@ -7,8 +7,7 @@ import GitRevisionPlugin from 'git-revision-webpack-plugin';
 import WebpackManifestPlugin from 'inline-manifest-webpack-plugin';
 import PWAManifest from 'webpack-pwa-manifest';
 import WebpackCopyPlugin from 'copy-webpack-plugin';
-import Test_OfflinePlugin from 'offline-plugin';
-import Test_SWPrecachePlugin from 'sw-precache-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
@@ -76,19 +75,11 @@ const webpackCopyManifest = new WebpackCopyPlugin([
     from: path.resolve(__dirname, '../assets/.htaccess'),
   },
 ]);
-const webpackServiceWorker_OfflinePlugin = new Test_OfflinePlugin({
+const webpackServiceWorker_OfflinePlugin = new OfflinePlugin({
   // externals: ['index.html',], // Make it aware of anything that webpack doesn't handle.
   AppCache: false,
   caches: 'all',
   ServiceWorker: { events: true, }, // entry: 'sw-handler.js', },
-});
-const webpackServiceWorker_SWPrecache = new Test_SWPrecachePlugin({
-  cacheId: 'service-worker',
-  dontCacheBustUrlsMatching: /\.(\w{6,})\./,
-  filename: 'service-worker.js',
-  minify: true,
-  navigateFallback: './index.html',
-  staticFileGlobsIgnorePatterns: [/\.map$/m, /^assets-manifest/m,],
 });
 const webpackMonitor = new MonitorPlugin({
   capture: true,
@@ -109,7 +100,6 @@ export default env => {
     loadBabel(ENV.WEBPACK_ENV),
     loadTemplates(ENV.WEBPACK_ENV, [
       'index',
-      // 'unreachableServer',
       '5xx',
       // 'missingResource',
     ]),
@@ -169,7 +159,6 @@ export default env => {
         webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
         webpackCopyManifest, // For favicon.png
         webpackServiceWorker_OfflinePlugin, // Caches everything in dist/* and that comes over the network
-        // webpackServiceWorker_SWPrecache, // TODO:
         // webpackCompression, // Only use to estimate deployment size.
         // webpackMonitor,
         // webpackBundleAnalyzer,
