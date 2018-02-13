@@ -23,6 +23,10 @@
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
     },
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
+    },
     "css-modules/no-unused-class": [2, { "camelCase": true }],
     "css-modules/no-undef-class": [2, { "camelCase": true }],
     "html/html-extensions": ["html", "htm", "xml"],

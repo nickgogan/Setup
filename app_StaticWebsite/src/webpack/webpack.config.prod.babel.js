@@ -76,7 +76,7 @@ const webpackCopyManifest = new WebpackCopyPlugin([
     from: path.resolve(__dirname, '../assets/.htaccess'),
   },
 ]);
-const webpackServiceWorker_OfflinePlugin = new OfflinePlugin({
+const webpackServiceWorker = new OfflinePlugin({
   // externals: ['index.html',], // Make it aware of anything that webpack doesn't handle.
   AppCache: false,
   caches: 'all',
@@ -161,7 +161,7 @@ export default env => {
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
         webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
         webpackCopyManifest, // For favicon.png
-        webpackServiceWorker_OfflinePlugin, // Caches everything in dist/* and that comes over the network
+        webpackServiceWorker, // Caches everything in dist/* and that comes over the network
         // webpackCompression, // Only use to estimate deployment size.
         // webpackMonitor,
         // webpackBundleAnalyzer,

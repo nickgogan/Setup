@@ -47,14 +47,17 @@ export default env => {
                   'react',
                 ],
                 // "sourceMaps": true,
-                plugins: [
+                plugins: removeEmpty([
                   // Plugins loaded after presets
                   // Plugins loaded first-to-last
-                  'transform-runtime', // Prevents polution of global scope with Promise objects.,
+                  'transform-runtime', // Prevents polution of global scope with Promise objects. Should be the first plugin loaded.
                   'transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
                   'syntax-dynamic-import', // Enables things like lazy-loading.
                   'transform-flow-strip-types', // Using Flow instead of prop-types
-                ],
+                  ifProduction('transform-react-constant-elements'), // Hoists element creation to top level for subtrees that are fully static, which reduces calls to React.createElement. Only used prod, since it makes warning messages more cryptic.
+                  ifProduction('transform-react-inline-elements'), // Replaces React/createElement function with babelHelpers.jsx, which is faster and inlines components when possible. If using rest/spread or ref, it will revert to React.createElement.
+                  ifProduction('transform-react-remove-prop-types'), // Remove React propTypes from the prod build, which should save some bandwidth.
+                ]),
               },
             },
           ],
