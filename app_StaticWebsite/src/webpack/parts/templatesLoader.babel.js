@@ -20,15 +20,27 @@ const baseTemplate = page => ({
   title: 'MyApp',
   desc: 'This is my app.',
   inject: 'body',
+  // Note that you can add custom options here if you need to handle other custom logic in index.html
+  // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
+  trackJSToken: '',
 });
 const productionTemplate = page => ({
   filename: path.resolve(__dirname, `../../../dist/${page}.html`),
+  // favicon: path.resolve('../../assets/favicon.png'),
   minify: {
     html5: true, // TODO: Update if upgrading to HTML6
     collapseWhitespace: true,
     collapseInlineTagWhitespace: true,
     removeComments: true,
     trimCustomFragments: true,
+    // removeRedundantAttributes: true,
+    // useShortDoctype: true,
+    // removeEmptyAttributes: true,
+    // removeStyleLinkTypeAttributes: true,
+    // keepClosingSlash: true,
+    // minifyJS: true,
+    // minifyCSS: true,
+    // minifyURLs: true
   },
   showErrors: false,
 });

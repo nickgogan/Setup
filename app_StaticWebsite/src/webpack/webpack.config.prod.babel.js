@@ -21,6 +21,7 @@ import loadTemplates from './parts/templatesLoader.babel';
 import loadBabel from './parts/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
+import loadAssets from './parts/assetsLoader.babel';
 /*
 ########################################
                       Define Plugins
@@ -104,6 +105,7 @@ export default env => {
       // 'missingResource',
     ]),
     loadStyles(ENV.WEBPACK_ENV), // Assets handled by the PostCSS pipeline.
+    loadAssets(),
     extractBundles([
       {
         name: 'vendor',
@@ -127,6 +129,7 @@ export default env => {
       },
       output: {
         path: ENV.OUT_FULL_PATH,
+        // publicPath: '/', // Should hopefully not be needed
         filename: `[name].[chunkhash:8].js`,
       },
 
@@ -142,7 +145,7 @@ export default env => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'html',],
+        extensions: ['.js', '.jsx', '.postcss', 'css', 'html',],
       },
 
       plugins: [

@@ -30,33 +30,23 @@ const prodCSS = extractCSS => {
   const srcPath = path.resolve(__dirname, '../../assets/');
   const distPath = path.resolve(__dirname, '../../../dist/assets');
 
-  return extractCSS.extract({
-    fallback: 'style-loader',
+  return ExtractTextPlugin.extract({
     use: [
-      // PostCSS handles both fonts and images
       {
         loader: 'css-loader',
         options: {
+          // minimize: true,
+          // sourceMap: true,
           importLoaders: 1,
-          url: false,
-          import: false,
-          root: '/',
+          // url: false,
+          // import: false,
+          // root: '/',
         },
-        loader: 'postcss-loader', // eslint-disable-line
+      },
+      {
+        loader: 'postcss-loader',
         options: {
           plugins: () => [
-            PostCSSSVG({
-              dirs: ['../../assets/images',],
-              plugins: [{ cleanupAttrs: true, },],
-            }),
-            PostCSSSmartAsset({
-              url: 'copy',
-              basePath: srcPath,
-              assetsPath: distPath,
-              useHash: true,
-              prependName: true,
-            }),
-            PostCSSURLMapper(urlMapper),
             PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
             PreCSS,
             CSSNext({
@@ -66,6 +56,7 @@ const prodCSS = extractCSS => {
               },
             }),
           ],
+          sourceMap: true,
         },
       },
     ],

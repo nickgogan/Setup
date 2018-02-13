@@ -102,7 +102,7 @@ export default env => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'html',],
+        extensions: ['.js', '.jsx', '.postcss', 'css', 'html',],
       },
 
       plugins: [

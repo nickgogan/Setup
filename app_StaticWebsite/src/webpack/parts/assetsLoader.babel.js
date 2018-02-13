@@ -2,26 +2,67 @@ export default () => ({
   module: {
     rules: [
       {
-        test: /\.(jpe?g|png|svg)($|\?)/i,
+        test: /\.eot(\?v=\d+.\d+.\d+)?$/,
         use: [
           {
-            loader: 'url-loader', // `${require.resolve('file-loader')}`,
+            loader: 'url-loader',
             options: {
-              limit: 800,
-              name: './assets/images/[name].[hash:8].[ext]',
+              name: 'assets/fonts/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff',
+              name: 'assets/fonts/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/octet-stream',
+              name: 'assets/fonts/[name].[hash:8].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'image/svg+xml',
+              name: 'assets/images/[name].[hash:8].[ext]',
             },
           },
           'img-loader',
         ],
       },
       {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        use: {
-          loader: 'file-loader', // url-loader for inlining to prevent FOUC
-          options: {
-            name: './assets/fonts/[name].[hash:8].[ext]',
+        test: /\.(jpe?g|png|gif|ico|ttf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              // name: '../assets/fonts/[name].[hash:8].[ext]',
+              name: 'assets/images/[name].[hash:8].[ext]',
+            },
           },
-        },
+        ],
       },
     ],
   },
