@@ -70,17 +70,17 @@ const webpackPWAManifest = new PWAManifest({
 });
 const webpackCopyManifest = new WebpackCopyPlugin([
   {
-    from: path.resolve(__dirname, '../assets/favicon.png'),
+    from: path.resolve(__dirname, '../assets/favicon.ico'),
   },
   {
     from: path.resolve(__dirname, '../assets/.htaccess'),
   },
 ]);
 const webpackServiceWorker = new OfflinePlugin({
-  // externals: ['index.html',], // Make it aware of anything that webpack doesn't handle.
   AppCache: false,
   caches: 'all',
-  ServiceWorker: { events: true, }, // entry: 'sw-handler.js', },
+  ServiceWorker: { events: true, minify: true, }, // entry: 'sw-handler.js', },
+  excludes: ['.htaccess',],
 });
 const webpackMonitor = new MonitorPlugin({
   capture: true,
