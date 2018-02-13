@@ -7,8 +7,16 @@
       }
     ],
     "stage-0",
-    "flow"
+    "flow",
+    "react"
   ],
   "sourceMaps": true,
-  "ignore": ["*.ts", "./dist/*", "./build/*", "./docs", "./Documentation"]
+  "ignore": [
+    ".cache-loader",
+    "*.ts",
+    "./dist/*",
+    "./build/*",
+    "./docs",
+    "./Documentation"
+  ]
 }

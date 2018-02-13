@@ -22,7 +22,7 @@ export default env => {
     module: {
       rules: [
         {
-          test: /\.js($|\?)/i,
+          test: /\.jsx?($|\?)/i,
           exclude: /node_modules/,
           use: [
             {
@@ -32,6 +32,8 @@ export default env => {
               loader: 'babel-loader', // babel-loader?cacheDirectory - Removed in favor of cache-loader
               options: {
                 presets: [
+                  // Presets loaded before plugins
+                  // Presets loaded last-to-first
                   [
                     'env',
                     {
@@ -42,11 +44,16 @@ export default env => {
                   ],
                   'stage-0',
                   'flow',
+                  'react',
                 ],
+                // "sourceMaps": true,
                 plugins: [
-                  'babel-plugin-transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
-                  'babel-plugin-syntax-dynamic-import', // Enables things like lazy-loading.
+                  // Plugins loaded after presets
+                  // Plugins loaded first-to-last
                   'transform-runtime', // Prevents polution of global scope with Promise objects.,
+                  'transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
+                  'syntax-dynamic-import', // Enables things like lazy-loading.
+                  'transform-flow-strip-types', // Using Flow instead of prop-types
                 ],
               },
             },
