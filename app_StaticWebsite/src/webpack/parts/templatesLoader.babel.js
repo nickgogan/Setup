@@ -26,21 +26,18 @@ const baseTemplate = page => ({
 });
 const productionTemplate = page => ({
   filename: path.resolve(__dirname, `../../../dist/${page}.html`),
-  // favicon: path.resolve('../../assets/favicon.png'),
   minify: {
     html5: true, // TODO: Update if upgrading to HTML6
     collapseWhitespace: true,
     collapseInlineTagWhitespace: true,
     removeComments: true,
     trimCustomFragments: true,
-    // removeRedundantAttributes: true,
-    // useShortDoctype: true,
-    // removeEmptyAttributes: true,
-    // removeStyleLinkTypeAttributes: true,
-    // keepClosingSlash: true,
-    // minifyJS: true,
-    // minifyCSS: true,
-    // minifyURLs: true
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyURLs: true,
   },
   showErrors: false,
 });
@@ -147,10 +144,9 @@ export default (env, pagesNames) => {
     cache: ifProduction(),
     plugins: removeEmpty([
       ...templates,
-      // ifProduction(criticalCSS),
+      ifProduction(criticalCSS),
       ifProduction(socialinfoGenerator),
       ifProduction(robotsGenerator),
-      // ifProduction(faviconsGenerator),
-    ]), // pagePage,
+    ]),
   };
 };

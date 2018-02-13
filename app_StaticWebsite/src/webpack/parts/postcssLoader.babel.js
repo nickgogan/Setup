@@ -38,6 +38,8 @@ const prodCSS = extractCSS => {
           // minimize: true,
           // sourceMap: true,
           importLoaders: 1,
+          modules: true,
+          localIdentName: '[name]__[local]__[hash:8]',
           // url: false,
           // import: false,
           // root: '/',

@@ -8,6 +8,7 @@ import component from './components/test';
 import '../styles/main.postcss';
 import { bake, } from './components/treeshake';
 import App from '../components/app';
+// import 'favicon.png';
 
 // Showcase console messages in-browser.
 ConsoleLogHTML.connect(document.querySelector('#log'));
