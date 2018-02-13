@@ -104,6 +104,7 @@ TODO         text
 ## LINTERS
 .csslintrc    text
 .eslintrc     text
+.eslintrc.js     text
 .htmlhintrc   text
 .jscsrc       text
 .jshintrc     text

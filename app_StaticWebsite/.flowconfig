@@ -17,4 +17,5 @@ module.file_ext=.json
 module.file_ext=.css
 module.file_ext=.scss
 module.file_ext=.postcss
+suppress_comment= \\(.\\|\n\\)*\\$flow-disable-line
 [strict]

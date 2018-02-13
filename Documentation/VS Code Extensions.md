@@ -105,3 +105,5 @@
 1. Git Lens (eamodio.gitlens): git blame annotations, code lens, and more.
 
 1. postcss-sugarss-language (mhmadhamster.postcss-language): add syntax highlighting and some IntelliSense for PostCSS files (.pcss, .postcss, .sss files).
+
+1. dotenv (mikestead.dotenv): Add syntax highlighting for .env files.
