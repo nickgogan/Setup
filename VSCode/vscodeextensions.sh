@@ -50,3 +50,4 @@ code --install-extension DotJoshJohnson.xml
 code --install-extension adamvoss.yaml
 code --install-extension mhmadhamster.postcss-language
 code --install-extension mikestead.dotenv
+code --instal-extension EQuimper.react-native-react-redux

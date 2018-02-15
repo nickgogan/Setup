@@ -51,3 +51,4 @@ code --install-extension adamvoss.yaml
 code --install-extension eamodio.gitlens
 code --install-extension mhmadhamster.postcss-language
 code --install-extension mikestead.dotenv
+code --instal-extension EQuimper.react-native-react-redux

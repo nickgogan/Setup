@@ -107,3 +107,5 @@
 1. postcss-sugarss-language (mhmadhamster.postcss-language): add syntax highlighting and some IntelliSense for PostCSS files (.pcss, .postcss, .sss files).
 
 1. dotenv (mikestead.dotenv): Add syntax highlighting for .env files.
+
+1. React-Native/React/Redux snippets for es6/es7 (EQuimper.react-native-react-redux): Snippets
