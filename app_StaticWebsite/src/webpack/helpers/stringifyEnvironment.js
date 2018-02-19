@@ -6,6 +6,6 @@ export default Env => {
   for (i; i < inputValues.length; i++) {
     final[inputKeys[i]] = inputValues[i];
   }
-  // console.log(final);
+
   return final;
 };

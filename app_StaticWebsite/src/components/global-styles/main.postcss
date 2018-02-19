@@ -1,0 +1,25 @@
+@import '../global-styles/config.postcss';
+@import '../global-styles/reset.postcss';
+
+/*Grid*/
+body {
+  width: 100%;
+  min-height: var(--html-height);
+  display: grid;
+  margin: 2rem 4rem 2rem 1rem;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-template-rows: auto;
+  grid-column-gap: 0.5rem;
+  grid-template-areas:
+    'header header header header'
+    'main main main sidebar'
+    'footer footer footer footer';
+  background-image: url('../../assets/images/test.svg');
+  background-color: var(--color-secondary);
+  font-family: LeagueSpartan, Arial, Helvetica, sans-serif;
+}
+
+/* Test PurifyCSS - this is not used anywhere */
+#flex {
+  display: flex;
+}

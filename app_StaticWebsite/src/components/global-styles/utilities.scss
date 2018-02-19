@@ -8,7 +8,7 @@ $faded: true !default;
 
 %menu-link-options {
   background: $blue;
-  height: @width;
+  @include times(2);
 }
 
 .menu {

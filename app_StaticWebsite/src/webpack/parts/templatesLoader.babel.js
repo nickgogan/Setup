@@ -88,6 +88,7 @@ const robotsGenerator = new RobotsGeneratorPlugin({
       disallow: '/search',
       crawlDelay: 2,
     },
+    // Set up other search engine bots here
     {
       userAgent: 'OtherBot',
       allow: ['/allow-for-all-bots', '/allow-only-for-other-bot',],

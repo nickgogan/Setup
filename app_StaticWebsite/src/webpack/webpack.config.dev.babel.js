@@ -79,7 +79,7 @@ export default env => {
     {
       target: ENV.PLATFORM,
       entry: {
-        main: [path.join(ENV.SRC_FULL_PATH, 'js/main.js'),],
+        main: [path.join(ENV.SRC_FULL_PATH, 'main.js'),],
         hmr: [
           'webpack/hot/dev-server',
           `webpack-dev-server/client?http://localhost:3001`,
@@ -102,7 +102,7 @@ export default env => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'css', 'html',],
+        extensions: ['.js', '.jsx', '.postcss', 'css', 'scss', 'html',],
       },
 
       plugins: [

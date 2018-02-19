@@ -74,7 +74,7 @@
     "max-len": [1, 80, 2, { "ignoreComments": true }],
     "global-require": 0,
     "object-curly-spacing": [2, "always"],
-    "no-plusplus": "error",
+    "no-plusplus": "off",
     "no-unused-vars": "warn",
     "no-unused-expressions": "warn",
     "valid-jsdoc": "warn",

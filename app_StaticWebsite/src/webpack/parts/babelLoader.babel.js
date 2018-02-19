@@ -42,7 +42,6 @@ export default env => {
                       debug: false,
                     },
                   ],
-                  'stage-0',
                   'flow',
                   'react',
                 ],
@@ -55,8 +54,8 @@ export default env => {
                   'syntax-dynamic-import', // Enables things like lazy-loading.
                   'transform-flow-strip-types', // Using Flow instead of prop-types
                   ifProduction('transform-react-constant-elements'), // Hoists element creation to top level for subtrees that are fully static, which reduces calls to React.createElement. Only used prod, since it makes warning messages more cryptic.
-                  ifProduction('transform-react-inline-elements'), // Replaces React/createElement function with babelHelpers.jsx, which is faster and inlines components when possible. If using rest/spread or ref, it will revert to React.createElement.
-                  ifProduction('transform-react-remove-prop-types'), // Remove React propTypes from the prod build, which should save some bandwidth.
+                  ifProduction('transform-react-inline-elements'), // Replaces React.createElement function with babelHelpers.jsx, which is faster and inlines components when possible. If using rest/spread or ref, it will revert to React.createElement.
+                  ifProduction('transform-react-remove-prop-types'), // Remove React propTypes-related functions from the prod build, which should save some bandwidth.
                 ]),
               },
             },

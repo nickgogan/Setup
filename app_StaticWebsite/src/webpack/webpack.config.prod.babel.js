@@ -9,9 +9,11 @@ import PWAManifest from 'webpack-pwa-manifest';
 import WebpackCopyPlugin from 'copy-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 import stringifyEnvironment from './helpers/stringifyEnvironment';
+
 /*
 ########################################
                       Import loaders
@@ -22,6 +24,7 @@ import loadBabel from './parts/babelLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 import loadAssets from './parts/assetsLoader.babel';
+
 /*
 ########################################
                       Define Plugins
@@ -47,7 +50,7 @@ const webpackCompression = new CompressionPlugin({
   deleteOriginalAssets: true,
 });
 const webpackPWAManifest = new PWAManifest({
-  filename: 'assets-manifest.json', // Don't name as manifest.json - This filename is used internally by htmlWebpackPlugin for H5 app cache manifest.
+  filename: 'assets-manifest.json', // Don't name as manifest.json - This filename is used internally by htmlWebpackPlugin for the H5 app cache manifest.
   start_url: 'https://static-web-site-16a54.firebaseapp.com/',
   display: 'standalone',
   orientation: 'portrait',
@@ -63,7 +66,7 @@ const webpackPWAManifest = new PWAManifest({
   icons: [
     {
       src: path.resolve('./src/assets/favicon.png'),
-      sizes: [16, 144,], // 32, 36, 48, 96, 128, 152, 167, 180, 192, 256, 384, 512,], // multiple sizes
+      sizes: [16, 120, 144, 152, 167, 180, 512,],
       ios: true,
     },
   ],
@@ -75,12 +78,15 @@ const webpackCopyManifest = new WebpackCopyPlugin([
   {
     from: path.resolve(__dirname, '../assets/.htaccess'),
   },
+  {
+    from: path.resolve(__dirname, '../assets/.nginx.conf'),
+  },
 ]);
 const webpackServiceWorker = new OfflinePlugin({
   AppCache: false,
   caches: 'all',
   ServiceWorker: { events: true, minify: true, }, // entry: 'sw-handler.js', },
-  excludes: ['.htaccess',],
+  excludes: ['.htaccess', '.nginx.conf',],
 });
 const webpackMonitor = new MonitorPlugin({
   capture: true,
@@ -125,7 +131,7 @@ export default env => {
     {
       target: ENV.PLATFORM,
       entry: {
-        main: [path.join(ENV.SRC_FULL_PATH, 'js/main.js'),],
+        main: [path.join(ENV.SRC_FULL_PATH, 'main.js'),],
       },
       output: {
         path: ENV.OUT_FULL_PATH,
@@ -145,7 +151,7 @@ export default env => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'css', 'html',],
+        extensions: ['.js', '.jsx', '.postcss', 'css', 'scss', 'html',],
       },
 
       plugins: [
