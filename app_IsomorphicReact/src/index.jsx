@@ -3,32 +3,22 @@
 import App from './App';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import getStore from './getStore';
-import { Provider, } from 'react-redux';
+import { AppContainer, } from 'react-hot-loader';
 
-// const history = createHistory();
-// const store = getStore(history);
-const store = getStore();
-
-const render = _App => {
+const render = Component => {
   ReactDOM.render(
-    <Provider store={store}>
-      <_App />
-    </Provider>,
+    <AppContainer>
+      <Component test='TEST' />
+    </AppContainer>,
     document.getElementById('AppContainer')
   );
 };
 
 render(App);
 
-// store.subscribe(() => {
-//   const state = store.getState();
-
-//   if (state.questions.length > 0) {
-//     render(App);
-//   }
-// });
-
-// fetchDataForLocation(history.location);
-
-// history.listen(fetchDataForLocation);
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    render(NextApp);
+  });
+}

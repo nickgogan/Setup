@@ -4,19 +4,19 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 
-const AppDisplay = ({ test, }) => (
-  <div>
-    <h1>Isomorphic React - {test}</h1>
-  </div>
-);
+import Checkbox from './inputbox';
 
-const mapStateToProps = (state, ownProps) => ({
-  ...state,
-});
+type Props = {
+  test: string,
+};
 
-/**
- * The connected component exported below forms the
- * core of our application and is used both on the server and the client
- */
-// export default AppDisplay;
-export default connect(mapStateToProps)(AppDisplay);
+export default class AppDisplay extends React.Component<Props> {
+  render() {
+    return (
+      <div>
+        <h1>Isomorphic React - {this.props.test}</h1>
+        <Checkbox />
+      </div>
+    );
+  }
+}

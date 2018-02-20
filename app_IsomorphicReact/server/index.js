@@ -40,6 +40,7 @@ app.get(['/',], function*(req, res) {
   res.send(index);
 });
 
+// Use '0.0.0.0' instead of 'localhost' - it's nicer for mobile testing
 app.listen(port, '0.0.0.0', () => {
   console.info(`App listening on ${port}`);
 });

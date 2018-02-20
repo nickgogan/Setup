@@ -1,5 +1,5 @@
 {
-  "presets": ["flow", "react", ["env"]],
+  "presets": ["flow", "react", ["env", { "modules": false }]],
   "ignore": [
     ".cache-loader",
     "*.ts",
@@ -9,13 +9,13 @@
     "./Documentation"
   ],
   "plugins": [
+    "react-hot-loader/babel",
     "transform-runtime",
     "transform-imports",
     "syntax-dynamic-import",
-    "transform-flow-strip-types",
     "transform-object-rest-spread",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements",
-    "transform-react-remove-prop-types"
+    "transform-flow-strip-types",
+    "transform-react-remove-prop-types",
+    "transform-react-constant-elements"
   ]
 }
