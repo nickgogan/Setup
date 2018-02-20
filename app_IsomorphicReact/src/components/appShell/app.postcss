@@ -1,0 +1,49 @@
+@import '../global-styles/config.postcss';
+@import '../global-styles/reset.postcss';
+
+html {
+  width: var(--html-width);
+  height: var(--html-height);
+}
+
+body {
+  background-color: var(--color-secondary);
+  font-family: LeagueSpartan, Arial, Helvetica, sans-serif;
+}
+
+/*Grid*/
+.global {
+  width: 85%;
+  min-height: 90%;
+  height: auto;
+  margin: 2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-row-gap: 0.5rem;
+  grid-template-areas:
+    'logo header header header'
+    'main main main sidebar'
+    'footer footer footer footer';
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  max-height: 100%;
+  min-width: 100%;
+  background-image: url('../../assets/images/test.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  color: var(--color-quaternary);
+  text-align: right;
+}
+
+/* Test PurifyCSS - this is not used anywhere */
+#flex {
+  display: flex;
+}

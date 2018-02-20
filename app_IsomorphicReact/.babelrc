@@ -1,0 +1,21 @@
+{
+  "presets": ["flow", "react", ["env"]],
+  "ignore": [
+    ".cache-loader",
+    "*.ts",
+    "./dist/*",
+    "./build/*",
+    "./docs",
+    "./Documentation"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-imports",
+    "syntax-dynamic-import",
+    "transform-flow-strip-types",
+    "transform-object-rest-spread",
+    "transform-react-constant-elements",
+    "transform-react-inline-elements",
+    "transform-react-remove-prop-types"
+  ]
+}

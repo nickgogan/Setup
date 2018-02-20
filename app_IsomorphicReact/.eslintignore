@@ -1,0 +1,18 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+flow-typed
+monitor
+.cache-loader
+.gitignore
+.gitattributes
+.flowconfig
+.firebaserc
+.eslintrc
+.babelrc
+
+# Ignore built files except dist/main.js
+dist/**
+build/**
+
+# Ignore vendor libraries not from npm
+vendors/*

@@ -1,0 +1,118 @@
+{
+  "name": "app_IsomorphicReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:start": "cross-env NODE_ENV=development babel-node server"
+  },
+  "keywords": [
+    "starter",
+    "kit",
+    "guide",
+    "boilerplate",
+    "scaffold",
+    "web",
+    "site",
+    "static",
+    "webpack",
+    "hmr",
+    "hot",
+    "babel"
+  ],
+  "author": "Nick Gogan <gogannick@gmail.com>",
+  "contributors": [
+    {
+      "name": "Nick Gogan",
+      "email": "gogannick@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/nickgogan/Setup",
+  "logo": "./src/assets/favicon.svg",
+  "bugs": {
+    "url": "https://github.com/nickgogan/Setup/issues",
+    "email": "gogannick@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickgogan/Setup"
+  },
+  "engines": {
+    "node": ">=9.2.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 iOS versions",
+    "not < 0.5%"
+  ],
+  "devDependencies": {
+    "babel-eslint": "8.2.2",
+    "eslint": "4.18.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-css-modules": "2.7.5",
+    "eslint-plugin-flowtype": "2.45.0",
+    "eslint-plugin-html": "4.0.2",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-json": "1.2.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.7.0",
+    "flow-bin": "0.66.0",
+    "glob-all": "3.1.0",
+    "install-peerdeps": "1.6.0",
+    "localtunnel": "1.8.3",
+    "nsp": "3.2.1",
+    "rimraf": "2.6.2",
+    "webpack-bundle-analyzer": "2.10.0",
+    "webpack-monitor": "1.0.14"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "babel-plugin-transform-imports": "1.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.13",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-regenerator-runtime": "^6.5.0",
+    "copy-webpack-plugin": "^4.1.1",
+    "cross-env": "^5.0.5",
+    "express": "^4.16.1",
+    "express-yields": "^1.1.1",
+    "fs-extra": "^4.0.2",
+    "history": "^4.7.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
+    "optimist": "^0.6.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-markdown": "^2.5.0",
+    "react-redux": "5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-router-server": "^4.2.2",
+    "redux": "3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.15.6",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "2.0.5",
+    "webpack-hot-middleware": "2.21.0"
+  }
+}
