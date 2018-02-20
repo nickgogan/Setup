@@ -1,11 +1,12 @@
 // @ts-check
+
 // import 'babel-polyfill'; // Only use after verifying you need it.
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 import ConsoleLogHTML from 'console-log-html';
 import App from './components/appShell/app';
-// import 'favicon.png';
+// import './favicon.ico';
 
 /*
 ########################################
@@ -51,7 +52,8 @@ if (WEBPACK_ENV === 'production') {
 ########################################
 */
 
-ReactDOM.render(<App foo='Hello React' />, document.getElementById('app'));
+// ReactDOM.render(<App foo='Hello React' />, document.getElementById('app')); // This is recommended by React, but it collapses CSS Grid into a single row with no row height. Will render to document.body for now.
+ReactDOM.render(<App foo='Hello React' />, document.body);
 
 /*
 ########################################

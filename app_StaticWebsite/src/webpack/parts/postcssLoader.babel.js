@@ -52,6 +52,15 @@ const prodCSS = extractCSS => {
             PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
             PreCSS,
             CSSNext({
+              browsers: [
+                'last 2 Chrome versions',
+                'last 2 Firefox versions',
+                'last 2 Safari versions',
+                'last 2 Edge versions',
+                'last 2 ChromeAndroid versions',
+                'last 2 iOS versions',
+                'not < 0.5%',
+              ],
               features: {
                 applyRule: false, // Deprecated feature, so turn it off.
                 customProperties: false, // Deprecated feature, so turn it off.

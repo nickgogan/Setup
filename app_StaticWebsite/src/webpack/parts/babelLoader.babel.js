@@ -40,6 +40,17 @@ export default env => {
                       modules: false, // Lets webpack deal with the imports.
                       useBuiltIns: true, // Enables polyfills.
                       debug: false,
+                      targets: {
+                        browsers: [
+                          'last 2 Chrome versions',
+                          'last 2 Firefox versions',
+                          'last 2 Safari versions',
+                          'last 2 Edge versions',
+                          'last 2 ChromeAndroid versions',
+                          'last 2 iOS versions',
+                          'not < 0.5%',
+                        ],
+                      },
                     },
                   ],
                   'flow',
