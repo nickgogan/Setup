@@ -1,3 +1,5 @@
+// @ts-check
+
 import express from 'express';
 import yields from 'express-yields';
 import fs from 'fs-extra';
