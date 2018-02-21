@@ -2,7 +2,6 @@
 // @ts-check
 
 import React from 'react';
-import { connect, } from 'react-redux';
 
 import Checkbox from './inputbox';
 
@@ -14,7 +13,7 @@ export default class AppDisplay extends React.Component<Props> {
   render() {
     return (
       <div>
-        <h1>Isomorphic React - {this.props.test}</h1>
+        <h1>Isomorphic React - {this.props.test}!!</h1>
         <Checkbox />
       </div>
     );

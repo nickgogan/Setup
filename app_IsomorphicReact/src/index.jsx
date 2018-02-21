@@ -1,9 +1,9 @@
 // @ts-check
 
-import App from './App';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer, } from 'react-hot-loader';
+import App from './App';
 
 const render = Component => {
   ReactDOM.render(

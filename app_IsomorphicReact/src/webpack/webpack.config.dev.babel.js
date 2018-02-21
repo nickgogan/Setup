@@ -7,28 +7,26 @@ import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 import stringifyEnvironment from './helpers/stringifyEnvironment';
+
 /*
 ########################################
                       Import loaders
 ########################################
 */
-import loadBabel from './parts/babelLoader.babel';
-import loadAssets from './parts/assetsLoader.babel';
-import loadTemplates from './parts/templatesLoader.babel';
-import loadStyles from './parts/postcssLoader.babel';
-import extractBundles from './parts/extractBundles.babel';
+// TODO
+// import loadBabel from './parts/babelLoader.babel';
+// import loadAssets from './parts/assetsLoader.babel';
+// import loadTemplates from './parts/templatesLoader.babel';
+// import loadStyles from './parts/postcssLoader.babel';
+// import extractBundles from './parts/extractBundles.babel';
 
 /*
 ########################################
                       Define Plugins
 ########################################
 */
+
 const webpackProgress = new webpack.ProgressPlugin();
-// const webpackSourceMaps = new webpack.SourceMapDevToolPlugin({
-//   filename: '[name].[chunkhash:8].map',
-//   // Excluded by chunk names
-//   exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
-// });
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
@@ -47,89 +45,84 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 ########################################
 */
 
-export default env => {
-  const ENV = setEnvironment(env);
+export default {
+  entry: {
+    main: [
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client?reload=true',
+      'webpack/hot/dev-server',
+      'babel-regenerator-runtime',
+      path.resolve(__dirname, '../../src/'),
+      // path.join(ENV.SRC_FULL_PATH, 'main.js'), // TODO
+    ],
+  },
+  output: {
+    path: path.resolve(__dirname, '../../public'),
+    // path: ENV.OUT_FULL_PATH, // TODO
+    publicPath: '/', // Used to help us refer to it using '/' in the index file.
+    // filename: '[name].[chunkhash:8].js',
+    filename: 'bundle.js',
+  },
 
-  return MergePlugin(
-    loadBabel(ENV.WEBPACK_ENV),
-    loadTemplates(ENV.WEBPACK_ENV, [
-      'index',
-      // 'unreachableServer',
-      '5xx',
-      'missingResource',
-    ]),
-    loadStyles(ENV.WEBPACK_ENV),
-    loadAssets(),
-    extractBundles([
+  // Prevents weird fs errors. See 'Weird Findings' #6
+  externals: {
+    fs: 'commonjs fs',
+  },
+  // node: {
+  //   fs: 'empty'
+  //   // fs: 'commonjs fs'
+  // },
+
+  resolve: {
+    // TODO
+    // modules: ['node_modules', ENV.SRC_FULL_PATH,],
+    extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'scss', 'html',],
+  },
+
+  plugins: [
+    webpackProgress,
+    // TODO
+    // new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
+    webpackNamedModules,
+    webpackNamedChunks,
+    // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
+    nameNonNormalModules,
+    webpackModuleConcatenator,
+    webpackInlineManifest,
+    HMR,
+    // webpackMonitor,
+    // webpackBundleAnalyzer,
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+        WEBPACK: true,
+      },
+    }),
+  ],
+
+  module: {
+    rules: [
       {
-        name: 'vendor',
-        minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
+        test: /\.jsx?/,
+        use: {
+          loader: 'babel-loader',
+        },
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, '../../src'),
       },
-      {
-        name: 'manifest',
-        filename: 'webpack-runtime.[hash:8].js',
-        minChunks: Infinity,
-      },
-      {
-        async: true,
-        children: true,
-        name: 'CommonLazy',
-      },
-    ]),
-    {
-      target: ENV.PLATFORM,
-      entry: {
-        'main': [
-          path.join(ENV.SRC_FULL_PATH, 'main.js'),
-          'webpack-dev-server/client?http://localhost:3001',
-          'webpack/hot/dev-server',
-        ],
-      },
-      output: {
-        path: ENV.OUT_FULL_PATH,
-        filename: `[name].[chunkhash:8].js`,
-      },
+    ],
+  },
 
-      // Prevents weird fs errors. See 'Weird Findings' #6
-      externals: {
-        fs: 'commonjs fs',
-      },
-      // node: {
-      //   fs: 'empty'
-      //   // fs: 'commonjs fs'
-      // },
-
-      // Allow absolute paths in imports.
-      resolve: {
-        modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'css', 'scss', 'html',],
-      },
-
-      plugins: [
-        webpackProgress,
-        new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
-        // webpackSourceMaps,
-        webpackNamedModules,
-        webpackNamedChunks,
-        // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
-        nameNonNormalModules,
-        webpackModuleConcatenator,
-        webpackInlineManifest,
-        HMR,
-        // webpackMonitor,
-        // webpackBundleAnalyzer,
-      ],
-      devServer: {
-        contentBase: path.join(ENV.OUT_FULL_PATH, 'assets'),
-        hot: true,
-        watchContentBase: true,
-        host: ENV.HOST,
-        port: ENV.PORT,
-        historyApiFallback: true,
-        clientLogLevel: ENV.LOG_LEVEL,
-        overlay: true,
-        progress: true,
-      },
-    }
-  );
+  // TODO
+  devServer: {
+    hot: true,
+    contentBase: '../../public',
+    watchContentBase: true,
+    // host: ENV.HOST,
+    // port: ENV.PORT,
+    historyApiFallback: true,
+    // clientLogLevel: ENV.LOG_LEVEL,
+    overlay: true,
+    progress: true,
+  },
 };

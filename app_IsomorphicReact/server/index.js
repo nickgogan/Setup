@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
-  const config = require('../webpack.config.dev.babel.js').default;
+  const config = require('../src/webpack/webpack.config.dev.babel').default;
 
   const compiler = webpack(config);
 
