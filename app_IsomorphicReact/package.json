@@ -4,9 +4,17 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "dev:server": "cross-env NODE_ENV=development babel-node server",
+    "prod:server":
+      "cross-env NODE_ENV=production nodemon --watch ./src/webpack --ignore node_modules --exec babel-node server",
+    "prod": "npm-run-all -s prod:clean prod:build",
+    "prod:build":
+      "cross-env NODE_ENV=production webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
+    "prod:clean": "rimraf -rf ./dist/* ./docs/*",
+    "dev:server":
+      "cross-env NODE_ENV=development nodemon --watch ./src/webpack --ignore node_modules --exec babel-node server",
+    "dev": "npm-run-all -s dev:clean dev:build",
     "dev:build":
-      "webpack --progress --colors  --env.dev --config ./src/webpack/webpack.config.dev.babel.js",
+      "cross-env NODE_ENV=development BUILD_DEV=true webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "share": "npm-run-all -s security localtunnel",
     "security": "npx nsp check --reporter summary",
@@ -105,6 +113,7 @@
     "inline-manifest-webpack-plugin": "3.0.1",
     "install-peerdeps": "1.6.0",
     "localtunnel": "1.8.3",
+    "nodemon": "1.15.1",
     "nsp": "3.2.1",
     "optimize-js-plugin": "0.0.4",
     "postcss-cssnext": "3.1.0",

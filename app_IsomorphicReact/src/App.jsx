@@ -13,7 +13,7 @@ export default class AppDisplay extends React.Component<Props> {
   render() {
     return (
       <div>
-        <h1>Isomorphic React - {this.props.test}!!</h1>
+        <h1>Isomorphic React - {this.props.test}!</h1>
         <Checkbox />
       </div>
     );

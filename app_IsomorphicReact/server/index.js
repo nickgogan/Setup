@@ -1,7 +1,7 @@
 // @ts-check
 
 import express from 'express';
-import yields from 'express-yields';
+import yields from 'express-yields'; // eslint-disable-line
 import fs from 'fs-extra';
 import webpack from 'webpack';
 
@@ -36,12 +36,24 @@ if (process.env.NODE_ENV === 'development') {
 
 /* eslint-disable func-names */
 app.get(['/',], function*(req, res) {
-  // Path is from POV of the project's root.
-  const index = yield fs.readFile('./public/index.html', 'utf-8');
+  let index = '';
+  if (process.env.NODE_ENV === 'production') {
+    // Path is from POV of the project's root.
+    index = yield fs.readFile('./dist/index.html', 'utf-8');
+  } else if (
+    process.env.NODE_ENV === 'development' &&
+    process.env.BUILD_DEV === true
+  ) {
+    // Path is from POV of the project's root.
+    index = yield fs.readFile('./build/index.html', 'utf-8');
+  } else {
+    console.log('====================================');
+    console.log(`Unable to detect NODE_ENV - ${process.env.NODE_ENV}`);
+    console.log('====================================');
+  }
   res.send(index);
 });
 
-// Use '0.0.0.0' instead of 'localhost' - it's nicer for mobile testing
 app.listen(port, host, () => {
   console.info(`App at ${host}:${port}`);
 });

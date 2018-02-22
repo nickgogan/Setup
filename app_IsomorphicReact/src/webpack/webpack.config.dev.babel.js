@@ -1,4 +1,3 @@
-// import path from 'path';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
@@ -57,22 +56,22 @@ export default () => {
     ]),
     loadStyles(ENV.WEBPACK_ENV),
     loadAssets(),
-    // extractBundles([
-    //   {
-    //     name: 'vendor',
-    //     minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
-    //   },
-    //   {
-    //     name: 'manifest',
-    //     filename: 'webpack-runtime.[hash:8].js',
-    //     minChunks: Infinity,
-    //   },
-    //   {
-    //     async: true,
-    //     children: true,
-    //     name: 'CommonLazy',
-    //   },
-    // ]),
+    extractBundles([
+      {
+        name: 'vendor',
+        minChunks: ({ resource, }) => /node_modules/.test(resource), // Only pull in that used code from node_modules.
+      },
+      {
+        name: 'manifest',
+        filename: 'webpack-runtime.[hash:8].js',
+        minChunks: Infinity,
+      },
+      {
+        async: true,
+        children: true,
+        name: 'CommonLazy',
+      },
+    ]),
     {
       target: ENV.PLATFORM,
       entry: {
@@ -87,8 +86,7 @@ export default () => {
       output: {
         path: ENV.OUT_FULL_PATH,
         publicPath: '/', // Used to help us refer to it using '/' in the index file.
-        // filename: '[name].[chunkhash:8].js', // TODO
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash:8].js',
       },
 
       // Prevents weird fs errors. See 'Weird Findings' #6
@@ -117,14 +115,6 @@ export default () => {
         // webpackMonitor,
         // webpackBundleAnalyzer,
       ],
-
-      // module: {
-      //   rules: [
-      //     {
-
-      //     },
-      //   ],
-      // },
 
       devServer: {
         contentBase: '../../public',
