@@ -1,4 +1,4 @@
-import path from 'path';
+// import path from 'path';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
@@ -13,11 +13,10 @@ import stringifyEnvironment from './helpers/stringifyEnvironment';
                       Import loaders
 ########################################
 */
-// TODO
 import loadBabel from './parts/babelLoader.babel';
-// import loadAssets from './parts/assetsLoader.babel';
-// import loadTemplates from './parts/templatesLoader.babel';
-// import loadStyles from './parts/postcssLoader.babel';
+import loadAssets from './parts/assetsLoader.babel';
+import loadTemplates from './parts/templatesLoader.babel';
+import loadStyles from './parts/postcssLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
 
 /*
@@ -50,6 +49,14 @@ export default () => {
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
+    loadTemplates(ENV.WEBPACK_ENV, [
+      'index',
+      // 'unreachableServer',
+      '5xx',
+      'missingResource',
+    ]),
+    loadStyles(ENV.WEBPACK_ENV),
+    loadAssets(),
     // extractBundles([
     //   {
     //     name: 'vendor',

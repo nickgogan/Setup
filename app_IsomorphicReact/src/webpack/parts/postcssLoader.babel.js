@@ -1,37 +1,24 @@
 import path, { extname } from 'path'; // eslint-disable-line
 import glob from 'glob-all'; // eslint-disable-line
-import PreCSS from 'precss'; // eslint-disable-line
 import CSSNext from 'postcss-cssnext'; // eslint-disable-line
 import PostCSSImport from 'postcss-import'; // eslint-disable-line
-import PostCSSMixins from 'postcss-mixins'; // eslint-disable-line
+// import PostCSSMixins from 'postcss-mixins'; // eslint-disable-line
 import PostCSSSmartAsset from 'postcss-smart-asset'; // eslint-disable-line
 import PostCSSSVG from 'postcss-svg'; // eslint-disable-line
 import PostCSSURLMapper from 'postcss-url-mapper'; // eslint-disable-line
 import ExtractTextPlugin from 'extract-text-webpack-plugin'; // eslint-disable-line
 import PurifyCSSPlugin from 'purifycss-webpack'; // eslint-disable-line
 import { getIfUtils, removeEmpty } from 'webpack-config-utils'; // eslint-disable-line
-/*
-########################################
-                        Helpers
-########################################
-*/
-// Correct url()'s in extracted CSS.
-function urlMapper(url) {
-  return url.replace(/dist/, /\./);
-}
+
 /*
 ########################################
                         Configs
 
-
 Dev and prod configs for handling CSS
 ########################################
 */
-const prodCSS = extractCSS => {
-  const srcPath = path.resolve(__dirname, '../../assets/');
-  const distPath = path.resolve(__dirname, '../../../dist/assets');
-
-  return ExtractTextPlugin.extract({
+const prodCSS = () =>
+  ExtractTextPlugin.extract({
     use: [
       {
         loader: 'css-loader',
@@ -50,8 +37,7 @@ const prodCSS = extractCSS => {
         loader: 'postcss-loader',
         options: {
           plugins: () => [
-            PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
-            PreCSS,
+            PostCSSImport, // ({ addDependencyTo: 'webpack' }) - Seems deprecated
             CSSNext({
               browsers: [
                 'last 2 Chrome versions',
@@ -73,7 +59,6 @@ const prodCSS = extractCSS => {
       },
     ],
   });
-};
 const devCSS = [
   'style-loader',
   {
@@ -84,10 +69,18 @@ const devCSS = [
     loader: 'postcss-loader',
     options: {
       plugins: () => [
-        PostCSSImport, // ({ addDependencyTo: 'webpack' }), Deprecated?
-        // PreCSS,
-        PostCSSMixins,
+        PostCSSImport, // ({ addDependencyTo: 'webpack' }) - Seems deprecated
+        // PostCSSMixins,
         CSSNext({
+          browsers: [
+            'last 2 Chrome versions',
+            'last 2 Firefox versions',
+            'last 2 Safari versions',
+            'last 2 Edge versions',
+            'last 2 ChromeAndroid versions',
+            'last 2 iOS versions',
+            'not < 0.5%',
+          ],
           features: {
             applyRule: false, // Deprecated, so turning off.
             customProperties: false, // Deprecated, so turning off.
