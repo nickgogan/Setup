@@ -30,6 +30,7 @@ const generateEnv = env => {
 export default env => {
   const ENV = generateEnv(env);
 
+  // NODE_ENV set by cross-env in the build scripts.
   return {
     VERSION: pkg.version,
     PLATFORM: ENV.PLATFORM,
@@ -38,6 +39,7 @@ export default env => {
     HOST: ENV.HOST,
     PORT: ENV.PORT,
     LOG_LEVEL: ENV.LOG_LEVEL,
+    'process.env.NODE_ENV': ENV.NODE_ENV,
     WEBPACK_ENV: ENV.WEBPACK_ENV,
   };
 };

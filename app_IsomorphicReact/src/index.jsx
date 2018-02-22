@@ -3,7 +3,46 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer, } from 'react-hot-loader';
+
 import App from './App';
+// import ConsoleLogHTML from 'console-log-html';
+// import App from './components/appShell/app';
+// import './favicon.ico';
+
+console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
+/*
+########################################
+                    Service Worker
+
+Deal with service worker first.
+########################################
+*/
+if (WEBPACK_ENV === 'production') {
+  console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
+
+  const OfflinePluginRuntime = require('offline-plugin/runtime');
+  OfflinePluginRuntime.install({
+    onUpdateReady() {
+      console.log('[SW] Updated content found.');
+      OfflinePluginRuntime.applyUpdate();
+    },
+    onUpdating: () => {
+      console.log('SW Event:', 'onUpdating');
+    },
+    onUpdated() {
+      console.log('[SW] Updated content reloading.');
+      window.location.reload();
+    },
+    onUpdateFailed: () => {
+      console.log('SW Event:', 'onUpdateFailed');
+    },
+  });
+} else if (WEBPACK_ENV === 'development') {
+  console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
+} else {
+  console.log(`FRONT-END - WEBPACK_ENV not seen: ${WEBPACK_ENV}`);
+  console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
+}
 
 const render = Component => {
   ReactDOM.render(
@@ -22,3 +61,20 @@ if (module.hot) {
     render(NextApp);
   });
 }
+
+/*
+########################################
+                Console Output in-site
+########################################
+*/
+// ConsoleLogHTML.connect(document.querySelector('#log'));
+
+// Async load module/component.
+// TODO: Investigate possibility of using async/await here.
+// Promise.all([import(/* webpackChunkName: "async-bar" */ './components/bar'),])
+//   .then(([bar,]) => {
+//     console.log(`${bar.default()}`);
+//   })
+//   .catch(e => {
+//     console.error(e);
+//   });

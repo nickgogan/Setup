@@ -19,11 +19,11 @@ import stringifyEnvironment from './helpers/stringifyEnvironment';
                       Import loaders
 ########################################
 */
-import loadTemplates from './parts/templatesLoader.babel';
 import loadBabel from './parts/babelLoader.babel';
+import loadAssets from './parts/assetsLoader.babel';
+import loadTemplates from './parts/templatesLoader.babel';
 import loadStyles from './parts/postcssLoader.babel';
 import extractBundles from './parts/extractBundles.babel';
-import loadAssets from './parts/assetsLoader.babel';
 
 /*
 ########################################
@@ -31,11 +31,6 @@ import loadAssets from './parts/assetsLoader.babel';
 ########################################
 */
 const webpackProgress = new webpack.ProgressPlugin();
-// const webpackSourceMaps = new webpack.SourceMapDevToolPlugin({
-//   filename: '[name].[chunkhash:8].map',
-//   // Excluded by chunk names
-//   exclude: ['vendor', 'hmr', 'webpack-runtime', 'sw',],
-// });
 const webpackBanner = new webpack.BannerPlugin({
   banner: new GitRevisionPlugin().version(),
 });
@@ -100,8 +95,8 @@ const webpackBundleAnalyzer = new BundleAnalyzerPlugin.BundleAnalyzerPlugin();
               Exported Webpack Config
 ########################################
 */
-export default env => {
-  const ENV = setEnvironment(env);
+export default () => {
+  const ENV = setEnvironment('production');
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
@@ -131,7 +126,10 @@ export default env => {
     {
       target: ENV.PLATFORM,
       entry: {
-        main: [path.join(ENV.SRC_FULL_PATH, 'main.js'),],
+        main: [
+          // 'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
+          path.join(ENV.SRC_FULL_PATH, 'index.jsx'), // src/main.js
+        ],
       },
       output: {
         path: ENV.OUT_FULL_PATH,
@@ -151,17 +149,15 @@ export default env => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.postcss', 'css', 'scss', 'html',],
+        extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'scss', 'html',],
       },
 
       plugins: [
         webpackProgress,
         new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
-        // webpackSourceMaps,
         webpackBanner,
         webpackNamedModules,
         webpackNamedChunks,
-        // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest, // For Webpack assets. Inlines into index.html

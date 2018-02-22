@@ -1,8 +1,10 @@
+import path from 'path';
 import webpack from 'webpack';
 import MergePlugin from 'webpack-merge';
 import MonitorPlugin from 'webpack-monitor';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import InlineManifestPlugin from 'inline-manifest-webpack-plugin';
+
 import nameNonNormalModules from './helpers/nameNonNormalModules';
 import setEnvironment from './helpers/setEnvironment';
 import stringifyEnvironment from './helpers/stringifyEnvironment';
@@ -79,8 +81,8 @@ export default () => {
           'react-hot-loader/patch', // Must be the first array item
           'webpack-hot-middleware/client?reload=true',
           'webpack/hot/dev-server',
-          'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
-          ENV.SRC_FULL_PATH, // src/main.js
+          // 'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
+          path.join(ENV.SRC_FULL_PATH, 'index.jsx'), // src/main.js
         ],
       },
       output: {

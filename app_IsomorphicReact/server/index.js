@@ -1,8 +1,6 @@
 // @ts-check
-
+import path from 'path';
 import express from 'express';
-import yields from 'express-yields'; // eslint-disable-line
-import fs from 'fs-extra';
 import webpack from 'webpack';
 
 const app = express();
@@ -10,6 +8,8 @@ let host;
 let port;
 
 if (process.env.NODE_ENV === 'development') {
+  console.log(`BACKEND - NODE_ENV: ${process.env.NODE_ENV}`);
+
   const config = require('../src/webpack/webpack.config.dev.babel').default;
   const compiler = webpack(config());
 
@@ -32,25 +32,33 @@ if (process.env.NODE_ENV === 'development') {
     })
   );
   app.use(require('webpack-hot-middleware')(compiler));
+} else if (process.env.NODE_ENV === 'production') {
+  console.log(`BACKEND - NODE_ENV: ${process.env.NODE_ENV}`);
+
+  // To get the variables from DefinePlugin to appear here, you must create the webpack compiler
+  const config = require('../src/webpack/webpack.config.prod.babel').default;
+  const compiler = webpack(config()); // eslint-disable-line
+
+  // These are set by webpack.DefinePlugin in the webpack config.
+  port = process.env.PORT;
+  host = process.env.HOST;
+
+  // Middleware still required if you want to see the prod build on the local Express server.
+  // It actually builds the assets.
+  app.use(
+    require('webpack-dev-middleware')(compiler, {
+      noInfo: true, // Only console log errors and warnings
+    })
+  );
+} else {
+  console.log(`BACKEND - Unable to detect NODE_ENV: ${process.env.NODE_ENV}`);
 }
 
-/* eslint-disable func-names */
-app.get(['*',], function*(req, res) {
-  let index = '';
-
+app.get('/', () => {
   if (process.env.NODE_ENV === 'production') {
-    // Path is from POV of the project's root.
-    index = yield fs.readFile('./dist/index.html', 'utf-8');
-  } else if (process.env.NODE_ENV === 'development' && process.env.BUILD_DEV) {
-    // Path is from POV of the project's root.
-    index = yield fs.readFile('./build/index.html', 'utf-8');
-  } else {
-    console.log('====================================');
-    console.log(`Unable to detect NODE_ENV - ${process.env.NODE_ENV}`);
-    console.log('====================================');
+    app.use(express.static(path.resolve(__dirname, '../dist')));
   }
-
-  res.send(index);
+  // TODO
 });
 
 app.listen(port, host, () => {
