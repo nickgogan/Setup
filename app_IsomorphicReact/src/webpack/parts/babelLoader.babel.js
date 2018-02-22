@@ -1,3 +1,4 @@
+import path from 'path';
 import CJSShakePlugin from 'webpack-common-shake'; // eslint-disable-line
 import UglifyJSPlugin from 'uglifyjs-webpack-plugin'; //eslint-disable-line
 import PrepackJSPlugin from 'prepack-webpack-plugin'; //eslint-disable-line
@@ -24,6 +25,7 @@ export default env => {
         {
           test: /\.jsx?($|\?)/i,
           exclude: /node_modules/,
+          include: path.resolve(__dirname, '../../../src'),
           use: [
             {
               loader: 'cache-loader',

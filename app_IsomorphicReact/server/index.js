@@ -5,20 +5,21 @@ import yields from 'express-yields';
 import fs from 'fs-extra';
 import webpack from 'webpack';
 
-const port = process.env.PORT || 3000;
 const app = express();
+let host;
+let port;
 
 if (process.env.NODE_ENV === 'development') {
   const config = require('../src/webpack/webpack.config.dev.babel').default;
-
   const compiler = webpack(config());
+
+  // These are set by webpack.DefinePlugin in the webpack config.
+  port = process.env.PORT;
+  host = process.env.HOST;
 
   app.use(
     require('webpack-dev-middleware')(compiler, {
-      /**
-       * @noInfo Only display warnings and errors to the concsole
-       */
-      noInfo: true,
+      noInfo: true, // Only console log errors and warnings
       stats: {
         assets: false,
         colors: true,
@@ -41,6 +42,6 @@ app.get(['/',], function*(req, res) {
 });
 
 // Use '0.0.0.0' instead of 'localhost' - it's nicer for mobile testing
-app.listen(port, '0.0.0.0', () => {
-  console.info(`App listening on ${port}`);
+app.listen(port, host, () => {
+  console.info(`App at ${host}:${port}`);
 });

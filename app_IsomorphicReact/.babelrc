@@ -1,5 +1,5 @@
 {
-  "presets": ["flow", "react", ["env"]],
+  "presets": ["flow", "react", "env"],
   "ignore": [
     ".cache-loader",
     "*.ts",

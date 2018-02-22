@@ -14,7 +14,7 @@ import stringifyEnvironment from './helpers/stringifyEnvironment';
 ########################################
 */
 // TODO
-// import loadBabel from './parts/babelLoader.babel';
+import loadBabel from './parts/babelLoader.babel';
 // import loadAssets from './parts/assetsLoader.babel';
 // import loadTemplates from './parts/templatesLoader.babel';
 // import loadStyles from './parts/postcssLoader.babel';
@@ -47,9 +47,9 @@ const HMR = new webpack.HotModuleReplacementPlugin();
 
 export default () => {
   const ENV = setEnvironment('development');
-  console.log(ENV);
 
   return MergePlugin(
+    loadBabel(ENV.WEBPACK_ENV),
     // extractBundles([
     //   {
     //     name: 'vendor',
@@ -70,16 +70,14 @@ export default () => {
       target: ENV.PLATFORM,
       entry: {
         main: [
-          'react-hot-loader/patch',
+          'react-hot-loader/patch', // Must be the first array item
           'webpack-hot-middleware/client?reload=true',
           'webpack/hot/dev-server',
-          'babel-regenerator-runtime',
-          // path.resolve(__dirname, '../../src/'),
-          path.join(ENV.SRC_FULL_PATH), // , 'main.js'),
+          'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
+          ENV.SRC_FULL_PATH, // src/main.js
         ],
       },
       output: {
-        // path: path.resolve(__dirname, '../../public'),
         path: ENV.OUT_FULL_PATH,
         publicPath: '/', // Used to help us refer to it using '/' in the index file.
         // filename: '[name].[chunkhash:8].js', // TODO
@@ -96,50 +94,35 @@ export default () => {
       // },
 
       resolve: {
-        // TODO
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
         extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'scss', 'html',],
       },
 
       plugins: [
         webpackProgress,
-        // TODO
-        // new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
+        new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
         webpackNamedModules,
         webpackNamedChunks,
-        // Name non-normal modules. Like NormalModulesPlugin, but can handle those and non-normal modules, like external modules.
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest,
         HMR,
         // webpackMonitor,
         // webpackBundleAnalyzer,
-        new webpack.DefinePlugin({
-          'process.env': {
-            NODE_ENV: JSON.stringify('development'),
-            WEBPACK: true,
-          },
-        }),
       ],
 
-      module: {
-        rules: [
-          {
-            test: /\.jsx?/,
-            use: {
-              loader: 'babel-loader',
-            },
-            exclude: /node_modules/,
-            include: path.resolve(__dirname, '../../src'),
-          },
-        ],
-      },
+      // module: {
+      //   rules: [
+      //     {
 
-      // TODO
+      //     },
+      //   ],
+      // },
+
       devServer: {
         contentBase: '../../public',
-        hot: true,
         watchContentBase: true,
+        hot: true,
         historyApiFallback: true,
         clientLogLevel: ENV.LOG_LEVEL,
         overlay: true,
