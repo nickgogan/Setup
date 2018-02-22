@@ -11,7 +11,7 @@ const app = express();
 if (process.env.NODE_ENV === 'development') {
   const config = require('../src/webpack/webpack.config.dev.babel').default;
 
-  const compiler = webpack(config);
+  const compiler = webpack(config());
 
   app.use(
     require('webpack-dev-middleware')(compiler, {
