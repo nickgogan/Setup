@@ -2,7 +2,6 @@
 // @ts-check
 
 import React from 'react';
-
 import Checkbox from './inputbox';
 
 type Props = {
