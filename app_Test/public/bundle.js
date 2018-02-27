@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a811537db23cc42060ab"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "70629f2f059bfe338116"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -18691,7 +18691,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'p',
           { className: _index2.default.test },
-          'TEST'
+          'TEST!'
         ),
         _react2.default.createElement(_checkbox2.default, null),
         _react2.default.createElement('img', { src: __webpack_require__("./src/assets/images/test.svg"), className: _index2.default.img })

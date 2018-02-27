@@ -1,9 +1,10 @@
 // @ts-check
 
 import path from 'path';
-import fs from 'fs';
 import express from 'express';
 import webpack from 'webpack';
+import fs from 'fs-extra';
+import yields from 'express-yields';
 
 const app = express();
 // let host = '0.0.0.0';
@@ -26,12 +27,27 @@ app.use(
 );
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/', (req, res) => {
-  // app.use(express.static(path.resolve(__dirname, '../public')));
-  let index = fs.readFile('./public/index.html', 'utf-8', (err, data) => {
-    if (err) throw err;
-    res.send(data);
-  });
+// app.get('/', (req, res) => {
+//   app.use(express.static(path.resolve(__dirname, '../public')));
+//   // let index = fs.readFile('./public/index.html', 'utf-8', (err, data) => {
+//   //   if (err) throw err;
+//   //   res.send(data);
+//   // });
+// });
+
+app.get('/', function*(req, res) {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('====================================');
+    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log('====================================');
+    let index = yield fs.readFile('../public/index.html', 'utf-8');
+    res.send(index);
+  } else if (process.env.NODE_ENV === 'production') {
+    console.log('====================================');
+    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log('====================================');
+    app.use(express.static(path.resolve(__dirname, '../public')));
+  }
 });
 
 app.listen(port, host, () => {
