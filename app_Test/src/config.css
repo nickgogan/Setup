@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #ffffff;
+  --color-secondary: #3d505d;
+  --color-tertiary: #9f3a37;
+  --color-test: yellow;
+  --main-margin: 15px;
+  --html-width: 100vmin;
+  --html-height: 100vmin;
+}
+
+.parent {
+  margin: var(--main-margin);
+  color: var(--color-tertiary);
+  font-size: 10rem;
+}
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url('../src/assets/fonts/league-gothic.woff') format('woff');
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url('../src/assets/fonts/LibreBaskerville-Italic.otf') format('otf');
+  font-style: normal;
+  font-weight: 600;
+}
