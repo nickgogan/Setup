@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "128c51c8861b82ea34dd"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a811537db23cc42060ab"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -985,7 +985,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 exports.i(__webpack_require__("./node_modules/css-loader/index.js?{\"importLoaders\":1,\"modules\":true,\"localIdentName\":\"[name]__[local]__[hash:8]\"}!./node_modules/postcss-loader/lib/index.js!./src/config.css"), undefined);
 
 // module
-exports.push([module.i, "html {\n  box-sizing: border-box;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\n*,\n*:before,\n*:after {\n  box-sizing: inherit;\n}\n\nbody,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nol,\nul {\n  margin: 0;\n  padding: 0;\n  font-weight: normal;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n:root {\n  --color-primary: #ffffff;\n  --color-secondary: #3d505d;\n  --color-tertiary: #9f3a37;\n  --color-test: yellow;\n  --main-margin: 15px;\n  --html-width: 100vmin;\n  --html-height: 100vmin;\n}\n\n.index__parent__84aae2cc {\n  margin: 15px;\n  margin: var(--main-margin);\n  color: #9f3a37;\n  color: var(--color-tertiary);\n  font-size: 10rem;\n}\n\n@font-face {\n  font-family: 'LeagueGothic';\n  src: url(" + escape(__webpack_require__("./src/assets/fonts/league-gothic.woff")) + ") format('woff');\n  font-style: normal;\n  font-weight: 800;\n}\n\n@font-face {\n  font-family: 'LibreBaskerville';\n  src: url(" + escape(__webpack_require__("./src/assets/fonts/LibreBaskerville-Italic.otf")) + ") format('otf');\n  font-style: normal;\n  font-weight: 600;\n}\n\n@custom-media --viewport-medium (max-width: 50rem);\n\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\n\nhtml,\nbody {\n  min-height: 100vmin;\n  min-height: var(--html-height);\n  min-width: 100vmin;\n  min-width: var(--html-width);\n  font-size: 18px;\n}\n\n.index__test__b4b866be {\n  font-family: 'LibreBaskerville';\n  color: rgba(61, 80, 93, 0.8);\n  color: rgba(61, 80, 93, 0.8);\n}\n\n.index__img__98c85aa9 {\n  width: 500px;\n  height: 500px;\n}\n", ""]);
+exports.push([module.i, "html {\n  box-sizing: border-box;\n}\n\nhtml,\nbody {\n  height: 100%;\n}\n\n*,\n*:before,\n*:after {\n  box-sizing: inherit;\n}\n\nbody,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nol,\nul {\n  margin: 0;\n  padding: 0;\n  font-weight: normal;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n:root {\n  --color-primary: #ffffff;\n  --color-secondary: #3d505d;\n  --color-tertiary: #9f3a37;\n  --color-test: yellow;\n  --main-margin: 15px;\n  --html-width: 100vmin;\n  --html-height: 100vmin;\n}\n\n.index__parent__84aae2cc {\n  margin: 15px;\n  margin: var(--main-margin);\n  color: #9f3a37;\n  color: var(--color-tertiary);\n  font-size: 10rem;\n}\n\n@font-face {\n  font-family: 'LeagueGothic';\n  src: url(" + escape(__webpack_require__("./src/assets/fonts/league-gothic.woff")) + ") format('woff');\n  font-style: normal;\n  font-weight: 800;\n}\n\n@font-face {\n  font-family: 'LibreBaskerville';\n  src: url(" + escape(__webpack_require__("./src/assets/fonts/LibreBaskerville-Italic.otf")) + ") format('otf');\n  font-style: normal;\n  font-weight: 600;\n}\n\n@custom-media --viewport-medium (max-width: 50rem);\n\n@custom-selector :--heading h1, h2, h3, h4, h5, h6;\n\nhtml,\nbody {\n  min-height: 100vmin;\n  min-height: var(--html-height);\n  min-width: 100vmin;\n  min-width: var(--html-width);\n  font-size: 18px;\n}\n\n.index__test__b4b866be {\n  font-family: 'LeagueGothic';\n  color: rgba(159, 58, 55, 0.8);\n  color: rgba(159, 58, 55, 0.8);\n}\n\n.index__img__98c85aa9 {\n  width: 500px;\n  height: 500px;\n}\n", ""]);
 
 // exports
 exports.locals = {
@@ -18694,7 +18694,7 @@ var App = function (_React$Component) {
           'TEST'
         ),
         _react2.default.createElement(_checkbox2.default, null),
-        _react2.default.createElement('img', { src: __webpack_require__("./src/assets/images/tbd.png"), className: _index2.default.img })
+        _react2.default.createElement('img', { src: __webpack_require__("./src/assets/images/test.svg"), className: _index2.default.img })
       );
     }
   }]);
@@ -18734,10 +18734,10 @@ module.exports = "data:application/font-woff;base64,d09GRgABAAAAAHgsABMAAAAA+wAA
 
 /***/ }),
 
-/***/ "./src/assets/images/tbd.png":
+/***/ "./src/assets/images/test.svg":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets\\images\\tbd.26fcf769.png";
+module.exports = __webpack_require__.p + "assets\\images\\test.97183673.svg";
 
 /***/ }),
 

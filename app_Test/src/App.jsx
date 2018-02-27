@@ -6,7 +6,7 @@ export default class App extends React.Component<Props> {
   render() {
     return (
       <div>
-        <p className={styles.test}>TEST</p>
+        <p className={styles.test}>TEST!</p>
         <Checkbox />
         <img src={require('./assets/images/test.svg')} className={styles.img} />
       </div>

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "run-s dev:clean dev:build dev:work",
-    "dev:work": "cross-env NODE_ENV=development nodemon --watch webpack.config.dev.babel.js --watch postcss.config.js --ignore node_modules --exec babel-node server",
+    "dev:work":
+      "cross-env NODE_ENV=development nodemon --watch webpack.config.dev.babel.js --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
     "dev:build": "webpack --progress --config webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf public/*"
   },
