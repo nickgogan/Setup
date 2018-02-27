@@ -13,41 +13,30 @@ const port = 3001;
 
 console.log(`BACKEND - NODE_ENV: ${process.env.NODE_ENV}`);
 
-const config = require('../webpack.config.dev.babel').default;
-const compiler = webpack(config());
+if (process.env.NODE_ENV === 'development') {
+  const config = require('../webpack.config.dev.babel').default;
+  const compiler = webpack(config());
 
-app.use(
-  require('webpack-dev-middleware')(compiler, {
-    noInfo: true, // Only console log errors and warnings
-    stats: {
-      colors: true,
-      version: false,
-    },
-  }),
-);
-app.use(require('webpack-hot-middleware')(compiler));
-
-// app.get('/', (req, res) => {
-//   app.use(express.static(path.resolve(__dirname, '../public')));
-//   // let index = fs.readFile('./public/index.html', 'utf-8', (err, data) => {
-//   //   if (err) throw err;
-//   //   res.send(data);
-//   // });
-// });
+  app.use(
+    require('webpack-dev-middleware')(compiler, {
+      noInfo: true, // Only console log errors and warnings
+      stats: {
+        colors: true,
+        version: false,
+      },
+    }),
+  );
+  app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  // Just have Express send out static files in prod. No need to set up Express routes here.
+  app.use(express.static(path.resolve(__dirname, '../dist')));
+}
 
 app.get('/', function*(req, res) {
-  if (process.env.NODE_ENV === 'development') {
-    console.log('====================================');
-    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
-    console.log('====================================');
-    let index = yield fs.readFile('../public/index.html', 'utf-8');
-    res.send(index);
-  } else if (process.env.NODE_ENV === 'production') {
-    console.log('====================================');
-    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
-    console.log('====================================');
-    app.use(express.static(path.resolve(__dirname, '../public')));
-  }
+  console.log('====================================');
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+  console.log('====================================');
+  app.use(express.static(path.resolve(__dirname, '../public')));
 });
 
 app.listen(port, host, () => {

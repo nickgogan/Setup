@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "run-s dev:clean dev:build dev:work",
-    "dev:work":
+    "prod": "run-s prod:clean prod:build prod:serve",
+    "prod:serve": "cross-env NODE_ENV=production babel-node server",
+    "prod:build": "webpack --config webpack.config.prod.babel.js",
+    "prod:clean": "rimraf -rf dist/*",
+    "dev": "run-s dev:clean dev:build dev:serve",
+    "dev:serve":
       "cross-env NODE_ENV=development nodemon --watch webpack.config.dev.babel.js --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
     "dev:build": "webpack --progress --config webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf public/*"
@@ -43,7 +47,6 @@
     "postcss-import": "11.1.0",
     "postcss-loader": "2.1.1",
     "postcss-preset-env": "3.2.1",
-    "react-styleable": "3.3.0",
     "rimraf": "2.6.2",
     "style-loader": "0.20.2",
     "url-loader": "0.6.2",
