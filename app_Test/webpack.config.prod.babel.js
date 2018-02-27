@@ -1,6 +1,5 @@
 import path from 'path';
 import webpack from 'webpack';
-import PostCSSImport from 'postcss-import'; // eslint-disable-line
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import combineLoaders from 'webpack-combine-loaders';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -46,7 +45,6 @@ export default () => {
             loader: 'babel-loader',
           },
         },
-        // PROD
         {
           test: /\.css$/,
           use: ExtractTextPlugin.extract({
@@ -63,22 +61,6 @@ export default () => {
             ]),
           }),
         },
-        // DEV
-        // {
-        //   test: /\.css$/,
-        //   use: [
-        //     'style-loader',
-        //     {
-        //       loader: 'css-loader',
-        //       options: {
-        //         importLoaders: 1,
-        //         modules: true,
-        //         localIdentName: '[name]__[local]__[hash:8]',
-        //       },
-        //     },
-        //     'postcss-loader',
-        //   ],
-        // },
         {
           test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           use: [

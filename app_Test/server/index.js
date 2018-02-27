@@ -36,7 +36,8 @@ app.get('/', function*(req, res) {
   console.log('====================================');
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
   console.log('====================================');
-  app.use(express.static(path.resolve(__dirname, '../public')));
+  let index = yield fs.readFile(path.resolve(__dirname, '../public'));
+  res.send(index);
 });
 
 app.listen(port, host, () => {
