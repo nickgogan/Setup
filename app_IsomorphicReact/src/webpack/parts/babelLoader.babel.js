@@ -27,19 +27,20 @@ export default env => {
           exclude: /node_modules/,
           include: path.resolve(__dirname, '../../../src'),
           use: [
+            'cache-loader',
             {
-              loader: 'cache-loader',
-            },
-            {
-              loader: 'babel-loader', // babel-loader?cacheDirectory - Removed in favor of cache-loader
+              loader: 'babel-loader',
               options: {
+                babelrc: false, // Use only the babel settings in this file for babel-loader. .babelrc is still used for the non-webpack parts of the app, such as dealing with the top-level webpack config files.
                 presets: [
                   // Presets loaded before plugins
                   // Presets loaded last-to-first
+                  'flow',
+                  'react',
                   [
                     'env',
                     {
-                      modules: false, // Lets webpack deal with the imports.
+                      modules: false, // Allows webpack deal with the imports.
                       useBuiltIns: true, // Enables polyfills.
                       debug: false,
                       targets: {
@@ -55,13 +56,13 @@ export default env => {
                       },
                     },
                   ],
-                  'flow',
-                  'react',
                 ],
-                // "sourceMaps": true,
                 plugins: removeEmpty([
                   // Plugins loaded after presets
                   // Plugins loaded first-to-last
+                  'react-hot-loader/babel',
+                  'transform-regenerator',
+                  'transform-object-rest-spread',
                   'transform-runtime', // Prevents polution of global scope with Promise objects. Should be the first plugin loaded.
                   'transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
                   'syntax-dynamic-import', // Enables things like lazy-loading.
@@ -69,6 +70,14 @@ export default env => {
                   ifProduction('transform-react-constant-elements'), // Hoists element creation to top level for subtrees that are fully static, which reduces calls to React.createElement. Only used prod, since it makes warning messages more cryptic.
                   ifProduction('transform-react-remove-prop-types'), // Remove React propTypes-related functions from the prod build, which should save some bandwidth.
                 ]),
+                ignore: [
+                  '.cache-loader',
+                  '*.ts',
+                  './dist/*',
+                  './build/*',
+                  './docs',
+                  './Documentation',
+                ],
               },
             },
           ],

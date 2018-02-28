@@ -18,7 +18,7 @@ export default () => ({
           {
             loader: 'url-loader',
             options: {
-              limit: 10000,
+              limit: 100000,
               mimetype: 'application/font-woff',
               name: 'assets/fonts/[name].[hash:8].[ext]',
             },
@@ -62,6 +62,7 @@ export default () => ({
               name: 'assets/images/[name].[hash:8].[ext]',
             },
           },
+          'img-loader',
         ],
       },
     ],

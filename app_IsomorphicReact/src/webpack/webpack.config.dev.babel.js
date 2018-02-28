@@ -50,12 +50,7 @@ export default () => {
 
   return MergePlugin(
     loadBabel(ENV.WEBPACK_ENV),
-    loadTemplates(ENV.WEBPACK_ENV, [
-      'index',
-      // 'unreachableServer',
-      '5xx',
-      'missingResource',
-    ]),
+    loadTemplates(ENV.WEBPACK_ENV, ['index', '5xx', 'missingResource',]),
     loadStyles(ENV.WEBPACK_ENV),
     loadAssets(),
     extractBundles([
@@ -81,14 +76,14 @@ export default () => {
           'react-hot-loader/patch', // Must be the first array item
           'webpack-hot-middleware/client?reload=true',
           'webpack/hot/dev-server',
-          // 'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
-          path.join(ENV.SRC_FULL_PATH, 'index.jsx'), // src/main.js
+          // 'babel-regenerator-runtime', // Allows use of generators in front-end
+          path.join(ENV.SRC_FULL_PATH, 'index.jsx'),
         ],
       },
       output: {
         path: ENV.OUT_FULL_PATH,
         publicPath: '/', // Used to help us refer to it using '/' in the index file.
-        filename: '[name].[chunkhash:8].js',
+        filename: '[name].[hash:8].js',
       },
 
       // Prevents weird fs errors. See 'Weird Findings' #6
@@ -102,7 +97,7 @@ export default () => {
 
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'scss', 'html',],
+        extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'html',],
       },
 
       plugins: [
@@ -119,7 +114,7 @@ export default () => {
       ],
 
       devServer: {
-        contentBase: '../../public',
+        contentBase: ENV.OUT_FULL_PATH,
         watchContentBase: true,
         hot: true,
         historyApiFallback: true,

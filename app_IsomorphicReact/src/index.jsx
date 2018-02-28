@@ -3,11 +3,8 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer, } from 'react-hot-loader';
-
-import App from './App';
 // import ConsoleLogHTML from 'console-log-html';
-// import App from './components/appShell/app';
-// import './favicon.ico';
+import App from './components/appShell/app';
 
 console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
 /*
@@ -56,8 +53,8 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
+  module.hot.accept('./components/appShell/app', () => {
+    const NextApp = require('./components/appShell/app').default;
     render(NextApp);
   });
 }

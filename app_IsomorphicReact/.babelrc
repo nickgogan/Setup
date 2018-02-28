@@ -10,12 +10,7 @@
   ],
   "plugins": [
     "react-hot-loader/babel",
-    "transform-runtime",
-    "transform-imports",
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    "transform-flow-strip-types",
-    "transform-react-remove-prop-types",
-    "transform-react-constant-elements"
+    "transform-regenerator",
+    "transform-object-rest-spread"
   ]
 }

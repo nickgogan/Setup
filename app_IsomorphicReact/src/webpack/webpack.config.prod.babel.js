@@ -163,7 +163,7 @@ export default () => {
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
         webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
         webpackCopyManifest, // For favicon.png
-        webpackServiceWorker, // Caches everything in dist/* and that comes over the network
+        // webpackServiceWorker, // Caches everything in dist/* and that comes over the network
         // webpackCompression, // Only use to estimate deployment size.
         // webpackMonitor,
         // webpackBundleAnalyzer,
