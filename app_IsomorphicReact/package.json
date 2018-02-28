@@ -7,20 +7,16 @@
     "deploy": "run-s prod:clean prod:build deploy-firebase",
     "deploy-firebase": "firebase deploy",
     "prod": "run-s prod:clean prod:build prod:serve",
-    "prod:serve": "cross-env NODE_ENV=production babel-node server",
-    "prod:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
+    "prod:serve": "cross-env NODE_ENV=production nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "prod:build": "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "dev": "run-s dev:clean dev:build dev:serve",
-    "dev:serve":
-      "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
-    "dev:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
+    "dev:serve": "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "dev:build": "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "share": "run-s security localtunnel",
     "security": "npx nsp check --reporter summary",
-    "localtunnel":
-      "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
+    "localtunnel": "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
     "postinstall": "flow-scripts stub"
   },
   "keywords": [
@@ -77,7 +73,10 @@
     "babel-plugin-transform-imports": "1.4.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-constant-elements": "6.23.0",
+    "babel-plugin-transform-react-inline-elements": "6.22.0",
+    "babel-plugin-transform-react-pure-class-to-function": "1.0.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.13",
+    "babel-plugin-transform-react-router-optimize": "1.0.2",
     "babel-plugin-transform-regenerator": "6.26.0",
     "babel-plugin-transform-runtime": "6.23.0",
     "babel-preset-env": "^1.6.0",

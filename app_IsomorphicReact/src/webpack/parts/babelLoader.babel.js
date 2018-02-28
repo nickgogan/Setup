@@ -41,7 +41,7 @@ export default env => {
                     'env',
                     {
                       modules: false, // Allows webpack deal with the imports.
-                      useBuiltIns: true, // Enables polyfills.
+                      useBuiltIns: true, // Enables polyfills via babel-polyfill
                       debug: false,
                       targets: {
                         browsers: [
@@ -65,10 +65,15 @@ export default env => {
                   'transform-object-rest-spread',
                   'transform-runtime', // Prevents polution of global scope with Promise objects. Should be the first plugin loaded.
                   'transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
+                  'transform-react-router-optimize', // React Router exposes all methods on the top-level import, but allows devs to use imports referencing files inside /lib, which can result in smaller bundle sizes. This plugin automates this.
                   'syntax-dynamic-import', // Enables things like lazy-loading.
                   'transform-flow-strip-types', // Using Flow instead of prop-types
                   ifProduction('transform-react-constant-elements'), // Hoists element creation to top level for subtrees that are fully static, which reduces calls to React.createElement. Only used prod, since it makes warning messages more cryptic.
                   ifProduction('transform-react-remove-prop-types'), // Remove React propTypes-related functions from the prod build, which should save some bandwidth.
+                  ifProduction('transform-react-inline-elements'), // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-inline-elements
+                  ifProduction(
+                    'babel-plugin-transform-react-pure-class-to-function'
+                  ),
                 ]),
                 ignore: [
                   '.cache-loader',

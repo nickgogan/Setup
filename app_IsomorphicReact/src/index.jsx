@@ -1,5 +1,6 @@
 // @ts-check
 
+// import 'babel-polyfill'; // Use if needed.
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer, } from 'react-hot-loader';

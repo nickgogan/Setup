@@ -11,10 +11,10 @@ export default class App extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        <p className={styles.test}>TEST!</p>
+        <p className={styles.test}>TEST</p>
         <Checkbox />
         <img
-          src={require('../../assets/images/test.svg')}
+          src={require('../../assets/images/tbd.png')}
           className={styles.img}
           alt='test'
         />

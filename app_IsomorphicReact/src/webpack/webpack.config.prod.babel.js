@@ -66,7 +66,7 @@ const webpackPWAManifest = new PWAManifest({
     },
   ],
 });
-const webpackCopyManifest = new WebpackCopyPlugin([
+const webpackCopy = new WebpackCopyPlugin([
   {
     from: path.resolve(__dirname, '../assets/favicon.ico'),
   },
@@ -127,13 +127,14 @@ export default () => {
       target: ENV.PLATFORM,
       entry: {
         main: [
+          'core-js/es6/promise', // TODO:
           // 'babel-regenerator-runtime', // Allows use of generators/yield for sync-looking async code.
           path.join(ENV.SRC_FULL_PATH, 'index.jsx'), // src/main.js
         ],
       },
       output: {
         path: ENV.OUT_FULL_PATH,
-        // publicPath: '/', // Should hopefully not be needed
+        publicPath: '/', // Should hopefully not be needed
         filename: `[name].[chunkhash:8].js`,
       },
 
@@ -149,7 +150,7 @@ export default () => {
       // Allow absolute paths in imports.
       resolve: {
         modules: ['node_modules', ENV.SRC_FULL_PATH,],
-        extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'scss', 'html',],
+        extensions: ['.js', '.jsx', '.json', '.postcss', 'css', 'html',],
       },
 
       plugins: [
@@ -161,11 +162,11 @@ export default () => {
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
-        webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
-        webpackCopyManifest, // For favicon.png
-        // webpackServiceWorker, // Caches everything in dist/* and that comes over the network
-        // webpackCompression, // Only use to estimate deployment size.
-        // webpackMonitor,
+        // webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
+        // webpackCopy, // For favicon.png, .htaccess, and .nginx.conf
+        webpackServiceWorker, // Caches everything in dist/* and that comes over the network
+        webpackCompression, // Only use to estimate deployment size.
+        webpackMonitor,
         // webpackBundleAnalyzer,
       ],
     }

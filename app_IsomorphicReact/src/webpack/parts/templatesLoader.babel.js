@@ -145,10 +145,9 @@ export default (env, pagesNames) => {
     cache: ifProduction(),
     plugins: removeEmpty([
       ...templates,
-      // TODO:
-      // ifProduction(criticalCSS),
-      // ifProduction(socialinfoGenerator),
-      // ifProduction(robotsGenerator),
+      ifProduction(criticalCSS),
+      ifProduction(socialinfoGenerator),
+      ifProduction(robotsGenerator),
     ]),
   };
 };
