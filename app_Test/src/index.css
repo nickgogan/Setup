@@ -13,7 +13,7 @@ body {
 
 .test {
   composes: parent from './config.css';
-  font-family: 'LibreBaskerville';
+  font-family: 'LeagueGothic';
   color: color-mod(var(--color-secondary) alpha(80%));
 }
 
