@@ -15,10 +15,11 @@
   font-weight: 800;
 }
 
+/* Fonts must be in the same file as their import. Only declare a @font-face once. Otherwise, webpack will include it multiple times in the output style bundle. Best to have a parent class with this that other classes can compose from. */
 .parent {
   margin: var(--main-margin);
-  /* font-family: system-ui; */
-  font-family: 'LeagueSpartan'; /* Fonts must be in the same file as their import. */
+  font-family: system-ui;
+  font-family: 'LeagueSpartan';
   font-size: 10rem;
   color: var(--color-tertiary);
 }
