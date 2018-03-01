@@ -4,14 +4,50 @@ declare module 'babel-polyfill' {
   declare module.exports: any;
 }
 
-declare module 'webpack' {
+declare module 'express' {
   declare module.exports: any;
 }
 
-declare module 'console-log-html' {
+declare module 'fs-extra' {
+  declare module.exports: any;
+}
+
+declare module 'history' {
   declare module.exports: any;
 }
 
 declare module 'offline-plugin' {
+  declare module.exports: any;
+}
+
+declare module 'prop-types' {
+  declare module.exports: any;
+}
+
+declare module 'react-hot-loader' {
+  declare module.exports: any;
+}
+
+declare module 'react-markdown' {
+  declare module.exports: any;
+}
+
+declare module 'react-router-dom' {
+  declare module.exports: any;
+}
+
+declare module 'react-router-server' {
+  declare module.exports: any;
+}
+
+declare module 'webpack' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-dev-middleware' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-hot-middleware' {
   declare module.exports: any;
 }
