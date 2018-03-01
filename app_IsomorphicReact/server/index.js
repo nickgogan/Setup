@@ -5,8 +5,28 @@ import yields from 'express-yields'; // eslint-disable-line
 import fs from 'fs-extra';
 import webpack from 'webpack';
 
+/*
+########################################
+                        Helpers
+########################################
+*/
+function fixFontPaths(dir) {
+  let cssfiles = []; // eslint-disable-line
+  fs.readdir(dir, (err, files) => {
+    if (err) throw err;
+    cssfiles = files.filter(file => path.extname(file) === '.css');
+    cssfiles.forEach((cssfile) => {
+
+      let content = fs.readFileSync(`dist/${cssfile}`, 'utf-8'); // eslint-disable-line
+      content = content.replace(/\\/g, '/');
+
+      fs.writeFileSync(`dist/${cssfile}`, content);
+    })
+  })
+}
+
 const app = express();
-let host; // TODO:
+let host;
 let port;
 
 if (process.env.NODE_ENV === 'development') {
@@ -41,6 +61,8 @@ if (process.env.NODE_ENV === 'development') {
 
   port = process.env.PORT;
   host = process.env.HOST;
+
+  fixFontPaths(path.resolve(__dirname, '../dist'));
 
   app.use(express.static(path.resolve(__dirname, '../dist')));
 } else {

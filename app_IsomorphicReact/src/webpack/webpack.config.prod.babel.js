@@ -165,8 +165,8 @@ export default () => {
         // webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
         // webpackCopy, // For favicon.png, .htaccess, and .nginx.conf
         webpackServiceWorker, // Caches everything in dist/* and that comes over the network
-        webpackCompression, // Only use to estimate deployment size.
-        webpackMonitor,
+        // webpackCompression, // Only use to estimate deployment size.
+        // webpackMonitor,
         // webpackBundleAnalyzer,
       ],
     }

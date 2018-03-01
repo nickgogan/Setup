@@ -1,9 +1,17 @@
 module.exports = {
   plugins: {
-    // 'postcss-import': {
-    //   from: 'src/index.css',
-    // },
-    'postcss-import': {},
-    'postcss-preset-env': {},
+    // 'postcss-import': { addDependencyTo: 'webpack', },
+    'postcss-cssnext': {
+      features: {
+        customProperties: {
+          preserve: true,
+          appendVariables: true,
+        },
+      },
+    },
+    cssnano: {
+      autoprefixer: false,
+      discardDuplicates: true,
+    },
   },
 };

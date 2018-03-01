@@ -31,7 +31,7 @@ export default () => ({
           {
             loader: 'url-loader',
             options: {
-              limit: 10000,
+              limit: 100000,
               mimetype: 'application/octet-stream',
               name: 'assets/fonts/[name].[hash:8].[ext]',
             },

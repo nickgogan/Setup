@@ -8,22 +8,17 @@
   --html-height: 100vmin;
 }
 
-.parent {
-  margin: var(--main-margin);
-  color: var(--color-tertiary);
-  font-size: 10rem;
-}
-
 @font-face {
-  font-family: 'LeagueGothic';
-  src: url('../../assets/fonts/league-gothic.woff') format('woff');
+  font-family: 'LeagueSpartan';
+  src: url('../../assets/fonts/leaguespartan-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
 }
 
-@font-face {
-  font-family: 'LibreBaskerville';
-  src: url('../../assets/fonts/LibreBaskerville-Italic.otf') format('otf');
-  font-style: normal;
-  font-weight: 600;
+.parent {
+  margin: var(--main-margin);
+  /* font-family: system-ui; */
+  font-family: 'LeagueSpartan'; /* Fonts must be in the same file as their import. */
+  font-size: 10rem;
+  color: var(--color-tertiary);
 }
