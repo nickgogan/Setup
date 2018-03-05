@@ -20,7 +20,7 @@ const prodCSS = () =>
         loader: 'css-loader',
         options: {
           modules: true,
-          localIdentName: '[name]__[local]__[hash:base64:5]',
+          localIdentName: 'purified-[name]__[local]__[hash:8]',
         },
       },
       'postcss-loader',
@@ -33,7 +33,7 @@ const devCSS = [
     options: {
       importLoaders: 1,
       modules: true,
-      localIdentName: '[name]__[local]__[hash:8]',
+      localIdentName: 'purified-[name]__[local]__[hash:8]',
     },
   },
   'postcss-loader',
@@ -48,6 +48,9 @@ const extractCSS = new ExtractTextPlugin({
   filename: 'styles.[contenthash:8].css',
 });
 const purifyCSS = new PurifyCSSPlugin({
+  purifyOptions: {
+    whitelist: ['*purified*',],
+  },
   paths: glob.sync([
     path.join(__dirname, '../../../src/**/*.js'),
     path.join(__dirname, '../../../src/**/*.html'),
@@ -72,6 +75,6 @@ export default env => {
         },
       ],
     },
-    plugins: removeEmpty([ifProduction(extractCSS),]), // TODO: purifyCSS must come after extractCSS
+    plugins: removeEmpty([ifProduction(extractCSS), purifyCSS,]), // TODO: purifyCSS must come after extractCSS
   };
 };

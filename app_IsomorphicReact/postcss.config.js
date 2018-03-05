@@ -9,9 +9,5 @@ module.exports = {
         },
       },
     },
-    cssnano: {
-      autoprefixer: false,
-      discardDuplicates: true,
-    },
   },
 };
