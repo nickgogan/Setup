@@ -75,6 +75,6 @@ export default env => {
         },
       ],
     },
-    plugins: removeEmpty([ifProduction(extractCSS), purifyCSS,]), // TODO: purifyCSS must come after extractCSS
+    plugins: removeEmpty([ifProduction(extractCSS), purifyCSS,]), // purifyCSS must come after extractCSS
   };
 };

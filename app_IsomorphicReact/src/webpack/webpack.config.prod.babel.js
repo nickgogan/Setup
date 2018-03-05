@@ -162,8 +162,8 @@ export default () => {
         nameNonNormalModules,
         webpackModuleConcatenator,
         webpackInlineManifest, // For Webpack assets. Inlines into index.html
-        // webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
-        // webpackCopy, // For favicon.png, .htaccess, and .nginx.conf
+        webpackPWAManifest, // For the mobile icons. Generates assets.[hash].json
+        webpackCopy, // For favicon.png, .htaccess, and .nginx.conf
         webpackServiceWorker, // Caches everything in dist/* and that comes over the network
         // webpackCompression, // Only use to estimate deployment size.
         // webpackMonitor,
