@@ -1,29 +1,16 @@
 // @ts-check
 import path from 'path';
-import express from 'express';
-import yields from 'express-yields'; // eslint-disable-line
 import fs from 'fs-extra';
+import express from 'express';
 import webpack from 'webpack';
+
+import fixCSSPaths from './fixCSSPaths';
 
 /*
 ########################################
                         Helpers
 ########################################
 */
-function fixFontPaths(dir) {
-  let cssfiles = []; // eslint-disable-line
-  fs.readdir(dir, (err, files) => {
-    if (err) throw err;
-    cssfiles = files.filter(file => path.extname(file) === '.css');
-    cssfiles.forEach((cssfile) => {
-
-      let content = fs.readFileSync(`dist/${cssfile}`, 'utf-8'); // eslint-disable-line
-      content = content.replace(/\\/g, '/');
-
-      fs.writeFileSync(`dist/${cssfile}`, content);
-    })
-  })
-}
 
 const app = express();
 let host;
@@ -62,16 +49,15 @@ if (process.env.NODE_ENV === 'development') {
   port = process.env.PORT;
   host = process.env.HOST;
 
-  fixFontPaths(path.resolve(__dirname, '../dist'));
+  fixCSSPaths(path.resolve(__dirname, '../dist')); // Change the '\' to '/' in output css
 
   app.use(express.static(path.resolve(__dirname, '../dist')));
 } else {
   console.log(`BACKEND - Unable to detect NODE_ENV: ${process.env.NODE_ENV}`);
 }
 
-// eslint-disable-next-line
-app.get('/', function*(req, res) {
-  const index = yield fs.readFile(path.resolve(__dirname, '../build'));
+app.get('/', async (req, res) => {
+  const index = await fs.readFile(path.resolve(__dirname, '../build'));
   res.send(index);
 });
 
