@@ -38,6 +38,15 @@
             "value": "max-age=300"
           }
         ]
+      },
+      {
+        "source": "5xx.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=300"
+          }
+        ]
       }
     ],
     "cleanUrls": true,

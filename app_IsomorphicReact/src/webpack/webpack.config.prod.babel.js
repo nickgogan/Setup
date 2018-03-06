@@ -103,7 +103,7 @@ export default () => {
     loadTemplates(ENV.WEBPACK_ENV, [
       'index',
       '5xx',
-      // 'missingResource',
+      'missingResource',
     ]),
     loadStyles(ENV.WEBPACK_ENV), // Assets handled by the PostCSS pipeline.
     loadAssets(),
