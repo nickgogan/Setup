@@ -1,4 +1,0 @@
-{
-  "presets": ["env", "flow", "react"],
-  "sourceMaps": true
-}
