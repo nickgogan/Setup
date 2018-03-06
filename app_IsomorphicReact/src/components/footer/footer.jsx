@@ -1,14 +1,14 @@
 // @flow
 
 import React from 'react';
-import './footer.postcss';
+import styles from './footer.postcss';
 
 type Props = {
   footerText: string,
 };
 
 const Footer = (props: Props) => (
-  <div className='footer'>
+  <div className={styles.footer}>
     <h1>{props.footerText}</h1>
   </div>
 );

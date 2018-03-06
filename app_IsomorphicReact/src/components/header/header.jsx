@@ -8,9 +8,13 @@ type Props = {
 };
 
 const Header = (props: Props) => (
-  <div className='header'>
-    <h1>{props.headerText}</h1>
-  </div>
+  <nav className={styles.header}>
+    <ul>
+      <h1>
+        <a href='#'>{props.headerText}</a>
+      </h1>
+    </ul>
+  </nav>
 );
 
 export default Header;

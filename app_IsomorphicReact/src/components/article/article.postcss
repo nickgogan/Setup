@@ -1,9 +1,10 @@
-@import '../global-styles/config.postcss';
-
-.main {
+.article {
+  clear: fix;
+  composes: base from '../global-styles/config.postcss';
   grid-area: main;
-  z-index: 1;
+  display: flex;
+  align-item: center;
+  justify-content: center;
   background-color: var(--color-primary);
   color: var(--color-tertiary);
-  text-align: left;
 }

@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Article = (props: Props) => (
-  <div className='main'>
+  <div className={styles.article}>
     <h1>{props.articleText}</h1>
   </div>
 );

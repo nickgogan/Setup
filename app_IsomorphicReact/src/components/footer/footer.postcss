@@ -1,9 +1,8 @@
-@import '../global-styles/config.postcss';
-
 .footer {
+  clear: fix;
+  composes: base from '../global-styles/config.postcss';
   grid-area: footer;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'LeagueSpartan', sans-serif;
 }

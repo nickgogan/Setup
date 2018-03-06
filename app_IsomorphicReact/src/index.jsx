@@ -4,7 +4,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer, } from 'react-hot-loader';
-// import ConsoleLogHTML from 'console-log-html';
 import App from './components/appShell/app';
 
 console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
@@ -45,7 +44,7 @@ if (WEBPACK_ENV === 'production') {
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Component test='TEST' />
+      <Component className='container' />
     </AppContainer>,
     document.getElementById('AppContainer')
   );
