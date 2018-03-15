@@ -64,6 +64,7 @@ export default env => {
                   'react-hot-loader/babel',
                   'transform-regenerator',
                   'transform-object-rest-spread',
+                  'transform-class-properties',
                   'transform-imports', // Transforms member-style imports into default-style imports. Used to help with tree shaking if needed.
                   'transform-react-router-optimize', // React Router exposes all methods on the top-level import, but allows devs to use imports referencing files inside /lib, which can result in smaller bundle sizes. This plugin automates this.
                   'syntax-dynamic-import', // Enables things like lazy-loading.

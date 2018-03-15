@@ -1,9 +1,10 @@
 // @ts-check
 
 // import 'babel-polyfill'; // Use if needed.
-import ReactDOM from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { AppContainer, } from 'react-hot-loader';
+
 import App from './components/appShell/app';
 
 console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
