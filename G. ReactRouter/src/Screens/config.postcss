@@ -1,0 +1,55 @@
+:root {
+  /* HTML Dimensions */
+  --html-width: 100vmin;
+  --html-height: 100vmin;
+  --component-margin: 1rem;
+  /* Color Scheme */
+  --color-primary: #fbd8b0;
+  --color-secondary: #3d505d;
+  --color-tertiary: #9f3a37;
+  --color-quaternary: #cb5940;
+  --color-quinary: #dc8729;
+}
+
+html,
+body {
+  min-height: var(--html-height);
+  min-width: var(--html-width);
+  font-size: 16px;
+  line-height: 1.5rem;
+  /* letter-spacing: 0.5rem; */
+}
+
+/* Fonts must be in the same file as their import. Only declare a @font-face once. Otherwise, webpack will include it multiple times in the output style bundle. Best to have a parent class with this that other classes can compose from. */
+@font-face {
+  font-family: 'HelveticaNueue';
+  src: url('../assets/fonts/HelveticaLTStd-Bold.otf');
+  font-style: normal;
+  font-weight: 800;
+}
+.typeBase {
+  clear: fix;
+  font-size: responsive;
+  line-height: responsive;
+  letter-spacing: responsive;
+  color: var(--color-primary);
+}
+.typeHeader {
+  compose: typeBase;
+  font-family: 'HelveticaNueue', system-ui;
+  color: var(--color-quaternary);
+  padding-top: 1rem;
+  padding-bottom: 1.33rem;
+  text-align: center;
+}
+.typeNormal {
+  compose: typeBase;
+  font-family: 'Lato', system-ui;
+  color: var(--color-secondary);
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+/* custom selectors */
+/*@custom-selector :--heading h1, h2, h3, h4, h5, h6; */

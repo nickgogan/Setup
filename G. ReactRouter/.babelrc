@@ -1,0 +1,17 @@
+{
+  "presets": ["flow", "react", "env"],
+  "ignore": [
+    ".cache-loader",
+    "*.ts",
+    "./dist/*",
+    "./build/*",
+    "./docs",
+    "./Documentation"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-regenerator",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ]
+}

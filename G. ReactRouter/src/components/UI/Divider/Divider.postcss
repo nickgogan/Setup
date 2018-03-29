@@ -1,0 +1,49 @@
+.verticalContainer {
+  content: '§';
+  overflow: visible; /* For IE */
+  display: inline-block;
+  position: relative;
+  height: 80%;
+  bottom: 0.33rem;
+  padding-top: 0.85rem;
+  padding-bottom: 1rem;
+  border-left: medium double black;
+  border-right: medium double black;
+  color: #333;
+  text-align: center;
+}
+.verticalGlyph {
+  overflow: visible; /* For IE */
+  top: 0.5rem;
+  display: inline-block;
+  padding: 0;
+  color: #333;
+  text-align: center;
+}
+.verticalGlyph:after {
+  content: '§';
+  bottom: 0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+hr.horizontal {
+  width: 100%;
+  margin-bottom: 2.33rem;
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+hr.horizontal:after {
+  content: '§';
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}

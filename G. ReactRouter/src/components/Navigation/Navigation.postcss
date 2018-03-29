@@ -1,0 +1,18 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.link {
+  composes: typeHeader from '../../Screens/config.postcss';
+  text-decoration: none;
+  color: var(--color-quinary);
+}
+
+.activeLink {
+  composes: link;
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--color-tertiary);
+}
