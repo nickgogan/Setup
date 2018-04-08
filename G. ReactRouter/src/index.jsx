@@ -1,5 +1,4 @@
 // @ts-check
-// test
 
 // import 'babel-polyfill'; // Use if needed.
 import React from 'react';
