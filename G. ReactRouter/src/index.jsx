@@ -11,7 +11,7 @@ import App from './Screens/Root';
 console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
 /*
 ########################################
-                    Service Worker
+            Service Worker
 
 Deal with service worker first.
 ########################################

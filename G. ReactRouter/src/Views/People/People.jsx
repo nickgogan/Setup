@@ -1,5 +1,5 @@
 import React from 'react';
-import Markdown from 'markdown-to-jsx';
+import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './People.postcss';
 import People from '../../containers/People/People';
