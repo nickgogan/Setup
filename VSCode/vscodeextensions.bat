@@ -1,3 +1,5 @@
+code --install-extension flowtype.flow-for-vscode
+code --install-extension robertohuertasm.vscode-icons
 code --install-extension Mikael.Angular-BeastCode
 code --install-extension johnpapa.Angular2
 code --install-extension vismalietuva.vscode-angular-support

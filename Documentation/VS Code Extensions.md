@@ -16,6 +16,8 @@
 
 1. Babel JavaScript (mgmcdermott.vscode-language-babel): JavaScript syntax highlighting for ES201x, React JSX, Flow, and GraphQL.
 
+1. Flow Language Support (): Add IDE-level support for the Flow static type checker.
+
 1. Bookmarks (alefragnani.Bookmarks): Mark lines in the editor and easily jump to them. Now you also can quickly select these lines or the text betweem them.
 
 1. Bracket Pair Colorizer (CoenraadS.bracket-pair-colorizer): This extension allows matching brackets to be identified with colours. The user can define which characters to match, and which colours to use.
