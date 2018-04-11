@@ -1,29 +1,24 @@
 import React from 'react';
-import { Card, Image, Container, Header, } from 'semantic-ui-react';
+import { Segment, Image, Container } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Person.postcss';
 import Divider from '../UI/Divider/Divider';
+import Text from '../UI/Text';
 
 const Person = props => (
-  <Card fluid style={{ display: 'flex', }} className={styles.person}>
+  <Segment fluid vertical className={styles.person}>
     <Image
       size='small'
       circular
-      centered
       src='http://via.placeholder.com/350x150'
+      className={styles.bio}
     />
-    <Card.Content>
-      <Card.Header>{props.fullname}</Card.Header>
-      <Card.Meta>{props.topics}</Card.Meta>
-      <Card.Description style={{ marginBottom: '1rem', }}>
-        {props.description}
-      </Card.Description>
+    <Container className={styles.work}>
+      <p className={styles.summary}>Summary goes here</p>
       <Divider horizontal />
-      <Container className={styles.publications}>
-        {props.publications}
-      </Container>
-    </Card.Content>
-  </Card>
+      <div className={styles.publications}>Publications go here</div>
+    </Container>
+  </Segment>
 );
 
 export default Person;

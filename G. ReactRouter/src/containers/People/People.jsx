@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react'; // eslint-disable-line
+import { Segment } from 'semantic-ui-react'; // eslint-disable-line
 import Person from '../../components/Person/Person';
 
 import styles from './People.postcss';
@@ -71,10 +71,10 @@ const people = [
 ];
 
 const People = () => (
-  <Card.Group itemsPerRow={1} stackable centered textAlign='center'>
-    {people.map((person, i) => (
+  <Segment.Group itemsPerRow={1} stackable centered textAlign='center'>
+    {people.map(person => (
       <Person
-        key={i}
+        key={person.fullname}
         fullname={person.fullname}
         description={person.description}
         topics={person.topics}
@@ -82,7 +82,7 @@ const People = () => (
         className={styles.container}
       />
     ))}
-  </Card.Group>
+  </Segment.Group>
 );
 
 export default People;

@@ -1,18 +1,28 @@
 .person {
-  clear: fix;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.person:hover {
-  position: absolute;
-  bottom: 0.5rem;
+.bio {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-right: 0.75rem;
 }
 
-.publications {
-  /* position: absolute; */
-  color: var(--color-secondary);
-  justify-content: flex-end;
+.work {
+  margin-left: 0.75rem;
+}
+
+.summary {
+  padding-bottom: 1.75rem;
+  color: var(--color-tertiary) !important;
   word-break: break-word;
 }
 
-.publication {
+.publications {
+  color: var(--color-secondary) !important;
+  word-break: break-word;
 }
