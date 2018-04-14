@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Container, List, Image, } from 'semantic-ui-react';
-import Markdown from 'markdown-to-jsx';
+import { Grid, Container, List, Image } from 'semantic-ui-react'; // eslint-disable-line
+import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import Text from '../../components/UI/Text';
 import Divider from '../../components/UI/Divider/Divider';

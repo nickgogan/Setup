@@ -27,12 +27,21 @@ const papers = [
   },
 ];
 
-export default class Publications extends React.Component {
-  render() {
-    return (
-      <Card.Group stackable>
-        {papers.map(paper => <Paper>{paper}</Paper>)}
-      </Card.Group>
-    );
-  }
-}
+const Publications = () => {
+  const items = papers.map(paper => (
+    <Paper
+      key={paper.title}
+      title={paper.title}
+      authors={paper.authors}
+      urls={paper.urls}
+    />
+  ));
+
+  return (
+    <Card.Group stackable centered>
+      {items}
+    </Card.Group>
+  );
+};
+
+export default Publications;

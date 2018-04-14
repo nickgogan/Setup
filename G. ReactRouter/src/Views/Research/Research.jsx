@@ -1,12 +1,14 @@
 import React from 'react';
-import Markdown from 'markdown-to-jsx';
+// import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './Research.postcss';
-import content from './Research.md';
+// import content from './Research.md';
+import Publications from '../../containers/Publications/Publications';
 
-const Research = props => (
+const Research = () => (
   <div className={styles.container}>
-    <Markdown>{content}</Markdown>
+    {/* <Markdown>{content}</Markdown> */}
+    <Publications />
   </div>
 );
 

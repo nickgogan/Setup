@@ -1,28 +1,39 @@
-.person {
+.container {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.bio {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  margin-left: 1rem;
-  margin-right: 0.75rem;
+.avatar {
+  margin: 0 auto 0 0.5rem;
+}
+
+.avatar_header {
+  display: block;
+  text-align: center;
+}
+
+.avatar_bio {
+  margin: 0 auto;
+  border-radius: 50% !important;
+}
+
+.avatar_topics {
+  margin-top: 0.75rem;
+  text-align: center;
 }
 
 .work {
   margin-left: 0.75rem;
 }
 
-.summary {
+.work_summary {
   padding-bottom: 1.75rem;
   color: var(--color-tertiary) !important;
   word-break: break-word;
 }
 
-.publications {
+.work_publications {
   color: var(--color-secondary) !important;
   word-break: break-word;
 }

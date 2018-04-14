@@ -2,67 +2,67 @@ import React from 'react';
 import { Segment } from 'semantic-ui-react'; // eslint-disable-line
 import Person from '../../components/Person/Person';
 
-import styles from './People.postcss';
+import styles from './Undergrads.postcss';
 
 const people = [
   {
-    fullname: 'Project Report - April',
+    fullname: 'Nick Gogan',
     description:
       'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - May',
+    fullname: 'JohnRene Malaya',
     description:
       'Bring to the table win-win survival strategies to ensure proactive domination.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - June',
+    fullname: 'JohnBernard Malaya',
     description:
       'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - April',
+    fullname: 'Autora Fitch',
     description:
       'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - May',
+    fullname: 'May Fitch',
     description:
       'Bring to the table win-win survival strategies to ensure proactive domination.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - June',
+    fullname: 'Sam Ahn',
     description:
       'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - April',
+    fullname: 'Khushbu Shah',
     description:
       'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - May',
+    fullname: 'Daniel Martin',
     description:
       'Bring to the table win-win survival strategies to ensure proactive domination.',
     topics: 'Topic 1, Topic 2, Topic 3',
     publications: 'Paper 1, Paper 2',
   },
   {
-    fullname: 'Project Report - June',
+    fullname: 'Cody Scarborough',
     description:
       'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
     topics: 'Topic 1, Topic 2, Topic 3',
@@ -71,7 +71,7 @@ const people = [
 ];
 
 const People = () => (
-  <Segment.Group itemsPerRow={1} stackable centered textAlign='center'>
+  <Segment.Group itemsPerRow={1} stackable centered raised textAlign='center'>
     {people.map(person => (
       <Person
         key={person.fullname}

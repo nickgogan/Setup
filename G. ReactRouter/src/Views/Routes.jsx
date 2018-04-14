@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch, Route, } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { Switch, Route } from 'react-router-dom'; // eslint-disable-line
+import Loadable from 'react-loadable'; // eslint-disable-line
 
 import Placeholder from '../components/UI/Loading';
 
