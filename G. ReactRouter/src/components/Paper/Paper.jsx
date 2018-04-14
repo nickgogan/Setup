@@ -6,7 +6,7 @@ function setLinks(urls) {}
 const Paper = props => (
   <Card fluid>
     <Card.Header>{props.title}</Card.Header>
-    <Card.Meta>TEST</Card.Meta>
+    <Card.Meta>{props.datePublished}</Card.Meta>
     <Card.Content>TEST</Card.Content>
     <Card.Content extra textAlign='right'>
       TEST

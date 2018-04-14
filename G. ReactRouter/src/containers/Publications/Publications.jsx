@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react'; // eslint-disable-line
 
+import styles from './Publications.postcss';
 import Paper from '../../components/Paper/Paper';
 
 const papers = [
@@ -33,12 +34,13 @@ const Publications = () => {
       key={paper.title}
       title={paper.title}
       authors={paper.authors}
+      datePublished={paper.date}
       urls={paper.urls}
     />
   ));
 
   return (
-    <Card.Group stackable centered>
+    <Card.Group stackable centered raised className={styles.container}>
       {items}
     </Card.Group>
   );
