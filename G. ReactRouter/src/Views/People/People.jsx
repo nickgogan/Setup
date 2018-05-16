@@ -13,7 +13,7 @@ const principalCurrentWork = 'Current work includes...';
 
 const ViewPeople = () => (
   <div className={styles.container}>
-    <div className={styles.principalInvestigator}>
+    <div className={`${styles.text_body} ${styles.principalInvestigator}`}>
       <PrincipalInvestigator
         name='David Fitch'
         position='Lab Head'
@@ -24,14 +24,14 @@ const ViewPeople = () => (
     </div>
     <br />
     <Divider horizontal />
-    <div className={styles.grads}>
+    <div className={`${styles.text_body} ${styles.grads}`}>
       <h3 className={styles.header}>PostDocs and Graduate Students</h3>
       <br />
       <Grads />
     </div>
     <br />
     <Divider horizontal />
-    <div className={styles.undergrads}>
+    <div className={`${styles.text_body} ${styles.undergrads}`}>
       <h3 className={styles.header}>Undergraduates</h3>
       <br />
       <Undergrads />

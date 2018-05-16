@@ -3,13 +3,7 @@ import { Grid, Header, Icon, List } from 'semantic-ui-react'; // eslint-disable-
 import Text from '../../components/UI/Text';
 import Resource from '../../components/Resource/Resource';
 
-// import Markdown from 'markdown-to-jsx';
-// import content from './Resources.md';
 import styles from './Resources.postcss';
-
-// <div className={styles.container}>
-//   <Markdown>{content}</Markdown>
-// </div>
 
 const data = [
   {
@@ -34,36 +28,63 @@ const Resources = props => (
         className={styles.headerText}
       >
         <Icon name='database' />
-        <Header.Content>DATABASES & SOFTWARE</Header.Content>
+        <Header.Content as='h2' className={styles.text_header}>
+          DATABASES & SOFTWARE
+        </Header.Content>
       </Header>
-      <h1 className={styles.headerText}>DATABASES & SOFTWARE</h1>
       <List bulleted>
-        <List.Item>Worm Systematics Resource Network (WSRN)</List.Item>
         <List.Item>
-          CODEVOLV (our software for codon evolutionary analysis)
+          <List.Content>
+            <List.Header as='h4' className={styles.text_title}>
+              Worm Systematics Resource Network (WSRN)
+            </List.Header>
+            <List.Description as='p' className={styles.text_body}>
+              [TODO]Lorem ipsum
+            </List.Description>
+          </List.Content>
         </List.Item>
+
         <List.Item>
-          PopGen2 and SIMUL8 (simulation software from Joe Felsenstein for
-          population genetics studies and instruction)
+          <List.Content>
+            <List.Header as='h4' className={styles.text_title}>
+              CODEVOLV (our software for codon evolutionary analysis)
+            </List.Header>
+            <List.Description as='p' className={styles.text_body}>
+              [TODO]Lorem ipsum
+            </List.Description>
+          </List.Content>
+        </List.Item>
+
+        <List.Item>
+          <List.Content>
+            <List.Header as='h4' className={styles.text_title}>
+              PopGen2 and SIMUL8 (simulation software from Joe Felsenstein for
+              population genetics studies and instruction)
+            </List.Header>
+            <List.Description as='p' className={styles.text_body}>
+              [TODO]Lorem ipsum
+            </List.Description>
+          </List.Content>
         </List.Item>
       </List>
     </Grid.Column>
+
     <Grid.Column>
-      <Header as='h2' style={{ textAlign: 'center', }}>
+      <Header as='h2'>
         <Icon name='code' />
-        <Header.Content>
+        <Header.Content as='p' className={styles.text_title}>
           Morphological character matrices for Rhabditidae
         </Header.Content>
       </Header>
-      <Header as='h2' style={{ textAlign: 'center', }}>
+      <Header as='h2'>
         <Icon name='code' />
-        <Header.Content>
+        <Header.Content as='p' className={styles.text_title}>
           18S ribosomal RNA sequences and alignments for Rhabditidae
         </Header.Content>
       </Header>
-      <Header as='h2' style={{ textAlign: 'center', }}>
+      <Header as='h2'>
         <Icon name='code' />
-        <Header.Content>
+        <Header.Content as='p' className={styles.text_title}>
           Combined character matrices for Rhabditidae
         </Header.Content>
       </Header>

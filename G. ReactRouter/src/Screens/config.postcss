@@ -27,29 +27,33 @@ body {
   font-style: normal;
   font-weight: 800;
 }
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('../assets/fonts/SofiaProRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 .typeBase {
-  clear: fix;
-  font-size: responsive;
-  line-height: responsive;
-  letter-spacing: responsive;
-  color: var(--color-primary);
+  font-size: 1rem;
+  line-height: 1.33rem;
+  letter-spacing: normal;
+  color: var(--color-quaternary);
 }
 .typeHeader {
-  compose: typeBase;
+  composes: typeBase;
   font-family: 'HelveticaNueue', system-ui;
-  color: var(--color-quaternary);
+  color: var(--color-quaternary) !important;
   padding-top: 1rem;
   padding-bottom: 1.33rem;
   text-align: center;
 }
 .typeNormal {
-  compose: typeBase;
-  font-family: 'Lato', system-ui;
+  composes: typeBase;
+  font-family: 'SofiaPro', system-ui;
   color: var(--color-secondary);
+  font-size: responsive !important;
+  line-height: responsive !important;
   padding-left: 1.2rem;
   padding-right: 1.2rem;
   padding-bottom: 1rem;
 }
-
-/* custom selectors */
-/*@custom-selector :--heading h1, h2, h3, h4, h5, h6; */
