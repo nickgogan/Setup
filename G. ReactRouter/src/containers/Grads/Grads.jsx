@@ -31,7 +31,7 @@ const grads = [
   },
 ];
 
-const Grads = props => {
+const Grads = () => {
   const items = grads.map(person => (
     <PrincipalInvestigator
       key={person.name}
@@ -39,6 +39,7 @@ const Grads = props => {
       position={person.position}
       description={person.description}
       currentWork={person.currentWork}
+      className={styles.container}
     />
   ));
   return (

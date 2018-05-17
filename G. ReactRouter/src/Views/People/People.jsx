@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Header } from 'semantic-ui-react'; // eslint-disable-line
-import Markdown from 'markdown-to-jsx'; // eslint-disable-line
+// import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './People.postcss';
 import PrincipalInvestigator from '../../components/PrincipalInvestigator/PrincipalInvestigator';

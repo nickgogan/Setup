@@ -1,7 +1,5 @@
-// @flow
-
 import React from 'react';
-import { Loader, Dimmer, } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react'; // eslint-disable-line
 
 const styles = {
   display: 'flex',

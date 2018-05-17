@@ -1,7 +1,5 @@
-// @flow
-
 import React from 'react';
-import { HashRouter as Router, Switch, Route, NavLink } from 'react-router-dom'; // eslint-disable-line
+import { HashRouter as Router } from 'react-router-dom'; // eslint-disable-line
 import { Responsive } from 'semantic-ui-react'; // eslint-disable-line
 import Loadable from 'react-loadable'; // eslint-disable-line
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Segment, Header } from 'semantic-ui-react'; // eslint-disable-line
+import { Segment } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Publications.postcss';
 import Paper from '../../components/Paper/Paper';
@@ -14,6 +14,7 @@ const Publications = props => {
       citation={paper.citation}
       datePublished={paper.date}
       urls={paper.urls}
+      className={styles.container}
     />
   ));
   return (

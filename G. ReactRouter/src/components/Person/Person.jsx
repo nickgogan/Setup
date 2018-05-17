@@ -3,7 +3,6 @@ import { Segment, Image, Container, Header } from 'semantic-ui-react'; // eslint
 
 import styles from './Person.postcss';
 import Divider from '../UI/Divider/Divider';
-import Text from '../UI/Text';
 
 const Person = props => (
   <Segment fluid vertical className={styles.container}>

@@ -1,20 +1,18 @@
 import React from 'react';
-import { Grid, Container, List, Image } from 'semantic-ui-react'; // eslint-disable-line
+import { Grid, List } from 'semantic-ui-react'; // eslint-disable-line
 import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './Home.postcss';
-import Text from '../../components/UI/Text';
 import Divider from '../../components/UI/Divider/Divider';
-import introContent from './Home.md';
+// import introContent from './Home.md';
 
 const ViewHome = props => (
-  // <p className={styles.text_body}>This is type normal face.</p>
   <Grid
     stackable
     centered
     divided
     container
-    columns={2}
+    columns={props.columns}
     className={styles.container}
   >
     <Grid.Row>
@@ -36,12 +34,12 @@ const ViewHome = props => (
 
     <Grid.Row>
       <Grid.Column>
-        <h1 className={styles.heading_currentProjects}>Current Projects</h1>
+        <h1 className={styles.heading}>Current Projects</h1>
         <List bulleted animated divided selection verticalAlign='middle'>
           <List.Item>
             <List.Content>
               <List.Header as='h4' className={styles.text_title}>
-                TEST
+                [TODO] Title
               </List.Header>
               <List.Description as='p' className={styles.text_body}>
                 Determination of the phylogenetic relationships of species in
@@ -54,7 +52,7 @@ const ViewHome = props => (
           <List.Item>
             <List.Content>
               <List.Header as='h4' className={styles.text_title}>
-                TEST
+                [TODO] Title
               </List.Header>
               <List.Description as='p' className={styles.text_body}>
                 Reconstruction of the evolutionary changes in morphogenesis and
@@ -69,7 +67,7 @@ const ViewHome = props => (
           <List.Item>
             <List.Content>
               <List.Header as='h4' className={styles.text_title}>
-                TEST
+                [TODO] Title
               </List.Header>
               <List.Description as='p' className={styles.text_body}>
                 Discovery of genes and mechanisms involved in morphogenesis of
@@ -84,7 +82,7 @@ const ViewHome = props => (
           </List.Item>
         </List>
         <Divider horizontal />
-        <h1 className={styles.heading_currentModels}>Current Models</h1>
+        <h1 className={styles.heading}>Current Models</h1>
         <List bulleted animated divided selection verticalAlign='middle'>
           <List.Item>
             <List.Content>
@@ -133,7 +131,7 @@ const ViewHome = props => (
       </Grid.Column>
 
       <Grid.Column className={styles.column_right}>
-        <h1 className={styles.heading_facilities}>Facilities</h1>
+        <h1 className={styles.heading}>Facilities</h1>
         <List selection verticalAlign='middle'>
           <List.Item>
             <List.Content>
@@ -152,7 +150,7 @@ const ViewHome = props => (
 
         <Divider horizontal />
 
-        <h1 className={styles.heading_education}>Education</h1>
+        <h1 className={styles.heading}>Education</h1>
         <List bulleted animated divided selection verticalAlign='middle'>
           <List.Item>
             <List.Content>

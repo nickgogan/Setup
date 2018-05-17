@@ -6,41 +6,6 @@ import styles from './Undergrads.postcss';
 
 const people = [
   {
-    fullname: 'Nick Gogan',
-    description:
-      'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-    topics: 'Topic 1, Topic 2, Topic 3',
-    publications: 'Paper 1, Paper 2',
-  },
-  {
-    fullname: 'JohnRene Malaya',
-    description:
-      'Bring to the table win-win survival strategies to ensure proactive domination.',
-    topics: 'Topic 1, Topic 2, Topic 3',
-    publications: 'Paper 1, Paper 2',
-  },
-  {
-    fullname: 'JohnBernard Malaya',
-    description:
-      'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',
-    topics: 'Topic 1, Topic 2, Topic 3',
-    publications: 'Paper 1, Paper 2',
-  },
-  {
-    fullname: 'Autora Fitch',
-    description:
-      'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-    topics: 'Topic 1, Topic 2, Topic 3',
-    publications: 'Paper 1, Paper 2',
-  },
-  {
-    fullname: 'May Fitch',
-    description:
-      'Bring to the table win-win survival strategies to ensure proactive domination.',
-    topics: 'Topic 1, Topic 2, Topic 3',
-    publications: 'Paper 1, Paper 2',
-  },
-  {
     fullname: 'Sam Ahn',
     description:
       'Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.',

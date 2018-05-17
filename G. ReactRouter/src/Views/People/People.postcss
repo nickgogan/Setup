@@ -3,17 +3,19 @@
   margin: 0 auto;
 }
 
-.heading {
+.header {
   composes: typeHeader from '../../Screens/config.postcss';
+  margin-bottom: 1.5rem;
   text-align: center;
+  word-break: break-all;
 }
 
-.text_body {
-  composes: typeNormal from '../../Screens/config.postcss';
-}
 .text_title {
   composes: typeNormal from '../../Screens/config.postcss';
   font-weight: bold;
+}
+.text_body {
+  composes: typeNormal from '../../Screens/config.postcss';
 }
 
 .principalInvestigator {
@@ -27,10 +29,4 @@
 
 .undergrads {
   margin: 0 auto;
-}
-
-.header {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  word-break: break-all;
 }

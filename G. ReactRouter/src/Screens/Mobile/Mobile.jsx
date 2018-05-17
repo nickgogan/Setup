@@ -1,5 +1,3 @@
-// @flow
-
 import React from 'react';
 import { Menu, Icon, Sidebar } from 'semantic-ui-react'; // eslint-disable-line
 
@@ -66,7 +64,9 @@ export default class Mobile extends React.Component {
               }
             />
           </div>
-          <SiteLogo />
+          <SiteLogo>
+            <a href='#' />
+          </SiteLogo>
         </div>
 
         <Sidebar.Pushable attached='bottom'>

@@ -1,11 +1,9 @@
-// @flow
-
 import React from 'react';
-import { NavLink, } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; // eslint-disable-line
 
 import styles from './Navigation.postcss';
 
-function selectStyle(size) {
+function selectLinkStyle(size) {
   if (size === 'large') {
     return {
       margin: '1rem',
@@ -16,7 +14,7 @@ function selectStyle(size) {
   return {};
 }
 
-function selectDirection(direction) {
+function selectNavDirection(direction) {
   if (direction === 'vertical') {
     return {
       display: 'flex',
@@ -27,13 +25,13 @@ function selectDirection(direction) {
 }
 
 const Navigation = props => (
-  <nav className={styles.navbar} style={selectDirection(props.direction)}>
+  <nav className={styles.navbar} style={selectNavDirection(props.direction)}>
     <NavLink
       exact
       to='/'
       activeClassName={styles.activeLink}
       className={styles.link}
-      style={selectStyle(props.size)}
+      style={selectLinkStyle(props.size)}
     >
       Home
     </NavLink>
@@ -41,7 +39,7 @@ const Navigation = props => (
       to='/research'
       activeClassName={styles.activeLink}
       className={styles.link}
-      style={selectStyle(props.size)}
+      style={selectLinkStyle(props.size)}
     >
       Research
     </NavLink>
@@ -49,7 +47,7 @@ const Navigation = props => (
       to='/resources'
       activeClassName={styles.activeLink}
       className={styles.link}
-      style={selectStyle(props.size)}
+      style={selectLinkStyle(props.size)}
     >
       Resources
     </NavLink>
@@ -57,7 +55,7 @@ const Navigation = props => (
       to='/people'
       activeClassName={styles.activeLink}
       className={styles.link}
-      style={selectStyle(props.size)}
+      style={selectLinkStyle(props.size)}
     >
       People
     </NavLink>
@@ -65,7 +63,7 @@ const Navigation = props => (
       to='/about'
       activeClassName={styles.activeLink}
       className={styles.link}
-      style={selectStyle(props.size)}
+      style={selectLinkStyle(props.size)}
     >
       About
     </NavLink>

@@ -1,12 +1,10 @@
-// @flow
-
 import React from 'react';
 import { Icon } from 'semantic-ui-react'; // eslint-disable-line
 
-import SiteLogo from '../../components/SiteLogo/SiteLogo';
 import styles from './MobileHeader.postcss';
+import SiteLogo from '../../components/SiteLogo/SiteLogo';
 
-const Navigation = props => (
+const Navigation = () => (
   <div className={styles.navbar}>
     <div className={styles.iconContainer}>
       <Icon name='sidebar' className={styles.icon} />

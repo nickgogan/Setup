@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Header, Icon, List } from 'semantic-ui-react'; // eslint-disable-line
-import Text from '../../components/UI/Text';
-import Resource from '../../components/Resource/Resource';
+// import Text from '../../components/UI/Text';
+// import Resource from '../../components/Resource/Resource';
 
 import styles from './Resources.postcss';
 
@@ -22,16 +22,13 @@ const Resources = props => (
     style={{ paddingLeft: '1.5rem', }}
   >
     <Grid.Column>
-      <Header
-        as='h2'
-        style={{ textAlign: 'center', }}
-        className={styles.headerText}
-      >
+      <Header as='h2'>
         <Icon name='database' />
-        <Header.Content as='h2' className={styles.text_header}>
+        <Header.Content as='h2' className={styles.header}>
           DATABASES & SOFTWARE
         </Header.Content>
       </Header>
+
       <List bulleted>
         <List.Item>
           <List.Content>
@@ -76,12 +73,14 @@ const Resources = props => (
           Morphological character matrices for Rhabditidae
         </Header.Content>
       </Header>
+
       <Header as='h2'>
         <Icon name='code' />
         <Header.Content as='p' className={styles.text_title}>
           18S ribosomal RNA sequences and alignments for Rhabditidae
         </Header.Content>
       </Header>
+
       <Header as='h2'>
         <Icon name='code' />
         <Header.Content as='p' className={styles.text_title}>

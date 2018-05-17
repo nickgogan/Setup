@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react'; // eslint-disable-line
 import styles from './Sponsors.postcss';
 
 const logos = [
@@ -51,7 +51,7 @@ export default class Sponsors extends React.Component {
 
   render() {
     return (
-      <Image.Group size='tiny' className={styles.sponsors}>
+      <Image.Group size='tiny' className={styles.container}>
         {this.state.sponsors.map(sponsor => (
           <Image
             key={sponsor}

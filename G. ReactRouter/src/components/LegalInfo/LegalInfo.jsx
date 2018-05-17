@@ -2,7 +2,7 @@ import React from 'react';
 
 import Text from '../UI/Text';
 
-const styleGrid = {
+const styles = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -10,7 +10,7 @@ const styleGrid = {
 };
 
 const LegalInfo = props => (
-  <div style={styleGrid}>
+  <div style={styles}>
     <Text fontSize='0.75rem' width='10rem'>
       Developed and Designed by{' '}
       <a

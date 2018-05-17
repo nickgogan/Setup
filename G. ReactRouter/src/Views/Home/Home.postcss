@@ -9,6 +9,10 @@
   padding-left: 1rem;
 }
 
+.heading {
+  composes: typeHeader from '../../Screens/config.postcss';
+  text-align: center;
+}
 .heading_objectives {
   composes: typeHeader from '../../Screens/config.postcss';
   display: block;
@@ -16,29 +20,10 @@
   text-align: center;
 }
 
-.heading_facilities {
-  composes: typeHeader from '../../Screens/config.postcss';
-  text-align: center;
-}
-
-.heading_education {
-  composes: typeHeader from '../../Screens/config.postcss';
-  text-align: center;
-}
-
-.heading_currentProjects {
-  composes: typeHeader from '../../Screens/config.postcss';
-  text-align: center;
-}
-.heading_currentModels {
-  composes: typeHeader from '../../Screens/config.postcss';
-  text-align: center;
-}
-
-.text_body {
-  composes: typeNormal from '../../Screens/config.postcss';
-}
 .text_title {
   composes: typeNormal from '../../Screens/config.postcss';
   font-weight: bold;
+}
+.text_body {
+  composes: typeNormal from '../../Screens/config.postcss';
 }

@@ -2,7 +2,6 @@ import React from 'React'; // eslint-disable-line
 import { Segment, Card } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Paper.postcss';
-import Divider from '../../components/UI/Divider/Divider';
 
 const entities = ['Caenorhabditis elegans',];
 

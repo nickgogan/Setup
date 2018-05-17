@@ -34,11 +34,7 @@ const About = Loadable({
 
 const Routes = () => (
   <Switch>
-    <Route
-      exact
-      path='/'
-      render={() => <Home columns='2' columnSpace='10rem' />}
-    />
+    <Route exact path='/' render={() => <Home columns='2' />} />
 
     <Route path='/research' render={() => <Research />} />
 
