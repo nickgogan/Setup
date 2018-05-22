@@ -4,7 +4,7 @@ import { Header, Icon, List } from 'semantic-ui-react'; // eslint-disable-line
 import styles from './Databases&Software.postcss';
 
 const DatabasesAndSoftware = () => (
-  <List bulleted>
+  <List relaxed animated selection>
     <List.Item>
       <List.Content>
         <List.Header as='h4' className={styles.text_title}>

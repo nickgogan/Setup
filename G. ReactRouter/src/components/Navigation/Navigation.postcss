@@ -7,12 +7,15 @@
 .link {
   composes: typeHeader from '../../Screens/config.postcss';
   text-decoration: none;
-  color: var(--color-quinary);
+  color: var(--color-header);
+}
+
+nav > a:hover {
+  color: var(--color-nav);
 }
 
 .activeLink {
   composes: link;
   text-decoration: underline;
   font-weight: bold;
-  color: var(--color-tertiary);
 }

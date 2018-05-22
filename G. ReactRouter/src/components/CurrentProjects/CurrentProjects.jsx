@@ -4,7 +4,7 @@ import { List } from 'semantic-ui-react'; // eslint-disable-line
 import styles from './CurrentProjects.postcss';
 
 const CurrentProjects = () => (
-  <List bulleted animated divided selection verticalAlign='middle'>
+  <List relaxed animated divided selection verticalAlign='middle'>
     <List.Item>
       <List.Content>
         <List.Header as='h4' className={styles.text_title}>

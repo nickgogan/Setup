@@ -4,11 +4,10 @@
   --html-height: 100vmin;
   --component-margin: 1rem;
   /* Color Scheme */
-  --color-primary: #fbd8b0;
-  --color-secondary: #3d505d;
-  --color-tertiary: #9f3a37;
-  --color-quaternary: #cb5940;
-  --color-quinary: #dc8729;
+  --color-text-title: #4a4f55;
+  --color-text-body: #939a90;
+  --color-header: #57068c;
+  --color-nav: #008996;
 }
 
 html,
@@ -18,6 +17,8 @@ body {
   font-size: 16px;
   line-height: 1.5rem;
 }
+
+/* Typography */
 
 /* Fonts must be in the same file as their import. Only declare a @font-face once. Otherwise, webpack will include it multiple times in the output style bundle. Best to have a parent class with this that other classes can compose from. */
 @font-face {
@@ -32,27 +33,40 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
 .typeBase {
   font-size: 1rem;
   line-height: 1.33rem;
   letter-spacing: normal;
-  color: var(--color-quaternary);
 }
 .typeHeader {
   composes: typeBase;
-  padding-top: 1rem;
-  padding-bottom: 1.33rem;
   font-family: 'HelveticaNueue', system-ui;
   font-size: responsive !important;
   line-height: responsive !important;
-  color: var(--color-quaternary) !important;
-  text-align: center;
 }
 .typeNormal {
   composes: typeBase;
   font-family: 'SofiaPro', system-ui;
   font-size: responsive !important;
   line-height: responsive !important;
-  /* letter-spacing: responsive !important; */
-  color: var(--color-secondary);
+}
+
+.header {
+  composes: typeHeader;
+  padding-top: 1rem;
+  padding-bottom: 1.33rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: var(--color-header);
+  text-align: center;
+}
+.text_title {
+  composes: typeNormal;
+  font-weight: bold;
+  color: var(--color-text-title);
+}
+.text_body {
+  composes: typeNormal;
+  color: var(--color-text-body);
 }

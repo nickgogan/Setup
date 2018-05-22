@@ -7,18 +7,24 @@ import Undergrads from '../../containers/Undergrads/Undergrads';
 import Grads from '../../containers/Grads/Grads';
 import Divider from '../../components/UI/Divider/Divider';
 
-const principalDescription = "David's description";
-const principalCurrentWork = 'Current work includes...';
+const principalInvestigator = {
+  name: 'David Fitch',
+  position: 'Lab Head',
+  description: "David's description",
+  currentWork: 'Current work includes...',
+  nyu: true,
+};
 
 const ViewPeople = () => (
   <div className={styles.container}>
     <div className={`${styles.text_body} ${styles.principalInvestigator}`}>
       <PrincipalInvestigator
-        name='David Fitch'
-        position='Lab Head'
-        description={principalDescription}
-        currentWork={principalCurrentWork}
+        name={principalInvestigator.name}
+        position={principalInvestigator.position}
+        description={principalInvestigator.description}
+        currentWork={principalInvestigator.currentWork}
         isLabHead
+        isNYUEmployee={principalInvestigator.nyu}
       />
     </div>
     <br />

@@ -6,12 +6,19 @@ function HighlightHead(isLabHead) {
     return { color: 'red', };
   }
 }
+function HighlightNYUEmployee(isNYUEmployee) {
+  if (isNYUEmployee) {
+    return { color: 'var(--color-header)', };
+  }
+}
 
 const PrincipalInvestigator = props => (
   <Card>
     <Image src='http://via.placeholder.com/500x500' />
     <Card.Content>
-      <Card.Header>{props.name}</Card.Header>
+      <Card.Header style={HighlightNYUEmployee(props.isNYUEmployee)}>
+        {props.name}
+      </Card.Header>
       <Card.Meta>
         <span style={HighlightHead(props.isLabHead)}>{props.position}</span>
       </Card.Meta>

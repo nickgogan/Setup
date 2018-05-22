@@ -1,15 +1,14 @@
-.heading {
-  composes: typeHeader from '../../Screens/config.postcss';
-  font-size: 2rem;
-  text-align: center;
-}
-
-.goalsList {
+.container {
   margin-top: 1.5rem !important;
   margin-bottom: 2rem !important;
 }
-.goalsList_text {
-  composes: typeNormal from '../../Screens/config.postcss';
-  line-height: 3rem !important;
-  font-size: 1.5rem !important;
+
+.heading {
+  composes: header from '../../Screens/config.postcss';
+}
+
+.text_title {
+  composes: text_title from '../../Screens/config.postcss';
+  font-weight: normal;
+  font-size: 1.33rem !important;
 }

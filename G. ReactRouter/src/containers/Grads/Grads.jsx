@@ -10,6 +10,7 @@ const grads = [
     position: 'Postdoctoral Research Scientist',
     description: 'DESCRIPTION',
     currentWork: 'CURRENT WORK',
+    nyu: true,
   },
   {
     name: 'Matthew D. Nelson',
@@ -40,6 +41,7 @@ const Grads = () => {
       description={person.description}
       currentWork={person.currentWork}
       className={styles.container}
+      isNYUEmployee={person.nyu}
     />
   ));
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Text from '../UI/Text';
+import Text from '../UI/Text/Text';
 
 const styles = {
   display: 'flex',
@@ -8,10 +8,14 @@ const styles = {
   justifyContent: 'space-between',
   flexwrap: 'wrap',
 };
+const textStyles = {
+  width: '10rem',
+  fontSize: '0.75rem',
+};
 
 const LegalInfo = props => (
   <div style={styles}>
-    <Text fontSize='0.75rem' width='10rem'>
+    <Text width='10rem' fontSize='0.9rem' lineHeight='1.2rem'>
       Developed and Designed by{' '}
       <a
         href='https://www.linkedin.com/in/nickgogan/'
@@ -22,7 +26,7 @@ const LegalInfo = props => (
       </a>{' '}
       (2018).
     </Text>
-    <Text fontSize='0.75rem' width='10rem'>
+    <Text width='10rem' fontSize='0.9rem' lineHeight='1.2rem'>
       Unless otherwise noted, all content copyright to David Fitch of New York
       University. All rights reserved.
     </Text>
