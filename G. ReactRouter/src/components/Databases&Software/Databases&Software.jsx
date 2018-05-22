@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header, Icon, List } from 'semantic-ui-react'; // eslint-disable-line
+import { List } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Databases&Software.postcss';
 
 const DatabasesAndSoftware = () => (
-  <List relaxed animated selection>
+  <List relaxed animated divided selection>
     <List.Item>
       <List.Content>
         <List.Header as='h4' className={styles.text_title}>
