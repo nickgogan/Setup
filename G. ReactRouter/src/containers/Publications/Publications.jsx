@@ -18,7 +18,7 @@ const Publications = props => {
     />
   ));
   return (
-    <Segment.Group stackable centered raised>
+    <Segment.Group stacked raised>
       {papers}
     </Segment.Group>
   );

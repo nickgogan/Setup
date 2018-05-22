@@ -36,7 +36,7 @@ const people = [
 ];
 
 const People = () => (
-  <Segment.Group itemsPerRow={1} stackable centered raised textAlign='center'>
+  <Segment.Group stacked raised style={{ textAlign: 'center', }}>
     {people.map(person => (
       <Person
         key={person.fullname}

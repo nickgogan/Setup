@@ -5,7 +5,7 @@ import styles from './Person.postcss';
 import Divider from '../UI/Divider/Divider';
 
 const Person = props => (
-  <Segment fluid vertical className={styles.container}>
+  <Segment fluid='true' vertical className={styles.container}>
     <div className={styles.avatar}>
       <Header className={styles.avatar_header}>{props.fullname}</Header>
       <Image
