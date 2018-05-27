@@ -10,7 +10,7 @@ import styles from './Mobile.postcss';
 function setHeaderDistances(size) {
   if (size === 'small') {
     return {
-      width: '90%',
+      width: '80%',
       marginBottom: '2.5rem',
       display: 'flex',
       alignItems: 'center',
@@ -65,7 +65,7 @@ export default class Mobile extends React.Component {
             />
           </div>
           <SiteLogo>
-            <a href='#' />
+            <a href='/' />
           </SiteLogo>
         </div>
 
@@ -78,7 +78,8 @@ export default class Mobile extends React.Component {
             icon='labeled'
             vertical
             direction='left'
-            style={{ textAlign: 'center', }}
+            // style={{ textAlign: 'center', }}
+            className={styles.sidebar}
           >
             <Menu.Item
               onClick={() =>

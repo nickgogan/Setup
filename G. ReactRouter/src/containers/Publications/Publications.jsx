@@ -1,10 +1,10 @@
 import React from 'react';
-import { Segment } from 'semantic-ui-react'; // eslint-disable-line
+import { List } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Publications.postcss';
 import Paper from '../../components/Paper/Paper';
 
-const Publications = props => {
+const Papers = props => {
   const papers = props.publicationSet.map(paper => (
     <Paper
       key={paper.title}
@@ -18,10 +18,12 @@ const Publications = props => {
     />
   ));
   return (
-    <Segment.Group stacked raised>
+    // <Segment.Group stacked raised>
+    <List horizontal floated='left' animated>
       {papers}
-    </Segment.Group>
+    </List>
+    // </Segment.Group>
   );
 };
 
-export default Publications;
+export default Papers;

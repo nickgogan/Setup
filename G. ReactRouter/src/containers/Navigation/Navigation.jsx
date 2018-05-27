@@ -44,12 +44,12 @@ const Navigation = props => (
       Research
     </NavLink>
     <NavLink
-      to='/publications'
+      to='/papers'
       activeClassName={styles.activeLink}
       className={styles.link}
       style={selectLinkStyle(props.size)}
     >
-      Publications
+      Papers
     </NavLink>
     <NavLink
       to='/resources'

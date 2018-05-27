@@ -1,3 +1,9 @@
+.container {
+  clear: fix;
+  width: 80%;
+  margin-bottom: 5rem;
+}
+
 .text_body {
   composes: typeNormal from '../../Screens/config.postcss';
 }
@@ -15,7 +21,32 @@
   font-style: italic;
 }
 
-.card_header {
+.header {
+  margin: 0.25rem 0 0.5rem 1rem;
+}
+
+.metadata {
+  margin-left: 1.15rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: gray;
+}
+
+.citation {
+  margin-left: 1rem;
+}
+
+.downloads {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* .card_header {
   margin: 0.25rem 0 0.5rem 1rem;
   padding-left: 1.5rem;
   padding-top: 1.33rem;
@@ -39,4 +70,4 @@
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
-}
+} */

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Publications.postcss';
+import styles from './Papers.postcss';
 import Publications from '../../containers/Publications/Publications';
 
 const rhabditidaePapers = [
@@ -254,7 +254,7 @@ const molecularEvolution = [
   },
 ];
 
-const Research = () => (
+const Papers = () => (
   <div className={styles.container}>
     <h1 className={styles.header}>Systematics and evolution of Rhabditidae</h1>
     <Publications publicationSet={rhabditidaePapers} />
@@ -270,4 +270,4 @@ const Research = () => (
   </div>
 );
 
-export default Research;
+export default Papers;
