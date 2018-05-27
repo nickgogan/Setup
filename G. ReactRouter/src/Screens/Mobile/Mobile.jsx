@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, Icon, Sidebar } from 'semantic-ui-react'; // eslint-disable-line
 
-import Navigation from '../../components/Navigation/Navigation';
+import Navigation from '../../containers/Navigation/Navigation';
 import SiteLogo from '../../components/SiteLogo/SiteLogo';
 import Routes from '../../Views/Routes';
 import Footer from '../../containers/Footer/MobileFooter';

@@ -2,7 +2,7 @@ import React from 'react';
 // import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './People.postcss';
-import PrincipalInvestigator from '../../components/PrincipalInvestigator/PrincipalInvestigator';
+import PrincipalInvestigator from '../../containers/PrincipalInvestigator/PrincipalInvestigator';
 import Undergrads from '../../containers/Undergrads/Undergrads';
 import Grads from '../../containers/Grads/Grads';
 import Divider from '../../components/UI/Divider/Divider';

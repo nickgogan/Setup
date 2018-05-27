@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './Grads.postcss';
-import PrincipalInvestigator from '../../components/PrincipalInvestigator/PrincipalInvestigator';
+import PrincipalInvestigator from '../../containers/PrincipalInvestigator/PrincipalInvestigator';
 
 const grads = [
   {

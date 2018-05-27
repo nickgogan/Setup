@@ -15,6 +15,11 @@ const Research = Loadable({
   loading: Placeholder,
   delay: 500,
 });
+const Publications = Loadable({
+  loader: () => import(/* webpackChunkName: "About" */ './Publications/Publications.jsx'),
+  loading: Placeholder,
+  delay: 500,
+});
 const Resources = Loadable({
   loader: () =>
     import(/* webpackChunkName: "Resources" */ './Resources/Resources.jsx'),
@@ -37,6 +42,8 @@ const Routes = () => (
     <Route exact path='/' render={() => <Home columns='2' />} />
 
     <Route path='/research' render={() => <Research />} />
+
+    <Route path='/publications' render={() => <Publications />} />
 
     <Route path='/resources' render={() => <Resources />} />
 

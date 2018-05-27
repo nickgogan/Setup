@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'semantic-ui-react'; // eslint-disable-line
 
 import styles from './DesktopHeader.postcss';
-import Navigation from '../../components/Navigation/Navigation';
+import Navigation from '../../containers/Navigation/Navigation';
 import SiteLogo from '../../components/SiteLogo/SiteLogo';
 
 const LargeNavigation = () => (
