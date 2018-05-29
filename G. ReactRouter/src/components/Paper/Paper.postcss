@@ -6,6 +6,7 @@
 
 .text_body {
   composes: typeNormal from '../../Screens/config.postcss';
+  word-break: break-word;
 }
 .text_title {
   composes: typeNormal from '../../Screens/config.postcss';
@@ -28,15 +29,21 @@
 .metadata {
   margin-left: 1.15rem;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   color: gray;
 }
+.metadata_publicationDate {
+  margin-top: 0.5rem;
+}
 
 .citation {
   margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: responsive !important;
 }
 
 .downloads {

@@ -78,7 +78,6 @@ export default class Mobile extends React.Component {
             icon='labeled'
             vertical
             direction='left'
-            // style={{ textAlign: 'center', }}
             className={styles.sidebar}
           >
             <Menu.Item

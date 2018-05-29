@@ -54,10 +54,10 @@ const rhabditidaePapers = [
   },
   {
     title:
-      'Caenorhabditis vulgarisÝ sp. n. (Nematoda: Rhabditidae):  a necromenic associate of pill bugs and snails.',
+      'Caenorhabditis vulgaris (Nematoda: Rhabditidae):  a necromenic associate of pill bugs and snails.',
     authors: ['S.E. Baird', 'D. Fitch',],
     citation:
-      'Baird, S. E., Fitch, D. H. A., and Emmons, S. W., 1994.  Caenorhabditis vulgarisÝ sp. n. (Nematoda: Rhabditidae):  a necromenic associate of pill bugs and snails.  NematologicaÝ 40:1-11.',
+      'Baird, S. E., Fitch, D. H. A., and Emmons, S. W., 1994.  Caenorhabditis vulgaris (Nematoda: Rhabditidae): a necromenic associate of pill bugs and snails.  Nematologica 40:1-11.',
     date: 1994,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',
@@ -135,17 +135,17 @@ const molecularEvolution = [
   },
   {
     title:
-      'Fetal recruitment of anthropoid g-globin genes:  findings from phylogenetic analyses involving the 5¢-flanking sequences of the yg1 globin gene of spider monkey Ateles geoffroyi.',
+      'Fetal recruitment of anthropoid γ-globin genes:  findings from phylogenetic analyses involving the 5′-flanking sequences of the Ψγ 1 globin gene of spider monkey Ateles geoffroyi.',
     authors: ['K. Hayasaka', 'D.H.A. Fitch', 'J.L. Slightom', 'M. Goodman',],
     citation:
-      'Hayasaka, K., Fitch, D. H. A., Slightom, J. L., and Goodman, M., 1992.  Fetal recruitment of anthropoid g-globin genes:  findings from phylogenetic analyses involving the 5¢-flanking sequences of the yg1 globin gene of spider monkey Ateles geoffroyi.  J. Mol. Biol. 224(3):875-881.',
+      'Hayasaka, K., Fitch, D. H. A., Slightom, J. L., and Goodman, M., 1992.  Fetal recruitment of anthropoid γ-globin genes:  findings from phylogenetic analyses involving the 5′-flanking sequences of the Ψγ1 globin gene of spider monkey Ateles geoffroyi.  J. Mol. Biol. 224(3):875-881.',
     date: 1992,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',
   },
   {
     title:
-      'Duplication of the g-globin gene mediated by repetitive L1 LINE sequences in an early ancestor of simian primates.',
+      'Duplication of the γ-globin gene mediated by repetitive L1 LINE sequences in an early ancestor of simian primates.',
     authors: [
       'D.H.A. Fitch',
       'W.J. Bailey',
@@ -155,7 +155,7 @@ const molecularEvolution = [
       'J.L. Slightom',
     ],
     citation:
-      'Fitch, D. H. A., Bailey, W. J., Tagle, D. A., Goodman, M., Sieu, L. C., and Slightom, J. L., 1991.  Duplication of the g-globin gene mediated by repetitive L1 LINE sequences in an early ancestor of simian primates.  Proc. Natl. Acad. Sci. USA 88(16):7396-7400.',
+      'Fitch, D. H. A., Bailey, W. J., Tagle, D. A., Goodman, M., Sieu, L. C., and Slightom, J. L., 1991.  Duplication of the γ-globin gene mediated by repetitive L1 LINE sequences in an early ancestor of simian primates.  Proc. Natl. Acad. Sci. USA 88(16):7396-7400.',
     date: 1991,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',
@@ -172,7 +172,7 @@ const molecularEvolution = [
   },
   {
     title:
-      'Molecular evolution of the yh-globin gene locus:  gibbon phylogeny and the Hominoid slowdown.',
+      'Molecular evolution of the Ψη-globin gene locus:  gibbon phylogeny and the Hominoid slowdown.',
     authors: [
       'W.J. Bailey',
       'D.H.A. Fitch',
@@ -182,17 +182,17 @@ const molecularEvolution = [
       'M. Goodman',
     ],
     citation:
-      'Bailey, W. J., Fitch, D. H. A., Tagle, D. A., Czelusniak, J., Slightom, J. L., and Goodman, M., 1991.  Molecular evolution of the yh-globin gene locus:  gibbon phylogeny and the Hominoid slowdown.  Mol. Biol. Evol. 8(2):155-184.',
+      'Bailey, W. J., Fitch, D. H. A., Tagle, D. A., Czelusniak, J., Slightom, J. L., and Goodman, M., 1991.  Molecular evolution of the Ψη-globin gene locus:  gibbon phylogeny and the Hominoid slowdown.  Mol. Biol. Evol. 8(2):155-184.',
     date: 1991,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',
   },
   {
     title:
-      'Molecular history of gene conversions in the primate fetal g-globin genes:  nucleotide sequences from the common gibbon, Hylobates lar.',
+      'Molecular history of gene conversions in the primate fetal γ-globin genes:  nucleotide sequences from the common gibbon, Hylobates lar.',
     authors: ['D.H.A. Fitch', 'C. Mainone', 'M. Goodman', 'J.L. Slightom',],
     citation:
-      'Fitch, D. H. A., Mainone, C., Goodman, M., and Slightom, J. L., 1990.  Molecular history of gene conversions in the primate fetal g-globin genes:  nucleotide sequences from the common gibbon, Hylobates lar.  J. Biol. Chem. 265(2):781-793.',
+      'Fitch, D. H. A., Mainone, C., Goodman, M., and Slightom, J. L., 1990.  Molecular history of gene conversions in the primate fetal γ-globin genes:  nucleotide sequences from the common gibbon, Hylobates lar.  J. Biol. Chem. 265(2):781-793.',
     date: 1990,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',
@@ -244,10 +244,10 @@ const molecularEvolution = [
   },
   {
     title:
-      'The spider monkey yh-globin gene and surrounding sequences:  recent or ancient insertions of LINEs and SINEs?',
+      'The spider monkey Ψη-globin gene and surrounding sequences:  recent or ancient insertions of LINEs and SINEs?',
     authors: ['D.H.A. Fitch', 'C. Mainone', 'J.L. Slightom', 'M. Goodman',],
     citation:
-      'Fitch, D. H. A., Mainone, C., Slightom, J. L., and Goodman, M., 1988.  The spider monkey yh-globin gene and surrounding sequences:  recent or ancient insertions of LINEs and SINEs?  Genomics 3(3):237-255.',
+      'Fitch, D. H. A., Mainone, C., Slightom, J. L., and Goodman, M., 1988.  The spider monkey Ψη-globin gene and surrounding sequences:  recent or ancient insertions of LINEs and SINEs?  Genomics 3(3):237-255.',
     date: 1988,
     pdf: 'pdfURL',
     msdoc: 'msdocURL',

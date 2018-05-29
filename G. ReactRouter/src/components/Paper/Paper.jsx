@@ -23,7 +23,9 @@ const Paper = props => (
       </List.Header>
       <List.Description as='h3' className={styles.metadata}>
         <div>{setAuthors(props.authors)}</div>
-        <div>Published: {props.datePublished}</div>
+        <div className={styles.metadata_publicationDate}>
+          Published: {props.datePublished}
+        </div>
       </List.Description>
       <List.Content className={`${styles.text_body} ${styles.citation}`}>
         <strong>Citation: </strong>

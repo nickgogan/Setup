@@ -19,7 +19,7 @@ const Papers = props => {
   ));
   return (
     // <Segment.Group stacked raised>
-    <List horizontal floated='left' animated>
+    <List horizontal animated>
       {papers}
     </List>
     // </Segment.Group>
