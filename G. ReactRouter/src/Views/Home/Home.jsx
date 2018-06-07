@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react'; // eslint-disable-line
 // import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './Home.postcss';
+import Carousel from '../../containers/Carousel/Carousel';
 import LongtermGoals from '../../components/LongtermGoals/LongtermGoals';
 import CurrentProjects from '../../components/CurrentProjects/CurrentProjects';
 import CurrentModels from '../../components/CurrentModels/CurrentModels';
