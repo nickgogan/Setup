@@ -43,60 +43,48 @@ const EvolutionOfOtherFeatures = Loadable({
 });
 
 export default class Research extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeSection: 'ResearchDefault',
-    };
-  }
-
   getContent() {
     const label = this.state.activeLabel;
 
     switch (label) {
-      default: {
-        return <ResearchDefault />;
-      }
       case 'Rhabditidae Systematics': {
+        console.log(`RESEARCH/getContent: ${label}\tRhabditidae Systematics`);
         return <RhabditidaeSystematics />;
       }
       case 'Evolution of Rhabditidae': {
-        return <MaleTailMorphogenesis />;
+        console.log(`RESEARCH/getContent: ${label}\tEvolution of Rhabditidae`);
+        return <EvolutionOfRhabditidae />;
       }
       case 'Male Tail Evolution': {
+        console.log(`RESEARCH/getContent: ${label}\tMale Tail Evolution`);
         return <MaleTailEvolution />;
       }
-      case 'Evolution Of Other Features': {
+      case 'Evolution of Other Features': {
+        console.log(
+          `RESEARCH/getContent: ${label}\tEvolution Of Other Features`
+        );
         return <EvolutionOfOtherFeatures />;
       }
       case 'Male Tail Morphogenesis': {
-        return <EvolutionOfRhabditidae />;
+        console.log(`RESEARCH/getContent: ${label}\tMale Tail Morphogenesis`);
+        return <MaleTailMorphogenesis />;
+      }
+      default: {
+        console.log(`RESEARCH/getContent: ${label}\tResearch Default`);
+        console.log(
+          `RESEARCH/getContent: ${label === 'Evolution Of Other Features'}`
+        );
+        console.log(
+          `RESEACH.getContent:\t${label}\tEvolution Of Other Features`
+        );
+        return <ResearchDefault />;
       }
     }
   }
 
   updateBreadcrumb(event, data) {
-    const label = data.children;
-    console.log(label);
-
-    switch (label) {
-      case 'Rhabditidae Systematics': {
-        this.setState({ activeLabel: label, });
-        break;
-      }
-      case 'Evolution of Rhabditidae': {
-        this.setState({ activeLabel: label, });
-        break;
-      }
-      case 'Male Tail Morphogenesis': {
-        this.setState({ activeLabel: label, });
-        break;
-      }
-      default: {
-        break;
-      }
-    }
+    this.setState({ activeLabel: data.children, });
+    console.log(`RESEARCH/updateBreadcrumb: ${data.children}`);
   }
 
   render() {

@@ -11,7 +11,7 @@ const Home = Loadable({
 });
 const Research = Loadable({
   loader: () =>
-    import(/* webpackChunkName: "Reserarch" */ './Research/Research.jsx'),
+    import(/* webpackChunkName: "Research" */ './Research/Research.jsx'),
   loading: Placeholder,
   delay: 500,
 });

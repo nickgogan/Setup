@@ -39,48 +39,48 @@ export default class Breadcrumbs extends React.Component {
       {
         if (crumb.subsections.length > 0) {
           return (
-            <Breadcrumb size='big' key={crumb.label}>
-              <Breadcrumb.Section
-                link
-                onClick={this.props.updateBreadcrumb.bind(this)}
-                active={crumb.label === this.state.activeLabel}
-                style={
-                  crumb.label === this.state.activeLabel
-                    ? stylesActiveLink
-                    : stylesLink
-                }
-              >
-                {crumb.label}
-              </Breadcrumb.Section>
-              <Breadcrumb.Divider icon='right chevron' />
+            <div>
+              <Breadcrumb size='big' key={crumb.label}>
+                <Breadcrumb.Section
+                  link
+                  onClick={this.props.updateBreadcrumb.bind(this)}
+                  active={crumb.label === this.state.activeLabel}
+                  style={
+                    crumb.label === this.state.activeLabel
+                      ? stylesActiveLink
+                      : stylesLink
+                  }
+                >
+                  {crumb.label}
+                </Breadcrumb.Section>
+                <Breadcrumb.Divider icon='right chevron' />
+              </Breadcrumb>
               {crumb.subsections
                 ? crumb.subsections.map(subcrumb => (
-                    <Breadcrumb size='big' key={subcrumb}>
-                      <Breadcrumb.Section
-                        link
-                        onClick={this.props.updateBreadcrumb.bind(this)}
-                        active={crumb.subsection === this.state.activeLabel}
-                        style={
-                          crumb.label === this.state.activeLabel
-                            ? stylesActiveLink
-                            : stylesLink
-                        }
-                      >
-                        {subcrumb}
-                      </Breadcrumb.Section>
-                      {crumb.subsections.indexOf(subcrumb) + 1 ===
-                      crumb.subsections.length ? (
-                        ''
-                      ) : (
-                        <Breadcrumb.Divider>/</Breadcrumb.Divider>
-                      )}
-                    </Breadcrumb>
-                  ))
+                      <Breadcrumb size='big' key={subcrumb}>
+                        <Breadcrumb.Section
+                          link
+                          onClick={this.props.updateBreadcrumb.bind(this)}
+                          active={subcrumb === this.state.activeLabel}
+                          style={
+                            subcrumb === this.state.activeLabel
+                              ? stylesActiveLink
+                              : stylesLink
+                          }
+                        >
+                          {subcrumb}
+                        </Breadcrumb.Section>
+                        {crumb.subsections.indexOf(subcrumb) + 1 ===
+                        crumb.subsections.length ? (
+                          <Breadcrumb.Divider>|</Breadcrumb.Divider>
+                        ) : (
+                          <Breadcrumb.Divider>/</Breadcrumb.Divider>
+                        )}
+                      </Breadcrumb>
+                    ))
                 : ''}
-              <Breadcrumb.Divider>|</Breadcrumb.Divider>
-            </Breadcrumb>
+            </div>
           );
-          crumb.subsections.map(subsection => console.log(subsection));
           return '';
         }
         return (
@@ -103,14 +103,6 @@ export default class Breadcrumbs extends React.Component {
             ) : (
               ''
             )}
-            {crumb.subsections
-              ? crumb.subsections.map(subcrumb => (
-                  <Breadcrumb size='big' key={subcrumb}>
-                    <Breadcrumb.Section>{subcrumb}</Breadcrumb.Section>
-                    <Breadcrumb.Divider icon='right chevron' />
-                  </Breadcrumb>
-                ))
-              : ''}
           </Breadcrumb>
         );
       }
@@ -120,6 +112,7 @@ export default class Breadcrumbs extends React.Component {
   render() {
     return (
       <div className={styles.container}>
+        {console.log(`BREADCRUMBS/render: ${this.state.activeLabel}`)}
         {this.buildCrumb()}
         <br />
         {this.props.getContent.apply(this)}
