@@ -18,11 +18,9 @@ const Papers = props => {
     />
   ));
   return (
-    // <Segment.Group stacked raised>
     <List horizontal animated>
       {papers}
     </List>
-    // </Segment.Group>
   );
 };
 
