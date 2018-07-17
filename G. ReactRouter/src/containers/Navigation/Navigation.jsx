@@ -67,14 +67,14 @@ const Navigation = props => (
     >
       People
     </NavLink>
-    <NavLink
+    {/* <NavLink
       to='/about'
       activeClassName={styles.activeLink}
       className={styles.link}
       style={selectLinkStyle(props.size)}
     >
       About
-    </NavLink>
+    </NavLink> */}
   </nav>
 );
 

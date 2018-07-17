@@ -8,12 +8,8 @@ const RhabditidaeSystematics = () => (
     <Grid.Row columns={2}>
       <Grid.Column>
         <List as='ol'>
-          <List.Header
-            as='h4'
-            className={styles.text_title}
-            styles={{ textAlign: 'center', }}
-          >
-            Current Projects
+          <List.Header as='h4' className={styles.text_title}>
+            What is Rhabditidae?
           </List.Header>
           <List.Item as='li' value='◉'>
             <List.Description as='p' className={styles.mainListItem}>
@@ -57,12 +53,8 @@ const RhabditidaeSystematics = () => (
 
       <Grid.Column>
         <List as='ol'>
-          <List.Header
-            as='h4'
-            className={styles.text_title}
-            styles={{ textAlign: 'center', }}
-          >
-            Current Projects
+          <List.Header as='h4' className={styles.text_title}>
+            Data we use to infer Rhabditidae phylogeny
           </List.Header>
           <List.Item as='li' value='◉'>
             <List.Description as='p' className={styles.mainListItem}>
@@ -165,11 +157,7 @@ const RhabditidaeSystematics = () => (
     <Grid.Row columns={2}>
       <Grid.Column>
         <List as='ol'>
-          <List.Header
-            as='h4'
-            className={styles.text_title}
-            styles={{ textAlign: 'center', }}
-          >
+          <List.Header as='h4' className={styles.text_title}>
             Phylogenetic results so far
           </List.Header>
           <List.Item as='li' value='◉'>
@@ -225,11 +213,7 @@ const RhabditidaeSystematics = () => (
       </Grid.Column>
       <Grid.Column>
         <List as='ol'>
-          <List.Header
-            as='h4'
-            className={styles.text_title}
-            styles={{ textAlign: 'center', }}
-          >
+          <List.Header as='h4' className={styles.text_title}>
             Significance of these results
           </List.Header>
           <List.Item as='li' value='◉'>
