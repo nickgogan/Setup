@@ -1,0 +1,12 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Configs/package.json",
+        "G. ReactRouter/package.json",
+        "app_APIs/package.json",
+        "app_IsomorphicReact/package.json"
+      ]
+    }
+  }
+}
