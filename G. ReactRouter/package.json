@@ -14,8 +14,6 @@
     "dev:serve": "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
     "dev:build": "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
-    "share": "run-s security localtunnel",
-    "security": "npx nsp check --reporter summary",
     "localtunnel": "npx lt --port 3001 --localhost NickGoganTunnel --subdomain nickgogan",
     "postinstall": "flow-scripts stub"
   },
@@ -119,7 +117,6 @@
     "markdown-to-jsx": "6.5.2",
     "nodemon": "1.15.1",
     "npm-run-all": "^4.1.2",
-    "nsp": "3.2.1",
     "optimize-js-plugin": "0.0.4",
     "postcss": "6.0.19",
     "postcss-cssnext": "3.1.0",
