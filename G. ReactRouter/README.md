@@ -50,7 +50,28 @@ The latest deployed version of the app is hosted on **Firebase** and can be acce
 
 ### Build/Task Management
 
-**npm** itself is used, with all relevant scripts in `package.json/scripts`. The scripts are
+**npm** itself is used, with all relevant scripts in `package.json/scripts`. The scripts can be divided along the lines of the following categories: deployment, production, development, utility.
+
+_deployment_
+
+`deploy`: Builds the project and then push it to the Firebase server.
+
+`deploy-firebase`: Push the `dist` folder to Firebase.
+
+- Note: `firebase.json` is configures this command.
+
+_production_
+`prod:clean`: Deletes files in the `dist` folder.
+`prod:build`: Uses webpack to compile the project in `dist`.
+`prod:serve`:
+`prod`: Sequentially runs the clean, build, and serve commands, in that order.
+
+_development_
+`dev:clean`: Deletes files in the `build folder`.
+`dev:build`:
+
+`utility`
+`postinstall`: Automatically runs after every `npm install` command. For this project, it created a stub of the package for **Flow**.
 
 ## TODO
 
