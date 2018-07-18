@@ -84,6 +84,8 @@ _utility_
 
 The following dependencies are used to assist in building the project.
 
+**npm-run-all**: Used to run multiple npm commands either sequentially or in parallel.
+
 **cross-env**: Runs scripts that set and use OS environment variables across different platforms.
 
 **rimraf**: The UNIX command `rm -rf`, but for Node.
@@ -99,6 +101,19 @@ The following dependencies are used to assist in building the project.
 **install-peerdeps**: CLI used to install an npm package and its peer dependencies automatically. This is usually done manually.
 
 ## Backend
+
+The entryway to the app is provided by `server/index.js`. Here, the **Express** server is spun up based on the `NODE_ENV` environment variable that is set by **cross-env** in `package.json`. This is also the place where the decision is made regarding which webpack config gets loaded up, which determines the features avaiable. Once within the webpack system, `index.jsx` is called, which can be thought of as the separator of the backend and frontend.
+
+- **development**: Has extra features like **HMR** and the app is served by Express reading the `build` directory when `localhost` is requested by the browser.
+- **production**: Does not have HMR and has the Express server serve the app as simple static files. The emitted `styles.*.css`, by default, has incorrect paths for the external assets (images and fonts). The `fixCSSPath.js` contains a function that correct these paths.
+
+**cors**: Provides Express middleware that allows the webapp to get resources external to its own domain. More info [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+
+### Webpack
+
+This system exists in `src/webpack/*` and is divided by responsibility.
+
+The HTML templates are at `src/templates`. The main template is `index.html`, while `5xx.html` is used for 5xx HTTP errors and `missingResource.html` is used for the 404 HTTP error. In order for the error templates to be used, **the final delivery server must be configured to use them in the proper scenarios.**
 
 ## TODO
 
