@@ -6,9 +6,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer, } from 'react-hot-loader';
 
 import App from './Screens/Root';
-// import App from './Views/Root2';
 
-console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
 /*
 ########################################
             Service Worker
@@ -17,7 +15,7 @@ Deal with service worker first.
 ########################################
 */
 if (WEBPACK_ENV === 'production') {
-  console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
+  // console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
 
   const OfflinePluginRuntime = require('offline-plugin/runtime');
   OfflinePluginRuntime.install({
@@ -37,6 +35,7 @@ if (WEBPACK_ENV === 'production') {
     },
   });
 } else if (WEBPACK_ENV === 'development') {
+  console.log(`WEBPACK_ENV: ${WEBPACK_ENV}`);
   console.log(`FRONT-END - NODE_ENV: ${process.env.NODE_ENV}`);
 } else {
   console.log(`FRONT-END - WEBPACK_ENV not seen: ${WEBPACK_ENV}`);
