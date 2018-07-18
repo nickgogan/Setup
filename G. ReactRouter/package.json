@@ -2,17 +2,21 @@
   "name": "app_IsomorphicReact",
   "version": "1.0.0",
   "description": "",
-  "main": "app/main.js",
+  "main": "src/index.jsx",
   "scripts": {
     "deploy": "run-s prod:clean prod:build deploy-firebase",
     "deploy-firebase": "firebase deploy",
     "prod": "run-s prod:clean prod:build prod:serve",
-    "prod:serve": "cross-env NODE_ENV=production nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
-    "prod:build": "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
+    "prod:serve":
+      "cross-env NODE_ENV=production nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "prod:build":
+      "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "dev": "run-s dev:clean dev:build dev:serve",
-    "dev:serve": "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
-    "dev:build": "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
+    "dev:serve":
+      "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "dev:build":
+      "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "postinstall": "flow-scripts stub"
   },
@@ -30,10 +34,7 @@
     "hmr",
     "hot",
     "babel",
-    "react",
-    "isomorphic",
-    "server-side rendering",
-    "SSR"
+    "react"
   ],
   "author": "Nick Gogan <gogannick@gmail.com>",
   "contributors": [

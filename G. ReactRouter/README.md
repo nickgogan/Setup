@@ -58,20 +58,47 @@ _deployment_
 
 `deploy-firebase`: Push the `dist` folder to Firebase.
 
-- Note: `firebase.json` is configures this command.
+- Note: `firebase.json` is configures this command and `.firebaserc` holds the URL that it can be reached at.
 
 _production_
+
 `prod:clean`: Deletes files in the `dist` folder.
+
 `prod:build`: Uses webpack to compile the project in `dist`.
+
 `prod:serve`:
+
 `prod`: Sequentially runs the clean, build, and serve commands, in that order.
 
 _development_
+
 `dev:clean`: Deletes files in the `build folder`.
+
 `dev:build`:
 
-`utility`
+_utility_
+
 `postinstall`: Automatically runs after every `npm install` command. For this project, it created a stub of the package for **Flow**.
+
+## Utility Packages
+
+The following dependencies are used to assist in building the project.
+
+**cross-env**: Runs scripts that set and use OS environment variables across different platforms.
+
+**rimraf**: The UNIX command `rm -rf`, but for Node.
+
+**nodemon**: A utility that monitors for any changes in source and automatically restarts the server. In this project, it is used to monitor config files (especially webpack files), utility files, and server files.
+
+**dotenv-safe**: Load environment variables from `.env` files, but without having to expose sensitive data to GitHub. `*.example.env` files set the expected variables and the actual `*.env` files contain the sensitive info (e.g. logins). This is used in conjunction with `.gitignore`, which is configured to not push the `*.env` files to GitHub.
+
+**glob-all**: Provides a similar API to **glob**, but with more patterns and the option of using arrays of patterns.
+
+**firebase-tools**: The Firebase CLI used, in this project, to deploy code and asets to the Firebase server.
+
+**install-peerdeps**: CLI used to install an npm package and its peer dependencies automatically. This is usually done manually.
+
+## Backend
 
 ## TODO
 
