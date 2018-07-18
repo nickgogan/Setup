@@ -7,16 +7,12 @@
     "deploy": "run-s prod:clean prod:build deploy-firebase",
     "deploy-firebase": "firebase deploy",
     "prod": "run-s prod:clean prod:build prod:serve",
-    "prod:serve":
-      "cross-env NODE_ENV=production nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
-    "prod:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
+    "prod:serve": "cross-env NODE_ENV=production nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "prod:build": "webpack --progress --colors --config ./src/webpack/webpack.config.prod.babel.js",
     "prod:clean": "rimraf -rf ./dist/* ./docs/*",
     "dev": "run-s dev:clean dev:build dev:serve",
-    "dev:serve":
-      "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
-    "dev:build":
-      "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
+    "dev:serve": "cross-env NODE_ENV=development nodemon --watch src/webpack/* --watch postcss.config.js --watch server/* --ignore node_modules --exec babel-node server",
+    "dev:build": "webpack --progress --colors --config ./src/webpack/webpack.config.dev.babel.js",
     "dev:clean": "rimraf -rf ./build/* ./docs/*",
     "postinstall": "flow-scripts stub"
   },
@@ -134,7 +130,6 @@
     "rucksack-css": "1.0.2",
     "semantic-ui-react": "0.78.3",
     "social-tags-webpack-plugin": "0.0.8",
-    "static-site-generator-webpack-plugin": "3.4.1",
     "style-loader": "0.20.2",
     "uglifyjs-webpack-plugin": "1.2.0",
     "url-loader": "0.6.2",
