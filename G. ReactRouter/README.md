@@ -4,7 +4,7 @@ The following doc is written for developers looking to maintain or extend the cu
 
 - [Developer Guide](#developer-guide)
   - [Checklist](#checklist)
-    - [OS and Backend](#os-and-backend)
+    - [OS and Infrastructure](#os-and-infrastructure)
     - [Project Structure](#project-structure)
     - [Version Control and Dependency Deprecation Management](#version-control-and-dependency-deprecation-management)
     - [Package Security](#package-security)
@@ -34,7 +34,7 @@ The following doc is written for developers looking to maintain or extend the cu
 
 ## Checklist
 
-### OS and Backend
+### OS and Infrastructure
 
 This code of this web development project is designed to run cross-platform as of the current dependencies' versions. These versions can be found in `package.json` at the project root.
 
@@ -44,7 +44,7 @@ A popular and stable Node-specific framework called **Express** is also used on 
 
 ### Project Structure
 
-This is a high-level overview of the project:
+This is a high-level overview:
 
 **\.cache\-loader**: Used to hold webpack's build cache, which helps reduce the build time across a set of builds. Note that this slightly increases an initial build's time. It is not captured by git.
 
@@ -80,7 +80,9 @@ This is a high-level overview of the project:
 
 **postcss.config.js**: Holds the configuration for the PostCSS styling system used in this project. It contains config for the two PostCSS packages used, **CSSNext** and **Rucksack**.
 
-**README.md**: Markdown file containing this developer's guide.
+**README**: Markdown file containing this developer's guide.
+
+**User Guide**: Markdown file containing the accompanying User's Guide. It contains worksflows on how to update or create new content.
 
 ### Version Control and Dependency Deprecation Management
 
