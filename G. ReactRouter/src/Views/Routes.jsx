@@ -31,11 +31,6 @@ const People = Loadable({
   loading: Placeholder,
   delay: 500,
 });
-const About = Loadable({
-  loader: () => import(/* webpackChunkName: "About" */ './About/About.jsx'),
-  loading: Placeholder,
-  delay: 500,
-});
 
 const Routes = () => (
   <Switch>
@@ -48,8 +43,6 @@ const Routes = () => (
     <Route path='/resources' render={() => <Resources />} />
 
     <Route path='/people' render={() => <People />} />
-
-    <Route path='/about' render={() => <About />} />
   </Switch>
 );
 
