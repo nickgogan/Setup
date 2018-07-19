@@ -214,7 +214,21 @@ Holds configuration for what becomes the final HTML output of the project. Here 
 
 ### Setting the App Environment
 
-This is another hierarchical structure.
+This is another hierarchical structure. I will first describe this structure and then describe how it gets incorporated and used in the project.
+
+#### The Structure
+
+First, this structure is entirely held in the `src/env/` folder and is composed of two logical sets written across six files. The first set holds the variables/keys to be expected. The three `*.common.env` files represent these. The second set holds both the keys and their values and are represented by the other three `.env` files. The reason for having these two sets is that there may come a time when some sensitive piece of data (e.g. login info) must be stored for the app to work properly. This info must not be stored in GitHub and should instead be set up individually for each developer. This means that the `.gitignore` config file at the root of the project tells git to not capture the second `.env` in the version control system. The **dotenv-safe** dependency makes this two-set system work.
+
+All variables common to both the development and production environment are stored in the `common` env file.
+
+#### Integration into Project
+
+The start of the flow is in the `package.json` builds scripts (`dev:build` and `prod:build`). In these scripts, a dependency called **cross-env** sets the `NODE_ENV` environment variable's value to be either **development** or **production**. In that same build script, the `server` is called.
+
+- Note: `server` is a shorthand known in npm. It means "access the `index.js` file found in the root `server` directory."
+
+In that `server/index.js` file, the `NODE_ENV` value is used to load either the top-level dev webpack config or the top-level prod webpack config. Within those top-level webpack config files, the `NODE_ENV` value is passed to the `setEnvironment` function (held at `src/webpack/helpers/`), which then grabs either the `dev.env` file or the `prod.env` file (`common.env` is loaded first and merged with whichever other `.env` is requested).
 
 ### Templates
 
