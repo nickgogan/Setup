@@ -2,6 +2,36 @@
 
 The following doc is written for developers looking to maintain or extend the current web app project. It provides a high-level overview of the technologies selected, presented according to area of responsibility. It is not meant to be exhaustive as the best tool for that is inspecting and working with the code itself. It is meant to provide a contextual backdrop for understanding the decisions that led to the current project state.
 
+- [Developer Guide](#developer-guide)
+  - [Checklist](#checklist)
+    - [OS and Backend](#os-and-backend)
+    - [Project Structure](#project-structure)
+    - [Version Control and Dependency Deprecation Management](#version-control-and-dependency-deprecation-management)
+    - [Package Security](#package-security)
+    - [Module Management and Bundling](#module-management-and-bundling)
+    - [Linting and Formatting](#linting-and-formatting)
+    - [Transpiling](#transpiling)
+    - [Development Web Server](#development-web-server)
+    - [Documentation and Debugging](#documentation-and-debugging)
+    - [Sharing Work](#sharing-work)
+    - [Build/Task Management](#buildtask-management)
+  - [Utility Packages](#utility-packages)
+  - [Backend](#backend)
+    - [Webpack](#webpack)
+      - [Checklist](#checklist)
+      - [Differences](#differences)
+      - [Assets Loader](#assets-loader)
+      - [Babel Loader](#babel-loader)
+      - [Extract Bundles Loader](#extract-bundles-loader)
+      - [PostCSS Loader](#postcss-loader)
+      - [Templates Loaders](#templates-loaders)
+    - [Setting the App Environment](#setting-the-app-environment)
+      - [The Structure](#the-structure)
+      - [Integration into Project](#integration-into-project)
+    - [Templates](#templates)
+  - [Frontend](#frontend)
+  - [TODO](#todo)
+
 ## Checklist
 
 ### OS and Backend
