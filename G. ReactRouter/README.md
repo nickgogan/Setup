@@ -12,6 +12,46 @@ The backend and package manager is **NodeJS/npm**. All dependencies' versions ha
 
 A popular and stable Node-specific framework called **Express** is also used on top of it to provide a production web server.
 
+### Project Structure
+
+This is a high-level overview of the project:
+
+**\.cache\-loader**: Used to hold webpack's build cache, which helps reduce the build time across a set of builds. Note that this slightly increases an initial build's time. It is not captured by git.
+
+**\.vscode**: Holds Visual Studio Code (VSC)'s settings. This would be useless for any other code editor. It is not captured by git.
+
+**build**: Holds out files for the development environment. It is useful for, when during development, you want to examine files that would otherwise exist only in memory. I found this useful for troubleshooting difficult bugs around styling and assets like fonts and imagees.
+
+**dist**: Holds files that would deployed for production.
+
+**flow-typed**: Holds `package-dep-libdefs.js`, which contains stubs for 3rd-party packages that have no support for **Flow**.
+
+**monitor**: Holds `stats.json`, which
+
+**node_modules**: Contains dependency packages.
+
+**server**: Contains code the for **Express** server, as well as
+
+**src**: Holds the webpack system, the middle layer between backend and frontend (`index.jsx`), and the app itself.
+
+**.babelrc**: Project-wide configuration file for the **Babel** transpiler. Babel requires a minimal priject-wide config file.
+
+**.eslintignore** and **.eslintrc**: Contains the ESLint configuration.
+
+**.firebaserc** and **firebase.json**: Contains the Firebase configuration.
+
+**.flowconfig**: Contains the Flow configuration.
+
+**.gitattributes** and **.gitignore**: Contains the **git** configuration.
+
+**jsconfig.json**: Its presence indicates the root of a JavaScript project to VSC. This file specifies the root files and options for the features provided by the VSC JavaScript language service. For this project, it holds a minimal configuration.
+
+**package-lock.json** and **package.json**: Holds configuration for Node, locked-in versions for the project dependencies, scripts for building and running the project, and specifies which browsers are targeted by the project ([browserlist](https://github.com/browserslist/browserslist)).
+
+**postcss.config.js**: Holds the configuration for the PostCSS styling system used in this project. It contains config for the two PostCSS packages used, **CSSNext** and **Rucksack**.
+
+**README.md**: Markdown file containing this developer's guide.
+
 ### Version Control and Dependency Deprecation Management
 
 Version control is handled by **git** and the code is hosted in the cloud as a public project in **GitHub**. On top of GitHub runs a 3rd-party service that integrates with it called [**Greenkeeper**](https://github.com/apps/greenkeeper). It provides warnings whenever a package has become deprecated or has security vulnerabilities. Greenkeeper has a number of requirements, an important one being the need for a **Continuous Integration (CI)** tool that automatically runs tests before allowing any git commits to be included in the project. This prevents the introduction of various classes of bugs and code style inconsistencies. Rules must be specified in testing suites and code styling tools, respectively, in order for this to work. Each are discussed in their own sections of this doc.
@@ -111,15 +151,25 @@ The entryway to the app is provided by `server/index.js`. Here, the **Express** 
 
 ### Webpack
 
-This system exists in `src/webpack/*` and is divided by responsibility.
+This system exists in `src/webpack/*` and is divided according to responsibility. The top of the structure is constituted by `webpack.config.dev.babel.js` and `webpack.config.prod.babel.js`, which are chosen by the `src/index.jsx` file according to the `NODE_MODULE` environment variable.
 
-The HTML templates are at `src/templates`. The main template is `index.html`, while `5xx.html` is used for 5xx HTTP errors and `missingResource.html` is used for the 404 HTTP error. In order for the error templates to be used, **the final delivery server must be configured to use them in the proper scenarios.**
+`src/webpack/parts/` contains webpack configurations that handle, respectively: the external assets (`assetsLoader.babel.js`), the JavaScript (`babelLoader.babel.js`), the styling (`postcssLoader.babel.js`), and the HTML (`templatesLoader.babel.js`). There is also `extractBundles.babel.js`, which is used in the top level prod webpack to divide the final code up into separate logical bundles. This can be used to keep track of where the glut of code is coming from, which is useful when analyzing performance. The reason why the webpack configuration was divided up into these separate parts was to aid in maintanence and to make the code more modular - if you want to switch from PostCSS to Sass (or some future styling framework that webpack supports), then you can just write a webpack config and replace PostCSS in the top-level webpack configs.
+
+In the course of writing the webpack configuration, there were a few problems that required custom code. This functionality is kept in the `src/webpack/helpers/` directory. `nameNonNormalModules.js` assigns legible filenames to code outside of the project and which do not contain the webpack runtime. `setEnvironment.js` is used to set up webpack environment variables, and `stringifyEnvironment.js` is used to ensure that the input to webpack's environment variables are strings and not JSON.
+
+To dive into the webpack architecture set up here, it is best to begin with the top-level dev and prod configs, and then proceed with a summary of what each webpack piece does.
+
+### Setting the Environment
+
+### Templates
+
+This is a relatively simple system - just a collection of three HTML templates at `src/templates`. The main one is `index.html`, `5xx.html` is used for 5xx HTTP errors, and `missingResource.html` is used for the 404 HTTP error. In order for the error templates to be actually used, **the final production server must be configured to use them in the proper scenarios.**
 
 ## TODO
 
-1.  Search bar for Papers
-2.  Slideshow at Home
+1.  Slideshow at Home
+2.  Search bar for Papers
 3.  Move linting and formatting to in-project dev dependencies (as opposed to keeping them in the editor).
 4.  Testing framework
-5.  Unit tests
-6.  Integration of test framework with CI tool
+5.  Integration of test framework with CI tool
+6.  Unit tests
