@@ -65,11 +65,11 @@ export default () => ({
           'img-loader',
         ],
       },
-      {
-        test: /\.md($|\?)/i,
-        exclude: /node_modules/,
-        use: 'raw-loader',
-      },
+      // {
+      //   test: /\.md($|\?)/i,
+      //   exclude: /node_modules/,
+      //   use: 'raw-loader',
+      // },
     ],
   },
 });
