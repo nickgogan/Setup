@@ -171,7 +171,13 @@ The architecture of the frontend is divided into the following logical pieces. N
 
 1.  `src/Screens/`: `Root.jsx` is imported by `index.jsx` as the `AppContainer`. The Root file detects the requestor's device screen size and serves either the `Desktop` or `Mobile` screens. This is also where the `React Router` lives. This means that `Desktop` and `Mobile` each import the different routes of the app, which are stored in the `Views` folder. In addition, this folder contains global PostCSS variables and a traditional CSS reset file that removes much of the browsers' default styling.
 
-2.  `src/Views/`: Holds `Routes.jsx`, which maps browser URLs to high-level React components (which are called **Views** in the context of this app).
+2.  `src/Views/`: Holds `Routes.jsx`, which maps browser URLs to high-level React components (which are called **Views** in the context of this app). Each folder in `Views/` corresponds to the app's "pages" and each contain a JSX file and companion PostCSS file.
+
+3.  `src/containers/`:
+
+4.  `src/components/`: The lowest-level React structures that hold the actual content. These contentful components are then loaded into containers, which give them
+
+5.  `src/assets/`: Holds external assets that are more or less copied to the `dist` and `build` folders in a folder of the same name. It contains favicons in three different formats, a [`.nginx.confg`](https://www.nginx.com/resources/glossary/nginx/), a `.htaccess` for Linux web server configuration, `fonts/` for fonts, and `images` for images/icons.
 
 ## TODO
 
