@@ -34,7 +34,7 @@ This is a high-level overview of the project:
 
 **src**: Holds the webpack system, the middle layer between backend and frontend (`index.jsx`), and the app itself.
 
-**.babelrc**: Project-wide configuration file for the **Babel** transpiler. Babel requires a minimal priject-wide config file.
+**.babelrc**: Project-wide configuration file for the **Babel** transpiler. Babel requires a minimal project-wide config file.
 
 **.eslintignore** and **.eslintrc**: Contains the ESLint configuration.
 
@@ -173,9 +173,9 @@ The architecture of the frontend is divided into the following logical pieces. N
 
 2.  `src/Views/`: Holds `Routes.jsx`, which maps browser URLs to high-level React components (which are called **Views** in the context of this app). Each folder in `Views/` corresponds to the app's "pages" and each contain a JSX file and companion PostCSS file.
 
-3.  `src/containers/`:
+3.  `src/containers/`: Intermediary React structure that imports React components and imbues them with functionality and styling within a given page/View. Note that the Header and Footer containers have both Desktop and Mobile implementations. This is because the implementations are very different between these two Screens.
 
-4.  `src/components/`: The lowest-level React structures that hold the actual content. These contentful components are then loaded into containers, which give them
+4.  `src/components/`: The lowest-level React structures that hold the actual content. Note the `UI/` folder, which contains the most generic of the components, such as the Divider, the Loading component, and the Text component.
 
 5.  `src/assets/`: Holds external assets that are more or less copied to the `dist` and `build` folders in a folder of the same name. It contains favicons in three different formats, a [`.nginx.confg`](https://www.nginx.com/resources/glossary/nginx/), a `.htaccess` for Linux web server configuration, `fonts/` for fonts, and `images` for images/icons.
 
