@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, Header, Icon } from 'semantic-ui-react'; // eslint-disable-line
-// import Text from '../../components/UI/Text';
 
 import styles from './Resources.postcss';
 import DatabasesAndSoftware from '../../components/Databases&Software/Databases&Software';

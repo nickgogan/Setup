@@ -165,6 +165,14 @@ To dive into the webpack architecture set up here, it is best to begin with the 
 
 This is a relatively simple system - just a collection of three HTML templates at `src/templates`. The main one is `index.html`, `5xx.html` is used for 5xx HTTP errors, and `missingResource.html` is used for the 404 HTTP error. In order for the error templates to be actually used, **the final production server must be configured to use them in the proper scenarios.**
 
+## Frontend
+
+The architecture of the frontend is divided into the following logical pieces. Note that this is **not** a traditional way of architecting a web app frontend:
+
+1.  `src/Screens/`: `Root.jsx` is imported by `index.jsx` as the `AppContainer`. The Root file detects the requestor's device screen size and serves either the `Desktop` or `Mobile` screens. This is also where the `React Router` lives. This means that `Desktop` and `Mobile` each import the different routes of the app, which are stored in the `Views` folder. In addition, this folder contains global PostCSS variables and a traditional CSS reset file that removes much of the browsers' default styling.
+
+2.  `src/Views/`: Holds `Routes.jsx`, which maps browser URLs to high-level React components (which are called **Views** in the context of this app).
+
 ## TODO
 
 1.  Slideshow at Home

@@ -1,5 +1,4 @@
 import React from 'react';
-// import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './People.postcss';
 import PrincipalInvestigator from '../../containers/PrincipalInvestigator/PrincipalInvestigator';

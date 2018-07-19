@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react'; // eslint-disable-line
-// import Markdown from 'markdown-to-jsx'; // eslint-disable-line
 
 import styles from './Home.postcss';
 import Carousel from '../../containers/Carousel/Carousel';
@@ -10,7 +9,6 @@ import CurrentModels from '../../components/CurrentModels/CurrentModels';
 import Facilities from '../../components/Facilities/Facilities';
 import Education from '../../components/Education/Education';
 import Divider from '../../components/UI/Divider/Divider';
-// import introContent from './Home.md';
 
 const ViewHome = props => (
   <Grid
