@@ -159,7 +159,62 @@ In the course of writing the webpack configuration, there were a few problems th
 
 To dive into the webpack architecture set up here, it is best to begin with the top-level dev and prod configs, and then proceed with a summary of what each webpack piece does.
 
-### Setting the Environment
+#### Checklist
+
+Both the development and production webpack configs have a common structurel. Those aspects not discussed below are sufficiently commented in the config itself:
+
+1.  Import and merge the webpack loaders from `parts/`. Note that almost all of these webpack pieces have a separate development and production outcome, due to the optimizations involved in production that are not necessary for development. Note also that each piece returns a webpack config that gets merged with the other webpack pieces and with the top-level config requesting these pieces.
+
+2.  Configure and load of webpack plugins
+
+3.  Set the target platform, i.e. web.
+
+4.  Specify the frontend entry point, i.e. `index.jsx`
+
+5.  Specify the output directory and the filenaming pattern.
+
+6.  Set which file types webpack will deal with and set the location of the 3rd-party dependencies.
+
+#### Differences
+
+1.  Webpack plugins used: `webpack.config.prod.babel.js` utilizes many more webpack plugins that help to optimize code, obfuscate code, modularize the code for lazy loading, make the app a PWA, make the app social media-friendly, etc...All can be fairly quickly researched. In `webpack.config.dev.babel.js`, the webpack HMR plugin is added.
+
+2.  Use of `parts/extractBundles.babel.js`: This internal webpack plugins (i.e. it comes with webpack 3) is used to break up the normally singular bundle.js file into modules that contain logically distinct units. This helps the user load the website much faster on subsequent visits, because code that does not change often will not need to be requested again. That module will remain cached in the user's browser and would only be requested if its code is actually different from the latest version. The way that webpack can tell the difference is with a manifest file that gets generated, which contains content-based hashes. To learn more about this, check out [cache-busting]().
+
+3.  In prod, webpack creates these bundles: `vendor` (3rd-party code), `manifest` (the webpack runtime), `commonLazy` (code common across the entire app). The rest of the code requested by the browser will be the React components. These are discussed in more detail in the User Guide. To summarize, those React component constitute a tree that gets traversed by the client requesting different parts of the app. Only the necessary content explicitly requested by the user gets sent to the browser, which caches that content. This is called lazy-loading and keeps the app running very quickly by minimizing the amount of stuff sent "over the wire".
+
+- **Note**: The order in which the webpack plugins are listed in the plugins array is important. Do not mess with the ordering if you don't have to. Although, it is fairly safe to comment out some plugins for exploratory analysis.
+
+4.  In the dev webpack config, the webpack dev server is configured and does not appear in the prod config.
+
+#### Assets Loader
+
+This config piece tells webpack how to handle various image formats and font types. It is the same for both the dev and prod webpack environments.
+
+#### Babel Loader
+
+This piece tells webpack how to use **Babel Loader** to handle the `src` JavaScript/React files (i.e. those with `.jsx`). It excludes, as usual, `node_modules` because those are not needed to be handled in the project. The code there is ready-to-use JS and does not require further processing. The configuration of the Babel Loader includes to which browsers the output code must be understandable. It also includes an extensive array of Babel plugins that serve to trim and optimize the output code, only some of which are used in the dev webpack environment.
+
+- **Note**: The order of the Babel plugins is extremely important.
+  This piece also uses the **Cache Loader**, which allows for caching of built code. If some code does not change across subsequent webpack compilations, then that code won't be compiled. This reduces subsequent compilation times, but slightly increases the initial build's compilation time.
+
+This loader also contains useful webpack plugins that further optimize the output JS, especially in the prod webpack environment.
+
+#### Extract Bundles Loader
+
+This short piece uses an internal webpack plugin to break up what would usually be a relatively large bundle.js webpack-outputted file. and allows for it to be broken up into logical submodules. This helps with caching immensely.
+
+#### PostCSS Loader
+
+This piece is used to handle the PostCSS styling of the project. It holds separate objects for dev and prod webpack environments, with dev being significantly more straightfoward than prod. In prod, the CSS is extracted from the code and emitted into its own, sepate CSS file. That file is also "purified" of any CSS that is not actually used in the project, which helps keeps the code lean.
+
+#### Templates Loaders
+
+Holds configuration for what becomes the final HTML output of the project. Here again, there are templates configured separately from the dev and prod environments. They share a common `baseTemplate` configuration object that is then extended by the `productionTemplate` and `developmentTemplate` objects. The main difference is that the production template holds optimizations not needed in development, which tend to increase the webpack compilation time. This loader piece also holds a couple of webpack plugins that generate social media info in the output HTML and a traditional `robots.txt` file.
+
+### Setting the App Environment
+
+This is another hierarchical structure.
 
 ### Templates
 
