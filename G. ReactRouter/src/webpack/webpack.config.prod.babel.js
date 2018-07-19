@@ -31,9 +31,9 @@ import extractBundles from './parts/extractBundles.babel';
 ########################################
 */
 const webpackProgress = new webpack.ProgressPlugin();
-// const webpackBanner = new webpack.BannerPlugin({
-//   banner: new GitRevisionPlugin().version(),
-// });
+const webpackBanner = new webpack.BannerPlugin({
+  banner: new GitRevisionPlugin().version(),
+});
 const webpackNamedModules = new webpack.NamedModulesPlugin();
 const webpackNamedChunks = new webpack.NamedChunksPlugin(); // Uses the /* webpackChunkName: "..." */ labels
 const webpackModuleConcatenator = new webpack.optimize.ModuleConcatenationPlugin();
@@ -152,7 +152,7 @@ export default () => {
       plugins: [
         webpackProgress,
         new webpack.DefinePlugin(stringifyEnvironment(ENV)), // Webpack sets the app-wide process.env.* variables, but it needs all values to be stringified.
-        // webpackBanner,
+        webpackBanner,
         webpackNamedModules,
         webpackNamedChunks,
         nameNonNormalModules,
