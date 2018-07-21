@@ -35,7 +35,7 @@ const people = [
   },
 ];
 
-const People = () => (
+const Undergrads = () => (
   <Segment.Group stacked raised style={{ textAlign: 'center', }}>
     {people.map(person => (
       <Person
@@ -50,4 +50,4 @@ const People = () => (
   </Segment.Group>
 );
 
-export default People;
+export default Undergrads;
