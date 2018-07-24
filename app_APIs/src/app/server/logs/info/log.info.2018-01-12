@@ -1,3 +1,0 @@
-{"level":"info","message":"\u001b[0mGET /orders \u001b[0m- \u001b[0m- ms - -\u001b[0m\n","timestamp":"2018-01-12T11:19:55.623Z"}
-{"level":"info","message":"\u001b[0mGET /products \u001b[32m200 \u001b[0m2.080 ms - 26\u001b[0m\n","timestamp":"2018-01-12T11:19:56.205Z"}
-{"level":"info","message":"\u001b[0mGET /products \u001b[32m200 \u001b[0m0.394 ms - 26\u001b[0m\n","timestamp":"2018-01-12T11:20:30.081Z"}

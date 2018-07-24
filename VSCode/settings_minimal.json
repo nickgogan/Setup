@@ -1,0 +1,28 @@
+{
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [
+    80
+  ],
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true,
+  "javascript.format.enable": false, //Prettier
+  "files.eol": "\n",
+  "files.autoSave": "off",
+  "terminal.integrated.fontFamily": "Consolas",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "terminal.integrated.shellArgs.windows": [
+    "/K",
+    "C:\\Program Files\\cmder\\vscode.bat"
+  ],
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.scrollback": 5000,
+  "typescriptHero.resolver.multiLineWrapThreshold": 80,
+  "typescriptHero.resolver.resolverMode": "TypeScript",
+  "window.zoomLevel": 0
+}
